@@ -1,5 +1,7 @@
+@layer theme, base, carbon, components, utilities;
+
 @import "tailwindcss";
-@import "../styles/carbon/pre-compiled.css";
+@import "../styles/carbon/pre-compiled.css" layer(carbon);
 @import "../styles/font-face.css";
 @import "../styles/tailwind-config.css";
 
