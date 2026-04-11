@@ -116,6 +116,17 @@ import data from "./data/file.json" with { type: "json" };
 
 ---
 
+## Next.js Components
+
+Always prefer Next.js built-in components over native HTML tags:
+
+- `<Image>` from `next/image` instead of `<img>`
+- `<Link>` from `next/link` instead of `<a>`
+
+Exception: if the user has explicitly written a native HTML tag (`<img>`, `<a>`, etc.) in the code, do **not** replace it — they chose it intentionally for a reason. Only use Next.js components when writing new code.
+
+---
+
 ## Styling (Tailwind CSS)
 
 - Apply utility classes inline — no custom class names
