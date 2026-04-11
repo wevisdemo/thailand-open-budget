@@ -4,16 +4,20 @@ Thailand open budget data visualization
 
 ## Deployments
 
-| Name         | URL | Host/Pipeline |
-| ------------ | --- | ------------- |
-| Production   | -   | -             |
-| Staging      | -   | -             |
+| Name       | URL | Host/Pipeline |
+| ---------- | --- | ------------- |
+| Production | -   | -             |
+| Staging    | -   | -             |
 
 ## Tech Stack
 
 - [Next.js 16](https://nextjs.org) — React framework (static export)
 - [TypeScript](https://www.typescriptlang.org)
 - [Tailwind CSS](https://tailwindcss.com)
+
+## Design System
+
+This project adopts the design system from [WeVis Parliament Watch](https://github.com/wevisdemo/parliament-watch), which is built on top of [IBM Carbon Design System v10](https://carbondesignsystem.com).
 
 ## Environment Variables (if used)
 
