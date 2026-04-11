@@ -197,3 +197,97 @@
   --color-yellow-90: #302400;
   --color-yellow-100: #1c1500;
 }
+
+/* Heading typo sizes */
+@utility text-h1 {
+  @layer components {
+    @apply text-[60px] leading-[1.25] md:text-[100px];
+  }
+}
+@utility text-h2 {
+  @layer components {
+    @apply text-[48px] leading-[1.25] md:text-[72px];
+  }
+}
+@utility text-h3 {
+  @layer components {
+    @apply text-[36px] leading-[1.25] md:text-[60px];
+  }
+}
+@utility text-h4 {
+  @layer components {
+    @apply text-[32px] leading-[1.4] md:text-[48px];
+  }
+}
+@utility text-h5 {
+  @layer components {
+    @apply text-[28px] leading-[1.4] md:text-[36px];
+  }
+}
+@utility text-h6 {
+  @layer components {
+    @apply text-[24px] leading-[1.4] md:text-[32px];
+  }
+}
+@utility text-h7 {
+  @layer components {
+    @apply text-[21px] leading-[1.4] md:text-[28px];
+  }
+}
+@utility text-h8 {
+  @layer components {
+    @apply text-[18px] leading-[1.4] md:text-[24px];
+  }
+}
+@utility text-h9 {
+  @layer components {
+    @apply text-[16px] leading-[1.4] md:text-[21px];
+  }
+}
+@utility text-h10 {
+  @layer components {
+    @apply text-[15px] leading-[1.4] md:text-[18px];
+  }
+}
+@utility text-h11 {
+  @layer components {
+    @apply text-[14px] leading-[1.4] md:text-[16px];
+  }
+}
+
+/* Body typo sizes */
+@utility text-b1 {
+  @layer components {
+    @apply text-[24px] leading-[1.5] md:text-[32px];
+  }
+}
+@utility text-b2 {
+  @layer components {
+    @apply text-[21px] leading-[1.5] md:text-[24px];
+  }
+}
+@utility text-b3 {
+  @layer components {
+    @apply text-[18px] leading-[1.5] md:text-[21px];
+  }
+}
+@utility text-b4 {
+  @layer components {
+    @apply text-[16px] leading-[1.5] md:text-[18px];
+  }
+}
+@utility text-b5 {
+  @layer components {
+    @apply text-[14px] leading-[1.5] md:text-[16px];
+  }
+}
+@utility text-b6 {
+  @layer components {
+    @apply text-[12px] leading-[1.5] md:text-[14px];
+  }
+}
+@utility text-b7 {
+  @layer components {
+    @apply text-[10px] leading-[1.5] md:text-[12px];
+  }
+}
