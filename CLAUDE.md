@@ -127,6 +127,20 @@ Exception: if the user has explicitly written a native HTML tag (`<img>`, `<a>`,
 
 ---
 
+## Colors
+
+Always select colors from `src/styles/tailwind-config.css`. Use them as Tailwind text/bg/border utilities by dropping the `--color-` prefix:
+
+```tsx
+// var --color-support-01 → text-support-01
+<p className="text-support-01">example</p>
+
+// var --color-inverse-02 → bg-inverse-02
+<div className="bg-inverse-02">example</div>
+```
+
+---
+
 ## Styling (Tailwind CSS)
 
 - Apply utility classes inline — no custom class names
