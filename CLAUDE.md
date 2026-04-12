@@ -326,3 +326,56 @@ export default function IconName({
   );
 }
 ```
+
+---
+
+## Conventional Commits
+
+All commit messages must follow the Conventional Commits format:
+
+```
+<type>: <description>
+
+[optional body]
+```
+
+### Types
+
+| Type       | When to use                                                                          |
+| ---------- | ------------------------------------------------------------------------------------ |
+| `feat`     | Add, adjust, or remove a feature in the API or UI                                    |
+| `fix`      | Fix an API or UI bug from a preceding `feat` commit                                  |
+| `refactor` | Rewrite or restructure code without altering API or UI behavior                      |
+| `perf`     | Special `refactor` that specifically improves performance                            |
+| `style`    | Code style changes (whitespace, formatting, missing semicolons) — no behavior change |
+| `test`     | Add missing tests or correct existing ones                                           |
+| `docs`     | Changes that exclusively affect documentation                                        |
+| `build`    | Changes to build tools, dependencies, project version, etc.                          |
+| `ops`      | Infrastructure, deployment, CI/CD, monitoring, backup, or recovery changes           |
+| `chore`    | Miscellaneous tasks: initial commit, `.gitignore` updates, etc.                      |
+
+### Description rules
+
+- Mandatory — always required
+- Use the imperative, present tense: "change" not "changed" or "changes"
+- Think: _"This commit will..."_ or _"This commit should..."_
+- Do not capitalize the first letter
+- Do not end with a period
+
+### Body rules
+
+- Optional
+- Use imperative, present tense
+- Explain the motivation for the change and contrast with previous behavior
+
+### Examples
+
+```
+feat: add budget filter by ministry
+
+fix: correct total amount calculation in summary table
+
+refactor: extract chart logic into separate hook
+
+docs: update README with local development steps
+```
