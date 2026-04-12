@@ -16,7 +16,10 @@ export default function Header() {
   return (
     <header className="relative flex h-[44px] items-center justify-between bg-black px-[10px] md:h-[58px] md:px-[32px]">
       <Link href="/">
-        <WevisIcon color="white" className="h-[24px] md:h-[58px]" />
+        <WevisIcon
+          color="white"
+          className="h-[24px] w-[75px] md:h-[58px] md:w-[130px]"
+        />
       </Link>
 
       {/* Desktop nav */}
