@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { BudgetItem } from "@/types/budget";
 import Header from "../components/shared/Header";
+import AboutSection from "../components/shared/AboutSection";
 
 export const metadata: Metadata = {
   title: "ค้นหางบประมาณ | Thailand Open Budget",
@@ -12,6 +13,7 @@ export default function SearchPage() {
     <main className="mx-auto flex w-full flex-col gap-8">
       <Header />
       <div className="flex flex-col gap-2"></div>
+      <AboutSection />
     </main>
   );
 }
