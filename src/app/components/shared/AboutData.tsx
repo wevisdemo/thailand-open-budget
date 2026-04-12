@@ -3,8 +3,8 @@ import DownloadIcon from "./icons/download-icon";
 
 export default function AboutData() {
   return (
-    <div className="flex flex-col items-center gap-[16px] bg-black px-[16px] py-[40px] text-white md:px-[32px]">
-      <div className="flex max-w-[1032px] flex-col gap-[10px]">
+    <div className="m-auto flex max-w-[1032px] flex-col gap-[16px] text-white">
+      <div className="flex flex-col gap-[10px]">
         <div className="flex items-center justify-between">
           <h1 className="text-h6 font-serif text-[28px] font-bold">
             เกี่ยวกับข้อมูล
@@ -60,7 +60,7 @@ export default function AboutData() {
         </p>
       </div>
 
-      <div className="bg-inverse-02 flex max-w-[1032px] flex-col rounded-[8px] px-[24px] py-[32px]">
+      <div className="bg-inverse-02 flex flex-col rounded-[8px] px-[24px] py-[32px]">
         <h2 className="text-b4 font-serif text-[20px] font-bold">
           ข้อตกลงการใช้งาน (Terms of Use)
         </h2>
