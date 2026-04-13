@@ -25,26 +25,26 @@ This project adopts the design system from [WeVis Parliament Watch](https://gith
 
 ## Usages
 
-Requirements: Node.js 18+, npm
+Requirements: Node.js 18+, pnpm
 
 ### Local dev server
 
 Install packages
 
 ```sh
-npm i
+pnpm i
 ```
 
 Run dev server
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 ### Build
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 Output will be in the `out/` folder (static files, ready to deploy).
