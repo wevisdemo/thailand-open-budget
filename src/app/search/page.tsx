@@ -3,6 +3,7 @@ import type { BudgetItem } from "@/types/budget";
 import Header from "../components/shared/Header";
 import AboutSection from "../components/shared/AboutSection";
 import SearchHeader from "../components/Search/SearchHeader";
+import SearchBody from "../components/Search/SearchBody";
 
 export const metadata: Metadata = {
   title: "ค้นหางบประมาณ | Thailand Open Budget",
@@ -22,6 +23,9 @@ export default function SearchPage() {
       <div className="flex flex-col gap-2">
         <section className="px-[16px] py-[40px]">
           <SearchHeader summaryInfo={mockHeaderSummaryInfo} />
+        </section>
+        <section className="px-[16px] py-[40px]">
+          <SearchBody />
         </section>
       </div>
       <AboutSection />
