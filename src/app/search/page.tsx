@@ -21,7 +21,7 @@ export default function SearchPage() {
     <main className="mx-auto flex w-full flex-col gap-8">
       <Header />
       <div className="flex flex-col gap-2">
-        <section className="px-[16px] py-[40px]">
+        <section className="border-gray-20 border-b-[1px] bg-white px-[16px] py-[40px]">
           <SearchHeader summaryInfo={mockHeaderSummaryInfo} />
         </section>
         <section className="px-[16px] py-[40px]">
