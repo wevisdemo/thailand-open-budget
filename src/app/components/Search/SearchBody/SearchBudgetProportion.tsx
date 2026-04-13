@@ -15,7 +15,7 @@ export default function SearchBudgetProportion(
       : 0;
 
   return (
-    <div className="flex max-w-[508px] flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
+    <div className="flex w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
       <div>
         <h2 className="font-serif text-[28px] font-bold">สัดส่วนงบประมาณ</h2>
         <p className="text-[16px] font-bold">
