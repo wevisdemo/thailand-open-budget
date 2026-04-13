@@ -9,7 +9,7 @@ export default function SearchBody() {
 
   return (
     <div className="content-container flex flex-col gap-[24px]">
-      <div className="flex gap-[32px]">
+      <div className="flex flex-col gap-[32px] md:flex-row">
         <SearchBudgetProportion
           keywords={keywords}
           filteredBudget={1000000}
