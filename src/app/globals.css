@@ -17,6 +17,11 @@
   }
 }
 
+.content-container {
+  margin: auto;
+  max-width: 1032px;
+}
+
 html {
   scroll-behavior: smooth;
   overscroll-behavior: none;
