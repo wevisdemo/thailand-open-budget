@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import type { BudgetItem } from "@/types/budget";
 import Header from "../components/shared/Header";
 import AboutSection from "../components/shared/AboutSection";
-import SearchHeader from "../components/Search/SearchHeader";
-import SearchBody from "../components/Search/SearchBody";
+import SearchHeader from "../components/Search/SearchHeader/SearchHeader";
+import SearchBody from "../components/Search/SearchBody/SearchBody";
 
 export const metadata: Metadata = {
   title: "ค้นหางบประมาณ | Thailand Open Budget",
