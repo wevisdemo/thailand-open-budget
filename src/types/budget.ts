@@ -9,3 +9,11 @@ export interface BudgetItem {
   plan: string;
   budgetary: string;
 }
+
+export interface BudgetMinistryItem {
+  id: string;
+  ministry: string;
+  amount: number;
+  budgetary: string;
+  budgetPercentage: number;
+}

@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import type { BudgetItem } from "@/types/budget";
+import type { BudgetItem, BudgetMinistryItem } from "@/types/budget";
 import SearchBudgetProportion from "./SearchBudgetProportion";
 import SearchBudgetTrend from "./SearchBudgetTrend";
 import BudgetListSection from "./BudgetListSection";
+import BudgetMinistryListSection from "./BudgetMinitryListSection";
 
 const mockBudgetData: BudgetItem[] = [
   {
@@ -276,6 +277,30 @@ const mockBudgetData: BudgetItem[] = [
   },
 ];
 
+const mockBudgetMinistryData: BudgetMinistryItem[] = [
+  {
+    id: "1",
+    ministry: "กรมทางหลวงชนบท",
+    amount: 8787120000,
+    budgetary: "กระทรวงคมนาคม",
+    budgetPercentage: 33.3,
+  },
+  {
+    id: "2",
+    ministry: "กรมทางหลวงชนบท",
+    amount: 8787120000,
+    budgetary: "กระทรวงคมนาคม",
+    budgetPercentage: 33.3,
+  },
+  {
+    id: "3",
+    ministry: "กรมทางหลวงชนบท",
+    amount: 8787120000,
+    budgetary: "กระทรวงคมนาคม",
+    budgetPercentage: 33.3,
+  },
+];
+
 export default function SearchBody() {
   const [keywords, _setKeywords] = useState<string[]>([
     "น้ำท่วม",
@@ -302,6 +327,14 @@ export default function SearchBody() {
           year={2569}
           version="ฉบับร่าง"
           data={mockBudgetData}
+        />
+      </div>
+      <div>
+        <BudgetMinistryListSection
+          keywords={keywords}
+          year={2569}
+          version="ฉบับร่าง"
+          data={mockBudgetMinistryData}
         />
       </div>
     </div>
