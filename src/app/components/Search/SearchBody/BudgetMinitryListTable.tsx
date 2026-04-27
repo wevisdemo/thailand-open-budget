@@ -19,7 +19,8 @@ function highlightKeywords(text: string, keywords: string[]): React.ReactNode {
   const parts = text.split(regex);
   return parts.map((part, i) =>
     regex.test(part) ? (
-      <span key={i} className="text-interactive-01 font-bold">
+      // TODO: dynamic bg
+      <span key={i} className="bg-gray-20 font-bold">
         {part}
       </span>
     ) : (
@@ -43,6 +44,7 @@ export default function BudgetMinistryListTable({
   const startIndex = (page - 1) * PAGE_SIZE;
   const pageItems = sorted.slice(startIndex, startIndex + PAGE_SIZE);
 
+  // TODO: format table column width
   return (
     <div className="w-full">
       <table className="w-full border-collapse text-[14px]">

@@ -80,7 +80,7 @@ export default function Paginate({
 
   return (
     <div className="border-ui-03 flex items-center justify-between border-t px-[16px] py-[12px] text-[14px]">
-      <p>
+      <p className="text-gray-60">
         {startIndex + 1} – {Math.min(startIndex + pageSize, totalItems)} จาก{" "}
         <span className="font-bold">{totalItems.toLocaleString()}</span> รายการ
       </p>
