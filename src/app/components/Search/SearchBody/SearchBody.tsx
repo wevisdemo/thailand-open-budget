@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { BudgetItem, BudgetMinistryItem } from "@/types/budget";
 import SearchBudgetProportion from "./SearchBudgetProportion";
 import SearchBudgetTrend from "./SearchBudgetTrend";
@@ -10,17 +9,14 @@ import BudgetMinistryListSection from "./BudgetMinitryListSection";
 interface SearchBodyProps {
   budgetData: BudgetItem[];
   ministryData: BudgetMinistryItem[];
+  keywords: string[];
 }
 
 export default function SearchBody({
   budgetData,
   ministryData,
+  keywords,
 }: SearchBodyProps) {
-  const [keywords, _setKeywords] = useState<string[]>([
-    "น้ำท่วม",
-    "ค่าใช้จ่าย",
-  ]);
-
   return (
     <div className="content-container flex flex-col gap-[24px]">
       <div className="flex flex-col gap-[32px] md:flex-row">

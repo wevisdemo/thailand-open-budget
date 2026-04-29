@@ -7,6 +7,7 @@ import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
 import Dropdown, { DropdownOption } from "../shared/Dropdown";
 import { useState } from "react";
+import type { Tag } from "@/types/search";
 
 interface SearchTemplateProps {
   headerSummaryInfo: {
@@ -32,6 +33,7 @@ export default function SearchTemplate({
   ];
   const [selectedDocSource, setSelectedDocSource] =
     useState<DropdownOption | null>(docSourceDropdownOptions[0]);
+  const [tags, setTags] = useState<Tag[]>([]);
   return (
     <main className="mx-auto flex w-full flex-col gap-8">
       <Header />
@@ -55,12 +57,20 @@ export default function SearchTemplate({
             </div>
           </div>
           <section className="border-gray-20 border-b-[1px] bg-white px-[16px] py-[40px]">
-            <SearchHeader summaryInfo={headerSummaryInfo} />
+            <SearchHeader
+              summaryInfo={headerSummaryInfo}
+              tags={tags}
+              onTagsChange={setTags}
+            />
           </section>
         </div>
 
         <section className="px-[16px] py-[40px]">
-          <SearchBody budgetData={budgetData} ministryData={ministryData} />
+          <SearchBody
+            budgetData={budgetData}
+            ministryData={ministryData}
+            keywords={tags.map((t) => t.word)}
+          />
         </section>
       </div>
       <AboutSection />

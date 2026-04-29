@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import type { Tag } from "@/types/search";
 import SearchPanel from "./SearchPanel";
 import SearchHeaderStatItem from "./SearchHeaderStatItem";
 import ExclamationIcon from "@/app/components/shared/icons/exclamation-icon";
@@ -11,11 +11,11 @@ interface SearchHeaderProps {
     totalBudget: number;
     totalDepartment: number;
   };
+  tags: Tag[];
+  onTagsChange: (tags: Tag[]) => void;
 }
 
 export default function SearchHeader(props: SearchHeaderProps) {
-  const [keywords, setKeywords] = useState<string[]>([]);
-
   return (
     <div className="content-container flex flex-col gap-[24px]">
       <div className="flex flex-col gap-[8px]">
@@ -25,12 +25,12 @@ export default function SearchHeader(props: SearchHeaderProps) {
         <p className="text-blue-70 text-b5">
           คีย์เวิร์ดที่พบได้บ่อย และคำที่น่าสนใจในงบประมาณ
         </p>
-        <SearchPanel />
+        <SearchPanel tags={props.tags} onTagsChange={props.onTagsChange} />
         <p className="text-text-02">
           ใช้ , คั่น เพื่อหาหลายคีย์เวิร์ดพร้อมกัน{" "}
-          {keywords.length > 0 && (
+          {props.tags.length > 0 && (
             <span className="text-gray-30">
-              · `${keywords.length} คำที่เลือก`
+              · `${props.tags.length} คำที่เลือก`
             </span>
           )}
         </p>
