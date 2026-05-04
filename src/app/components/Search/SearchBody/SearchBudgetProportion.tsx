@@ -15,7 +15,7 @@ export default function SearchBudgetProportion(
       : 0;
 
   return (
-    <div className="flex w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
+    <div className="flex h-full w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
       <div>
         <h2 className="font-serif text-[28px] font-bold">สัดส่วนงบประมาณ</h2>
         <p className="text-[16px] font-bold">
@@ -24,7 +24,7 @@ export default function SearchBudgetProportion(
         </p>
         <p className="text-text-01">ปีงบฯ 2569 · ฉบับร่าง</p>
       </div>
-      <div className="mt-[24px]">
+      <div className="flex flex-1 items-center justify-center">
         <SearchDonutChart percentage={percentage} />
       </div>
       <div className="flex flex-col gap-[4px]">

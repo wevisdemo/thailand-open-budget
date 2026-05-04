@@ -6,7 +6,6 @@ import SearchBudgetProportion from "./SearchBudgetProportion";
 import SearchBudgetTrend from "./SearchBudgetTrend";
 import BudgetListSection from "./BudgetListSection";
 import BudgetMinistryListSection from "./BudgetMinitryListSection";
-
 interface SearchBodyProps {
   budgetData: BudgetItem[];
   ministryData: BudgetMinistryItem[];

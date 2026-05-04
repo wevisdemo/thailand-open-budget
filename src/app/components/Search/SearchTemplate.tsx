@@ -5,6 +5,9 @@ import AboutSection from "@/app/components/shared/AboutSection";
 import Breadcrumb from "@/app/components/shared/Breadcrumb";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
+import SummaryInfo from "@/app/components/Search/SearchBody/SummaryInfo";
+import SearchBodySkeleton from "@/app/components/Search/SearchBody/SearchBodySkeleton";
+import SearchIcon from "@/app/components/shared/icons/search-icon";
 import Dropdown, { type DropdownOption } from "../shared/Dropdown";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
 import { useState } from "react";
@@ -37,13 +40,13 @@ export default function SearchTemplate({
   const [tags, setTags] = useState<Tag[]>([]);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
   return (
-    <main className="mx-auto flex w-full flex-col gap-8">
+    <main className="mx-auto flex w-full flex-col">
       <Header />
       <BudgetVersionInfoModal
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
       />
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col">
         <div>
           <div className="border-gray-20 flex items-center justify-between border-b-[2px] bg-white px-[32px] py-[4px]">
             <Breadcrumb
@@ -65,22 +68,46 @@ export default function SearchTemplate({
               />
             </div>
           </div>
-          <section className="border-gray-20 border-b-[1px] bg-white px-[16px] py-[40px]">
-            <SearchHeader
-              summaryInfo={headerSummaryInfo}
-              tags={tags}
-              onTagsChange={setTags}
-            />
+          <section className="bg-white px-[16px] py-[24px]">
+            <SearchHeader tags={tags} onTagsChange={setTags} />
           </section>
         </div>
-
-        <section className="px-[16px] py-[40px]">
-          <SearchBody
-            budgetData={budgetData}
-            ministryData={ministryData}
-            tags={tags}
-          />
-        </section>
+        {tags.length === 0 ? (
+          <div className="relative">
+            <div className="flex w-full flex-col items-center justify-center">
+              <SearchBodySkeleton />
+              <p className="text-text-03 mt-[16px]">
+                ข้อมูลรายโครงการจะปรากฏขึ้นเมื่อคุณเริ่มค้นหา
+              </p>
+            </div>
+            <div className="absolute inset-0 flex flex-col items-center gap-[12px] bg-black/40">
+              <SearchIcon
+                color="white"
+                className="mt-[96px] h-[36px] w-[36px]"
+              />
+              <p className="mt-[20] font-serif text-[42px] font-bold text-white">
+                พิมพ์คีย์เวิร์ดที่สนใจในช่องค้นหาด้านบน
+              </p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <section className="bg-white px-[16px] pb-[24px]">
+              <SummaryInfo
+                itemAmount={headerSummaryInfo.itemAmount}
+                totalBudget={headerSummaryInfo.totalBudget}
+                totalDepartment={headerSummaryInfo.totalDepartment}
+              />
+            </section>
+            <section className="px-[16px] py-[40px]">
+              <SearchBody
+                budgetData={budgetData}
+                ministryData={ministryData}
+                tags={tags}
+              />
+            </section>
+          </>
+        )}
       </div>
       <AboutSection />
     </main>

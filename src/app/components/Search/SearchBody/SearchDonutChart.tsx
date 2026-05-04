@@ -10,10 +10,10 @@ export default function SearchDonutChart({
   const filledLength = (percentage / 100) * circumference;
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex w-full items-center justify-center">
       <svg
-        width="240"
-        height="240"
+        width="100%"
+        height="100%"
         viewBox="0 0 240 240"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

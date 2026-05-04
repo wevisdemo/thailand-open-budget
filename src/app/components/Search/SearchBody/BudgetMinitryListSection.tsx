@@ -1,6 +1,6 @@
-import { useState } from "react";
-import BudgetListTable from "./BudgetListTable";
-import { BudgetItem, BudgetMinistryItem } from "@/types/budget";
+"use client";
+
+import type { BudgetMinistryItem } from "@/types/budget";
 import BudgetMinistryListTable from "./BudgetMinitryListTable";
 
 interface SearchBudgetProportionProps {
@@ -13,7 +13,6 @@ interface SearchBudgetProportionProps {
 export default function BudgetMinistryListSection(
   props: SearchBudgetProportionProps,
 ) {
-  const [sortPolicy, setSortPolicy] = useState<"asc" | "desc">("desc");
   return (
     <div>
       <div>
@@ -30,9 +29,7 @@ export default function BudgetMinistryListSection(
           <span>
             ปีงบฯ {props.year} · {props.version}
           </span>{" "}
-          <span className="text-gray-60">
-            {sortPolicy ? "เรียงจากมากไปน้อย" : "เรียงจากน้อยไปมาก"}
-          </span>
+          <span className="text-gray-60">เรียงจากมากไปน้อย</span>
         </p>
       </div>
       <div>
