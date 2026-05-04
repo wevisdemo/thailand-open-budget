@@ -12,6 +12,8 @@ const PAGE_SIZE = 10;
 interface BudgetListTableProps {
   data: BudgetItem[];
   tags: Tag[];
+  sortDir: "asc" | "desc";
+  onSortDirChange: (dir: "asc" | "desc") => void;
 }
 
 function highlightTags(text: string, tags: Tag[]): React.ReactNode {
@@ -39,8 +41,12 @@ function highlightTags(text: string, tags: Tag[]): React.ReactNode {
   });
 }
 
-export default function BudgetListTable({ data, tags }: BudgetListTableProps) {
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+export default function BudgetListTable({
+  data,
+  tags,
+  sortDir,
+  onSortDirChange,
+}: BudgetListTableProps) {
   const [page, setPage] = useState(1);
 
   const sorted = [...data].sort((a, b) =>
@@ -63,7 +69,9 @@ export default function BudgetListTable({ data, tags }: BudgetListTableProps) {
             </th>
             <th
               className="ml-auto flex justify-end gap-[16px] px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
-              onClick={() => setSortDir((d) => (d === "desc" ? "asc" : "desc"))}
+              onClick={() =>
+                onSortDirChange(sortDir === "desc" ? "asc" : "desc")
+              }
             >
               จำนวนเงิน
               <ArrowsVerticalIcon />
