@@ -130,7 +130,7 @@ export default function BudgetListTable({
                 {item.plan ? highlightTags(item.plan, tags) : "-"}
               </td>
               <td className="px-[16px] py-[16px]">
-                <p>{highlightTags(item.budgetary, tags)}</p>
+                <p>{item.budgetary}</p>
                 {item.ministry && (
                   <p className="text-gray-60">{item.ministry}</p>
                 )}

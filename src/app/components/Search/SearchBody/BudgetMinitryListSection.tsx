@@ -33,7 +33,7 @@ export default function BudgetMinistryListSection(
         </p>
       </div>
       <div>
-        <BudgetMinistryListTable keywords={props.keywords} data={props.data} />
+        <BudgetMinistryListTable data={props.data} />
       </div>
     </div>
   );

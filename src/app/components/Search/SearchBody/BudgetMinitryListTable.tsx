@@ -6,41 +6,13 @@ import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-ic
 import Paginate from "./Paginate";
 
 const PAGE_SIZE = 10;
-const TAG_COLORS = ["#CDD3DA", "#BAE6FF", "#A7F0BA", "#FFD6E8", "#E8DAFF"];
 
 interface BudgetMinistryListTableProps {
   data: BudgetMinistryItem[];
-  keywords: string[];
-}
-
-function highlightKeywords(text: string, keywords: string[]): React.ReactNode {
-  if (!keywords.length) return text;
-  const escaped = keywords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-  const regex = new RegExp(`(${escaped.join("|")})`, "gi");
-  const parts = text.split(regex);
-  return parts.map((part, i) => {
-    const matchedIndex = keywords.findIndex(
-      (keyword) => keyword.toLowerCase() === part.toLowerCase(),
-    );
-    return matchedIndex !== -1 ? (
-      <span
-        key={i}
-        style={{
-          backgroundColor: TAG_COLORS[matchedIndex % TAG_COLORS.length],
-        }}
-        className="font-bold"
-      >
-        {part}
-      </span>
-    ) : (
-      part
-    );
-  });
 }
 
 export default function BudgetMinistryListTable({
   data,
-  keywords,
 }: BudgetMinistryListTableProps) {
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [page, setPage] = useState(1);
@@ -90,7 +62,7 @@ export default function BudgetMinistryListTable({
                 {startIndex + index + 1}
               </td>
               <td className="px-[16px] py-[16px] font-bold">
-                {highlightKeywords(item.ministry, keywords)}
+                {item.ministry || "-"}
               </td>
               <td className="px-[16px] py-[16px] text-right whitespace-nowrap">
                 {item.amount.toLocaleString(undefined, {
@@ -98,9 +70,7 @@ export default function BudgetMinistryListTable({
                   maximumFractionDigits: 2,
                 })}
               </td>
-              <td className="px-[16px] py-[16px]">
-                {highlightKeywords(item.budgetary, keywords)}
-              </td>
+              <td className="px-[16px] py-[16px]">{item.budgetary || "-"}</td>
               <td className="px-[16px] py-[16px]">
                 <div className="flex items-center gap-[8px]">
                   <div className="h-[4px] flex-1 bg-[#E0E0E0]">
