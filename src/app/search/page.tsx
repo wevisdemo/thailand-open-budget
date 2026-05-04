@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import type { BudgetItem, BudgetMinistryItem } from "@/types/budget";
+import type { BudgetItem } from "@/types/budget";
 import SearchTemplate from "@/app/components/Search/SearchTemplate";
 
 export const metadata: Metadata = {
   title: "ค้นหางบประมาณ | Thailand Open Budget",
   description: "ค้นหาและสำรวจข้อมูลงบประมาณแผ่นดินของประเทศไทย",
-};
-
-const headerSummaryInfo = {
-  itemAmount: 124500,
-  totalBudget: 348000,
-  totalDepartment: 20,
 };
 
 const budgetData: BudgetItem[] = [
@@ -105,36 +99,6 @@ const budgetData: BudgetItem[] = [
   },
 ];
 
-const ministryData: BudgetMinistryItem[] = [
-  {
-    id: "1",
-    ministry: "กรมทางหลวงชนบท",
-    amount: 8787120000,
-    budgetary: "กระทรวงคมนาคม",
-    budgetPercentage: 33.3,
-  },
-  {
-    id: "2",
-    ministry: "กรมทางหลวงชนบท",
-    amount: 8787120000,
-    budgetary: "กระทรวงคมนาคม",
-    budgetPercentage: 33.3,
-  },
-  {
-    id: "3",
-    ministry: "กรมทางหลวงชนบท",
-    amount: 8787120000,
-    budgetary: "กระทรวงคมนาคม",
-    budgetPercentage: 33.3,
-  },
-];
-
 export default function SearchPage() {
-  return (
-    <SearchTemplate
-      headerSummaryInfo={headerSummaryInfo}
-      budgetData={budgetData}
-      ministryData={ministryData}
-    />
-  );
+  return <SearchTemplate budgetData={budgetData} />;
 }

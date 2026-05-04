@@ -14,20 +14,10 @@ import { useState } from "react";
 import type { Tag } from "@/types/search";
 
 interface SearchTemplateProps {
-  headerSummaryInfo: {
-    itemAmount: number;
-    totalBudget: number;
-    totalDepartment: number;
-  };
   budgetData: BudgetItem[];
-  ministryData: BudgetMinistryItem[];
 }
 
-export default function SearchTemplate({
-  headerSummaryInfo,
-  budgetData,
-  ministryData,
-}: SearchTemplateProps) {
+export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
   const docSourceDropdownOptions: DropdownOption[] = [
     { value: "2566-draft-1", label: "2566 ฉบับร่าง (วาระ 1)" },
     { value: "2567-draft-1", label: "2567 ฉบับร่าง (วาระ 1)" },
@@ -39,6 +29,56 @@ export default function SearchTemplate({
     useState<DropdownOption | null>(docSourceDropdownOptions[0]);
   const [tags, setTags] = useState<Tag[]>([]);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
+
+  const keywords = tags.map((t) => t.word.toLowerCase());
+  const displayBudgetList = budgetData.filter((item) =>
+    keywords.some(
+      (kw) =>
+        item.description.toLowerCase().includes(kw) ||
+        item.project.toLowerCase().includes(kw) ||
+        item.plan.toLowerCase().includes(kw),
+    ),
+  );
+
+  const totalBudget = budgetData.reduce((sum, item) => sum + item.amount, 0);
+
+  const totalDisplayBudget = displayBudgetList.reduce(
+    (sum, item) => sum + item.amount,
+    0,
+  );
+
+  const displayMinistryList: BudgetMinistryItem[] = Object.values(
+    displayBudgetList.reduce<Record<string, BudgetMinistryItem>>(
+      (acc, item) => {
+        if (!acc[item.budgetary]) {
+          acc[item.budgetary] = {
+            id: item.budgetary,
+            ministry: item.budgetary,
+            budgetary: item.ministry,
+            amount: 0,
+            budgetPercentage: 0,
+          };
+        }
+        acc[item.budgetary].amount += item.amount;
+        return acc;
+      },
+      {},
+    ),
+  ).map((entry) => ({
+    ...entry,
+    budgetPercentage:
+      totalDisplayBudget > 0 ? (entry.amount / totalDisplayBudget) * 100 : 0,
+  }));
+
+  const summaryInfo = {
+    itemAmount: displayBudgetList.length,
+    totalBudget: Math.round(
+      displayBudgetList.reduce((sum, item) => sum + item.amount, 0) /
+        totalBudget,
+    ),
+    totalMinistry: new Set(displayBudgetList.map((item) => item.ministry)).size,
+  };
+
   return (
     <main className="mx-auto flex w-full flex-col">
       <Header />
@@ -94,15 +134,15 @@ export default function SearchTemplate({
           <>
             <section className="bg-white px-[16px] pb-[24px]">
               <SummaryInfo
-                itemAmount={headerSummaryInfo.itemAmount}
-                totalBudget={headerSummaryInfo.totalBudget}
-                totalDepartment={headerSummaryInfo.totalDepartment}
+                itemAmount={summaryInfo.itemAmount}
+                totalBudget={summaryInfo.totalBudget}
+                totalMinistry={summaryInfo.totalMinistry}
               />
             </section>
             <section className="px-[16px] py-[40px]">
               <SearchBody
-                budgetData={budgetData}
-                ministryData={ministryData}
+                budgetData={displayBudgetList}
+                ministryData={displayMinistryList}
                 tags={tags}
               />
             </section>
