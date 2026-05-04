@@ -11,10 +11,10 @@ export default function BudgetVersionInfoModal({
 }: BudgetVersionInfoModalProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="แต่ละวาระต่างกันอย่างไร?">
-      <ul className="flex list-disc flex-col gap-[16px] pl-[20px] text-[14px]">
+      <ul className="flex list-disc flex-col pl-[20px] text-[14px]">
         <li>
           <p className="font-bold">งบประมาณฉบับร่าง (วาระ 1)</p>
-          <p className="text-text-01 mt-[4px]">
+          <p className="text-text-01">
             เป็นร่างงบประมาณที่คณะรัฐมนตรีอนุมัติ
             เพื่อเปิดรับฟังความคิดเห็นจากสาธารณะ{" "}
             <strong>แต่ยังไม่ผ่านการพิจารณารายละเอียดจากรัฐสภา</strong> (สส. และ
@@ -23,7 +23,7 @@ export default function BudgetVersionInfoModal({
         </li>
         <li>
           <p className="font-bold">งบประมาณฉบับที่สภาอนุมัติแล้ว (วาระ 3)</p>
-          <p className="text-text-01 mt-[4px]">
+          <p className="text-text-01">
             เป็นงบประมาณที่รัฐสภาพิจารณารายละเอียด ตั้งข้อสังเกต ลงมติรายมาตรา
             และได้รับการอนุมัติให้มีการบังคับใช้ตามกฎหมาย
           </p>

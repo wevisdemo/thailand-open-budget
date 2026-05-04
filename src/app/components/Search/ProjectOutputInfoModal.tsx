@@ -15,7 +15,7 @@ export default function ProjectOutputInfoModal({
       onClose={onClose}
       title="โครงการ/ผลผลิต ต่างกันอย่างไร?"
     >
-      <ul className="flex list-disc flex-col gap-[16px] pl-[20px] text-[14px]">
+      <ul className="flex list-disc flex-col pl-[20px] text-[14px]">
         <li>
           <p>
             <strong>โครงการ</strong> หมายถึง กิจกรรมภายใต้แผนงานต่าง ๆ
@@ -33,7 +33,7 @@ export default function ProjectOutputInfoModal({
           </p>
         </li>
       </ul>
-      <p className="mt-[16px] text-[14px] font-bold">
+      <p className="text-[14px] font-bold">
         1 รายการ จะสามารถอยู่ภายใต้ 1 ผลผลิต หรือ 1 โครงการ
         อย่างใดอย่างหนึ่งเท่านั้น
       </p>

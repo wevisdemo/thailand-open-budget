@@ -35,7 +35,7 @@ export default function Modal({
         className="relative w-full max-w-[540px] bg-white p-[16px]"
         onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="mb-[24px] flex items-start justify-between gap-[16px]">
+        <div className="mb-[16px] flex items-start justify-between gap-[16px]">
           <h2 className="text-[20px] font-bold">{title}</h2>
           <button
             type="button"
