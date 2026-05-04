@@ -6,10 +6,9 @@ import Breadcrumb from "@/app/components/shared/Breadcrumb";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
 import SummaryInfo from "@/app/components/Search/SearchBody/SummaryInfo";
-import SearchBodySkeleton from "@/app/components/Search/SearchBody/SearchBodySkeleton";
-import SearchIcon from "@/app/components/shared/icons/search-icon";
+import SearchEmptyState from "@/app/components/Search/SearchEmptyState";
+import SearchNotFound from "@/app/components/Search/SearchNotFound";
 import Dropdown, { type DropdownOption } from "../shared/Dropdown";
-import Image from "next/image";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
 import { useState } from "react";
 import type { Tag } from "@/types/search";
@@ -114,51 +113,9 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
           </section>
         </div>
         {tags.length === 0 ? (
-          <div className="relative">
-            <div className="flex w-full flex-col items-center justify-center">
-              <SearchBodySkeleton />
-              <p className="text-text-03 mt-[16px]">
-                ข้อมูลรายโครงการจะปรากฏขึ้นเมื่อคุณเริ่มค้นหา
-              </p>
-            </div>
-            <div className="absolute inset-0 flex flex-col items-center gap-[12px] bg-black/40">
-              <SearchIcon
-                color="white"
-                className="mt-[96px] h-[36px] w-[36px]"
-              />
-              <p className="mt-[20] font-serif text-[42px] font-bold text-white">
-                พิมพ์คีย์เวิร์ดที่สนใจในช่องค้นหาด้านบน
-              </p>
-            </div>
-          </div>
+          <SearchEmptyState />
         ) : displayBudgetList.length === 0 ? (
-          <div className="relative">
-            <div className="flex w-full flex-col items-center justify-center">
-              <SearchBodySkeleton />
-            </div>
-            <div className="absolute inset-0 flex flex-col items-center gap-[20px] bg-black/40">
-              <Image
-                src="/icons/search-not-found.svg"
-                alt="search not found"
-                width={36}
-                height={36}
-                className="mt-[96px]"
-              />
-              <p className="font-serif text-[42px] font-bold text-white">
-                ไม่พบข้อมูลที่เกี่ยวข้องกับ &apos;
-                {tags.map((t) => t.word).join(" ")}&apos;
-              </p>
-              <p className="text-[16px] text-white">
-                ลองใช้คำอื่นที่เกี่ยวข้อง
-              </p>
-              <button
-                onClick={() => setTags([])}
-                className="bg-interactive-01 px-[16px] py-[12px] font-bold text-white hover:cursor-pointer"
-              >
-                ล้างการค้นหา
-              </button>
-            </div>
-          </div>
+          <SearchNotFound tags={tags} onClear={() => setTags([])} />
         ) : (
           <>
             <section className="bg-white px-[16px] pb-[24px]">
