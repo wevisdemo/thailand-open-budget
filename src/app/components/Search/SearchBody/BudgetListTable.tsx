@@ -1,6 +1,7 @@
 "use client";
 
-import { BudgetItem } from "@/types/budget";
+import type { BudgetItem } from "@/types/budget";
+import type { Tag } from "@/types/search";
 import { useState } from "react";
 import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-icon";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
@@ -10,30 +11,35 @@ const PAGE_SIZE = 10;
 
 interface BudgetListTableProps {
   data: BudgetItem[];
-  keywords: string[];
+  tags: Tag[];
 }
 
-function highlightKeywords(text: string, keywords: string[]): React.ReactNode {
-  if (!keywords.length) return text;
-  const escaped = keywords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+function highlightTags(text: string, tags: Tag[]): React.ReactNode {
+  if (!tags.length) return text;
+  const escaped = tags.map((t) =>
+    t.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+  );
   const regex = new RegExp(`(${escaped.join("|")})`, "gi");
   const parts = text.split(regex);
-  return parts.map((part, i) =>
-    regex.test(part) ? (
-      // TODO: dynamic bg
-      <span key={i} className="bg-gray-20 font-bold">
+  return parts.map((part, i) => {
+    const matched = tags.find(
+      (t) => t.word.toLowerCase() === part.toLowerCase(),
+    );
+    return matched ? (
+      <span
+        key={i}
+        style={{ backgroundColor: matched.color }}
+        className="font-bold"
+      >
         {part}
       </span>
     ) : (
       part
-    ),
-  );
+    );
+  });
 }
 
-export default function BudgetListTable({
-  data,
-  keywords,
-}: BudgetListTableProps) {
+export default function BudgetListTable({ data, tags }: BudgetListTableProps) {
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [page, setPage] = useState(1);
 
@@ -87,7 +93,7 @@ export default function BudgetListTable({
               </td>
               <td className="max-w-[280px] px-[16px] py-[16px]">
                 <p className="font-bold">
-                  {highlightKeywords(item.description, keywords)}
+                  {highlightTags(item.description, tags)}
                 </p>
                 <p className="text-gray-60">หมวดงบประมาณ: {item.category}</p>
               </td>
@@ -98,13 +104,13 @@ export default function BudgetListTable({
                 }) || "-"}
               </td>
               <td className="px-[16px] py-[16px]">
-                {item.project ? highlightKeywords(item.project, keywords) : "-"}
+                {item.project ? highlightTags(item.project, tags) : "-"}
               </td>
               <td className="px-[16px] py-[16px]">
-                {item.plan ? highlightKeywords(item.plan, keywords) : "-"}
+                {item.plan ? highlightTags(item.plan, tags) : "-"}
               </td>
               <td className="px-[16px] py-[16px]">
-                <p>{highlightKeywords(item.budgetary, keywords)}</p>
+                <p>{highlightTags(item.budgetary, tags)}</p>
                 {item.ministry && (
                   <p className="text-gray-60">{item.ministry}</p>
                 )}

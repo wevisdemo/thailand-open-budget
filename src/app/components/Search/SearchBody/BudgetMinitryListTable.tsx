@@ -6,6 +6,7 @@ import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-ic
 import Paginate from "./Paginate";
 
 const PAGE_SIZE = 10;
+const TAG_COLORS = ["#CDD3DA", "#BAE6FF", "#A7F0BA", "#FFD6E8", "#E8DAFF"];
 
 interface BudgetMinistryListTableProps {
   data: BudgetMinistryItem[];
@@ -17,16 +18,24 @@ function highlightKeywords(text: string, keywords: string[]): React.ReactNode {
   const escaped = keywords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   const regex = new RegExp(`(${escaped.join("|")})`, "gi");
   const parts = text.split(regex);
-  return parts.map((part, i) =>
-    regex.test(part) ? (
-      // TODO: dynamic bg
-      <span key={i} className="bg-gray-20 font-bold">
+  return parts.map((part, i) => {
+    const matchedIndex = keywords.findIndex(
+      (keyword) => keyword.toLowerCase() === part.toLowerCase(),
+    );
+    return matchedIndex !== -1 ? (
+      <span
+        key={i}
+        style={{
+          backgroundColor: TAG_COLORS[matchedIndex % TAG_COLORS.length],
+        }}
+        className="font-bold"
+      >
         {part}
       </span>
     ) : (
       part
-    ),
-  );
+    );
+  });
 }
 
 export default function BudgetMinistryListTable({

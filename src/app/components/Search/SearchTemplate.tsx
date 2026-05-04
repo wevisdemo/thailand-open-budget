@@ -5,7 +5,7 @@ import AboutSection from "@/app/components/shared/AboutSection";
 import Breadcrumb from "@/app/components/shared/Breadcrumb";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
-import Dropdown, { DropdownOption } from "../shared/Dropdown";
+import Dropdown, { type DropdownOption } from "../shared/Dropdown";
 import { useState } from "react";
 import type { Tag } from "@/types/search";
 
@@ -69,7 +69,7 @@ export default function SearchTemplate({
           <SearchBody
             budgetData={budgetData}
             ministryData={ministryData}
-            keywords={tags.map((t) => t.word)}
+            tags={tags}
           />
         </section>
       </div>

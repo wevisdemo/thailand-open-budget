@@ -1,6 +1,7 @@
 "use client";
 
 import type { BudgetItem, BudgetMinistryItem } from "@/types/budget";
+import type { Tag } from "@/types/search";
 import SearchBudgetProportion from "./SearchBudgetProportion";
 import SearchBudgetTrend from "./SearchBudgetTrend";
 import BudgetListSection from "./BudgetListSection";
@@ -9,14 +10,15 @@ import BudgetMinistryListSection from "./BudgetMinitryListSection";
 interface SearchBodyProps {
   budgetData: BudgetItem[];
   ministryData: BudgetMinistryItem[];
-  keywords: string[];
+  tags: Tag[];
 }
 
 export default function SearchBody({
   budgetData,
   ministryData,
-  keywords,
+  tags,
 }: SearchBodyProps) {
+  const keywords = tags.map((t) => t.word);
   return (
     <div className="content-container flex flex-col gap-[24px]">
       <div className="flex flex-col gap-[32px] md:flex-row">
@@ -33,7 +35,7 @@ export default function SearchBody({
       </div>
       <div>
         <BudgetListSection
-          keywords={keywords}
+          tags={tags}
           year={2569}
           version="ฉบับร่าง"
           data={budgetData}
