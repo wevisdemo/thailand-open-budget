@@ -6,6 +6,7 @@ import { useState } from "react";
 import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-icon";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
 import Paginate from "./Paginate";
+import ProjectOutputInfoModal from "@/app/components/Search/ProjectOutputInfoModal";
 
 const PAGE_SIZE = 10;
 
@@ -48,6 +49,7 @@ export default function BudgetListTable({
   onSortDirChange,
 }: BudgetListTableProps) {
   const [page, setPage] = useState(1);
+  const [projectInfoOpen, setProjectInfoOpen] = useState(false);
 
   const sorted = [...data].sort((a, b) =>
     sortDir === "desc" ? b.amount - a.amount : a.amount - b.amount,
@@ -60,6 +62,10 @@ export default function BudgetListTable({
   // TODO: format table column width
   return (
     <div className="w-full">
+      <ProjectOutputInfoModal
+        isOpen={projectInfoOpen}
+        onClose={() => setProjectInfoOpen(false)}
+      />
       <table className="w-full border-collapse text-[14px]">
         <thead>
           <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
@@ -79,7 +85,13 @@ export default function BudgetListTable({
             <th className="w-[18%] px-[16px] py-[8px] text-left font-semibold">
               <span className="flex items-center gap-[8px]">
                 โครงการ/ผลผลิต
-                <InformationIcon />
+                <button
+                  type="button"
+                  onClick={() => setProjectInfoOpen(true)}
+                  className="cursor-pointer"
+                >
+                  <InformationIcon />
+                </button>
               </span>
             </th>
             <th className="px-[16px] py-[8px] text-left font-semibold">

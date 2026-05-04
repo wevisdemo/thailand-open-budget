@@ -6,6 +6,7 @@ import Breadcrumb from "@/app/components/shared/Breadcrumb";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
 import Dropdown, { type DropdownOption } from "../shared/Dropdown";
+import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
 import { useState } from "react";
 import type { Tag } from "@/types/search";
 
@@ -34,9 +35,14 @@ export default function SearchTemplate({
   const [selectedDocSource, setSelectedDocSource] =
     useState<DropdownOption | null>(docSourceDropdownOptions[0]);
   const [tags, setTags] = useState<Tag[]>([]);
+  const [versionInfoOpen, setVersionInfoOpen] = useState(false);
   return (
     <main className="mx-auto flex w-full flex-col gap-8">
       <Header />
+      <BudgetVersionInfoModal
+        isOpen={versionInfoOpen}
+        onClose={() => setVersionInfoOpen(false)}
+      />
       <div className="flex flex-col gap-2">
         <div>
           <div className="border-gray-20 flex items-center justify-between border-b-[2px] bg-white px-[32px] py-[4px]">
@@ -52,7 +58,10 @@ export default function SearchTemplate({
                 selectedOption={selectedDocSource}
                 onChange={setSelectedDocSource}
                 placeholder="Choose an option"
-                footerLink={{ label: "แต่ละวาระต่างกันอย่างไร?", href: "/" }}
+                footerLink={{
+                  label: "แต่ละวาระต่างกันอย่างไร?",
+                  onClick: () => setVersionInfoOpen(true),
+                }}
               />
             </div>
           </div>

@@ -15,7 +15,7 @@ interface DropdownProps {
   selectedOption: DropdownOption | null;
   onChange: (value: DropdownOption) => void;
   placeholder?: string;
-  footerLink?: { label: string; href: string };
+  footerLink?: { label: string; href?: string; onClick?: () => void };
 }
 
 export default function Dropdown({
@@ -89,9 +89,22 @@ export default function Dropdown({
             <>
               <div className="border-ui-03 border-t" />
               <div className="px-[16px] py-[14px]">
-                <Link href={footerLink.href} className="text-link-01 underline">
-                  {footerLink.label}
-                </Link>
+                {footerLink.href ? (
+                  <Link
+                    href={footerLink.href}
+                    className="text-link-01 underline"
+                  >
+                    {footerLink.label}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={footerLink.onClick}
+                    className="text-link-01 cursor-pointer underline"
+                  >
+                    {footerLink.label}
+                  </button>
+                )}
               </div>
             </>
           )}
