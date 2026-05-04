@@ -40,7 +40,10 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
     ),
   );
 
-  const totalBudget = budgetData.reduce((sum, item) => sum + item.amount, 0);
+  const totalBudgetAmount = budgetData.reduce(
+    (sum, item) => sum + item.amount,
+    0,
+  );
 
   const totalDisplayBudget = displayBudgetList.reduce(
     (sum, item) => sum + item.amount,
@@ -72,9 +75,9 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
 
   const summaryInfo = {
     itemAmount: displayBudgetList.length,
-    totalBudget: Math.round(
+    totalBudgetAmount: Math.round(
       displayBudgetList.reduce((sum, item) => sum + item.amount, 0) /
-        totalBudget,
+        totalBudgetAmount,
     ),
     totalMinistry: new Set(displayBudgetList.map((item) => item.ministry)).size,
   };
@@ -121,13 +124,14 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
             <section className="bg-white px-[16px] pb-[24px]">
               <SummaryInfo
                 itemAmount={summaryInfo.itemAmount}
-                totalBudget={summaryInfo.totalBudget}
+                totalBudgetAmount={summaryInfo.totalBudgetAmount}
                 totalMinistry={summaryInfo.totalMinistry}
               />
             </section>
             <section className="px-[16px] py-[40px]">
               <SearchBody
-                budgetData={displayBudgetList}
+                totalBudgetAmount={totalBudgetAmount}
+                displayBudgetList={displayBudgetList}
                 ministryData={displayMinistryList}
                 tags={tags}
               />

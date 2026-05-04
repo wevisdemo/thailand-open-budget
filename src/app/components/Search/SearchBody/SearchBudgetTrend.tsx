@@ -14,8 +14,6 @@ type BudgetUnit = "million" | "percent";
 
 interface SearchBudgetTrendProps {
   keywords: string[];
-  filteredBudget: number;
-  totalBudget: number;
 }
 
 export default function SearchBudgetTrend(props: SearchBudgetTrendProps) {

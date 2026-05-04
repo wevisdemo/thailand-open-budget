@@ -22,7 +22,7 @@ export default function SearchHeader(props: SearchHeaderProps) {
         ใช้ , คั่น เพื่อหาหลายคีย์เวิร์ดพร้อมกัน{" "}
         {props.tags.length > 0 && (
           <span className="text-gray-30">
-            · `${props.tags.length} คำที่เลือก`
+            · {`${props.tags.length} คำที่เลือก`}
           </span>
         )}
       </p>

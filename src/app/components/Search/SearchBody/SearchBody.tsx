@@ -7,37 +7,40 @@ import SearchBudgetTrend from "./SearchBudgetTrend";
 import BudgetListSection from "./BudgetListSection";
 import BudgetMinistryListSection from "./BudgetMinitryListSection";
 interface SearchBodyProps {
-  budgetData: BudgetItem[];
+  totalBudgetAmount: number;
+  displayBudgetList: BudgetItem[];
   ministryData: BudgetMinistryItem[];
   tags: Tag[];
 }
 
 export default function SearchBody({
-  budgetData,
+  totalBudgetAmount,
+  displayBudgetList,
   ministryData,
   tags,
 }: SearchBodyProps) {
   const keywords = tags.map((t) => t.word);
+
+  const totalDisplayBudget = displayBudgetList.reduce(
+    (sum, item) => sum + item.amount,
+    0,
+  );
   return (
     <div className="content-container flex flex-col gap-[24px]">
       <div className="flex flex-col gap-[32px] md:flex-row">
         <SearchBudgetProportion
           keywords={keywords}
-          filteredBudget={1000000}
-          totalBudget={4000000}
+          filteredBudget={totalDisplayBudget}
+          totalBudget={totalBudgetAmount}
         />
-        <SearchBudgetTrend
-          keywords={keywords}
-          filteredBudget={1000000}
-          totalBudget={4000000}
-        />
+        <SearchBudgetTrend keywords={keywords} />
       </div>
       <div>
         <BudgetListSection
           tags={tags}
           year={2569}
           version="ฉบับร่าง"
-          data={budgetData}
+          data={displayBudgetList}
         />
       </div>
       <div>

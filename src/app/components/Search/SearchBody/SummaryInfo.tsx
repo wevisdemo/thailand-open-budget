@@ -3,13 +3,13 @@ import ExclamationIcon from "@/app/components/shared/icons/exclamation-icon";
 
 interface SummaryInfoProps {
   itemAmount: number;
-  totalBudget: number;
+  totalBudgetAmount: number;
   totalMinistry: number;
 }
 
 export default function SummaryInfo({
   itemAmount,
-  totalBudget,
+  totalBudgetAmount,
   totalMinistry,
 }: SummaryInfoProps) {
   return (
@@ -22,7 +22,7 @@ export default function SummaryInfo({
         />
         <SummaryInfoStatItem
           label="งบประมาณทั้งหมด (ปีงบฯ 2569)"
-          value={totalBudget.toLocaleString()}
+          value={totalBudgetAmount.toLocaleString()}
           unit="ล้านบาท"
         />
         <SummaryInfoStatItem
