@@ -5,36 +5,30 @@ import Image from "next/image";
 import type { Tag } from "@/types/search";
 import SearchIcon from "@/app/components/shared/icons/search-icon";
 
-const TAG_COLORS = ["#CDD3DA", "#BAE6FF", "#A7F0BA", "#FFD6E8", "#E8DAFF"];
-
 interface SearchPanelProps {
   tags: Tag[];
-  onTagsChange: (tags: Tag[]) => void;
+  addTag: (word: string) => void;
+  removeTag: (word: string) => void;
 }
 
-export default function SearchPanel({ tags, onTagsChange }: SearchPanelProps) {
-  const [counter, setCounter] = useState(0);
+export default function SearchPanel({
+  tags,
+  addTag,
+  removeTag,
+}: SearchPanelProps) {
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function addTag(raw: string) {
+  function handleAdd(raw: string) {
     const word = raw.trim().replace(/,+$/, "").trim();
-    if (word && !tags.find((t) => t.word === word)) {
-      const color = TAG_COLORS[counter % TAG_COLORS.length];
-      onTagsChange([...tags, { word, color }]);
-      setCounter((c) => c + 1);
-    }
+    if (word) addTag(word);
     setInput("");
-  }
-
-  function removeTag(word: string) {
-    onTagsChange(tags.filter((t) => t.word !== word));
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       e.preventDefault();
-      addTag(input);
+      handleAdd(input);
     }
     if (e.key === "Backspace" && input === "" && tags.length > 0) {
       removeTag(tags[tags.length - 1].word);
@@ -44,7 +38,7 @@ export default function SearchPanel({ tags, onTagsChange }: SearchPanelProps) {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const val = e.target.value;
     if (val.endsWith(",")) {
-      addTag(val);
+      handleAdd(val);
     } else {
       setInput(val);
     }

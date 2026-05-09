@@ -5,10 +5,15 @@ import SearchPanel from "./SearchPanel";
 
 interface SearchHeaderProps {
   tags: Tag[];
-  onTagsChange: (tags: Tag[]) => void;
+  addTag: (word: string) => void;
+  removeTag: (word: string) => void;
 }
 
-export default function SearchHeader(props: SearchHeaderProps) {
+export default function SearchHeader({
+  tags,
+  addTag,
+  removeTag,
+}: SearchHeaderProps) {
   return (
     <div className="content-container flex flex-col gap-[8px]">
       <h2 className="font-serif text-[28px] font-bold md:text-[42px]">
@@ -17,13 +22,11 @@ export default function SearchHeader(props: SearchHeaderProps) {
       <p className="text-blue-70 text-b5">
         คีย์เวิร์ดที่พบได้บ่อย และคำที่น่าสนใจในงบประมาณ
       </p>
-      <SearchPanel tags={props.tags} onTagsChange={props.onTagsChange} />
+      <SearchPanel tags={tags} addTag={addTag} removeTag={removeTag} />
       <p className="text-text-02">
         ใช้ , คั่น เพื่อหาหลายคีย์เวิร์ดพร้อมกัน{" "}
-        {props.tags.length > 0 && (
-          <span className="text-gray-30">
-            · {`${props.tags.length} คำที่เลือก`}
-          </span>
+        {tags.length > 0 && (
+          <span className="text-gray-30">· {`${tags.length} คำที่เลือก`}</span>
         )}
       </p>
       <p className="text-blue-70 flex flex-wrap">

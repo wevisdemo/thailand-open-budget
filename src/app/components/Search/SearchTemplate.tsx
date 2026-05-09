@@ -11,7 +11,7 @@ import SearchNotFound from "@/app/components/Search/SearchNotFound";
 import Dropdown, { type DropdownOption } from "../shared/Dropdown";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
 import { useState } from "react";
-import type { Tag } from "@/types/search";
+import { useSearchTags } from "@/app/store/useSearchTags";
 
 interface SearchTemplateProps {
   budgetData: BudgetItem[];
@@ -27,7 +27,7 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
   ];
   const [selectedDocSource, setSelectedDocSource] =
     useState<DropdownOption | null>(docSourceDropdownOptions[0]);
-  const [tags, setTags] = useState<Tag[]>([]);
+  const { tags, setTags, addTag, removeTag } = useSearchTags();
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   const keywords = tags.map((t) => t.word.toLowerCase());
@@ -112,11 +112,11 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
             </div>
           </div>
           <section className="bg-white px-[16px] py-[24px]">
-            <SearchHeader tags={tags} onTagsChange={setTags} />
+            <SearchHeader tags={tags} addTag={addTag} removeTag={removeTag} />
           </section>
         </div>
         {tags.length === 0 ? (
-          <SearchEmptyState />
+          <SearchEmptyState onAddTag={addTag} />
         ) : displayBudgetList.length === 0 ? (
           <SearchNotFound tags={tags} onClear={() => setTags([])} />
         ) : (
