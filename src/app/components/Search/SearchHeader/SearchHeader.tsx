@@ -2,6 +2,7 @@
 
 import type { Tag } from "@/types/search";
 import SearchPanel from "./SearchPanel";
+import TagList from "./TagList";
 
 interface SearchHeaderProps {
   tags: Tag[];
@@ -19,10 +20,8 @@ export default function SearchHeader({
       <h2 className="font-serif text-[28px] font-bold md:text-[42px]">
         สำรวจงบประมาณผ่าน keyword
       </h2>
-      <p className="text-blue-70 text-b5">
-        คีย์เวิร์ดที่พบได้บ่อย และคำที่น่าสนใจในงบประมาณ
-      </p>
       <SearchPanel tags={tags} addTag={addTag} removeTag={removeTag} />
+      <TagList tags={tags} removeTag={removeTag} />
       <p className="text-text-02">
         ใช้ , คั่น เพื่อหาหลายคีย์เวิร์ดพร้อมกัน{" "}
         {tags.length > 0 && (
