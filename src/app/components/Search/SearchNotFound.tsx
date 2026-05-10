@@ -12,6 +12,9 @@ export default function SearchNotFound({ tags, onClear }: SearchNotFoundProps) {
     <div className="relative">
       <div className="flex w-full flex-col items-center justify-center">
         <SearchBodySkeleton />
+        <p className="text-text-03 mt-[16px]">
+          ข้อมูลรายโครงการจะปรากฏขึ้นเมื่อคุณเริ่มค้นหา
+        </p>
       </div>
       <div className="absolute inset-0 flex flex-col items-center gap-[20px] bg-black/40">
         <Image
