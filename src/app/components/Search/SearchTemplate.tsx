@@ -1,10 +1,12 @@
 "use client";
 import type { BudgetItem, BudgetMinistryItem } from "@/types/budget";
+import type { DocSourceValue } from "@/constants/budget";
 import Header from "@/app/components/shared/Header";
 import AboutSection from "@/app/components/shared/AboutSection";
 import Breadcrumb from "@/app/components/shared/Breadcrumb";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
+import SearchBodySkeleton from "@/app/components/Search/SearchBody/SearchBodySkeleton";
 import SummaryInfo from "@/app/components/Search/SearchBody/SummaryInfo";
 import SearchEmptyState from "@/app/components/Search/SearchEmptyState";
 import SearchNotFound from "@/app/components/Search/SearchNotFound";
@@ -12,22 +14,24 @@ import Dropdown, { type DropdownOption } from "../shared/Dropdown";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
 import { useState } from "react";
 import { useSearchTags } from "@/app/store/useSearchTags";
+import { useBudgetData } from "@/hooks/useBudgetData";
 
-interface SearchTemplateProps {
-  budgetData: BudgetItem[];
-}
+const DOC_SOURCE_OPTIONS: DropdownOption[] = [
+  { value: "2566-draft-1", label: "2566 ฉบับร่าง (วาระ 1)" },
+  { value: "2567-draft-1", label: "2567 ฉบับร่าง (วาระ 1)" },
+  { value: "2568-draft-1", label: "2568 ฉบับร่าง (วาระ 1)" },
+  { value: "2569-draft-1", label: "2569 ฉบับร่าง (วาระ 1)" },
+  { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
+];
 
-export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
-  const docSourceDropdownOptions: DropdownOption[] = [
-    { value: "2566-draft-1", label: "2566 ฉบับร่าง (วาระ 1)" },
-    { value: "2567-draft-1", label: "2567 ฉบับร่าง (วาระ 1)" },
-    { value: "2568-draft-1", label: "2568 ฉบับร่าง (วาระ 1)" },
-    { value: "2569-draft-1", label: "2569 ฉบับร่าง (วาระ 1)" },
-    { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
-  ];
+export default function SearchTemplate() {
   const [selectedDocSource, setSelectedDocSource] =
-    useState<DropdownOption | null>(docSourceDropdownOptions[0]);
+    useState<DropdownOption | null>(DOC_SOURCE_OPTIONS[2]); // default: 2568
   const { tags, setTags, addTag, removeTag } = useSearchTags();
+
+  const { data: budgetData, status } = useBudgetData(
+    (selectedDocSource?.value as DocSourceValue) ?? null,
+  );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   const keywords = tags.map((t) => t.word.toLowerCase());
@@ -100,7 +104,7 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
             />
             <div className="w-[220px]">
               <Dropdown
-                options={docSourceDropdownOptions}
+                options={DOC_SOURCE_OPTIONS}
                 selectedOption={selectedDocSource}
                 onChange={setSelectedDocSource}
                 placeholder="Choose an option"
@@ -115,7 +119,9 @@ export default function SearchTemplate({ budgetData }: SearchTemplateProps) {
             <SearchHeader tags={tags} addTag={addTag} removeTag={removeTag} />
           </section>
         </div>
-        {tags.length === 0 ? (
+        {status === "loading" ? (
+          <SearchBodySkeleton />
+        ) : tags.length === 0 ? (
           <SearchEmptyState onAddTag={addTag} />
         ) : displayBudgetList.length === 0 ? (
           <SearchNotFound tags={tags} onClear={() => setTags([])} />

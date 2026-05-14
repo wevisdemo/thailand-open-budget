@@ -1,13 +1,17 @@
 export interface BudgetItem {
   id: string;
-  description: string;
   ministry: string;
+  budgetary: string;
+  plan: string;
+  crossFunc: boolean;
+  output: string;
   project: string;
+  category: string;
+  categoryLv2: string;
+  description: string;
   amount: number;
   year: number;
-  category: string;
-  plan: string;
-  budgetary: string;
+  obliged: boolean;
 }
 
 export interface BudgetMinistryItem {
