@@ -12,7 +12,8 @@ import SearchEmptyState from "@/app/components/Search/SearchEmptyState";
 import SearchNotFound from "@/app/components/Search/SearchNotFound";
 import Dropdown, { type DropdownOption } from "../shared/Dropdown";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
 
@@ -25,9 +26,28 @@ const DOC_SOURCE_OPTIONS: DropdownOption[] = [
 ];
 
 export default function SearchTemplate() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const initialSource = searchParams.get("budget_source");
+  const initialKeywords = searchParams.getAll("q");
+
   const [selectedDocSource, setSelectedDocSource] =
-    useState<DropdownOption | null>(DOC_SOURCE_OPTIONS[2]); // default: 2568
-  const { tags, setTags, addTag, removeTag } = useSearchTags();
+    useState<DropdownOption | null>(
+      DOC_SOURCE_OPTIONS.find((o) => o.value === initialSource) ??
+        DOC_SOURCE_OPTIONS[2],
+    );
+  const { tags, setTags, addTag, removeTag } = useSearchTags(initialKeywords);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    tags.forEach((t) => params.append("q", t.word));
+    if (selectedDocSource) params.set("budget_source", selectedDocSource.value);
+    if (params.toString() !== searchParams.toString()) {
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    }
+  }, [tags, selectedDocSource, pathname, router, searchParams]);
 
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
