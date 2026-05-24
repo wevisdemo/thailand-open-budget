@@ -26,20 +26,15 @@ const SHEET_NAME = process.argv[2] || "2568_drafted";
 const OUT_DIR = join(__dirname, "..", "public", "data");
 const OUT_FILE = join(OUT_DIR, `budget_${SHEET_NAME}.json`);
 
-// Columns to keep — strips REF_DOC and REF_PAGE_NO (large/unused)
+// Columns to keep — strips REF_DOC, REF_PAGE_NO, and fields unused by the UI
 const COLUMN_MAP = {
   MINISTRY: "ministry",
   BUDGETARY_UNIT: "budgetary",
   BUDGET_PLAN: "plan",
-  "CROSS_FUNC?": "crossFunc",
-  OUTPUT: "output",
   PROJECT: "project",
   CATEGORY_LV1: "category",
-  CATEGORY_LV2: "categoryLv2",
   ITEM_DESCRIPTION: "description",
   AMOUNT: "amount",
-  FISCAL_YEAR: "year",
-  "OBLIGED?": "obliged",
 };
 
 const SHEET_GID_MAP = {
@@ -103,22 +98,16 @@ function parseCSV(csv) {
   }
 
   return dataLines
-    .map((line, i) => {
+    .map((line) => {
       const row = parseRow(line);
       return {
-        id: String(i + 1),
         ministry: row[colIndex.MINISTRY] || "",
         budgetary: row[colIndex.BUDGETARY_UNIT] || "",
         plan: row[colIndex.BUDGET_PLAN] || "",
-        crossFunc: row[colIndex["CROSS_FUNC?"]] === "TRUE",
-        output: row[colIndex.OUTPUT] || "",
         project: row[colIndex.PROJECT] || "",
         category: row[colIndex.CATEGORY_LV1] || "",
-        categoryLv2: row[colIndex.CATEGORY_LV2] || "",
         description: row[colIndex.ITEM_DESCRIPTION] || "",
         amount: Number(row[colIndex.AMOUNT]?.replace(/,/g, "")) || 0,
-        year: Number(row[colIndex.FISCAL_YEAR]) || 0,
-        obliged: row[colIndex["OBLIGED?"]] === "TRUE",
       };
     })
     .filter((item) => item.amount > 0);
