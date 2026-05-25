@@ -1,6 +1,10 @@
 "use client";
 
-import type { BudgetItem, BudgetMinistryItem } from "@/types/budget";
+import type {
+  BudgetItem,
+  BudgetMinistryItem,
+  BudgetYearTotal,
+} from "@/types/budget";
 import type { Tag } from "@/types/search";
 import SearchBudgetProportion from "./SearchBudgetProportion";
 import SearchBudgetTrend from "./SearchBudgetTrend";
@@ -11,6 +15,7 @@ interface SearchBodyProps {
   displayBudgetList: BudgetItem[];
   ministryData: BudgetMinistryItem[];
   tags: Tag[];
+  yearTotals: BudgetYearTotal[];
 }
 
 export default function SearchBody({
@@ -18,6 +23,7 @@ export default function SearchBody({
   displayBudgetList,
   ministryData,
   tags,
+  yearTotals,
 }: SearchBodyProps) {
   const keywords = tags.map((t) => t.word);
 
@@ -33,7 +39,7 @@ export default function SearchBody({
           filteredBudget={totalDisplayBudget}
           totalBudget={totalBudgetAmount}
         />
-        <SearchBudgetTrend keywords={keywords} />
+        <SearchBudgetTrend keywords={keywords} yearTotals={yearTotals} />
       </div>
       <div>
         <BudgetListSection

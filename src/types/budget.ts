@@ -8,6 +8,13 @@ export interface BudgetItem {
   amount: number;
 }
 
+export interface BudgetYearTotal {
+  year: number;
+  isCurrent: boolean;
+  totalSelectedBaht: number;
+  totalBudgetBaht: number;
+}
+
 export interface BudgetMinistryItem {
   id: string;
   ministry: string;

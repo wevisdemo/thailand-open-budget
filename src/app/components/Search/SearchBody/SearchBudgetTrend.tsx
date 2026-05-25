@@ -3,21 +3,33 @@
 import { useState } from "react";
 import DownloadIcon from "../../shared/icons/download-icon";
 import SearchLineChart from "./SearchLineChart";
-
-const mockTrendData = [
-  { year: 2567, value: 2800, isCurrent: false },
-  { year: 2568, value: 4200, isCurrent: false },
-  { year: 2569, value: 5300, isCurrent: true },
-];
+import type { BudgetYearTotal } from "@/types/budget";
 
 type BudgetUnit = "million" | "percent";
 
 interface SearchBudgetTrendProps {
   keywords: string[];
+  yearTotals: BudgetYearTotal[];
 }
 
-export default function SearchBudgetTrend(props: SearchBudgetTrendProps) {
+export default function SearchBudgetTrend({
+  keywords,
+  yearTotals,
+}: SearchBudgetTrendProps) {
   const [unit, setUnit] = useState<BudgetUnit>("million");
+
+  const trendData = yearTotals.map(
+    ({ year, totalSelectedBaht: totalBaht, totalBudgetBaht, isCurrent }) => ({
+      year,
+      isCurrent,
+      value:
+        unit === "million"
+          ? totalBaht / 1_000_000
+          : totalBudgetBaht > 0
+            ? (totalBaht / totalBudgetBaht) * 100
+            : 0,
+    }),
+  );
 
   return (
     <div className="flex w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
@@ -29,9 +41,9 @@ export default function SearchBudgetTrend(props: SearchBudgetTrendProps) {
           <div className="flex flex-col justify-between md:flex-row md:items-end">
             <div className="shrink-1">
               <p className="text-[16px] font-bold">
-                ที่เกี่ยวข้องกับ &apos;{props.keywords.join(", ")}&apos;
+                ที่เกี่ยวข้องกับ &apos;{keywords.join(", ")}&apos;
               </p>
-              <p className="text-text-01">ปีงบฯ 2569 · ฉบับร่าง</p>
+              <p className="text-text-01">ปีงบฯ 2568–2569 · ฉบับร่าง</p>
             </div>
             <button className="text-gray-70 border-gray-20 flex h-fit w-fit shrink-0 items-center gap-[8px] border px-[15px] py-[9px] font-medium hover:cursor-pointer">
               <DownloadIcon color="currentColor" />
@@ -62,7 +74,9 @@ export default function SearchBudgetTrend(props: SearchBudgetTrendProps) {
             ร้อยละ (%)
           </button>
         </div>
-        <SearchLineChart data={mockTrendData} />
+        {trendData.length > 0 && (
+          <SearchLineChart data={trendData} unit={unit} />
+        )}
       </div>
     </div>
   );

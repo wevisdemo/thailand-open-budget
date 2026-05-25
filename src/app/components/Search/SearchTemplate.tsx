@@ -1,5 +1,9 @@
 "use client";
-import type { BudgetItem, BudgetMinistryItem } from "@/types/budget";
+import type {
+  BudgetItem,
+  BudgetMinistryItem,
+  BudgetYearTotal,
+} from "@/types/budget";
 import type { DocSourceValue } from "@/constants/budget";
 import Header from "@/app/components/shared/Header";
 import AboutSection from "@/app/components/shared/AboutSection";
@@ -52,9 +56,39 @@ export default function SearchTemplate() {
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
   );
+  const { data: budget2568 } = useBudgetData("2568-draft-1");
+  const { data: budget2569 } = useBudgetData("2569-draft-1");
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   const keywords = tags.map((t) => t.word.toLowerCase());
+
+  function filterTotal(data: BudgetItem[]): number {
+    return data
+      .filter((item) =>
+        keywords.some(
+          (kw) =>
+            item.description.toLowerCase().includes(kw) ||
+            item.project.toLowerCase().includes(kw) ||
+            item.plan.toLowerCase().includes(kw),
+        ),
+      )
+      .reduce((sum, item) => sum + item.amount, 0);
+  }
+
+  const yearTotals: BudgetYearTotal[] = [
+    {
+      year: 2568,
+      isCurrent: false,
+      totalSelectedBaht: filterTotal(budget2568),
+      totalBudgetBaht: budget2568.reduce((s, i) => s + i.amount, 0),
+    },
+    {
+      year: 2569,
+      isCurrent: true,
+      totalSelectedBaht: filterTotal(budget2569),
+      totalBudgetBaht: budget2569.reduce((s, i) => s + i.amount, 0),
+    },
+  ];
   const displayBudgetList = budgetData.filter((item) =>
     keywords.some(
       (kw) =>
@@ -160,6 +194,7 @@ export default function SearchTemplate() {
                 displayBudgetList={displayBudgetList}
                 ministryData={displayMinistryList}
                 tags={tags}
+                yearTotals={yearTotals}
               />
             </section>
           </>

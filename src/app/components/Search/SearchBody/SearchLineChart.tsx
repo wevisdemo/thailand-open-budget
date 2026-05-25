@@ -6,12 +6,15 @@ interface TrendDataPoint {
 
 interface SearchLineChartProps {
   data: TrendDataPoint[];
+  unit: "million" | "percent";
 }
 
-function formatValue(v: number): string {
+function formatValue(v: number, unit: "million" | "percent"): string {
+  if (unit === "percent") return `${v.toFixed(2)}%`;
   if (v === 0) return "0";
-  if (v >= 1000) return `${(v / 1000).toFixed(1)}K`;
-  return `${v}`;
+  if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}B`;
+  if (v >= 1_000) return `${(v / 1_000).toFixed(1)}K`;
+  return `${v.toFixed(0)}`;
 }
 
 function getNiceTicks(max: number, count: number): number[] {
@@ -21,10 +24,10 @@ function getNiceTicks(max: number, count: number): number[] {
   return Array.from({ length: count }, (_, i) => step * i);
 }
 
-export default function SearchLineChart({ data }: SearchLineChartProps) {
+export default function SearchLineChart({ data, unit }: SearchLineChartProps) {
   const W = 600;
   const H = 300;
-  const pl = 64;
+  const pl = 90;
   const pr = 40;
   const pt = 20;
   const pb = 40;
@@ -60,7 +63,7 @@ export default function SearchLineChart({ data }: SearchLineChartProps) {
             fontSize="16"
             fill="#8d8d8d"
           >
-            {formatValue(tick)}
+            {formatValue(tick, unit)}
           </text>
           <line
             x1={pl}
