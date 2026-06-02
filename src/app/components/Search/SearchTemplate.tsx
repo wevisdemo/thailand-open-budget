@@ -22,11 +22,9 @@ import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
 
 const DOC_SOURCE_OPTIONS: DropdownOption[] = [
-  { value: "2566-draft-1", label: "2566 ฉบับร่าง (วาระ 1)" },
-  { value: "2567-draft-1", label: "2567 ฉบับร่าง (วาระ 1)" },
   { value: "2568-draft-1", label: "2568 ฉบับร่าง (วาระ 1)" },
   { value: "2569-draft-1", label: "2569 ฉบับร่าง (วาระ 1)" },
-  { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
+  // { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
 ];
 
 export default function SearchTemplate() {
@@ -149,7 +147,7 @@ export default function SearchTemplate() {
       />
       <div className="flex flex-col">
         <div>
-          <div className="border-gray-20 flex items-center justify-between border-b-[2px] bg-white px-[32px] py-[4px]">
+          <div className="border-gray-20 flex items-center justify-between border-b-[2px] bg-white px-[8px] py-[4px] md:px-[32px]">
             <Breadcrumb
               items={[
                 { label: "หน้าหลัก", href: "/" },
