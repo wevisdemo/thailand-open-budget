@@ -66,7 +66,7 @@ export default function BudgetListTable({
         isOpen={projectInfoOpen}
         onClose={() => setProjectInfoOpen(false)}
       />
-      <div className="overflow-x-auto">
+      <div className="mr-[-16px] overflow-x-auto pr-[16px] md:mr-0 md:pr-[0px]">
         <table className="w-full min-w-[800px] border-collapse text-[14px]">
           <thead>
             <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
