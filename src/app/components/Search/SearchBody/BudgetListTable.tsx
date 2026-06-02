@@ -66,79 +66,83 @@ export default function BudgetListTable({
         isOpen={projectInfoOpen}
         onClose={() => setProjectInfoOpen(false)}
       />
-      <table className="w-full border-collapse text-[14px]">
-        <thead>
-          <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
-            <th className="px-[16px] py-[8px]" />
-            <th className="w-[30%] px-[16px] py-[8px] text-left font-semibold">
-              รายการ
-            </th>
-            <th
-              className="ml-auto flex justify-end gap-[16px] px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
-              onClick={() =>
-                onSortDirChange(sortDir === "desc" ? "asc" : "desc")
-              }
-            >
-              จำนวนเงิน
-              <ArrowsVerticalIcon />
-            </th>
-            <th className="w-[18%] px-[16px] py-[8px] text-left font-semibold">
-              <span className="flex items-center gap-[8px]">
-                โครงการ/ผลผลิต
-                <button
-                  type="button"
-                  onClick={() => setProjectInfoOpen(true)}
-                  className="cursor-pointer"
-                >
-                  <InformationIcon />
-                </button>
-              </span>
-            </th>
-            <th className="px-[16px] py-[8px] text-left font-semibold">
-              แผนงาน
-            </th>
-            <th className="w-[20%] px-[16px] py-[8px] text-left font-semibold">
-              หน่วยงาน
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {pageItems.map((item, index) => (
-            <tr
-              key={index}
-              className="border-ui-03 hover:bg-ui-01 border-b bg-white align-top leading-[18px] transition-colors"
-            >
-              <td className="text-text-02 px-[16px] py-[16px]">
-                {startIndex + index + 1}
-              </td>
-              <td className="max-w-[280px] px-[16px] py-[16px]">
-                <p className="font-bold">
-                  {highlightTags(item.description, tags)}
-                </p>
-                <p className="text-gray-60">หมวดงบประมาณ: {item.category}</p>
-              </td>
-              <td className="px-[16px] py-[16px] text-right whitespace-nowrap">
-                {item.amount.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                }) || "-"}
-              </td>
-              <td className="px-[16px] py-[16px]">
-                {item.project ? highlightTags(item.project, tags) : "-"}
-              </td>
-              <td className="px-[16px] py-[16px]">
-                {item.plan ? highlightTags(item.plan, tags) : "-"}
-              </td>
-              <td className="px-[16px] py-[16px]">
-                <p>{item.budgetary}</p>
-                {item.ministry && (
-                  <p className="text-gray-60">{item.ministry}</p>
-                )}
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[800px] border-collapse text-[14px]">
+          <thead>
+            <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
+              <th className="px-[16px] py-[8px]" />
+              <th className="w-[30%] px-[16px] py-[8px] text-left font-semibold">
+                รายการ
+              </th>
+              <th
+                className="px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
+                onClick={() =>
+                  onSortDirChange(sortDir === "desc" ? "asc" : "desc")
+                }
+              >
+                <span className="flex items-center justify-end gap-[8px]">
+                  จำนวนเงิน
+                  <ArrowsVerticalIcon />
+                </span>
+              </th>
+              <th className="w-[18%] px-[16px] py-[8px] text-left font-semibold">
+                <span className="flex items-center gap-[8px]">
+                  โครงการ/ผลผลิต
+                  <button
+                    type="button"
+                    onClick={() => setProjectInfoOpen(true)}
+                    className="cursor-pointer"
+                  >
+                    <InformationIcon />
+                  </button>
+                </span>
+              </th>
+              <th className="px-[16px] py-[8px] text-left font-semibold">
+                แผนงาน
+              </th>
+              <th className="w-[20%] px-[16px] py-[8px] text-left font-semibold">
+                หน่วยงาน
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {pageItems.map((item, index) => (
+              <tr
+                key={index}
+                className="border-ui-03 hover:bg-ui-01 border-b bg-white align-top leading-[18px] transition-colors"
+              >
+                <td className="text-text-02 px-[16px] py-[16px]">
+                  {startIndex + index + 1}
+                </td>
+                <td className="max-w-[280px] px-[16px] py-[16px]">
+                  <p className="font-bold">
+                    {highlightTags(item.description, tags)}
+                  </p>
+                  <p className="text-gray-60">หมวดงบประมาณ: {item.category}</p>
+                </td>
+                <td className="px-[16px] py-[16px] text-right whitespace-nowrap">
+                  {item.amount.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }) || "-"}
+                </td>
+                <td className="px-[16px] py-[16px]">
+                  {item.project ? highlightTags(item.project, tags) : "-"}
+                </td>
+                <td className="px-[16px] py-[16px]">
+                  {item.plan ? highlightTags(item.plan, tags) : "-"}
+                </td>
+                <td className="px-[16px] py-[16px]">
+                  <p>{item.budgetary}</p>
+                  {item.ministry && (
+                    <p className="text-gray-60">{item.ministry}</p>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <Paginate
         page={page}
         totalPages={totalPages}
