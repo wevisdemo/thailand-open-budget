@@ -14,7 +14,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative flex h-[44px] items-center justify-between bg-black px-[10px] md:h-[58px] md:px-[32px]">
+    <header className="relative z-20 flex h-[44px] items-center justify-between bg-black px-[10px] md:h-[58px] md:px-[32px]">
       <Link href="/">
         <WevisIcon
           color="white"

@@ -68,6 +68,7 @@ export default function AboutData() {
           <a
             href="https://creativecommons.org/licenses/by-nc/4.0/"
             target="_blank"
+            className="text-inverse-link underline"
           >
             Attribution-NonCommercial 4.0 International
           </a>{" "}
@@ -91,6 +92,7 @@ export default function AboutData() {
           <a
             href="https://creativecommons.org/licenses/by-nc/4.0/"
             target="_blank"
+            className="text-inverse-link underline"
           >
             Attribution-NonCommercial 4.0 International
           </a>{" "}

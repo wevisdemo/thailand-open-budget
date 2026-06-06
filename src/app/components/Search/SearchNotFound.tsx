@@ -16,7 +16,7 @@ export default function SearchNotFound({ tags, onClear }: SearchNotFoundProps) {
           ข้อมูลรายโครงการจะปรากฏขึ้นเมื่อคุณเริ่มค้นหา
         </p>
       </div>
-      <div className="absolute inset-0 flex flex-col items-center gap-[20px] bg-black/40">
+      <div className="absolute inset-0 flex flex-col items-center gap-[20px] bg-black/40 p-[16px]">
         <Image
           src="/icons/search-not-found.svg"
           alt="search not found"
