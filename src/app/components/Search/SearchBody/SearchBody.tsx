@@ -16,6 +16,8 @@ interface SearchBodyProps {
   ministryData: BudgetMinistryItem[];
   tags: Tag[];
   yearTotals: BudgetYearTotal[];
+  year: number;
+  version: string;
 }
 
 export default function SearchBody({
@@ -24,6 +26,8 @@ export default function SearchBody({
   ministryData,
   tags,
   yearTotals,
+  year,
+  version,
 }: SearchBodyProps) {
   const keywords = tags.map((t) => t.word);
 
@@ -38,22 +42,28 @@ export default function SearchBody({
           keywords={keywords}
           filteredBudget={totalDisplayBudget}
           totalBudget={totalBudgetAmount}
+          year={year}
+          version={version}
         />
-        <SearchBudgetTrend keywords={keywords} yearTotals={yearTotals} />
+        <SearchBudgetTrend
+          keywords={keywords}
+          yearTotals={yearTotals}
+          version={version}
+        />
       </div>
       <div>
         <BudgetListSection
           tags={tags}
-          year={2569}
-          version="ฉบับร่าง"
+          year={year}
+          version={version}
           data={displayBudgetList}
         />
       </div>
       <div>
         <BudgetMinistryListSection
           keywords={keywords}
-          year={2569}
-          version="ฉบับร่าง"
+          year={year}
+          version={version}
           data={ministryData}
         />
       </div>

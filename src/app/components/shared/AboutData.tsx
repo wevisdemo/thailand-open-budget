@@ -1,4 +1,3 @@
-import Link from "next/link";
 import DownloadIcon from "./icons/download-icon";
 
 export default function AboutData() {

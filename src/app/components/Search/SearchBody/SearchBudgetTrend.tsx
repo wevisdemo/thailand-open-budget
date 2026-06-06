@@ -10,11 +10,13 @@ type BudgetUnit = "million" | "percent";
 interface SearchBudgetTrendProps {
   keywords: string[];
   yearTotals: BudgetYearTotal[];
+  version: string;
 }
 
 export default function SearchBudgetTrend({
   keywords,
   yearTotals,
+  version,
 }: SearchBudgetTrendProps) {
   const [unit, setUnit] = useState<BudgetUnit>("million");
 
@@ -43,7 +45,14 @@ export default function SearchBudgetTrend({
               <p className="text-[16px] font-bold">
                 ที่เกี่ยวข้องกับ &apos;{keywords.join(", ")}&apos;
               </p>
-              <p className="text-text-01">ปีงบฯ 2568–2569 · ฉบับร่าง</p>
+              <p className="text-text-01">
+                ปีงบฯ{" "}
+                {yearTotals
+                  .map((t) => t.year)
+                  .sort((a, b) => a - b)
+                  .join("–")}{" "}
+                · {version}
+              </p>
             </div>
             <button className="text-gray-70 border-gray-20 flex h-fit w-fit shrink-0 items-center gap-[8px] border px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer">
               <DownloadIcon color="currentColor" />

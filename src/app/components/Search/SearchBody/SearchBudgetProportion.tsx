@@ -4,6 +4,8 @@ interface SearchBudgetProportionProps {
   keywords: string[];
   filteredBudget: number;
   totalBudget: number;
+  year: number;
+  version: string;
 }
 
 export default function SearchBudgetProportion(
@@ -22,7 +24,9 @@ export default function SearchBudgetProportion(
           ที่เกี่ยวข้องกับ &apos;{props.keywords.join(", ")}&apos; เทียบกับงบฯ
           ประเทศ
         </p>
-        <p className="text-text-01">ปีงบฯ 2569 · ฉบับร่าง</p>
+        <p className="text-text-01">
+          ปีงบฯ {props.year} · {props.version}
+        </p>
       </div>
       <div className="flex flex-1 items-center justify-center">
         <SearchDonutChart percentage={percentage} />

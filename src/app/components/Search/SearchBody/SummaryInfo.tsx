@@ -5,12 +5,14 @@ interface SummaryInfoProps {
   itemAmount: number;
   totalBudgetAmount: number;
   totalMinistry: number;
+  year: number;
 }
 
 export default function SummaryInfo({
   itemAmount,
   totalBudgetAmount,
   totalMinistry,
+  year,
 }: SummaryInfoProps) {
   return (
     <div className="content-container flex flex-col gap-[24px] bg-white md:gap-[8px]">
@@ -21,7 +23,7 @@ export default function SummaryInfo({
           unit="รายการ"
         />
         <SummaryInfoStatItem
-          label="งบประมาณทั้งหมด (ปีงบฯ 2569)"
+          label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
           value={totalBudgetAmount.toLocaleString()}
           unit="ล้านบาท"
         />

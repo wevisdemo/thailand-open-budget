@@ -9,17 +9,18 @@ const PAGE_SIZE = 10;
 
 interface BudgetMinistryListTableProps {
   data: BudgetMinistryItem[];
+  sortDir: "asc" | "desc";
+  onSortDirChange: (dir: "asc" | "desc") => void;
 }
 
 export default function BudgetMinistryListTable({
   data,
+  sortDir,
+  onSortDirChange,
 }: BudgetMinistryListTableProps) {
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [page, setPage] = useState(1);
 
-  const sorted = [...data].sort((a, b) =>
-    sortDir === "desc" ? b.amount - a.amount : a.amount - b.amount,
-  );
+  const sorted = data;
 
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
   const startIndex = (page - 1) * PAGE_SIZE;
@@ -39,7 +40,7 @@ export default function BudgetMinistryListTable({
               <th
                 className="px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
                 onClick={() =>
-                  setSortDir((d) => (d === "desc" ? "asc" : "desc"))
+                  onSortDirChange(sortDir === "desc" ? "asc" : "desc")
                 }
               >
                 <span className="flex items-center justify-end gap-[8px]">

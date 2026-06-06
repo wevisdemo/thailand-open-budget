@@ -184,6 +184,9 @@ export default function SearchTemplate() {
                 itemAmount={summaryInfo.itemAmount}
                 totalBudgetAmount={summaryInfo.totalBudgetAmount}
                 totalMinistry={summaryInfo.totalMinistry}
+                year={
+                  selectedDocSource ? parseInt(selectedDocSource.value) : 2569
+                }
               />
             </section>
             <section className="px-[24px] py-[40px]">
@@ -193,6 +196,14 @@ export default function SearchTemplate() {
                 ministryData={displayMinistryList}
                 tags={tags}
                 yearTotals={yearTotals}
+                year={
+                  selectedDocSource ? parseInt(selectedDocSource.value) : 2569
+                }
+                version={
+                  selectedDocSource
+                    ? selectedDocSource.label.replace(/^\d{4}\s*/, "")
+                    : ""
+                }
               />
             </section>
           </>

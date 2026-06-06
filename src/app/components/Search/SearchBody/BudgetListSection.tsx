@@ -16,6 +16,46 @@ interface BudgetListSectionProps {
 export default function BudgetListSection(props: BudgetListSectionProps) {
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
+  function handleExportCSV() {
+    const headers = [
+      "ลำดับ",
+      "รายการ",
+      "หมวดงบประมาณ",
+      "จำนวนเงิน (บาท)",
+      "โครงการ/ผลผลิต",
+      "แผนงาน",
+      "หน่วยงาน",
+      "กระทรวง",
+    ];
+    const rows = props.data.map((item, index) => [
+      index + 1,
+      item.description,
+      item.category,
+      item.amount.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }) || "-",
+      item.project || "-",
+      item.plan || "-",
+      item.budgetary,
+      item.ministry,
+    ]);
+
+    const csv = [headers, ...rows]
+      .map((row) =>
+        row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","),
+      )
+      .join("\n");
+
+    const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `budget_${props.year}_${props.tags.map((t) => t.word).join("_")}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <div>
       <div className="flex flex-col justify-between pb-[14px] md:flex-row">
@@ -37,7 +77,10 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
             </span>
           </p>
         </div>
-        <button className="text-gray-70 border-gray-20 mt-auto flex h-fit w-fit shrink-0 items-center gap-[8px] border bg-white px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer">
+        <button
+          onClick={handleExportCSV}
+          className="text-gray-70 border-gray-20 mt-auto flex h-fit w-fit shrink-0 items-center gap-[8px] border bg-white px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer"
+        >
           <DownloadIcon color="currentColor" />
           ดาวน์โหลดตารางนี้
         </button>
