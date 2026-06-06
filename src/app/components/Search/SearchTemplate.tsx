@@ -33,23 +33,25 @@ export default function SearchTemplate() {
   const searchParams = useSearchParams();
 
   const initialSource = searchParams.get("budget_source");
-  const initialKeywords = searchParams.getAll("q");
+  const initialKeywords =
+    searchParams.get("q")?.split(",").filter(Boolean) ?? [];
 
   const [selectedDocSource, setSelectedDocSource] =
     useState<DropdownOption | null>(
       DOC_SOURCE_OPTIONS.find((o) => o.value === initialSource) ??
-        DOC_SOURCE_OPTIONS[2],
+        DOC_SOURCE_OPTIONS[DOC_SOURCE_OPTIONS.length - 1],
     );
   const { tags, setTags, addTag, removeTag } = useSearchTags(initialKeywords);
 
   useEffect(() => {
     const params = new URLSearchParams();
-    tags.forEach((t) => params.append("q", t.word));
+    if (tags.length > 0) params.set("q", tags.map((t) => t.word).join(","));
     if (selectedDocSource) params.set("budget_source", selectedDocSource.value);
-    if (params.toString() !== searchParams.toString()) {
-      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    const paramString = params.toString();
+    if (`?${paramString}` !== window.location.search) {
+      router.replace(`${pathname}?${paramString}`, { scroll: false });
     }
-  }, [tags, selectedDocSource, pathname, router, searchParams]);
+  }, [tags, selectedDocSource, pathname, router]);
 
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
