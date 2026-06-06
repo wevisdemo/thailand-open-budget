@@ -43,23 +43,32 @@ export default function SearchPanel({
   }
 
   return (
-    <div
-      className="bg-field-01 border-ui-04 flex min-h-[48px] items-center gap-[4px] border-b-[2px] px-[16px] py-[8px] hover:cursor-text"
-      onClick={() => inputRef.current?.focus()}
-    >
-      <SearchIcon
-        color="#525252"
-        className="mr-[8px] h-[16px] w-[16px] shrink-0"
-      />
-      <input
-        ref={inputRef}
-        type="text"
-        value={input}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        placeholder="เพิ่มคำ... (คั่นด้วย ,)"
-        className="text-text-01 placeholder:text-text-03 min-w-[120px] flex-1 bg-transparent text-[14px] focus:outline-none"
-      />
+    <div className="flex items-stretch">
+      <div
+        className="bg-field-01 border-ui-04 flex min-h-[48px] flex-1 items-center gap-[4px] border-b-[2px] px-[16px] py-[8px] hover:cursor-text"
+        onClick={() => inputRef.current?.focus()}
+      >
+        <SearchIcon
+          color="#525252"
+          className="mr-[8px] h-[16px] w-[16px] shrink-0"
+        />
+        <input
+          ref={inputRef}
+          type="text"
+          value={input}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          placeholder="เพิ่มคำ... (คั่นด้วย ,)"
+          className="text-text-01 placeholder:text-text-03 min-w-[120px] flex-1 bg-transparent text-[14px] focus:outline-none"
+        />
+      </div>
+      <button
+        type="button"
+        onClick={() => handleAdd(input)}
+        className="bg-interactive-01 shrink-0 px-[24px] text-[12px] font-semibold text-white hover:cursor-pointer hover:opacity-90"
+      >
+        ค้นหา
+      </button>
     </div>
   );
 }
