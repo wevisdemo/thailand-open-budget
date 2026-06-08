@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import SearchTemplate from "@/app/components/Search/SearchTemplate";
 
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function SearchPage() {
-  return <SearchTemplate />;
+  return (
+    <Suspense>
+      <SearchTemplate />
+    </Suspense>
+  );
 }
