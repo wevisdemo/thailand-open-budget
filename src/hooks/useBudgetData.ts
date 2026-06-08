@@ -3,6 +3,7 @@
 import { useReducer, useEffect } from "react";
 import type { BudgetItem } from "@/types/budget";
 import { type DocSourceValue, DOC_SOURCE_DATA_FILE } from "@/constants/budget";
+import { withBasePath } from "@/lib/base-path";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -39,7 +40,7 @@ export function useBudgetData(docSource: DocSourceValue | null) {
     const fileName = DOC_SOURCE_DATA_FILE[docSource];
     dispatch({ type: "loading" });
 
-    fetch(`/data/${fileName}.json`)
+    fetch(withBasePath(`/data/${fileName}.json`))
       .then((res) => {
         if (!res.ok) throw new Error(`${res.status}`);
         return res.json() as Promise<BudgetItem[]>;

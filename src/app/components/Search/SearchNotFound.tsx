@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SearchBodySkeleton from "@/app/components/Search/SearchBody/SearchBodySkeleton";
 import type { Tag } from "@/types/search";
+import { withBasePath } from "@/lib/base-path";
 
 interface SearchNotFoundProps {
   tags: Tag[];
@@ -18,7 +19,7 @@ export default function SearchNotFound({ tags, onClear }: SearchNotFoundProps) {
       </div>
       <div className="absolute inset-0 flex flex-col items-center gap-[20px] bg-black/40 p-[16px]">
         <Image
-          src="/icons/search-not-found.svg"
+          src={withBasePath("/icons/search-not-found.svg")}
           alt="search not found"
           width={36}
           height={36}

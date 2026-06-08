@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Tag } from "@/types/search";
+import { withBasePath } from "@/lib/base-path";
 
 interface TagListProps {
   tags: Tag[];
@@ -25,7 +26,12 @@ export default function TagList({ tags, removeTag }: TagListProps) {
             className="text-text-02 hover:text-text-01 leading-none hover:cursor-pointer"
             aria-label={`remove ${tag.word}`}
           >
-            <Image src="/icons/cross.svg" width={8} height={8} alt="" />
+            <Image
+              src={withBasePath("/icons/cross.svg")}
+              width={8}
+              height={8}
+              alt=""
+            />
           </button>
         </span>
       ))}

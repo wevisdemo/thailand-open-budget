@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import { withBasePath } from "@/lib/base-path";
 
 interface ModalProps {
   isOpen: boolean;
@@ -42,7 +43,12 @@ export default function Modal({
             onClick={onClose}
             className="mt-[4px] shrink-0 hover:cursor-pointer"
           >
-            <Image src="/icons/cross.svg" width={10} height={10} alt="ปิด" />
+            <Image
+              src={withBasePath("/icons/cross.svg")}
+              width={10}
+              height={10}
+              alt="ปิด"
+            />
           </button>
         </div>
         {children}

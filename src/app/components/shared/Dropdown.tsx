@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import DownAngleIcon from "@/app/components/shared/icons/down-angle-icon";
+import { withBasePath } from "@/lib/base-path";
 
 export interface DropdownOption {
   value: string;
@@ -74,7 +75,7 @@ export default function Dropdown({
                   {option.label}
                   {value?.value === option.value && (
                     <Image
-                      src="/icons/checkmark.svg"
+                      src={withBasePath("/icons/checkmark.svg")}
                       width={16}
                       height={16}
                       alt=""

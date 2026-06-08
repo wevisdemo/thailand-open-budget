@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import WevisIcon from "./icons/wevis-icon";
+import { withBasePath } from "@/lib/base-path";
 
 const links: { label: string; url: string }[] = [
   { label: "หน้าหลัก", url: "/" },
@@ -38,7 +39,12 @@ export default function Header() {
       {/* Mobile menu button */}
       <div className="relative md:hidden">
         <button onClick={() => setMenuOpen((prev) => !prev)}>
-          <Image src="/icons/menu.svg" alt="menu" width={24} height={24} />
+          <Image
+            src={withBasePath("/icons/menu.svg")}
+            alt="menu"
+            width={24}
+            height={24}
+          />
         </button>
 
         {menuOpen && (

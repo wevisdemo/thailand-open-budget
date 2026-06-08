@@ -21,7 +21,7 @@ This project adopts the design system from [WeVis Parliament Watch](https://gith
 
 ## Environment Variables (if used)
 
--
+- NEXT_PUBLIC_BASE_PATH = Base path for the app (needed for Github Pages)
 
 ## Usages
 
