@@ -4,10 +4,10 @@ Thailand open budget data visualization
 
 ## Deployments
 
-| Name       | URL | Host/Pipeline |
-| ---------- | --- | ------------- |
-| Production | -   | -             |
-| Staging    | -   | -             |
+| Name       | URL                                              | Host/Pipeline          |
+| ---------- | ------------------------------------------------ | ---------------------- |
+| Production | -                                                | -                      |
+| Staging    | https://wevisdemo.github.io/thailand-open-budget | Github Actions + Pages |
 
 ## Tech Stack
 
