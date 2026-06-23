@@ -20,6 +20,25 @@ export default function SearchBudgetTrend({
 }: SearchBudgetTrendProps) {
   const [unit, setUnit] = useState<BudgetUnit>("million");
 
+  function handleDownload() {
+    const rows = [
+      "year,totalbudget",
+      ...yearTotals
+        .slice()
+        .sort((a, b) => a.year - b.year)
+        .map(
+          (t) => `${t.year},"${t.totalSelectedBaht.toLocaleString("en-US")}"`,
+        ),
+    ];
+    const blob = new Blob([rows.join("\n")], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "budget-trend.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   const trendData = yearTotals.map(
     ({ year, totalSelectedBaht: totalBaht, totalBudgetBaht, isCurrent }) => ({
       year,
@@ -54,7 +73,10 @@ export default function SearchBudgetTrend({
                 · {version}
               </p>
             </div>
-            <button className="text-gray-70 border-gray-20 flex h-fit w-fit shrink-0 items-center gap-[8px] border px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer">
+            <button
+              onClick={handleDownload}
+              className="text-gray-70 border-gray-20 flex h-fit w-fit shrink-0 items-center gap-[8px] border px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer"
+            >
               <DownloadIcon color="currentColor" />
               ดาวน์โหลดข้อมูลส่วนนี้
             </button>
