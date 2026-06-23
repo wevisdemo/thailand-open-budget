@@ -18,29 +18,13 @@
 import { writeFile, mkdir } from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { SPREADSHEET_ID, SHEET_GID_MAP, COLUMN_MAP } from "./constants.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const SPREADSHEET_ID = "1OfQIUzd82a5A_WpMk88-1G-dmsYI-8naJHtg7_1LSZg";
 const SHEET_NAME = process.argv[2] || "2568_drafted";
 const OUT_DIR = join(__dirname, "..", "public", "data");
 const OUT_FILE = join(OUT_DIR, `budget_${SHEET_NAME}.json`);
-
-// Columns to keep — strips REF_DOC, REF_PAGE_NO, and fields unused by the UI
-const COLUMN_MAP = {
-  MINISTRY: "ministry",
-  BUDGETARY_UNIT: "budgetary",
-  BUDGET_PLAN: "plan",
-  PROJECT: "project",
-  CATEGORY_LV1: "category",
-  ITEM_DESCRIPTION: "description",
-  AMOUNT: "amount",
-};
-
-const SHEET_GID_MAP = {
-  "2568_drafted": "321838122",
-  "2569_drafted": "2114899200",
-};
 
 async function fetchCSV() {
   const gid = SHEET_GID_MAP[SHEET_NAME];

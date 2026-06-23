@@ -4,7 +4,7 @@ import type {
   BudgetMinistryItem,
   BudgetYearTotal,
 } from "@/types/budget";
-import type { DocSourceValue } from "@/constants/budget";
+import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import Header from "@/app/components/shared/Header";
 import AboutSection from "@/app/components/shared/AboutSection";
 import Breadcrumb from "@/app/components/shared/Breadcrumb";
@@ -20,12 +20,6 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
-
-const DOC_SOURCE_OPTIONS: DropdownOption[] = [
-  { value: "2568-draft-1", label: "2568 ฉบับร่าง (วาระ 1)" },
-  { value: "2569-draft-1", label: "2569 ฉบับร่าง (วาระ 1)" },
-  // { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
-];
 
 export default function SearchTemplate() {
   const router = useRouter();
