@@ -8,6 +8,7 @@ import SearchIcon from "./icons/search-icon";
 import CategoriesIcon from "./icons/categories-icon";
 import DownAngleIcon from "./icons/down-angle-icon";
 import { NavLinkItem } from "@/types/header";
+import SearchCategoriesIcon from "./icons/search-categories-icon";
 
 const rightLinks: { label: string; url: string }[] = [
   { label: "ดาวน์โหลด", url: "/" },
@@ -21,8 +22,29 @@ const leftLinks: NavLinkItem[] = [
     icon: <SearchIcon color="white" />,
     menu: true,
     subMenu: [
-      { label: "ผ่านคีย์เวิร์ด", url: "/", icon: <SearchIcon color="white" /> },
-      { label: "ผ่านหน่วยงาน", url: "/", icon: <SearchIcon color="white" /> },
+      {
+        label: "ผ่านคีย์เวิร์ด",
+        url: "/search",
+        icon: (
+          <SearchCategoriesIcon
+            color="white"
+            colorInner="#2C2C2C"
+            className="h-[14px] w-[14px]"
+          />
+        ),
+      },
+      {
+        label: "ผ่านหน่วยงาน",
+        url: "/",
+        icon: (
+          <Image
+            src={withBasePath("/icons/agency.svg")}
+            alt="search-by-agency"
+            width={14}
+            height={14}
+          />
+        ),
+      },
     ],
   },
   {
@@ -34,12 +56,26 @@ const leftLinks: NavLinkItem[] = [
       {
         label: "ปูพื้นฐานงบประมาณ 101",
         url: "/",
-        icon: <SearchIcon color="white" />,
+        icon: (
+          <Image
+            src={withBasePath("/icons/iso.svg")}
+            alt="search-by-iso"
+            width={16}
+            height={16}
+          />
+        ),
       },
       {
         label: "ประเด็นที่น่าสนใจ",
         url: "/",
-        icon: <SearchIcon color="white" />,
+        icon: (
+          <Image
+            src={withBasePath("/icons/document.svg")}
+            alt="search-by-document"
+            width={14}
+            height={14}
+          />
+        ),
       },
     ],
   },
