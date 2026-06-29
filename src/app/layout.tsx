@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Thai_Looped } from "next/font/google";
 import "./globals.css";
+import Header from "./components/shared/Header";
 
 const ibmPlexSansThaiLooped = IBM_Plex_Sans_Thai_Looped({
   variable: "--font-sans",
@@ -23,7 +24,10 @@ export default function RootLayout({
       lang="th"
       className={`${ibmPlexSansThaiLooped.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
