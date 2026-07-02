@@ -10,16 +10,37 @@ const ibmPlexSansThaiLooped = IBM_Plex_Sans_Thai_Looped({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://wevisdemo.github.io/thailand-open-budget";
+
+const ogImage = {
+  url: withBasePath("/og-image.png"),
+  width: 1200,
+  height: 630,
+  alt: "Open Budget เงินภาษีที่คุณจ่าย รัฐนำไปใช้ทำอะไรบ้าง?",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Open Budget เงินภาษีที่คุณจ่าย รัฐนำไปใช้ทำอะไรบ้าง?",
   description:
     "แพลตฟอร์มงบประมาณที่ช่วยให้คุณค้นหา ติดตาม และตั้งคำถามต่อการใช้งบประมาณของภาครัฐได้สะดวกยิ่งขึ้น เพื่อปกป้องภาษีทุกบาทของประชาชน",
   openGraph: {
-    images: [
-      {
-        url: withBasePath("/og-image.png"),
-      },
-    ],
+    type: "website",
+    locale: "th_TH",
+    siteName: "Open Budget",
+    title: "Open Budget เงินภาษีที่คุณจ่าย รัฐนำไปใช้ทำอะไรบ้าง?",
+    description:
+      "แพลตฟอร์มงบประมาณที่ช่วยให้คุณค้นหา ติดตาม และตั้งคำถามต่อการใช้งบประมาณของภาครัฐได้สะดวกยิ่งขึ้น เพื่อปกป้องภาษีทุกบาทของประชาชน",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Open Budget เงินภาษีที่คุณจ่าย รัฐนำไปใช้ทำอะไรบ้าง?",
+    description:
+      "แพลตฟอร์มงบประมาณที่ช่วยให้คุณค้นหา ติดตาม และตั้งคำถามต่อการใช้งบประมาณของภาครัฐได้สะดวกยิ่งขึ้น เพื่อปกป้องภาษีทุกบาทของประชาชน",
+    images: [ogImage.url],
   },
 };
 
