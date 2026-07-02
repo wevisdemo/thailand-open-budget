@@ -7,6 +7,7 @@ interface HeroSectionProps {
   totalMinistry: number;
   dropdownSelectedOption: string;
   year: string;
+  isLoading?: boolean;
 }
 
 const HeroSection = ({
@@ -15,10 +16,11 @@ const HeroSection = ({
   totalMinistry,
   dropdownSelectedOption,
   year,
+  isLoading = false,
 }: HeroSectionProps) => {
   return (
     <div
-      className="relative bg-cover bg-center pt-[74px]"
+      className="relative bg-cover bg-bottom pt-[74px]"
       style={{
         backgroundImage: `url(${withBasePath("/images/bg-hero.png")})`,
       }}
@@ -62,23 +64,35 @@ const HeroSection = ({
           <div className="bg-ui-02 grid grid-cols-1 text-center md:grid-cols-3 md:text-left">
             <div className="border-ui-03 flex flex-col gap-1 border-b-[1px] px-6 py-4 md:border-r-[1px] md:border-b-0">
               <p className="text-text-02 text-b6">จำนวนรายการ</p>
-              <p className="text-text-01 text-h7 font-bold">
-                {itemAmount.toLocaleString()}+
-              </p>
+              {isLoading ? (
+                <div className="bg-ui-03 h-[28px] w-[100px] animate-pulse" />
+              ) : (
+                <p className="text-text-01 text-h7 font-bold">
+                  {itemAmount.toLocaleString()}+
+                </p>
+              )}
               <p className="text-text-02 text-b5">รายการ</p>
             </div>
             <div className="border-ui-03 flex flex-col gap-1 border-b-[1px] px-6 py-4 md:border-r-[1px] md:border-b-0">
               <p className="text-text-02 text-b6">งบประมาณทั้งหมด</p>
-              <p className="text-text-01 text-h7 font-bold">
-                {totalBudgetAmount.toLocaleString()}
-              </p>
+              {isLoading ? (
+                <div className="bg-ui-03 h-[28px] w-[140px] animate-pulse" />
+              ) : (
+                <p className="text-text-01 text-h7 font-bold">
+                  {totalBudgetAmount.toLocaleString()}
+                </p>
+              )}
               <p className="text-text-02 text-b5">ล้านบาท</p>
             </div>
             <div className="flex flex-col gap-1 px-6 py-4">
               <p className="text-text-02 text-b6">หน่วยงานที่ได้รับงบประมาณ</p>
-              <p className="text-text-01 text-h7 font-bold">
-                {totalMinistry.toLocaleString()}
-              </p>
+              {isLoading ? (
+                <div className="bg-ui-03 h-[28px] w-[80px] animate-pulse" />
+              ) : (
+                <p className="text-text-01 text-h7 font-bold">
+                  {totalMinistry.toLocaleString()}
+                </p>
+              )}
               <p className="text-text-02 text-b5">หน่วยงาน</p>
             </div>
           </div>

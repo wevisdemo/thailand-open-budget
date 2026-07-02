@@ -82,6 +82,7 @@ export default function HomeTemplate() {
         totalBudgetAmount={summaryInfo.totalBudgetAmount}
         totalMinistry={summaryInfo.totalMinistry}
         dropdownSelectedOption={selectedDocSource?.label ?? ""}
+        isLoading={status === "idle" || status === "loading"}
         year={
           selectedDocSource
             ? parseInt(selectedDocSource.value).toString()
@@ -105,11 +106,13 @@ export default function HomeTemplate() {
           dataLabel={selectedDocSource?.label ?? ""}
           data={budgetData}
           dataValue={selectedDocSource?.value ?? ""}
+          isLoading={status === "idle" || status === "loading"}
         />
         <BudgetSectionCountry
           dataLabel={selectedDocSource?.label ?? ""}
           data={budgetData}
           dataValue={selectedDocSource?.value ?? ""}
+          isLoading={status === "idle" || status === "loading"}
         />
       </section>
       <section id="articles" className="bg-ui-02 px-[24px] py-[64px]">

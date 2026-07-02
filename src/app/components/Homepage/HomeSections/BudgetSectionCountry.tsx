@@ -17,6 +17,7 @@ interface BudgetSectionProps {
   dataLabel: string;
   data: BudgetItem[];
   dataValue: string;
+  isLoading?: boolean;
 }
 
 function buildSearchableText(item: BudgetItem): string {
@@ -95,12 +96,14 @@ function CaseCard({
   itemCount,
   totalBudget,
   dataValue,
+  isLoading = false,
 }: {
   caseItem: BudgetCase;
   dataLabel: string;
   itemCount: string;
   totalBudget: string;
   dataValue: string;
+  isLoading?: boolean;
 }) {
   return (
     <article className="bg-ui-01 flex flex-1 flex-col items-start">
@@ -136,9 +139,14 @@ function CaseCard({
                 <p className="text-gray-60 text-[12px] leading-[16px]">
                   จำนวนรายการ
                 </p>
-                <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
-                  {itemCount}+
-                </p>
+                {isLoading ? (
+                  <div className="bg-ui-03 h-[28px] w-[100px] animate-pulse" />
+                ) : (
+                  <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
+                    {itemCount}+
+                  </p>
+                )}
+
                 <p className="text-gray-70 text-[12px] leading-[16px]">
                   รายการ
                 </p>
@@ -147,9 +155,15 @@ function CaseCard({
                 <p className="text-gray-60 text-[12px] leading-[16px]">
                   งบประมาณทั้งหมด
                 </p>
-                <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
-                  {totalBudget}
-                </p>
+
+                {isLoading ? (
+                  <div className="bg-ui-03 h-[28px] w-[100px] animate-pulse" />
+                ) : (
+                  <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
+                    {totalBudget}
+                  </p>
+                )}
+
                 <p className="text-gray-70 text-[12px] leading-[16px]">
                   ล้านบาท
                 </p>
@@ -176,6 +190,7 @@ const BudgetSectionCountry = ({
   dataLabel,
   data,
   dataValue,
+  isLoading = false,
 }: BudgetSectionProps) => {
   const caseStats = useMemo(() => {
     return cases.map((caseItem) => {
@@ -210,6 +225,7 @@ const BudgetSectionCountry = ({
                 itemCount={stats.itemCount}
                 totalBudget={stats.totalBudget}
                 dataValue={dataValue}
+                isLoading={isLoading}
               />
             </div>
           );

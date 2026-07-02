@@ -33,18 +33,18 @@ const leftLinks: NavLinkItem[] = [
           />
         ),
       },
-      {
-        label: "ผ่านหน่วยงาน",
-        url: "/",
-        icon: (
-          <Image
-            src={withBasePath("/icons/agency.svg")}
-            alt="search-by-agency"
-            width={14}
-            height={14}
-          />
-        ),
-      },
+      // {
+      //   label: "ผ่านหน่วยงาน",
+      //   url: "/",
+      //   icon: (
+      //     <Image
+      //       src={withBasePath("/icons/agency.svg")}
+      //       alt="search-by-agency"
+      //       width={14}
+      //       height={14}
+      //     />
+      //   ),
+      // },
     ],
   },
   {
@@ -55,7 +55,7 @@ const leftLinks: NavLinkItem[] = [
     subMenu: [
       {
         label: "ปูพื้นฐานงบประมาณ 101",
-        url: "/",
+        url: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93-101/",
         icon: (
           <Image
             src={withBasePath("/icons/iso.svg")}
@@ -67,7 +67,7 @@ const leftLinks: NavLinkItem[] = [
       },
       {
         label: "ประเด็นที่น่าสนใจ",
-        url: "/",
+        url: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93/",
         icon: (
           <Image
             src={withBasePath("/icons/document.svg")}
