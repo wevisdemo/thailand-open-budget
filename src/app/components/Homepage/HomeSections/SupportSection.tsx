@@ -1,0 +1,45 @@
+import React from "react";
+import Image from "next/image";
+import ArrowRightIcon from "@/app/components/shared/icons/arrow-right-icon";
+
+const SUPPORT_IMAGE = "/images/support.svg";
+
+const SupportSection = () => {
+  return (
+    <div className="mx-auto flex max-w-[915px] flex-col items-center justify-between md:flex-row md:gap-[38px]">
+      <div>
+        <Image
+          src={SUPPORT_IMAGE}
+          alt="Support"
+          width={450}
+          height={450}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div className="flex max-w-[420px] flex-col gap-[8px] px-6 py-6 md:px-0 md:py-0">
+        <h2 className="text-[36px] leading-[44px] font-bold text-[#161616]">
+          ร่วมสนับสนุนเว็บไซต์นี้
+        </h2>
+        <div className="flex flex-col gap-[16px]">
+          <p className="text-[16px] leading-[22px] text-[#161616]">
+            ทุกการสนับสนุนของคุณ คือส่วนสำคัญให้ WeVis
+            สามารถพัฒนาเครื่องมือสำหรับให้ประชาชนติดตามและตั้งคำถามต่อการใช้งบประมาณของรัฐต่อไป
+          </p>
+          <div className="flex w-full justify-end">
+            <button
+              type="button"
+              className="bg-interactive-01 flex items-center gap-[6px] border border-[#e0e0e0] px-[15px] py-[9px]"
+            >
+              <span className="text-[12px] leading-[18px] font-medium text-white">
+                บริจาค
+              </span>
+              <ArrowRightIcon color="#FFFFFF" className="size-[16px]" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SupportSection;
