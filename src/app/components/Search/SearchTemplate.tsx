@@ -161,7 +161,7 @@ export default function SearchTemplate() {
               />
             </div>
           </div>
-          <section className="bg-white px-[24px] py-[24px]">
+          <section className="bg-white px-[24px] py-[24px] md:py-[32px]">
             <SearchHeader tags={tags} addTag={addTag} removeTag={removeTag} />
           </section>
         </div>
@@ -173,7 +173,7 @@ export default function SearchTemplate() {
           <SearchNotFound tags={tags} onClear={() => setTags([])} />
         ) : (
           <>
-            <section className="bg-white px-[24px] pb-[24px]">
+            <section className="bg-white px-[24px] pb-[24px] md:pb-[32px]">
               <SummaryInfo
                 itemAmount={summaryInfo.itemAmount}
                 totalBudgetAmount={summaryInfo.totalBudgetAmount}
