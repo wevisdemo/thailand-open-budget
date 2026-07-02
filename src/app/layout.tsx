@@ -15,7 +15,7 @@ const siteUrl =
   "https://wevisdemo.github.io/thailand-open-budget";
 
 const ogImage = {
-  url: withBasePath("/og-image.png"),
+  url: "/og-image.png",
   width: 1200,
   height: 630,
   alt: "Open Budget เงินภาษีที่คุณจ่าย รัฐนำไปใช้ทำอะไรบ้าง?",
