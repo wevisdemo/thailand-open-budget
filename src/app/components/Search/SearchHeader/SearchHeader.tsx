@@ -18,7 +18,7 @@ export default function SearchHeader({
   return (
     <div className="content-container flex flex-col gap-[8px]">
       <h2 className="font-serif text-[28px] font-bold md:text-[42px]">
-        สำรวจงบประมาณผ่าน keyword
+        สำรวจงบประมาณผ่านคีย์เวิร์ด
       </h2>
       <SearchPanel tags={tags} addTag={addTag} removeTag={removeTag} />
       <TagList tags={tags} removeTag={removeTag} />
@@ -29,10 +29,10 @@ export default function SearchHeader({
         )}
       </p>
       <p className="text-blue-70 flex flex-wrap">
-        ผลลัพธ์มาจากการแมตช์คีย์เวิร์ดใน 3 คอลัมน์:{" "}
+        ผลลัพธ์มาจากการแมตช์คีย์เวิร์ดที่ค้นหา ใน 3 คอลัมน์:{" "}
         <span className="font-bold">
-          รายการ โครงการ/ผลผลิต และแผนงาน โดยหากพบคำใดคำหนึ่ง (กรณีมีหลายคำค้น)
-          ในคอลัมน์ใดคอลัมน์หนึ่ง จะถือว่าเข้าเงื่อนไข
+          (รายการ, โครงการ/ผลผลิต, แผนงาน)
+          โดยจะแสดงผลหากพบคำที่ตรงกันในคอลัมน์ใดคอลัมน์หนึ่ง
         </span>
       </p>
     </div>

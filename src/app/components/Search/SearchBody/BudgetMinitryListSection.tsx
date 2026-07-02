@@ -63,7 +63,7 @@ export default function BudgetMinistryListSection(
             หน่วยงานที่ได้รับงบประมาณ
           </h2>
           <p className="text-[16px] font-bold">
-            ที่เกี่ยวข้องกับ &apos;{props.keywords.join(", ")}&apos;
+            ที่มีคำว่า &apos;{props.keywords.join(", ")}&apos;
           </p>
           <p className="text-text-01">
             <span className="text-blue-70">

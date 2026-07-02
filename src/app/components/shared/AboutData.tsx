@@ -1,3 +1,4 @@
+import ArrowUpRightIcon from "./icons/arrow-up-right-icon";
 import DownloadIcon from "./icons/download-icon";
 
 export default function AboutData() {
@@ -8,9 +9,9 @@ export default function AboutData() {
           <h1 className="text-h6 font-serif text-[28px] font-bold">
             เกี่ยวกับข้อมูล
           </h1>
-          <button className="text-disabled-02 hover:text-gray-70 hover:border-gray-20 flex items-center gap-[8px] border border-white px-[16px] py-[10px] hover:cursor-pointer hover:bg-white">
-            <DownloadIcon color="currentColor" />
+          <button className="text-gray-70 border-gray-20 flex cursor-pointer items-center gap-[8px] border bg-white px-[16px] py-[10px]">
             ดาวน์โหลดข้อมูล
+            <ArrowUpRightIcon color="#161616" />
           </button>
         </div>
 
@@ -87,6 +88,7 @@ export default function AboutData() {
           >
             team@wevis.info
           </a>{" "}
+          <br />
           ด้าน Source Code ทางทีมมีความตั้งใจที่พัฒนาทุกโปรเจกต์ให้เป็น Open
           Source ภายใต้เงื่อนไข{" "}
           <a
@@ -100,8 +102,7 @@ export default function AboutData() {
           แต่ห้ามนำไปใช้ทางการค้าหรือแสวงหาผลกำไรจากผลงาน
           และต้องแจ้งทราบและให้เครดิตกับเจ้าของผลงาน
           โดยที่ผลงานที่เกิดขึ้นมาจะต้องอยู่ภายใต้เงื่อนไขแบบเดียวกันกับใบอนุญาต
-          Creative Commons ของต้นฉบับ โดย WeVis Ltd. และ Punch Up Ltd.
-          เป็นผู้อนุญาต (licensor) ร่วมกัน
+          Creative Commons ของต้นฉบับ โดย WeVis Ltd. เป็นผู้อนุญาต (licensor)
         </p>
       </div>
     </div>

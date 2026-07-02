@@ -26,7 +26,7 @@ export default function SearchNotFound({ tags, onClear }: SearchNotFoundProps) {
           className="mt-[96px]"
         />
         <p className="font-serif text-[42px] font-bold text-white">
-          ไม่พบข้อมูลที่เกี่ยวข้องกับ &apos;{tags.map((t) => t.word).join(" ")}
+          ไม่พบข้อมูลที่มีคำว่า &apos;{tags.map((t) => t.word).join(" ")}
           &apos;
         </p>
         <p className="text-[16px] text-white">ลองใช้คำอื่นที่เกี่ยวข้อง</p>

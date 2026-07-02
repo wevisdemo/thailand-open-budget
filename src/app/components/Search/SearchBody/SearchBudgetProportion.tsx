@@ -21,8 +21,7 @@ export default function SearchBudgetProportion(
       <div>
         <h2 className="font-serif text-[28px] font-bold">สัดส่วนงบประมาณ</h2>
         <p className="text-[16px] font-bold">
-          ที่เกี่ยวข้องกับ &apos;{props.keywords.join(", ")}&apos; เทียบกับงบฯ
-          ประเทศ
+          ที่มีคำว่า &apos;{props.keywords.join(", ")}&apos; เทียบกับงบฯ ประเทศ
         </p>
         <p className="text-text-01">
           ปีงบฯ {props.year} · {props.version}

@@ -12,7 +12,7 @@ export default function AboutTeam() {
           <p className="text-text-01">เว็บไซต์นี้สร้างโดย</p>
           <WevisIcon className="h-[32px]" />
         </div>
-        <p className="text-b5 text-text-01">
+        <p className="text-text-01 text-[14px]">
           กลุ่มเทคโนโลยีภาคประชาชน (Civic Technology)
           ที่ขับเคลื่อนสังคมผ่านเทคโนโลยีและข้อมูลเปิด (Open Data)
           หนึ่งภารกิจของเราคือการผลักดันให้ข้อมูลงบประมาณของรัฐเปิดเผยเป็นสาธารณะ
@@ -24,6 +24,37 @@ export default function AboutTeam() {
           ประชาชน สื่อมวลชน
           และนักวิชาการสามารถเข้าถึงและใช้งานข้อมูลการใช้จ่ายงบประมาณของรัฐได้โดยสะดวกแล้ว
           ยังนำไปสู่การผลักดันให้หน่วยงานภาครัฐปรับปรุงกระบวนการเปิดเผยข้อมูลให้สอดคล้องกับมาตรฐานสากลและตอบสนองต่อการใช้งานของสาธารณะได้อย่างยั่งยืนในอนาคต
+        </p>
+        <p className="text-text-01 text-[14px]">
+          โครงการนี้{" "}
+          <a
+            className="text-text-01 underline"
+            href="https://www.wevis.info/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WeVis
+          </a>{" "}
+          ได้รับการสนับสนุนทุนในการดำเนินงานจาก{" "}
+          <a
+            className="text-text-01 underline"
+            href="https://www.ned.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            National Endowment for Democracy (NED)
+          </a>{" "}
+          และ{" "}
+          <a
+            className="text-text-01 underline"
+            href="https://www.opensocietyfoundations.org/george-soros/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Society Foundations (OSF)
+          </a>
+          ซึ่งนำมาใช้เป็นต้นทุนในการรวบรวมข้อมูล ออกแบบ พัฒนาเว็บไซต์ ประสานงาน
+          และบริหารจัดการโครงการ
         </p>
       </div>
     </div>

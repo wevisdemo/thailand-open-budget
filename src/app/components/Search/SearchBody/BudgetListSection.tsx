@@ -62,7 +62,7 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
         <div>
           <h2 className="font-serif text-[28px] font-bold">รายการงบประมาณ</h2>
           <p className="text-[16px] font-bold">
-            ที่เกี่ยวข้องกับ &apos;{props.tags.map((t) => t.word).join(", ")}
+            ที่มีคำว่า &apos;{props.tags.map((t) => t.word).join(", ")}
             &apos;
           </p>
           <p className="text-text-01">

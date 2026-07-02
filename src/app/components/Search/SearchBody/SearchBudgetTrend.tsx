@@ -62,7 +62,7 @@ export default function SearchBudgetTrend({
           <div className="flex flex-col justify-between md:flex-row md:items-end">
             <div className="shrink-1">
               <p className="text-[16px] font-bold">
-                ที่เกี่ยวข้องกับ &apos;{keywords.join(", ")}&apos;
+                ที่มีคำว่า &apos;{keywords.join(", ")}&apos;
               </p>
               <p className="text-text-01">
                 ปีงบฯ{" "}

@@ -18,8 +18,8 @@ export default function SummaryInfo({
     <div className="content-container flex flex-col gap-[24px] bg-white md:gap-[8px]">
       <div className="divide-ui-03 flex flex-col justify-between md:flex-row">
         <SummaryInfoStatItem
-          label="จำนวนโครงการ/ผลผลิต"
-          value={`${itemAmount.toLocaleString()}+`}
+          label="จำนวนรายการ"
+          value={`${itemAmount.toLocaleString()}`}
           unit="รายการ"
         />
         <SummaryInfoStatItem
