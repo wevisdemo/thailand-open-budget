@@ -4,6 +4,7 @@ import ArrowUpRightIcon from "@/app/components/shared/icons/arrow-up-right-icon"
 import SearchCategoriesIcon from "@/app/components/shared/icons/search-categories-icon";
 import DownloadIcon from "@/app/components/shared/icons/download-icon";
 import WevisIcon from "@/app/components/shared/icons/wevis-icon";
+import { withBasePath } from "@/lib/base-path";
 
 interface FooterItem {
   label: string;
@@ -130,7 +131,7 @@ export default function Footer({ className }: FooterProps) {
     >
       <div className="flex w-full flex-col gap-[16px] md:flex-row md:items-start md:justify-between">
         <Image
-          src="/icons/logo-footer.svg"
+          src={withBasePath("/icons/logo-footer.svg")}
           alt="Open Budget"
           width={134}
           height={61}
@@ -191,7 +192,7 @@ export default function Footer({ className }: FooterProps) {
           <FooterColumn
             icon={
               <Image
-                src="/icons/wevis.svg"
+                src={withBasePath("/icons/wevis.svg")}
                 alt="About"
                 width={16}
                 height={16}
@@ -224,7 +225,7 @@ export default function Footer({ className }: FooterProps) {
               className="flex items-center gap-[8px]"
             >
               <Image
-                src="/icons/email.svg"
+                src={withBasePath("/icons/email.svg")}
                 alt=""
                 width={16}
                 height={16}

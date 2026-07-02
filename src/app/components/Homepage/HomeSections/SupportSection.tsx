@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ArrowRightIcon from "@/app/components/shared/icons/arrow-right-icon";
+import { withBasePath } from "@/lib/base-path";
 
 const SUPPORT_IMAGE = "/images/support.svg";
 
@@ -9,7 +10,7 @@ const SupportSection = () => {
     <div className="mx-auto flex max-w-[915px] flex-col items-center justify-between md:flex-row md:gap-[38px]">
       <div>
         <Image
-          src={SUPPORT_IMAGE}
+          src={withBasePath(SUPPORT_IMAGE)}
           alt="Support"
           width={450}
           height={450}

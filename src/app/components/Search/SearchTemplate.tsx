@@ -5,7 +5,6 @@ import type {
   BudgetYearTotal,
 } from "@/types/budget";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
-import Header from "@/app/components/shared/Header";
 import AboutSection from "@/app/components/shared/AboutSection";
 import Breadcrumb from "@/app/components/shared/Breadcrumb";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
@@ -136,7 +135,6 @@ export default function SearchTemplate() {
 
   return (
     <main className="mx-auto flex w-full flex-col">
-      <Header />
       <BudgetVersionInfoModal
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}

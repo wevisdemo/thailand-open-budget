@@ -108,7 +108,7 @@ export default function Header() {
       <div className="flex items-center gap-2">
         <Link href="/">
           <Image
-            src={withBasePath("logo.svg")}
+            src={withBasePath("/logo.svg")}
             alt="logo"
             width={156}
             height={18}
