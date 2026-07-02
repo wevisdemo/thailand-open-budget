@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans_Thai_Looped } from "next/font/google";
 import "./globals.css";
 import Header from "./components/shared/Header";
+import { withBasePath } from "@/lib/base-path";
 
 const ibmPlexSansThaiLooped = IBM_Plex_Sans_Thai_Looped({
   variable: "--font-sans",
@@ -13,6 +14,13 @@ export const metadata: Metadata = {
   title: "Open Budget เงินภาษีที่คุณจ่าย รัฐนำไปใช้ทำอะไรบ้าง?",
   description:
     "แพลตฟอร์มงบประมาณที่ช่วยให้คุณค้นหา ติดตาม และตั้งคำถามต่อการใช้งบประมาณของภาครัฐได้สะดวกยิ่งขึ้น เพื่อปกป้องภาษีทุกบาทของประชาชน",
+  openGraph: {
+    images: [
+      {
+        url: withBasePath("/og-image.png"),
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
