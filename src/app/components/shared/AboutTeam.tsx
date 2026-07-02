@@ -2,17 +2,17 @@ import WevisIcon from "./icons/wevis-icon";
 
 export default function AboutTeam() {
   return (
-    <div className="m-auto flex max-w-[1032px] flex-col gap-[10px]">
+    <div className="bg-ui-02 m-auto flex max-w-[1032px] flex-col gap-[10px]">
       <h1 className="text-text-01 text-left font-serif text-[28px] font-bold">
         เกี่ยวกับผู้จัดทำ
       </h1>
 
       <div className="flex flex-col gap-[10px]">
         <div>
-          <p>เว็บไซต์นี้สร้างโดย</p>
+          <p className="text-text-01">เว็บไซต์นี้สร้างโดย</p>
           <WevisIcon className="h-[32px]" />
         </div>
-        <p className="text-b5 text-[--color-text-02]">
+        <p className="text-b5 text-text-01">
           กลุ่มเทคโนโลยีภาคประชาชน (Civic Technology)
           ที่ขับเคลื่อนสังคมผ่านเทคโนโลยีและข้อมูลเปิด (Open Data)
           หนึ่งภารกิจของเราคือการผลักดันให้ข้อมูลงบประมาณของรัฐเปิดเผยเป็นสาธารณะ

@@ -7,7 +7,7 @@ export default function AboutSection() {
       <div className="bg-black px-[24px] py-[40px]">
         <AboutData />
       </div>
-      <div className="px-[24px] py-[40px]">
+      <div className="bg-ui-02 px-[24px] py-[40px]">
         <AboutTeam />
       </div>
     </section>
