@@ -6,14 +6,14 @@ import type {
 } from "@/types/budget";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import AboutSection from "@/app/components/shared/AboutSection";
-import Breadcrumb from "@/app/components/shared/Breadcrumb";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
 import SearchBodySkeleton from "@/app/components/Search/SearchBody/SearchBodySkeleton";
 import SummaryInfo from "@/app/components/Search/SearchBody/SummaryInfo";
 import SearchEmptyState from "@/app/components/Search/SearchEmptyState";
 import SearchNotFound from "@/app/components/Search/SearchNotFound";
-import Dropdown, { type DropdownOption } from "../shared/Dropdown";
+import SearchNavbar from "@/app/components/Search/SearchNavbar";
+import { type DropdownOption } from "../shared/Dropdown";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
 import { useEffect, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
@@ -139,28 +139,13 @@ export default function SearchTemplate() {
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
       />
+      <SearchNavbar
+        selectedDocSource={selectedDocSource}
+        onChangeDocSource={setSelectedDocSource}
+        onOpenVersionInfo={() => setVersionInfoOpen(true)}
+      />
       <div className="flex flex-col">
         <div>
-          <div className="border-gray-20 flex items-center justify-between border-b-[2px] bg-white px-[8px] py-[4px] md:px-[32px]">
-            <Breadcrumb
-              items={[
-                { label: "หน้าหลัก", href: "/" },
-                { label: "ผลการค้นหา", href: "/search" },
-              ]}
-            />
-            <div className="w-[220px]">
-              <Dropdown
-                options={DOC_SOURCE_OPTIONS}
-                selectedOption={selectedDocSource}
-                onChange={setSelectedDocSource}
-                placeholder="Choose an option"
-                footerLink={{
-                  label: "แต่ละวาระต่างกันอย่างไร?",
-                  onClick: () => setVersionInfoOpen(true),
-                }}
-              />
-            </div>
-          </div>
           <section className="bg-white px-[24px] py-[24px] md:py-[32px]">
             <SearchHeader tags={tags} addTag={addTag} removeTag={removeTag} />
           </section>
