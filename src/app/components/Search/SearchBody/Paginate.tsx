@@ -80,7 +80,7 @@ export default function Paginate({
 
   return (
     <div className="border-ui-03 flex items-center justify-between border-t text-[14px]">
-      <p className="text-gray-60 overflow-hidden px-[16px] py-[12px] whitespace-nowrap">
+      <p className="text-gray-60 px-[16px] py-[12px]">
         <span className="hidden md:inline">
           {startIndex + 1} – {Math.min(startIndex + pageSize, totalItems)}{" "}
           จาก{" "}

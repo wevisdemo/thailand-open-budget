@@ -61,8 +61,8 @@ export default function AboutData() {
       </div>
 
       <div className="bg-inverse-02 flex flex-col rounded-[8px] px-[24px] py-[32px]">
-        <h2 className="text-b4 font-serif text-[20px] font-bold">
-          ข้อตกลงการใช้งาน (Terms of Use)
+        <h2 className="text-b4 flex flex-wrap font-serif text-[20px] font-bold">
+          <span>ข้อตกลงการใช้งาน</span>&nbsp;<span>(Terms of Use)</span>
         </h2>
         <p className="text-b5">
           ทีมงานตั้งใจเปิดข้อมูลเป็น Open Data ภายใต้เงื่อนไข{" "}

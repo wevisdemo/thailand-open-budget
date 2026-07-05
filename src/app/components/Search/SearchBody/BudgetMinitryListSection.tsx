@@ -65,7 +65,7 @@ export default function BudgetMinistryListSection(
           <p className="text-[16px] font-bold">
             ที่มีคำว่า &apos;{props.keywords.join(", ")}&apos;
           </p>
-          <p className="text-text-01">
+          <p className="text-text-01 flex flex-wrap">
             <span className="text-blue-70">
               พบทั้งหมด {props.data.length.toLocaleString()} หน่วยงาน
             </span>{" "}
