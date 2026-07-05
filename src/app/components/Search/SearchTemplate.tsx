@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
+import Footer from "../shared/Footer";
 
 export default function SearchTemplate() {
   const router = useRouter();
@@ -189,6 +190,7 @@ export default function SearchTemplate() {
         )}
       </div>
       <AboutSection />
+      <Footer />
     </main>
   );
 }
