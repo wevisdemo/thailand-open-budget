@@ -59,7 +59,6 @@ export default function BudgetListTable({
   const startIndex = (page - 1) * PAGE_SIZE;
   const pageItems = sorted.slice(startIndex, startIndex + PAGE_SIZE);
 
-  // TODO: format table column width
   return (
     <div className="w-full">
       <ProjectOutputInfoModal
@@ -67,15 +66,15 @@ export default function BudgetListTable({
         onClose={() => setProjectInfoOpen(false)}
       />
       <div className="mx-[-24px] overflow-x-auto px-[24px] md:mx-0 md:px-[0px]">
-        <table className="w-full min-w-[800px] border-collapse text-[14px]">
+        <table className="w-full min-w-[800px] table-fixed border-collapse text-[14px]">
           <thead>
             <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
-              <th className="px-[16px] py-[8px]" />
-              <th className="w-[30%] px-[16px] py-[8px] text-left font-semibold">
+              <th className="w-[6%] px-[16px] py-[8px]" />
+              <th className="w-[27%] px-[16px] py-[8px] text-left font-semibold">
                 รายการ
               </th>
               <th
-                className="px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
+                className="w-[21%] px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
                 onClick={() =>
                   onSortDirChange(sortDir === "desc" ? "asc" : "desc")
                 }
@@ -85,7 +84,7 @@ export default function BudgetListTable({
                   <ArrowsVerticalIcon />
                 </span>
               </th>
-              <th className="w-[18%] px-[16px] py-[8px] text-left font-semibold">
+              <th className="w-[16%] px-[16px] py-[8px] text-left font-semibold">
                 <span className="flex items-center gap-[8px]">
                   โครงการ/ผลผลิต
                   <button
@@ -97,10 +96,10 @@ export default function BudgetListTable({
                   </button>
                 </span>
               </th>
-              <th className="px-[16px] py-[8px] text-left font-semibold">
+              <th className="w-[14%] px-[16px] py-[8px] text-left font-semibold">
                 แผนงาน
               </th>
-              <th className="w-[20%] px-[16px] py-[8px] text-left font-semibold">
+              <th className="w-[16%] px-[16px] py-[8px] text-left font-semibold">
                 หน่วยงาน
               </th>
             </tr>
@@ -114,7 +113,7 @@ export default function BudgetListTable({
                 <td className="text-text-02 px-[16px] py-[16px]">
                   {startIndex + index + 1}
                 </td>
-                <td className="max-w-[280px] px-[16px] py-[16px]">
+                <td className="px-[16px] py-[16px]">
                   <p className="font-bold">
                     {highlightTags(item.description, tags)}
                   </p>

@@ -26,19 +26,18 @@ export default function BudgetMinistryListTable({
   const startIndex = (page - 1) * PAGE_SIZE;
   const pageItems = sorted.slice(startIndex, startIndex + PAGE_SIZE);
 
-  // TODO: format table column width
   return (
     <div className="w-full">
       <div className="mx-[-24px] overflow-x-auto px-[24px] md:mx-0 md:px-[0px]">
-        <table className="w-full min-w-[800px] border-collapse text-[14px]">
+        <table className="w-full min-w-[800px] table-fixed border-collapse text-[14px]">
           <thead>
             <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
-              <th className="px-[16px] py-[8px]" />
+              <th className="w-[6%] px-[16px] py-[8px]" />
               <th className="w-[30%] px-[16px] py-[8px] text-left font-semibold">
                 หน่วยงาน
               </th>
               <th
-                className="px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
+                className="w-[21%] px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
                 onClick={() =>
                   onSortDirChange(sortDir === "desc" ? "asc" : "desc")
                 }
@@ -48,7 +47,7 @@ export default function BudgetMinistryListTable({
                   <ArrowsVerticalIcon />
                 </span>
               </th>
-              <th className="w-[20%] px-[16px] py-[8px] text-left font-semibold">
+              <th className="w-[18%] px-[16px] py-[8px] text-left font-semibold">
                 กระทรวง
               </th>
               <th className="w-[25%] px-[16px] py-[8px] text-left font-semibold">
@@ -86,7 +85,7 @@ export default function BudgetMinistryListTable({
                       />
                     </div>
                     <span className="w-[40px] text-right text-[12px]">
-                      {item.budgetPercentage.toFixed(1)}%
+                      {item.budgetPercentage.toFixed(2)}%
                     </span>
                   </div>
                 </td>
