@@ -131,7 +131,8 @@ export default function SearchTemplate() {
       displayBudgetList.reduce((sum, item) => sum + item.amount, 0) /
         totalBudgetAmount,
     ),
-    totalMinistry: new Set(displayBudgetList.map((item) => item.ministry)).size,
+    totalBudgetary: new Set(displayBudgetList.map((item) => item.budgetary))
+      .size,
   };
 
   return (
@@ -163,7 +164,7 @@ export default function SearchTemplate() {
               <SummaryInfo
                 itemAmount={summaryInfo.itemAmount}
                 totalBudgetAmount={summaryInfo.totalBudgetAmount}
-                totalMinistry={summaryInfo.totalMinistry}
+                totalBudgetary={summaryInfo.totalBudgetary}
                 year={
                   selectedDocSource ? parseInt(selectedDocSource.value) : 2569
                 }
