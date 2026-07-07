@@ -1,4 +1,5 @@
 export interface BudgetItem {
+  fiscal_year: string;
   ministry: string;
   budgetary: string;
   plan: string;

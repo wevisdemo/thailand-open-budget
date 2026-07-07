@@ -122,7 +122,7 @@ function CaseCard({
         </p>
         <div className="flex w-full flex-col gap-[16px]">
           <div className="flex flex-col justify-center gap-[4px]">
-            <p className="text-text-01 text-[16px] leading-[22px]">
+            <p className="text-text-01 text-[14px] leading-[22px]">
               ตัวอย่างคำค้น
             </p>
             <div className="flex flex-wrap items-center gap-[4px]">
@@ -181,12 +181,11 @@ function CaseCard({
       </div>
       <a
         href={`/search?q=${encodeURIComponent(caseItem.tags.map((tag) => tag.label).join(","))}&budget_source=${dataValue}`}
-        className="border-ui-03 flex w-full items-center justify-center gap-[16px] border bg-white px-[24px] py-[12px]"
+        className="border-ui-03 flex w-full items-center justify-center gap-[16px] border-t px-[24px] py-[12px]"
       >
         <span className="text-interactive-01 text-[14px] leading-[18px] font-semibold">
-          สำรวจ
+          สำรวจ →
         </span>
-        <ArrowUpRight />
       </a>
     </article>
   );
@@ -212,7 +211,7 @@ const BudgetSection = ({
   }, [cases, data]);
 
   return (
-    <div className="content-container flex w-full flex-col gap-[12px]">
+    <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[12px]">
       <div className="bg-ui-05 flex h-[44px] items-center px-[16px] py-[8px]">
         <p className="text-text-04 font-serif text-[20px] leading-[28px] font-bold whitespace-nowrap">
           ค้นหางบฯ ในประเด็นที่คุณสนใจ เช่น

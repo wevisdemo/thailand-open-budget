@@ -7,7 +7,7 @@ const SUPPORT_IMAGE = "/images/support.svg";
 
 const SupportSection = () => {
   return (
-    <div className="mx-auto flex max-w-[915px] flex-col items-center justify-between md:flex-row md:gap-[38px]">
+    <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-between md:flex-row md:gap-[38px]">
       <div>
         <Image
           src={withBasePath(SUPPORT_IMAGE)}
@@ -17,8 +17,8 @@ const SupportSection = () => {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex max-w-[420px] flex-col gap-[8px] px-6 py-6 md:px-0 md:py-0">
-        <h2 className="text-[36px] leading-[44px] font-bold text-[#161616]">
+      <div className="flex flex-col gap-[8px] px-6 py-6 md:px-0 md:py-0">
+        <h2 className="font-serif text-[28px] leading-[36px] font-bold text-[#161616]">
           ร่วมสนับสนุนเว็บไซต์นี้
         </h2>
         <div className="flex flex-col gap-[16px]">
@@ -28,6 +28,12 @@ const SupportSection = () => {
           </p>
           <div className="flex w-full justify-end">
             <button
+              onClick={() => {
+                window.open(
+                  "https://taejai.com/th/project/ots-open-budget-wevis",
+                  "_blank",
+                );
+              }}
               type="button"
               className="bg-interactive-01 flex items-center gap-[6px] border border-[#e0e0e0] px-[15px] py-[9px]"
             >

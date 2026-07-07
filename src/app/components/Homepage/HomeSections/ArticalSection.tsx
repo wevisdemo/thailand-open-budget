@@ -17,13 +17,14 @@ interface ArticleGroupData {
   subtitle: string;
   cards: ArticleCardData[];
   link: string;
+  total: number | null;
 }
 
 const BASICS_ENDPOINT =
-  "https://wevis.info/wp-json/wp/v2/posts?_embed=wp:featuredmedia&_fields=id,title,link,date,_links.wp:featuredmedia,_embedded.wp:featuredmedia.link&per_page=3&tags=152";
+  "https://wevis.info/wp-json/wp/v2/posts?_embed=wp:featuredmedia&_fields=id,title,link,date,_links.wp:featuredmedia,_embedded.wp:featuredmedia.link&per_page=3&tags=152&_envelope=1";
 
 const ISSUES_ENDPOINT =
-  "https://wevis.info/wp-json/wp/v2/posts?_embed=wp:featuredmedia&_fields=id,title,link,date,_links.wp:featuredmedia,_embedded.wp:featuredmedia.link&per_page=3&tags=31";
+  "https://wevis.info/wp-json/wp/v2/posts?_embed=wp:featuredmedia&_fields=id,title,link,date,_links.wp:featuredmedia,_embedded.wp:featuredmedia.link&per_page=3&tags=31&_envelope=1";
 
 interface WpFeaturedMedia {
   source_url?: string;
@@ -35,6 +36,12 @@ interface WpPost {
   link: string;
   title: { rendered: string };
   _embedded?: { "wp:featuredmedia"?: WpFeaturedMedia[] };
+}
+
+interface WpEnvelope {
+  body: WpPost[];
+  headers: { "X-WP-Total"?: string; "X-WP-TotalPages"?: string };
+  status: number;
 }
 
 function formatPostDate(iso: string): string {
@@ -70,7 +77,7 @@ function mapPostsToCards(posts: WpPost[], idPrefix: string): ArticleCardData[] {
 const ISSUES_GROUP_META = {
   title: "ประเด็นที่น่าสนใจเกี่ยวกับงบประมาณ",
   subtitle: "ชวนอ่านบทความงบประมาณ",
-  link: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93/",
+  link: "https://wevis.info/tag/บทความงบประมาณ/",
 };
 
 interface ArticleCardProps {
@@ -109,7 +116,7 @@ function ArticleCard({ card }: ArticleCardProps) {
   );
 }
 
-function SeeAllLink({ link }: { link: string }) {
+function SeeAllLink({ link, total }: { link: string; total: number | null }) {
   return (
     <div className="flex w-full justify-end">
       <a
@@ -117,7 +124,7 @@ function SeeAllLink({ link }: { link: string }) {
         href={link}
         className="text-link-01 underline-offset-from-font text-[14px] leading-[18px] underline decoration-solid"
       >
-        ดูทั้งหมด →
+        {total ? `ดูทั้งหมด (${total}) →` : "ดูทั้งหมด →"}
       </a>
     </div>
   );
@@ -144,7 +151,7 @@ function ArticleGroup({ group }: ArticleGroupProps) {
             <ArticleCard key={card.id} card={card} />
           ))}
         </div>
-        <SeeAllLink link={group.link} />
+        <SeeAllLink link={group.link} total={group.total} />
       </div>
     </div>
   );
@@ -153,26 +160,42 @@ function ArticleGroup({ group }: ArticleGroupProps) {
 function ArticalSection() {
   const [basicsCards, setBasicsCards] = useState<ArticleCardData[]>([]);
   const [issuesCards, setIssuesCards] = useState<ArticleCardData[]>([]);
+  const [basicsTotal, setBasicsTotal] = useState<number | null>(null);
+  const [issuesTotal, setIssuesTotal] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
     fetch(BASICS_ENDPOINT)
-      .then((res) => (res.ok ? res.json() : []))
-      .then((posts: WpPost[]) => {
-        if (!cancelled) setBasicsCards(mapPostsToCards(posts, "b"));
+      .then((res) => (res.ok ? res.json() : null))
+      .then((env: WpEnvelope | null) => {
+        if (cancelled) return;
+        const posts = env?.body ?? [];
+        setBasicsCards(mapPostsToCards(posts, "b"));
+        const total = Number(env?.headers?.["X-WP-Total"]);
+        setBasicsTotal(Number.isFinite(total) ? total : null);
       })
       .catch(() => {
-        if (!cancelled) setBasicsCards([]);
+        if (!cancelled) {
+          setBasicsCards([]);
+          setBasicsTotal(null);
+        }
       });
 
     fetch(ISSUES_ENDPOINT)
-      .then((res) => (res.ok ? res.json() : []))
-      .then((posts: WpPost[]) => {
-        if (!cancelled) setIssuesCards(mapPostsToCards(posts, "i"));
+      .then((res) => (res.ok ? res.json() : null))
+      .then((env: WpEnvelope | null) => {
+        if (cancelled) return;
+        const posts = env?.body ?? [];
+        setIssuesCards(mapPostsToCards(posts, "i"));
+        const total = Number(env?.headers?.["X-WP-Total"]);
+        setIssuesTotal(Number.isFinite(total) ? total : null);
       })
       .catch(() => {
-        if (!cancelled) setIssuesCards([]);
+        if (!cancelled) {
+          setIssuesCards([]);
+          setIssuesTotal(null);
+        }
       });
 
     return () => {
@@ -188,6 +211,7 @@ function ArticalSection() {
         "ชวนเข้าใจข้อมูลงบประมาณ รวมความรู้พื้นฐานก่อนสำรวจและตรวจสอบการใช้งบของภาครัฐ",
       cards: basicsCards,
       link: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93-101/",
+      total: basicsTotal,
     },
     {
       id: "issues",
@@ -195,15 +219,19 @@ function ArticalSection() {
       subtitle: ISSUES_GROUP_META.subtitle,
       link: ISSUES_GROUP_META.link,
       cards: issuesCards,
+      total: issuesTotal,
     },
   ];
 
   return (
-    <section className="content-container flex w-full flex-col gap-[24px]">
+    <section className="mx-auto flex w-full max-w-[1280px] flex-col gap-[24px]">
       <div className="flex w-full flex-col gap-[16px]">
         <div className="flex w-full flex-col items-start justify-between gap-[16px] md:flex-row md:items-center">
-          <div className="flex items-center gap-[8px]">
-            <CategoriesIcon color="#161616" className="size-[30px]" />
+          <div className="flex gap-[8px] md:items-center">
+            <CategoriesIcon
+              color="#161616"
+              className="mt-2 size-[30px] md:mt-0"
+            />
             <h1 className="text-text-01 font-serif text-[42px] leading-[50px] font-bold">
               อ่านบทความงบประมาณ
             </h1>

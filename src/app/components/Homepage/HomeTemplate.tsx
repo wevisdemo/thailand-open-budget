@@ -46,10 +46,13 @@ export default function HomeTemplate() {
     (selectedDocSource?.value as DocSourceValue) ?? null,
   );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
-  const totalBudgetAmount = budgetData.reduce(
-    (sum, item) => sum + item.amount,
-    0,
-  );
+  const totalBudgetAmount = budgetData
+    .filter(
+      (item) =>
+        item.fiscal_year ===
+        (parseInt(selectedDocSource?.value ?? "0") - 543).toString(),
+    )
+    .reduce((sum, item) => sum + item.amount, 0);
 
   const summaryInfo = {
     itemAmount: budgetData.length,
@@ -104,13 +107,21 @@ export default function HomeTemplate() {
         />
         <BudgetSection
           dataLabel={selectedDocSource?.label ?? ""}
-          data={budgetData}
+          data={budgetData.filter(
+            (item) =>
+              item.fiscal_year ===
+              (parseInt(selectedDocSource?.value ?? "0") - 543).toString(),
+          )}
           dataValue={selectedDocSource?.value ?? ""}
           isLoading={status === "idle" || status === "loading"}
         />
         <BudgetSectionCountry
           dataLabel={selectedDocSource?.label ?? ""}
-          data={budgetData}
+          data={budgetData.filter(
+            (item) =>
+              item.fiscal_year ===
+              (parseInt(selectedDocSource?.value ?? "0") - 543).toString(),
+          )}
           dataValue={selectedDocSource?.value ?? ""}
           isLoading={status === "idle" || status === "loading"}
         />
@@ -121,7 +132,7 @@ export default function HomeTemplate() {
       <section className="bg-[#A5EBD7]">
         <SupportSection />
       </section>
-      <AboutSection />
+      <AboutSection page="homepage" />
       <Footer />
     </main>
   );

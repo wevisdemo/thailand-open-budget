@@ -6,7 +6,7 @@ import CategoriesIcon from "../../shared/icons/categories-icon";
 
 const NavigateSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center lg:flex-row">
+    <div className="flex max-w-[1280px] flex-col items-center justify-center lg:flex-row">
       <a
         href="#search"
         className="border-ui-03 flex w-full cursor-pointer items-center justify-between gap-1 border-b px-[16px] py-[16px] lg:w-[300px] lg:flex-col lg:justify-center lg:border-b-0 lg:px-0 lg:py-[24px]"

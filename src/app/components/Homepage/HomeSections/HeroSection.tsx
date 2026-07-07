@@ -25,8 +25,8 @@ const HeroSection = ({
         backgroundImage: `url(${withBasePath("/images/bg-hero.png")})`,
       }}
     >
-      <div className="mx-auto flex w-full max-w-[679px] flex-col items-center justify-center gap-[64px] px-[48px] text-balance md:px-0">
-        <div className="flex flex-col gap-[16px]">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-[64px] px-[48px] text-balance md:px-0">
+        <div className="flex max-w-[679px] flex-col gap-[16px]">
           <p className="text-text-01 text-h3 text-center font-serif font-bold">
             เงินภาษีที่คุณจ่าย
             <br />
@@ -41,17 +41,17 @@ const HeroSection = ({
             <p className="text-gray-60 text-b6 font-semibold">
               ข้อมูลงบประมาณที่ใช้ในเว็บไซต์นี้
             </p>
-            <ul className="list-inside list-disc text-center">
+            <ul className="w-full list-inside list-disc text-center">
               <li className="text-gray-60 text-b6">
-                ฉบับร่างงบประมาณ (วาระ 1) ระหว่าง ปีงบฯ 2566 - ปัจจุบัน
+                ฉบับร่างงบประมาณ (วาระ 1) ระหว่าง ปีงบฯ 2568 - ปัจจุบัน
               </li>
-              <li className="text-gray-60 text-b6">
+              {/* <li className="text-gray-60 text-b6">
                 ฉบับที่สภาอนุมัติ (วาระ 3) ระหว่าง ปีงบฯ 2569 - ปัจจุบัน
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full max-w-[1280px]">
           <div className="bg-ui-03 py-2">
             <p className="text-text-02 text-b5 text-center">
               {year === (new Date().getFullYear() + 543).toString()

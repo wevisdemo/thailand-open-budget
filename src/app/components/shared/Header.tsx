@@ -67,7 +67,7 @@ const leftLinks: NavLinkItem[] = [
       },
       {
         label: "ประเด็นที่น่าสนใจ",
-        url: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93/",
+        url: "https://wevis.info/tag/บทความงบประมาณ/",
         icon: (
           <Image
             src={withBasePath("/icons/document.svg")}
@@ -152,6 +152,12 @@ export default function Header() {
                       <Link
                         key={index}
                         href={item.url}
+                        target={label === "อ่านบทความ" ? "_blank" : "_self"}
+                        rel={
+                          label === "อ่านบทความ"
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
                         onClick={() => setOpenLabel(null)}
                         className="hover:bg-gray-80 flex items-center justify-between gap-[12px] py-[11px] pr-[16px] pl-[32px] text-white"
                       >
