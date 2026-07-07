@@ -22,13 +22,17 @@ export default function SearchBudgetTrend({
 
   function handleDownload() {
     const rows = [
-      "year,totalbudget",
+      "year,totalbudget,percentage(%)",
       ...yearTotals
         .slice()
         .sort((a, b) => a.year - b.year)
-        .map(
-          (t) => `${t.year},"${t.totalSelectedBaht.toLocaleString("en-US")}"`,
-        ),
+        .map((t) => {
+          const percentage =
+            t.totalBudgetBaht > 0
+              ? (t.totalSelectedBaht / t.totalBudgetBaht) * 100
+              : 0;
+          return `${t.year},"${t.totalSelectedBaht.toLocaleString("en-US")}",${percentage.toFixed(2)}%`;
+        }),
     ];
     const blob = new Blob([rows.join("\n")], { type: "text/csv" });
     const url = URL.createObjectURL(blob);

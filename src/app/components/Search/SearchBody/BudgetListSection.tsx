@@ -27,7 +27,10 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
       "หน่วยงาน",
       "กระทรวง",
     ];
-    const rows = props.data.map((item, index) => [
+    const sorted = [...props.data].sort((a, b) =>
+      sortDir === "desc" ? b.amount - a.amount : a.amount - b.amount,
+    );
+    const rows = sorted.map((item, index) => [
       index + 1,
       item.description,
       item.category,
