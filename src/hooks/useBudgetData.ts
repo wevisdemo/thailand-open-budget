@@ -2,7 +2,11 @@
 
 import { useReducer, useEffect } from "react";
 import type { BudgetItem } from "@/types/budget";
-import { type DocSourceValue, DOC_SOURCE_DATA_FILE } from "@/constants/budget";
+import {
+  type DocSourceValue,
+  DOC_SOURCE_DATA_FILE,
+  getFiscalYear,
+} from "@/constants/budget";
 import { withBasePath } from "@/lib/base-path";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -38,6 +42,7 @@ export function useBudgetData(docSource: DocSourceValue | null) {
     if (!docSource) return;
 
     const fileName = DOC_SOURCE_DATA_FILE[docSource];
+    const fiscalYear = getFiscalYear(docSource);
     dispatch({ type: "loading" });
 
     fetch(withBasePath(`/data/${fileName}.json`))
@@ -45,7 +50,12 @@ export function useBudgetData(docSource: DocSourceValue | null) {
         if (!res.ok) throw new Error(`${res.status}`);
         return res.json() as Promise<BudgetItem[]>;
       })
-      .then((data) => dispatch({ type: "success", data }))
+      .then((data) =>
+        dispatch({
+          type: "success",
+          data: data.filter((item) => item.fiscal_year === fiscalYear),
+        }),
+      )
       .catch(() => dispatch({ type: "error" }));
   }, [docSource]);
 
