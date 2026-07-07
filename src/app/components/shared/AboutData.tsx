@@ -1,9 +1,11 @@
 import ArrowUpRightIcon from "./icons/arrow-up-right-icon";
 import DownloadIcon from "./icons/download-icon";
 
-export default function AboutData() {
+export default function AboutData({ page }: { page: "homepage" | "about" }) {
   return (
-    <div className="m-auto flex max-w-[1032px] flex-col gap-[16px] text-white">
+    <div
+      className={`m-auto flex ${page === "homepage" ? "max-w-[1280px]" : "max-w-[1032px]"} flex-col gap-[16px] text-white`}
+    >
       <div className="flex flex-col gap-[10px]">
         <div className="flex items-center justify-between">
           <h1 className="text-h6 font-serif text-[28px] font-bold">
