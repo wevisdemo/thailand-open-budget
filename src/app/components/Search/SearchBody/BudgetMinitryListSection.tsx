@@ -37,7 +37,7 @@ export default function BudgetMinistryListSection(
         maximumFractionDigits: 2,
       }),
       item.budgetary || "-",
-      item.budgetPercentage.toFixed(1),
+      item.budgetPercentage.toFixed(2),
     ]);
 
     const csv = [headers, ...rows]
