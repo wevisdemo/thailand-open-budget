@@ -53,8 +53,8 @@ export default function SearchLineChart({ data, unit }: SearchLineChartProps) {
       preserveAspectRatio="xMidYMid meet"
     >
       {/* Y-axis grid lines and labels */}
-      {yTicks.map((tick) => (
-        <g key={tick}>
+      {yTicks.map((tick, i) => (
+        <g key={i}>
           <text
             x={pl - 10}
             y={getY(tick)}
