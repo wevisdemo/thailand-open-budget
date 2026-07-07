@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import type { BudgetItem } from "@/types/budget";
+import Link from "next/dist/client/link";
 
 interface BudgetTag {
   label: string;
@@ -172,14 +173,14 @@ function CaseCard({
           </div>
         </div>
       </div>
-      <a
+      <Link
         href={`/search?q=${encodeURIComponent(caseItem.tags.map((tag) => tag.label).join(","))}&budget_source=${dataValue}`}
         className="border-ui-03 flex w-full items-center justify-center gap-[16px] border-t px-[24px] py-[12px]"
       >
         <span className="text-interactive-01 text-[14px] leading-[18px] font-semibold">
           สำรวจ →
         </span>
-      </a>
+      </Link>
     </article>
   );
 }
