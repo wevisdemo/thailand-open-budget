@@ -68,7 +68,7 @@ const HeroSection = ({
                 <div className="bg-ui-03 h-[28px] w-[100px] animate-pulse" />
               ) : (
                 <p className="text-text-01 text-h7 font-bold">
-                  {itemAmount.toLocaleString()}+
+                  {itemAmount.toLocaleString()}
                 </p>
               )}
               <p className="text-text-02 text-b5">รายการ</p>

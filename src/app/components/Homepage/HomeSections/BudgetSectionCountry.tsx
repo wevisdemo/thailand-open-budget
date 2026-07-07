@@ -143,7 +143,7 @@ function CaseCard({
                   <div className="bg-ui-03 h-[28px] w-[100px] animate-pulse" />
                 ) : (
                   <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
-                    {itemCount}+
+                    {itemCount}
                   </p>
                 )}
 
