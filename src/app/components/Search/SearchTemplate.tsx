@@ -135,8 +135,7 @@ export default function SearchTemplate() {
   const summaryInfo = {
     itemAmount: displayBudgetList.length,
     totalBudgetAmount: Math.round(
-      displayBudgetList.reduce((sum, item) => sum + item.amount, 0) /
-        totalBudgetAmount,
+      displayBudgetList.reduce((sum, item) => sum + item.amount, 0) / 1000000,
     ),
     totalBudgetary: new Set(displayBudgetList.map((item) => item.budgetary))
       .size,

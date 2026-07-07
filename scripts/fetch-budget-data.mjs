@@ -81,21 +81,19 @@ function parseCSV(csv) {
     console.warn("Warning: columns not found in sheet:", missing.join(", "));
   }
 
-  return dataLines
-    .map((line) => {
-      const row = parseRow(line);
-      return {
-        ministry: row[colIndex.MINISTRY] || "",
-        budgetary: row[colIndex.BUDGETARY_UNIT] || "",
-        plan: row[colIndex.BUDGET_PLAN] || "",
-        project: row[colIndex.PROJECT] || "",
-        category: row[colIndex.CATEGORY_LV1] || "",
-        description: row[colIndex.ITEM_DESCRIPTION] || "",
-        amount: Number(row[colIndex.AMOUNT]?.replace(/,/g, "")) || 0,
-        fiscal_year: row[colIndex.FISCAL_YEAR] || "",
-      };
-    })
-    .filter((item) => item.amount > 0);
+  return dataLines.map((line) => {
+    const row = parseRow(line);
+    return {
+      ministry: row[colIndex.MINISTRY] || "",
+      budgetary: row[colIndex.BUDGETARY_UNIT] || "",
+      plan: row[colIndex.BUDGET_PLAN] || "",
+      project: row[colIndex.PROJECT] || "",
+      category: row[colIndex.CATEGORY_LV1] || "",
+      description: row[colIndex.ITEM_DESCRIPTION] || "",
+      amount: Number(row[colIndex.AMOUNT]?.replace(/,/g, "")) || 0,
+      fiscal_year: row[colIndex.FISCAL_YEAR] || "",
+    };
+  });
 }
 
 async function main() {
@@ -104,7 +102,7 @@ async function main() {
 
   console.log("Parsing CSV...");
   const data = parseCSV(csv);
-  console.log(`Rows with amount > 0: ${data.length}`);
+  console.log(`Rows parsed: ${data.length}`);
 
   await mkdir(OUT_DIR, { recursive: true });
   await writeFile(OUT_FILE, JSON.stringify(data));
