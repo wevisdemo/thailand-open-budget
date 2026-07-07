@@ -52,6 +52,7 @@ export default function SearchTemplate() {
   );
   const { data: budget2568 } = useBudgetData("2568-draft-1");
   const { data: budget2569 } = useBudgetData("2569-draft-1");
+  const { data: budget2570 } = useBudgetData("2570-draft-1");
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   const keywords = tags.map((t) => t.word.toLowerCase());
@@ -78,9 +79,15 @@ export default function SearchTemplate() {
     },
     {
       year: 2569,
-      isCurrent: true,
+      isCurrent: false,
       totalSelectedBaht: filterTotal(budget2569),
       totalBudgetBaht: budget2569.reduce((s, i) => s + i.amount, 0),
+    },
+    {
+      year: 2570,
+      isCurrent: true,
+      totalSelectedBaht: filterTotal(budget2570),
+      totalBudgetBaht: budget2570.reduce((s, i) => s + i.amount, 0),
     },
   ];
   const displayBudgetList = budgetData.filter((item) =>
