@@ -1,6 +1,6 @@
 import WevisIcon from "./icons/wevis-icon";
 
-export default function AboutTeam({ page }: { page: "homepage" | "about" }) {
+export default function AboutTeam({ page }: { page?: string }) {
   return (
     <div
       className={`bg-ui-02 m-auto flex ${page === "homepage" ? "max-w-[1280px]" : "max-w-[1032px]"} flex-col gap-[10px]`}

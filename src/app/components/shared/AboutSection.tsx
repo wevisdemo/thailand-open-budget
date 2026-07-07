@@ -1,7 +1,7 @@
 import AboutData from "./AboutData";
 import AboutTeam from "./AboutTeam";
 
-export default function AboutSection({ page }: { page: "homepage" | "about" }) {
+export default function AboutSection({ page }: { page?: string }) {
   return (
     <section className="flex flex-col">
       <div className="bg-black px-[24px] py-[40px]">

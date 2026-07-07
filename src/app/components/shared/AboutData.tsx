@@ -1,7 +1,7 @@
 import ArrowUpRightIcon from "./icons/arrow-up-right-icon";
 import DownloadIcon from "./icons/download-icon";
 
-export default function AboutData({ page }: { page: "homepage" | "about" }) {
+export default function AboutData({ page }: { page?: string }) {
   return (
     <div
       className={`m-auto flex ${page === "homepage" ? "max-w-[1280px]" : "max-w-[1032px]"} flex-col gap-[16px] text-white`}
