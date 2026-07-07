@@ -13,4 +13,5 @@ export const COLUMN_MAP = {
   CATEGORY_LV1: "category",
   ITEM_DESCRIPTION: "description",
   AMOUNT: "amount",
+  FISCAL_YEAR: "fiscal_year",
 };

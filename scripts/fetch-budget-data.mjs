@@ -92,6 +92,7 @@ function parseCSV(csv) {
         category: row[colIndex.CATEGORY_LV1] || "",
         description: row[colIndex.ITEM_DESCRIPTION] || "",
         amount: Number(row[colIndex.AMOUNT]?.replace(/,/g, "")) || 0,
+        fiscal_year: row[colIndex.FISCAL_YEAR] || "",
       };
     })
     .filter((item) => item.amount > 0);
