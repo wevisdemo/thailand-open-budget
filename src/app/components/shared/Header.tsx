@@ -180,7 +180,9 @@ export default function Header() {
                   </button>
 
                   {isOpen && (
-                    <div className="bg-gray-90 absolute top-full left-0 z-30 flex w-max flex-col py-[8px] shadow-lg">
+                    <div
+                      className={`bg-gray-90 absolute top-full left-0 z-30 flex w-max flex-col pl-[16px] shadow-lg ${isOpen ? "border-t border-white" : ""}`}
+                    >
                       {subMenu.map((item, index) => (
                         <Link
                           key={index}
@@ -192,7 +194,7 @@ export default function Header() {
                               : undefined
                           }
                           onClick={() => setOpenLabel(null)}
-                          className="hover:bg-gray-80 flex items-center justify-between gap-[12px] py-[11px] pr-[16px] pl-[32px] text-white"
+                          className={`hover:bg-gray-80 flex items-center justify-between gap-[12px] py-[16px] pr-[16px] pl-[16px] text-white ${isOpen ? "border-b border-white" : ""}`}
                         >
                           <div className="flex items-center gap-[12px]">
                             {item.icon}
@@ -275,7 +277,7 @@ export default function Header() {
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => toggleMobile(label)}
-                      className="flex items-center justify-between gap-[8px] px-[16px] py-[24px] text-white"
+                      className="flex items-center justify-between gap-[8px] border-b border-white px-[16px] py-[24px] text-white"
                     >
                       <div className="flex items-center gap-[12px]">
                         {icon}
@@ -287,13 +289,13 @@ export default function Header() {
                     </button>
 
                     {isOpen && (
-                      <div className="bg-gray-90 flex flex-col">
+                      <div className="bg-gray-90 flex flex-col pl-[16px]">
                         {subMenu.map((item, index) => (
                           <Link
                             key={index}
                             href={item.url}
                             onClick={() => setMenuOpen(false)}
-                            className="hover:bg-gray-80 flex items-center justify-between gap-[12px] py-[24px] pr-[16px] pl-[32px] text-white"
+                            className="hover:bg-gray-80 flex items-center justify-between gap-[12px] border-b border-white py-[24px] pr-[16px] pl-[16px] text-white"
                           >
                             <div className="flex items-center gap-[12px]">
                               {item.icon}
@@ -319,7 +321,7 @@ export default function Header() {
                 <Link
                   key={url}
                   href={url}
-                  className="px-[15px] py-[24px] text-center text-white hover:text-[#BFDBFEBF]"
+                  className="border-b border-white px-[15px] py-[24px] text-white hover:text-[#BFDBFEBF]"
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
