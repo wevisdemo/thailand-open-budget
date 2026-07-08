@@ -104,7 +104,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="relative z-20 flex h-[44px] items-center justify-between bg-black px-[10px] md:h-[58px] md:px-[32px]">
+    <header className="relative z-40 flex h-[44px] items-center justify-between bg-black px-[10px] md:h-[48px] md:px-[32px]">
       <div className="flex items-center gap-2">
         <Link href="/">
           <Image
@@ -139,7 +139,7 @@ export default function Header() {
                   onClick={() =>
                     setOpenLabel((prev) => (prev === label ? null : label))
                   }
-                  className={`flex h-[44px] items-center gap-[8px] px-[16px] text-white hover:underline md:h-[58px] ${isOpen ? "underline" : ""}`}
+                  className={`flex h-[44px] items-center gap-[8px] px-[16px] text-white hover:text-[#BFDBFEBF] md:h-[48px] ${isOpen ? "text-[#BFDBFEBF]" : ""}`}
                 >
                   {icon}
                   <span>{label}</span>
@@ -147,7 +147,7 @@ export default function Header() {
                 </button>
 
                 {isOpen && (
-                  <div className="bg-gray-90 absolute top-full left-0 flex w-max flex-col py-[8px] shadow-lg">
+                  <div className="bg-gray-90 absolute top-full left-0 z-30 flex w-max flex-col py-[8px] shadow-lg">
                     {subMenu.map((item, index) => (
                       <Link
                         key={index}
