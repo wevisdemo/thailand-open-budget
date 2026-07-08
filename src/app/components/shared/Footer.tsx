@@ -31,6 +31,8 @@ function FooterColumn({ icon, title, items }: FooterColumnProps) {
         <Link
           key={item.label}
           href={item.href}
+          target={item.external ? "_blank" : undefined}
+          rel={item.external ? "noreferrer" : undefined}
           className="flex w-full items-center justify-between gap-2 py-[4px] pr-[8px] pl-[16px] md:px-[16px]"
         >
           <span className="text-text-03 text-[14px] leading-[18px] whitespace-nowrap">
@@ -160,11 +162,11 @@ export default function Footer({ className }: FooterProps) {
                 href: "/search?q=keyword",
                 external: true,
               },
-              {
-                label: "ผ่านหน่วยงาน",
-                href: "/search?q=agency",
-                external: true,
-              },
+              // {
+              //   label: "ผ่านหน่วยงาน",
+              //   href: "/search?q=agency",
+              //   external: true,
+              // },
             ]}
           />
           <FooterColumn
@@ -179,12 +181,12 @@ export default function Footer({ className }: FooterProps) {
             items={[
               {
                 label: "ปูพื้นฐานงบประมาณ 101",
-                href: "/articles/101",
+                href: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93-101/",
                 external: true,
               },
               {
                 label: "ประเด็นที่น่าสนใจ",
-                href: "/articles/topics",
+                href: "https://wevis.info/tag/บทความงบประมาณ/",
                 external: true,
               },
             ]}
@@ -208,13 +210,13 @@ export default function Footer({ className }: FooterProps) {
             items={[
               {
                 label: "ที่มาของโครงการ",
-                href: "/about/source",
+                href: "/about",
                 external: true,
               },
-              { label: "ข้อมูลในเว็บนี้", href: "/about/data", external: true },
+              { label: "ข้อมูลในเว็บนี้", href: "/about", external: true },
               {
                 label: "เกี่ยวกับ WeVis",
-                href: "/about/wevis",
+                href: "/about",
                 external: true,
               },
             ]}
@@ -248,7 +250,7 @@ export default function Footer({ className }: FooterProps) {
             </span>
             <div className="flex items-start gap-[8px]">
               <Link
-                href="https://github.com"
+                href="https://github.com/wevisdemo"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -256,7 +258,7 @@ export default function Footer({ className }: FooterProps) {
                 <GithubIcon />
               </Link>
               <Link
-                href="https://facebook.com"
+                href="https://www.facebook.com/wevisdemo/?locale=th_TH"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -264,7 +266,7 @@ export default function Footer({ className }: FooterProps) {
                 <FacebookIcon />
               </Link>
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/wevisdemo/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -272,7 +274,7 @@ export default function Footer({ className }: FooterProps) {
                 <InstagramIcon />
               </Link>
               <Link
-                href="https://x.com"
+                href="https://x.com/wevisdemo"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="X"
