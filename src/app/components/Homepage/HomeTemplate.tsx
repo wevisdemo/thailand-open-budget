@@ -22,25 +22,25 @@ export default function HomeTemplate() {
   const searchParams = useSearchParams();
 
   const initialSource = searchParams.get("budget_source");
-  const initialKeywords =
-    searchParams.get("q")?.split(",").filter(Boolean) ?? [];
 
   const [selectedDocSource, setSelectedDocSource] =
     useState<DropdownOption | null>(
       DOC_SOURCE_OPTIONS.find((o) => o.value === initialSource) ??
         DOC_SOURCE_OPTIONS[DOC_SOURCE_OPTIONS.length - 1],
     );
-  const { tags, setTags, addTag, removeTag } = useSearchTags(initialKeywords);
+  // Home search box is transient — keywords must NOT persist to the home URL.
+  // Otherwise returning to the homepage re-seeds the old keyword and it leaks
+  // into the next search. `q` belongs to the /search page only.
+  const { tags, addTag, removeTag } = useSearchTags();
 
   useEffect(() => {
     const params = new URLSearchParams();
-    if (tags.length > 0) params.set("q", tags.map((t) => t.word).join(","));
     if (selectedDocSource) params.set("budget_source", selectedDocSource.value);
     const paramString = params.toString();
     if (`?${paramString}` !== window.location.search) {
       router.replace(`${pathname}?${paramString}`, { scroll: false });
     }
-  }, [tags, selectedDocSource, pathname, router]);
+  }, [selectedDocSource, pathname, router]);
 
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
