@@ -68,13 +68,13 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
             ที่มีคำว่า &apos;{props.tags.map((t) => t.word).join(", ")}
             &apos;
           </p>
-          <p className="text-text-01 flex flex-wrap">
+          <p className="text-text-01 flex flex-wrap gap-x-[4px]">
             <span className="text-blue-70">
               พบทั้งหมด {props.data.length.toLocaleString()} รายการ
-            </span>{" "}
+            </span>
             <span>
               ปีงบฯ {props.year} · {props.version}
-            </span>{" "}
+            </span>
             <span className="text-gray-60">
               {sortDir === "desc" ? "เรียงจากมากไปน้อย" : "เรียงจากน้อยไปมาก"}
             </span>
