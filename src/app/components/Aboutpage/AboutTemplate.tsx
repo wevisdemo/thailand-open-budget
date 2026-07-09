@@ -21,13 +21,13 @@ const AboutTemplate = () => {
       <section>
         <HeroSection />
       </section>
-      <section className="bg-white px-[24px]">
+      <section className="bg-white px-[24px]" id="detail">
         <DetailSection />
       </section>
-      <section className="bg-white px-[24px]">
+      <section className="bg-white px-[24px]" id="detail-web">
         <DetailWebSection />
       </section>
-      <section className="bg-white px-[24px]">
+      <section className="bg-white px-[24px]" id="detail-wevis">
         <DetailWevisSection />
       </section>
       <Footer />

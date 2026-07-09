@@ -159,8 +159,8 @@ export default function Footer({ className }: FooterProps) {
             items={[
               {
                 label: "ผ่านคีย์เวิร์ด",
-                href: "/search?q=keyword",
-                external: true,
+                href: "/search",
+                external: false,
               },
               // {
               //   label: "ผ่านหน่วยงาน",
@@ -210,14 +210,18 @@ export default function Footer({ className }: FooterProps) {
             items={[
               {
                 label: "ที่มาของโครงการ",
-                href: "/about",
-                external: true,
+                href: "/about#detail",
+                external: false,
               },
-              { label: "ข้อมูลในเว็บนี้", href: "/about", external: true },
+              {
+                label: "ข้อมูลในเว็บนี้",
+                href: "/about#detail-web",
+                external: false,
+              },
               {
                 label: "เกี่ยวกับ WeVis",
-                href: "/about",
-                external: true,
+                href: "/about#detail-wevis",
+                external: false,
               },
             ]}
           />
