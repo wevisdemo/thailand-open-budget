@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import type { Tag } from "@/types/search";
 import { TAG_COLORS } from "@/constants/search";
 
@@ -19,14 +19,12 @@ export function useSearchTags(initialWords: string[] = []) {
   // `useState` initializer above does not re-run when the URL `q` changes.
   // Re-sync tags whenever the incoming keywords change to avoid a stale search.
   const lastInitialKey = useRef(initialWords.join(","));
-  useEffect(() => {
-    const key = initialWords.join(",");
-    if (key !== lastInitialKey.current) {
-      lastInitialKey.current = key;
-      setTags(buildTags(initialWords));
-      setCounter(initialWords.length);
-    }
-  }, [initialWords]);
+  const key = initialWords.join(",");
+  if (key !== lastInitialKey.current) {
+    lastInitialKey.current = key;
+    setTags(buildTags(initialWords));
+    setCounter(initialWords.length);
+  }
 
   function addTag(word: string) {
     if (word && !tags.find((t) => t.word === word)) {
