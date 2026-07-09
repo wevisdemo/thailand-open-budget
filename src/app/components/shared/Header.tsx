@@ -11,7 +11,7 @@ import { NavLinkItem } from "@/types/header";
 import SearchCategoriesIcon from "./icons/search-categories-icon";
 
 const rightLinks: { label: string; url: string }[] = [
-  { label: "ดาวน์โหลด", url: "/" },
+  // { label: "ดาวน์โหลด", url: "/download" },
   { label: "เกี่ยวกับเรา", url: "/about" },
 ];
 

@@ -191,12 +191,12 @@ export default function Footer({ className }: FooterProps) {
               },
             ]}
           />
-          <FooterColumn
+          {/* <FooterColumn
             icon={
               <DownloadIcon color="#ffffff" className="size-[16px] shrink-0" />
             }
             title="ดาวน์โหลด"
-          />
+          /> */}
           <FooterColumn
             icon={
               <Image
