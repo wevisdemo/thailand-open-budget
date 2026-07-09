@@ -1,14 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import SearchIcon from "@/app/components/shared/icons/search-icon";
+import { withBasePath } from "@/lib/base-path";
 
 interface SearchPanelProps {
   tags: { word: string }[];
   addTag: (word: string) => void;
   removeTag: (word: string) => void;
-  onClearTags: () => void;
   data: string;
 }
 
@@ -16,12 +15,10 @@ export default function SearchPanel({
   tags,
   addTag,
   removeTag,
-  onClearTags,
   data,
 }: SearchPanelProps) {
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
-  const router = useRouter();
 
   function handleAdd(raw: string) {
     const word = raw.trim().replace(/,+$/, "").trim();
@@ -34,15 +31,14 @@ export default function SearchPanel({
     const words = [...tags.map((t) => t.word)];
     if (word && !words.includes(word)) words.push(word);
     const q = words.join(",");
-    router.push(
-      q
-        ? `/search?q=${encodeURIComponent(q)}&budget_source=${data}`
-        : `/search?budget_source=${data}`,
-    );
-    setInput("");
-    // Home search box is transient. Clear chips so a cached homepage (browser
-    // back) does not merge the previous keyword into the next search.
-    onClearTags();
+    const url = q
+      ? `/search?q=${encodeURIComponent(q)}&budget_source=${data}`
+      : `/search?budget_source=${data}`;
+    // Full-document navigation, NOT router.push. In the static export the App
+    // Router client cache keys /search by pathname and restores the previously
+    // cached query, so router.push("/search?q=<new>") lands back on the old
+    // keyword. A real navigation loads /search fresh with the correct query.
+    window.location.href = withBasePath(url);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {

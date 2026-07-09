@@ -9,7 +9,6 @@ interface SearchHeaderProps {
   tags: Tag[];
   addTag: (word: string) => void;
   removeTag: (word: string) => void;
-  onClearTags: () => void;
   data: string;
 }
 
@@ -17,7 +16,6 @@ export default function SearchHeader({
   tags,
   addTag,
   removeTag,
-  onClearTags,
   data,
 }: SearchHeaderProps) {
   return (
@@ -44,7 +42,6 @@ export default function SearchHeader({
         tags={tags}
         addTag={addTag}
         removeTag={removeTag}
-        onClearTags={onClearTags}
         data={data}
       />
       <TagList tags={tags} removeTag={removeTag} />

@@ -114,7 +114,6 @@ export default function HomeTemplate() {
           tags={tags}
           addTag={addTag}
           removeTag={removeTag}
-          onClearTags={() => setTags([])}
           data={selectedDocSource?.value ?? ""}
         />
         <BudgetSection

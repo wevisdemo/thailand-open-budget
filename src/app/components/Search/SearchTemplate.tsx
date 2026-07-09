@@ -15,37 +15,63 @@ import SearchNotFound from "@/app/components/Search/SearchNotFound";
 import SearchNavbar from "@/app/components/Search/SearchNavbar";
 import { type DropdownOption } from "../shared/Dropdown";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
-import { useEffect, useState } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useSearchTags } from "@/app/store/useSearchTags";
+import { useState } from "react";
 import { useBudgetData } from "@/hooks/useBudgetData";
+import { useUrlSearch } from "@/hooks/useUrlSearch";
+import type { Tag } from "@/types/search";
+import { TAG_COLORS } from "@/constants/search";
 import Footer from "../shared/Footer";
 
 export default function SearchTemplate() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  // The URL is the single source of truth. Tags and the selected doc source are
+  // derived from it; edits write the URL. On the static export the App Router
+  // client cache pins /search to its first-seen query, so we NEVER use
+  // router.push/replace for query changes here — reads go through
+  // `useUrlSearch` (live address bar) and writes go through the History API.
+  const urlSearch = useUrlSearch();
+  const params = new URLSearchParams(urlSearch);
 
-  const initialSource = searchParams.get("budget_source");
-  const initialKeywords =
-    searchParams.get("q")?.split(",").filter(Boolean) ?? [];
+  const sourceValue = params.get("budget_source");
+  const q = params.get("q") ?? "";
+  const words = q.split(",").filter(Boolean);
 
-  const [selectedDocSource, setSelectedDocSource] =
-    useState<DropdownOption | null>(
-      DOC_SOURCE_OPTIONS.find((o) => o.value === initialSource) ??
-        DOC_SOURCE_OPTIONS[DOC_SOURCE_OPTIONS.length - 1],
+  const selectedDocSource: DropdownOption =
+    DOC_SOURCE_OPTIONS.find((o) => o.value === sourceValue) ??
+    DOC_SOURCE_OPTIONS[DOC_SOURCE_OPTIONS.length - 1];
+
+  const tags: Tag[] = words.map((word, i) => ({
+    word,
+    color: TAG_COLORS[i % TAG_COLORS.length],
+  }));
+
+  function commit(nextWords: string[], nextSource: string) {
+    const next = new URLSearchParams();
+    if (nextWords.length > 0) next.set("q", nextWords.join(","));
+    if (nextSource) next.set("budget_source", nextSource);
+    const qs = next.toString();
+    if (`?${qs}` === window.location.search) return;
+    const url = qs
+      ? `${window.location.pathname}?${qs}`
+      : window.location.pathname;
+    window.history.replaceState(null, "", url);
+  }
+
+  function addTag(word: string) {
+    if (word && !words.includes(word))
+      commit([...words, word], selectedDocSource.value);
+  }
+  function removeTag(word: string) {
+    commit(
+      words.filter((w) => w !== word),
+      selectedDocSource.value,
     );
-  const { tags, setTags, addTag, removeTag } = useSearchTags(initialKeywords);
-
-  useEffect(() => {
-    const params = new URLSearchParams();
-    if (tags.length > 0) params.set("q", tags.map((t) => t.word).join(","));
-    if (selectedDocSource) params.set("budget_source", selectedDocSource.value);
-    const paramString = params.toString();
-    if (`?${paramString}` !== window.location.search) {
-      router.replace(`${pathname}?${paramString}`, { scroll: false });
-    }
-  }, [tags, selectedDocSource, pathname, router]);
+  }
+  function clearTags() {
+    commit([], selectedDocSource.value);
+  }
+  function onChangeDocSource(option: DropdownOption) {
+    commit(words, option.value);
+  }
 
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
@@ -149,7 +175,7 @@ export default function SearchTemplate() {
       />
       <SearchNavbar
         selectedDocSource={selectedDocSource}
-        onChangeDocSource={setSelectedDocSource}
+        onChangeDocSource={onChangeDocSource}
         onOpenVersionInfo={() => setVersionInfoOpen(true)}
       />
       <div className="flex flex-col">
@@ -163,7 +189,7 @@ export default function SearchTemplate() {
         ) : tags.length === 0 ? (
           <SearchEmptyState onAddTag={addTag} />
         ) : displayBudgetList.length === 0 ? (
-          <SearchNotFound tags={tags} onClear={() => setTags([])} />
+          <SearchNotFound tags={tags} onClear={clearTags} />
         ) : (
           <>
             <section className="bg-white px-[24px] pb-[24px] md:pb-[32px]">
