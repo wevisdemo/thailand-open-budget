@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import type { Tag } from "@/types/search";
 import { TAG_COLORS } from "@/constants/search";
 
@@ -18,10 +18,10 @@ export function useSearchTags(initialWords: string[] = []) {
   // In production the App Router Router Cache reuses the page instance, so the
   // `useState` initializer above does not re-run when the URL `q` changes.
   // Re-sync tags whenever the incoming keywords change to avoid a stale search.
-  const lastInitialKey = useRef(initialWords.join(","));
   const key = initialWords.join(",");
-  if (key !== lastInitialKey.current) {
-    lastInitialKey.current = key;
+  const [lastInitialKey, setLastInitialKey] = useState(key);
+  if (key !== lastInitialKey) {
+    setLastInitialKey(key);
     setTags(buildTags(initialWords));
     setCounter(initialWords.length);
   }
