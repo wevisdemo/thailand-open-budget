@@ -16,23 +16,19 @@ import SearchNavbar from "@/app/components/Search/SearchNavbar";
 import { type DropdownOption } from "../shared/Dropdown";
 import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
 import { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
-import { useUrlSearch } from "@/hooks/useUrlSearch";
 import Footer from "../shared/Footer";
 
 export default function SearchTemplate() {
   const router = useRouter();
   const pathname = usePathname();
-  // Read the live URL, not `useSearchParams()`. In the static export a reused
-  // page instance can report a stale `q`, which leaves the old keyword pinned
-  // and even rewrites the URL back to it via the sync effect below.
-  const urlSearch = useUrlSearch();
-  const params = new URLSearchParams(urlSearch);
+  const searchParams = useSearchParams();
 
-  const initialSource = params.get("budget_source");
-  const initialKeywords = params.get("q")?.split(",").filter(Boolean) ?? [];
+  const initialSource = searchParams.get("budget_source");
+  const initialKeywords =
+    searchParams.get("q")?.split(",").filter(Boolean) ?? [];
 
   const [selectedDocSource, setSelectedDocSource] =
     useState<DropdownOption | null>(
@@ -42,11 +38,10 @@ export default function SearchTemplate() {
   const { tags, setTags, addTag, removeTag } = useSearchTags(initialKeywords);
 
   useEffect(() => {
-    const nextParams = new URLSearchParams();
-    if (tags.length > 0) nextParams.set("q", tags.map((t) => t.word).join(","));
-    if (selectedDocSource)
-      nextParams.set("budget_source", selectedDocSource.value);
-    const paramString = nextParams.toString();
+    const params = new URLSearchParams();
+    if (tags.length > 0) params.set("q", tags.map((t) => t.word).join(","));
+    if (selectedDocSource) params.set("budget_source", selectedDocSource.value);
+    const paramString = params.toString();
     if (`?${paramString}` !== window.location.search) {
       router.replace(`${pathname}?${paramString}`, { scroll: false });
     }
