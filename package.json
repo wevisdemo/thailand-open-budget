@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "data:fetch": "node scripts/fetch-budget-data.mjs",
+    "data:index": "node scripts/fetch-index-data.mjs",
     "data:import": "node scripts/import-all.mjs",
     "sass:build": "sass --load-path=node_modules --style=compressed --no-source-map src/styles/carbon/index.scss src/styles/carbon/pre-compiled.css",
     "prepare": "husky"

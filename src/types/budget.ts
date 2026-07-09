@@ -23,3 +23,13 @@ export interface BudgetMinistryItem {
   budgetary: string;
   budgetPercentage: number;
 }
+
+export interface BudgetDocument {
+  year: number;
+  nick_name: string;
+  full_name: string;
+  status: string;
+  updated_date: string | null;
+  source_url: string | null;
+  csv_url: string | null;
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "year": 2570,
+    "nick_name": "ร่างงบประมาณ พ.ศ. 2570",
+    "full_name": "ร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๗๐",
+    "status": "ฉบับร่าง (วาระ 1)",
+    "updated_date": null,
+    "source_url": null,
+    "csv_url": null
+  },
+  {
+    "year": 2569,
+    "nick_name": "งบประมาณ พ.ศ. 2569",
+    "full_name": "พระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๖๙",
+    "status": "สภาอนุมัติแล้ว (วาระ 3)",
+    "updated_date": null,
+    "source_url": "https://www.bb.go.th/topic3.php?catID=1526&gid=862&mid=545",
+    "csv_url": null
+  },
+  {
+    "year": 2569,
+    "nick_name": "ร่างงบประมาณ พ.ศ. 2569",
+    "full_name": "ร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๖๙",
+    "status": "ฉบับร่าง (วาระ 1)",
+    "updated_date": "22/7/2026",
+    "source_url": "https://www.bb.go.th/topic-detail.php?id=17756&mid=1061&catID=0",
+    "csv_url": "https://docs.google.com/spreadsheets/d/1OfQIUzd82a5A_WpMk88-1G-dmsYI-8naJHtg7_1LSZg/edit?gid=2114899200#gid=2114899200"
+  },
+  {
+    "year": 2568,
+    "nick_name": "ร่างงบประมาณ พ.ศ. 2568",
+    "full_name": "ร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๖๘",
+    "status": "ฉบับร่าง (วาระ 1)",
+    "updated_date": "22/7/2026",
+    "source_url": "https://www.bb.go.th/topic-detail.php?id=16659&mid=1061&catID=0",
+    "csv_url": "https://docs.google.com/spreadsheets/d/1OfQIUzd82a5A_WpMk88-1G-dmsYI-8naJHtg7_1LSZg/edit?gid=321838122#gid=321838122"
+  },
+  {
+    "year": 2567,
+    "nick_name": "ร่างงบประมาณ พ.ศ. 2567",
+    "full_name": "ร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๖๗",
+    "status": "ฉบับร่าง (วาระ 1)",
+    "updated_date": "22/7/2026",
+    "source_url": "https://www.bb.go.th/topic-detail.php?id=16350&mid=1061&catID=0",
+    "csv_url": null
+  },
+  {
+    "year": 2566,
+    "nick_name": "ร่างงบประมาณ พ.ศ. 2566",
+    "full_name": "ร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๖๖",
+    "status": "ฉบับร่าง (วาระ 1)",
+    "updated_date": "22/7/2026",
+    "source_url": "https://www.bb.go.th/topic3.php?catID=1377&gid=860&mid=544",
+    "csv_url": null
+  }
+]

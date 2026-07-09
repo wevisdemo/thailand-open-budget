@@ -34,13 +34,17 @@ export default function HomeTemplate() {
   const { tags, addTag, removeTag, setTags } = useSearchTags();
 
   // Home search box is transient. A fresh soft-nav mount already starts empty,
-  // but a browser-back / bfcache restore reinstates the previous chips and
-  // leaks the old keyword into the next search. `pageshow` fires on that
-  // restore, so clear the chips there.
+  // but a cached instance restored by browser-back / bfcache reinstates the
+  // previous chips and leaks the old keyword into the next search. `pageshow`
+  // covers bfcache; `popstate` covers soft back/forward navigations.
   useEffect(() => {
     const clear = () => setTags([]);
     window.addEventListener("pageshow", clear);
-    return () => window.removeEventListener("pageshow", clear);
+    window.addEventListener("popstate", clear);
+    return () => {
+      window.removeEventListener("pageshow", clear);
+      window.removeEventListener("popstate", clear);
+    };
   }, [setTags]);
 
   useEffect(() => {
