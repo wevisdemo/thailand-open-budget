@@ -8,6 +8,7 @@ interface SearchPanelProps {
   tags: { word: string }[];
   addTag: (word: string) => void;
   removeTag: (word: string) => void;
+  onClearTags: () => void;
   data: string;
 }
 
@@ -15,6 +16,7 @@ export default function SearchPanel({
   tags,
   addTag,
   removeTag,
+  onClearTags,
   data,
 }: SearchPanelProps) {
   const [input, setInput] = useState("");
@@ -38,6 +40,9 @@ export default function SearchPanel({
         : `/search?budget_source=${data}`,
     );
     setInput("");
+    // Home search box is transient. Clear chips so a cached homepage (browser
+    // back) does not merge the previous keyword into the next search.
+    onClearTags();
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {

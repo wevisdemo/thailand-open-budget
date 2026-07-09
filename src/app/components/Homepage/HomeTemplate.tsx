@@ -31,7 +31,17 @@ export default function HomeTemplate() {
   // Home search box is transient — keywords must NOT persist to the home URL.
   // Otherwise returning to the homepage re-seeds the old keyword and it leaks
   // into the next search. `q` belongs to the /search page only.
-  const { tags, addTag, removeTag } = useSearchTags();
+  const { tags, addTag, removeTag, setTags } = useSearchTags();
+
+  // Home search box is transient. A fresh soft-nav mount already starts empty,
+  // but a browser-back / bfcache restore reinstates the previous chips and
+  // leaks the old keyword into the next search. `pageshow` fires on that
+  // restore, so clear the chips there.
+  useEffect(() => {
+    const clear = () => setTags([]);
+    window.addEventListener("pageshow", clear);
+    return () => window.removeEventListener("pageshow", clear);
+  }, [setTags]);
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -100,6 +110,7 @@ export default function HomeTemplate() {
           tags={tags}
           addTag={addTag}
           removeTag={removeTag}
+          onClearTags={() => setTags([])}
           data={selectedDocSource?.value ?? ""}
         />
         <BudgetSection
