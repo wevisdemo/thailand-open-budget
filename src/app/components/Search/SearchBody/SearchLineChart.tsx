@@ -18,8 +18,9 @@ function formatValue(v: number, unit: "million" | "percent"): string {
 }
 
 function getNiceTicks(max: number, count: number): number[] {
-  const magnitude = Math.pow(10, Math.floor(Math.log10(max)));
-  const niceMax = Math.ceil(max / magnitude) * magnitude;
+  const safeMax = max > 0 ? max : 1;
+  const magnitude = Math.pow(10, Math.floor(Math.log10(safeMax)));
+  const niceMax = Math.ceil(safeMax / magnitude) * magnitude;
   const step = niceMax / (count - 1);
   return Array.from({ length: count }, (_, i) => step * i);
 }
@@ -39,7 +40,8 @@ export default function SearchLineChart({ data, unit }: SearchLineChartProps) {
   const yTicks = getNiceTicks(maxValue, 4);
   const niceMax = yTicks[yTicks.length - 1];
 
-  const getX = (i: number) => pl + (i / (data.length - 1)) * chartW;
+  const getX = (i: number) =>
+    data.length > 1 ? pl + (i / (data.length - 1)) * chartW : pl + chartW / 2;
   const getY = (v: number) => pt + (1 - v / niceMax) * chartH;
 
   const polylinePoints = data
