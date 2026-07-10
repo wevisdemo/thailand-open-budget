@@ -11,10 +11,10 @@ export default function AboutData({ page }: { page?: string }) {
           <h1 className="text-h6 font-serif text-[28px] font-bold">
             เกี่ยวกับข้อมูล
           </h1>
-          <button className="text-gray-70 border-gray-20 flex cursor-pointer items-center gap-[8px] border bg-white px-[16px] py-[10px]">
+          {/* <button className="text-gray-70 border-gray-20 flex cursor-pointer items-center gap-[8px] border bg-white px-[16px] py-[10px]">
             ดาวน์โหลดข้อมูล
             <ArrowUpRightIcon color="#161616" />
-          </button>
+          </button> */}
         </div>
 
         <h2 className="text-b4 font-serif text-[20px] font-bold">
@@ -40,14 +40,11 @@ export default function AboutData({ page }: { page?: string }) {
         <div>
           <p>ขอบเขตของข้อมูลงบประมาณที่ใช้พัฒนา</p>
           <ul className="text-b5 flex list-disc flex-col pl-[20px]">
-            <li>
-              งบประมาณจากร่าง พ.ร.บ. งบประมาณรายจ่าย (ฉบับร่าง วาระ 1) ระหว่างปี
-              2566-ปีปัจจุบัน
-            </li>
-            <li>
+            <li>ฉบับร่างงบประมาณ (วาระ 1) ระหว่าง ปีงบฯ 2568 - ปัจจุบัน</li>
+            {/* <li>
               งบประมาณจาก พ.ร.บ. งบประมาณรายจ่าย (ฉบับที่สภาอนุมัติแล้ว วาระ 3)
               ระหว่างปี 2569-ปีปัจจุบัน
-            </li>
+            </li> */}
           </ul>
         </div>
         <p>

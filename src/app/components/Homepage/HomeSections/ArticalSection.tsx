@@ -88,6 +88,8 @@ function ArticleCard({ card }: ArticleCardProps) {
   return (
     <a
       href={card.link}
+      target="_blank"
+      rel="noopener noreferrer"
       className="bg-ui-01 flex w-[260px] max-w-[327.6666564941406px] shrink-0 snap-start flex-col gap-[18px] p-[16px] md:w-full md:flex-1 md:shrink"
     >
       <div className="relative aspect-4096/2150 w-full shrink-0 overflow-hidden">
@@ -121,6 +123,7 @@ function SeeAllLink({ link, total }: { link: string; total: number | null }) {
     <div className="flex w-full justify-end">
       <a
         target="_blank"
+        rel="noopener noreferrer"
         href={link}
         className="text-link-01 underline-offset-from-font text-[14px] leading-[18px] underline decoration-solid"
       >
@@ -172,7 +175,7 @@ function ArticalSection() {
         if (cancelled) return;
         const posts = env?.body ?? [];
         setBasicsCards(mapPostsToCards(posts, "b"));
-        const total = Number(env?.headers?.["X-WP-Total"]);
+        const total = Number(env?.headers?.["X-WP-TotalPages"]);
         setBasicsTotal(Number.isFinite(total) ? total : null);
       })
       .catch(() => {
@@ -188,7 +191,7 @@ function ArticalSection() {
         if (cancelled) return;
         const posts = env?.body ?? [];
         setIssuesCards(mapPostsToCards(posts, "i"));
-        const total = Number(env?.headers?.["X-WP-Total"]);
+        const total = Number(env?.headers?.["X-WP-TotalPages"]);
         setIssuesTotal(Number.isFinite(total) ? total : null);
       })
       .catch(() => {

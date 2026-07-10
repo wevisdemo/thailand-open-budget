@@ -236,7 +236,7 @@ function DetailWevisSection() {
             </a>
             <div className="hidden items-center gap-[8px] md:flex">
               <a
-                href="https://github.com/wevis"
+                href="https://github.com/wevisdemo"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -244,7 +244,7 @@ function DetailWevisSection() {
                 <GithubIcon />
               </a>
               <a
-                href="https://www.facebook.com/wevis.info"
+                href="https://www.facebook.com/wevisdemo/?locale=th_TH"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -252,7 +252,7 @@ function DetailWevisSection() {
                 <FacebookIcon />
               </a>
               <a
-                href="https://www.instagram.com/wevis.info"
+                href="https://www.instagram.com/wevisdemo/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -260,7 +260,7 @@ function DetailWevisSection() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://x.com/wevis_info"
+                href="https://x.com/wevisdemo"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="X"

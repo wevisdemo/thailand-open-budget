@@ -88,7 +88,7 @@ const DetailSection = () => {
           <h3 className="font-serif text-[20px] leading-[28px] font-bold">
             หมายเหตุ
           </h3>
-          <p className="text-[16px] leading-[22px]">
+          <p className="text-[14px] leading-[20px]">
             โครงการนี้{" "}
             <a
               className="text-text-01 underline"

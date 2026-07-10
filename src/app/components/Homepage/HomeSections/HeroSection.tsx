@@ -20,12 +20,13 @@ const HeroSection = ({
 }: HeroSectionProps) => {
   return (
     <div
-      className="relative bg-cover bg-bottom pt-[74px] md:bg-center"
+      className="relative bg-cover bg-bottom pt-[74px] md:h-[calc(100vh-102px)] md:bg-center"
       style={{
         backgroundImage: `url(${withBasePath("/images/home-hero.svg")})`,
       }}
     >
-      <div className="mx-auto flex w-full flex-col items-center justify-center gap-[64px] px-[48px] text-balance md:px-0">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-[64px] px-[48px] text-balance md:h-full md:justify-between md:px-0">
+        <div></div>
         <div className="flex max-w-[679px] flex-col gap-[16px]">
           <p className="text-text-04 text-h3 text-center font-serif font-bold">
             เงินภาษีที่คุณจ่าย
@@ -51,7 +52,7 @@ const HeroSection = ({
             </ul>
           </div>
         </div>
-        <div className="w-full max-w-[1280px]">
+        <div className="w-full max-w-[679px]">
           <div className="bg-ui-03 py-2">
             <p className="text-text-02 text-b5 text-center">
               {year === (new Date().getFullYear() + 543).toString()
