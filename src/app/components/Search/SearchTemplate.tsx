@@ -89,6 +89,7 @@ export default function SearchTemplate() {
         keywords.some(
           (kw) =>
             item.description.toLowerCase().includes(kw) ||
+            item.output.toLowerCase().includes(kw) ||
             item.project.toLowerCase().includes(kw) ||
             item.plan.toLowerCase().includes(kw),
         ),
@@ -120,6 +121,7 @@ export default function SearchTemplate() {
     keywords.some(
       (kw) =>
         item.description.toLowerCase().includes(kw) ||
+        item.output.toLowerCase().includes(kw) ||
         item.project.toLowerCase().includes(kw) ||
         item.plan.toLowerCase().includes(kw),
     ),

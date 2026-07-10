@@ -26,6 +26,7 @@ function buildSearchableText(item: BudgetItem): string {
     item.ministry,
     item.budgetary,
     item.plan,
+    item.output,
     item.project,
     item.category,
     item.description,

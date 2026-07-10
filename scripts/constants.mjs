@@ -13,6 +13,7 @@ export const COLUMN_MAP = {
   MINISTRY: "ministry",
   BUDGETARY_UNIT: "budgetary",
   BUDGET_PLAN: "plan",
+  OUTPUT: "output",
   PROJECT: "project",
   CATEGORY_LV1: "category",
   ITEM_DESCRIPTION: "description",

@@ -126,7 +126,11 @@ export default function BudgetListTable({
                   }) || "-"}
                 </td>
                 <td className="px-[16px] py-[16px]">
-                  {item.project ? highlightTags(item.project, tags) : "-"}
+                  {item.project
+                    ? highlightTags(item.project, tags)
+                    : item.output
+                      ? highlightTags(item.output, tags)
+                      : "-"}
                 </td>
                 <td className="px-[16px] py-[16px]">
                   {item.plan ? highlightTags(item.plan, tags) : "-"}

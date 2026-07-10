@@ -87,6 +87,7 @@ function parseCSV(csv) {
       ministry: row[colIndex.MINISTRY] || "",
       budgetary: row[colIndex.BUDGETARY_UNIT] || "",
       plan: row[colIndex.BUDGET_PLAN] || "",
+      output: row[colIndex.OUTPUT] || "",
       project: row[colIndex.PROJECT] || "",
       category: row[colIndex.CATEGORY_LV1] || "",
       description: row[colIndex.ITEM_DESCRIPTION] || "",

@@ -38,7 +38,7 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       }) || "-",
-      item.project || "-",
+      item.project || item.output || "-",
       item.plan || "-",
       item.budgetary,
       item.ministry,
