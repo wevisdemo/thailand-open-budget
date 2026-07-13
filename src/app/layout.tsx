@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { IBM_Plex_Sans_Thai_Looped } from "next/font/google";
 import "./globals.css";
 import Header from "./components/shared/Header";
@@ -56,6 +57,16 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <Header />
         {children}
+        {/* Privacy-friendly analytics by Plausible */}
+        <Script
+          async
+          src="https://analytics.punchup.world/js/pa-BRfY3p8lbdW8xJABICyrh.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+plausible.init()`}
+        </Script>
       </body>
     </html>
   );
