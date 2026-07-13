@@ -11,7 +11,7 @@ import { NavLinkItem } from "@/types/header";
 import SearchCategoriesIcon from "./icons/search-categories-icon";
 
 const rightLinks: { label: string; url: string }[] = [
-  // { label: "ดาวน์โหลด", url: "/download" },
+  { label: "ดาวน์โหลด", url: "/download" },
   { label: "เกี่ยวกับเรา", url: "/about" },
 ];
 
@@ -84,15 +84,8 @@ const leftLinks: NavLinkItem[] = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openLabel, setOpenLabel] = useState<string | null>(null);
-  const [mobileOpen, setMobileOpen] = useState<string[]>([]);
   const [visible, setVisible] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
-
-  function toggleMobile(label: string) {
-    setMobileOpen((prev) =>
-      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label],
-    );
-  }
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -134,10 +127,94 @@ export default function Header() {
     <>
       <div className="h-[44px] md:h-[48px]" aria-hidden="true" />
       <header
-        className={`fixed top-0 left-0 z-40 flex h-[44px] w-full items-center justify-between bg-black px-[10px] transition-transform duration-300 md:h-[48px] md:px-[32px] ${
+        className={`fixed top-0 left-0 z-40 flex h-[44px] w-full items-center gap-[16px] bg-black px-[10px] transition-transform duration-300 md:h-[48px] md:justify-between md:px-[32px] ${
           visible || forceVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
+        {/* Mobile menu button */}
+        <div className="relative md:hidden">
+          <button onClick={() => setMenuOpen((prev) => !prev)}>
+            {menuOpen ? (
+              <Image
+                src={withBasePath("/icons/close.svg")}
+                alt="menu"
+                width={12}
+                height={12}
+              />
+            ) : (
+              <Image
+                src={withBasePath("/icons/menu.svg")}
+                alt="menu"
+                width={12}
+                height={12}
+              />
+            )}
+          </button>
+
+          {menuOpen && (
+            <nav className="absolute top-[28px] left-[-10px] flex w-screen flex-col bg-[#222222]">
+              {leftLinks.map(({ label, url, icon, menu, subMenu }, index) => {
+                if (!menu || subMenu.length === 0) {
+                  return (
+                    <Link
+                      key={index}
+                      href={url}
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-[12px] px-[16px] py-[11px] text-white hover:text-[#BFDBFEBF]"
+                    >
+                      {icon}
+                      <span>{label}</span>
+                    </Link>
+                  );
+                }
+
+                return (
+                  <div key={index} className="flex flex-col">
+                    <div className="flex items-center gap-[12px] border-b border-[#414141] px-[16px] py-[24px] text-white">
+                      {icon}
+                      <span>{label}</span>
+                    </div>
+
+                    <div className="flex flex-col bg-[#222222] pl-[16px]">
+                      {subMenu.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.url}
+                          onClick={() => setMenuOpen(false)}
+                          className="hover:bg-gray-80 flex items-center justify-between gap-[12px] border-b border-[#414141] py-[24px] pr-[16px] pl-[16px] text-white"
+                        >
+                          <div className="flex items-center gap-[12px]">
+                            {item.icon}
+                            <span>{item.label}</span>
+                          </div>
+
+                          {label === "อ่านบทความ" && (
+                            <Image
+                              src={withBasePath("/icons/arrow-up-right.svg")}
+                              alt="link"
+                              width={13}
+                              height={13}
+                            />
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+              {rightLinks.map(({ label, url }) => (
+                <Link
+                  key={url}
+                  href={url}
+                  className="border-b border-[#414141] px-[15px] py-[24px] text-white hover:text-[#BFDBFEBF]"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          )}
+        </div>
         <div className="flex items-center gap-2">
           <Link href="/">
             <Image
@@ -181,7 +258,7 @@ export default function Header() {
 
                   {isOpen && (
                     <div
-                      className={`bg-gray-90 absolute top-full left-0 z-30 flex w-max flex-col pl-[16px] shadow-lg ${isOpen ? "border-t border-white" : ""}`}
+                      className={`bg-gray-90 absolute top-full left-0 z-30 flex w-max flex-col shadow-lg`}
                     >
                       {subMenu.map((item, index) => (
                         <Link
@@ -194,7 +271,7 @@ export default function Header() {
                               : undefined
                           }
                           onClick={() => setOpenLabel(null)}
-                          className={`hover:bg-gray-80 flex items-center justify-between gap-[12px] py-[16px] pr-[16px] pl-[16px] text-white ${isOpen ? "border-b border-white" : ""}`}
+                          className={`hover:bg-gray-80 flex items-center justify-between gap-[12px] py-[16px] pr-[16px] pl-[16px] text-white`}
                         >
                           <div className="flex items-center gap-[12px]">
                             {item.icon}
@@ -231,105 +308,6 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-
-        {/* Mobile menu button */}
-        <div className="relative md:hidden">
-          <button onClick={() => setMenuOpen((prev) => !prev)}>
-            {menuOpen ? (
-              <Image
-                src={withBasePath("/icons/close.svg")}
-                alt="menu"
-                width={13}
-                height={13}
-              />
-            ) : (
-              <Image
-                src={withBasePath("/icons/menu.svg")}
-                alt="menu"
-                width={24}
-                height={24}
-              />
-            )}
-          </button>
-
-          {menuOpen && (
-            <nav className="absolute top-full right-[-10px] flex w-screen flex-col bg-black">
-              {leftLinks.map(({ label, url, icon, menu, subMenu }, index) => {
-                if (!menu || subMenu.length === 0) {
-                  return (
-                    <Link
-                      key={index}
-                      href={url}
-                      onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-[12px] px-[16px] py-[11px] text-white hover:text-[#BFDBFEBF]"
-                    >
-                      {icon}
-                      <span>{label}</span>
-                    </Link>
-                  );
-                }
-
-                const isOpen = mobileOpen.includes(label);
-
-                return (
-                  <div key={index} className="flex flex-col">
-                    <button
-                      type="button"
-                      aria-expanded={isOpen}
-                      onClick={() => toggleMobile(label)}
-                      className="flex items-center justify-between gap-[8px] border-b border-white px-[16px] py-[24px] text-white"
-                    >
-                      <div className="flex items-center gap-[12px]">
-                        {icon}
-                        <span>{label}</span>
-                      </div>
-                      <span>
-                        <DownAngleIcon color="white" />
-                      </span>
-                    </button>
-
-                    {isOpen && (
-                      <div className="bg-gray-90 flex flex-col pl-[16px]">
-                        {subMenu.map((item, index) => (
-                          <Link
-                            key={index}
-                            href={item.url}
-                            onClick={() => setMenuOpen(false)}
-                            className="hover:bg-gray-80 flex items-center justify-between gap-[12px] border-b border-white py-[24px] pr-[16px] pl-[16px] text-white"
-                          >
-                            <div className="flex items-center gap-[12px]">
-                              {item.icon}
-                              <span>{item.label}</span>
-                            </div>
-
-                            {label === "อ่านบทความ" && (
-                              <Image
-                                src={withBasePath("/icons/arrow-up-right.svg")}
-                                alt="link"
-                                width={13}
-                                height={13}
-                              />
-                            )}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-              {rightLinks.map(({ label, url }) => (
-                <Link
-                  key={url}
-                  href={url}
-                  className="border-b border-white px-[15px] py-[24px] text-white hover:text-[#BFDBFEBF]"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          )}
-        </div>
       </header>
     </>
   );

@@ -4,6 +4,7 @@ import Footer from "../shared/Footer";
 import Breadcrumb from "../shared/Breadcrumb";
 import HeroSection from "./DownloadSection/HeroSection";
 import DetailSection from "./DownloadSection/DetailSection";
+import AboutTeam from "../shared/AboutTeam";
 
 const DownloadTemplate = () => {
   return (
@@ -21,6 +22,9 @@ const DownloadTemplate = () => {
       </section>
       <section className="bg-white px-[24px]">
         <DetailSection />
+      </section>
+      <section className="bg-white px-[24px] pb-[48px]">
+        <AboutTeam />
       </section>
 
       <Footer />

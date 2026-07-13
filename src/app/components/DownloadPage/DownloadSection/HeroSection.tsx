@@ -6,12 +6,12 @@ const HeroSection = () => {
     <div
       className="bg-cover bg-bottom"
       style={{
-        backgroundImage: `url(${withBasePath("/images/bg-hero.png")})`,
+        backgroundImage: `url(${withBasePath("/images/home-hero.svg")})`,
       }}
     >
       <div className="content-container flex w-full flex-col gap-[24px] py-[72px]">
-        <div className="flex w-full items-center justify-center">
-          <h1 className="text-text-01 font-serif text-[60px] leading-[70px] font-bold">
+        <div className="flex w-full items-center justify-center text-balance">
+          <h1 className="text-text-04 font-serif text-[60px] leading-[70px] font-bold">
             ดาวน์โหลดข้อมูล
           </h1>
         </div>
