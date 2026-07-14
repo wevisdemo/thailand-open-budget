@@ -9,9 +9,9 @@ const HeroSection = () => {
         backgroundImage: `url(${withBasePath("/images/home-hero.svg")})`,
       }}
     >
-      <div className="content-container flex w-full flex-col gap-[24px] py-[72px]">
+      <div className="content-container flex w-full flex-col gap-[24px] px-[24px] py-[72px]">
         <div className="flex w-full items-center justify-center text-balance">
-          <h1 className="text-text-04 font-serif text-[60px] leading-[70px] font-bold">
+          <h1 className="text-text-04 text-center font-serif text-[60px] leading-[70px] font-bold">
             ดาวน์โหลดข้อมูล
           </h1>
         </div>

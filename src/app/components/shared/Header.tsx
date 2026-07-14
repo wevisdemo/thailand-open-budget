@@ -138,15 +138,15 @@ export default function Header() {
               <Image
                 src={withBasePath("/icons/close.svg")}
                 alt="menu"
-                width={12}
-                height={12}
+                width={14}
+                height={14}
               />
             ) : (
               <Image
                 src={withBasePath("/icons/menu.svg")}
                 alt="menu"
-                width={12}
-                height={12}
+                width={14}
+                height={14}
               />
             )}
           </button>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import { IBM_Plex_Sans_Thai_Looped } from "next/font/google";
 import "./globals.css";
 import Header from "./components/shared/Header";
+import ScrollToTop from "./components/shared/ScrollToTop";
 
 const ibmPlexSansThaiLooped = IBM_Plex_Sans_Thai_Looped({
   variable: "--font-sans",
@@ -56,6 +58,9 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <Header />
+        <Suspense fallback={null}>
+          <ScrollToTop />
+        </Suspense>
         {children}
         {/* Privacy-friendly analytics by Plausible */}
         <Script

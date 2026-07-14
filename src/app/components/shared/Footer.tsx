@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import ArrowUpRightIcon from "@/app/components/shared/icons/arrow-up-right-icon";
@@ -5,6 +6,7 @@ import SearchCategoriesIcon from "@/app/components/shared/icons/search-categorie
 import DownloadIcon from "@/app/components/shared/icons/download-icon";
 import WevisIcon from "@/app/components/shared/icons/wevis-icon";
 import { withBasePath } from "@/lib/base-path";
+import { useRouter } from "next/navigation";
 
 interface FooterItem {
   label: string;
@@ -19,11 +21,19 @@ interface FooterColumnProps {
 }
 
 function FooterColumn({ icon, title, items }: FooterColumnProps) {
+  const router = useRouter();
   return (
     <div className="flex w-full flex-col items-start">
       <div className="flex w-full items-center gap-[8px] px-[16px] py-[8px]">
         {icon}
-        <span className="text-text-04 text-[14px] leading-[18px] font-semibold whitespace-nowrap">
+        <span
+          className={`text-text-04 text-[14px] leading-[18px] font-semibold whitespace-nowrap ${title === "ดาวน์โหลด" ? "cursor-pointer" : ""}`}
+          onClick={() => {
+            if (title === "ดาวน์โหลด") {
+              router.push("/download");
+            }
+          }}
+        >
           {title}
         </span>
       </div>

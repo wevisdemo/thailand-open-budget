@@ -1,7 +1,10 @@
+"use client";
 import ArrowUpRightIcon from "./icons/arrow-up-right-icon";
 import DownloadIcon from "./icons/download-icon";
+import { useRouter } from "next/navigation";
 
 export default function AboutData({ page }: { page?: string }) {
+  const router = useRouter();
   return (
     <div
       className={`m-auto flex ${page === "homepage" ? "max-w-[1280px]" : "max-w-[1032px]"} flex-col gap-[16px] text-white`}
@@ -11,10 +14,15 @@ export default function AboutData({ page }: { page?: string }) {
           <h1 className="text-h6 font-serif text-[28px] font-bold">
             เกี่ยวกับข้อมูล
           </h1>
-          {/* <button className="text-gray-70 border-gray-20 flex cursor-pointer items-center gap-[8px] border bg-white px-[16px] py-[10px]">
+          <button
+            onClick={() => {
+              router.push("/download");
+            }}
+            className="text-gray-70 border-gray-20 flex cursor-pointer items-center gap-[8px] border bg-white px-[16px] py-[10px]"
+          >
             ดาวน์โหลดข้อมูล
             <ArrowUpRightIcon color="#161616" />
-          </button> */}
+          </button>
         </div>
 
         <h2 className="text-b4 font-serif text-[20px] font-bold">
@@ -80,7 +88,7 @@ export default function AboutData({ page }: { page?: string }) {
           หากมีข้อมูลที่ผิดพลาดหรือไม่อัปเดตล่าสุด
           หากมีข้อสงสัยต้องการสอบถามเพิ่มเติม
           ประสงค์แจ้งเปลี่ยนแปลงหรือเพิ่มเติมข้อมูลเพื่อความถูกต้อง
-          หรือมีข้อเสนอแนะใดๆ สามารถติดต่อได้ที่{" "}
+          หรือมีข้อเสนอแนะใด ๆ สามารถติดต่อได้ที่{" "}
           <a
             href="mailto:team@wevis.info"
             className="text-inverse-link underline"
