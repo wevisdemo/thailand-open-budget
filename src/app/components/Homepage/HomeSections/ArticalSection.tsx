@@ -24,7 +24,7 @@ const BASICS_ENDPOINT =
   "https://wevis.info/wp-json/wp/v2/posts?_embed=wp:featuredmedia&_fields=id,title,link,date,_links.wp:featuredmedia,_embedded.wp:featuredmedia.link&per_page=3&tags=152&_envelope=1";
 
 const ISSUES_ENDPOINT =
-  "https://wevis.info/wp-json/wp/v2/posts?_embed=wp:featuredmedia&_fields=id,title,link,date,_links.wp:featuredmedia,_embedded.wp:featuredmedia.link&per_page=3&tags=31&_envelope=1";
+  "https://wevis.info/wp-json/wp/v2/posts?_embed=wp:featuredmedia&_fields=id,title,link,date,_links.wp:featuredmedia,_embedded.wp:featuredmedia.link&per_page=3&tags=154&_envelope=1";
 
 interface WpFeaturedMedia {
   source_url?: string;
