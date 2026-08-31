@@ -3,6 +3,7 @@ import React from "react";
 import SearchCategoriesIcon from "../../shared/icons/search-categories-icon";
 import Image from "next/image";
 import CategoriesIcon from "../../shared/icons/categories-icon";
+import OrganizationCategoriesIcon from "../../shared/icons/organization-categaries-icon";
 
 const NavigateSection = () => {
   return (
@@ -17,6 +18,26 @@ const NavigateSection = () => {
             <p className="text-text-02 text-b6 font-semibold">สำรวจงบผ่าน</p>
             <p className="text-text-01 text-h7 font-serif font-bold">
               คีย์เวิร์ด
+            </p>
+          </div>
+        </div>
+        <Image
+          src={withBasePath("/icons/arrow-down.svg")}
+          alt="arrow-down"
+          width={16}
+          height={16}
+        />
+      </a>
+      <a
+        href="#organization"
+        className="border-ui-03 flex w-full cursor-pointer items-center justify-between gap-1 border-b px-[16px] py-[16px] lg:w-[300px] lg:flex-col lg:justify-center lg:border-b-0 lg:px-0 lg:py-[24px]"
+      >
+        <div className="flex items-center justify-center gap-2 lg:flex-col lg:gap-1">
+          <OrganizationCategoriesIcon color="#161616" />
+          <div className="flex flex-col lg:gap-1 lg:text-center">
+            <p className="text-text-02 text-b6 font-semibold">สำรวจงบผ่าน</p>
+            <p className="text-text-01 text-h7 font-serif font-bold">
+              หน่วยงาน
             </p>
           </div>
         </div>
