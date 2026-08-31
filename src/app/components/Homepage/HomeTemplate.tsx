@@ -7,10 +7,12 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
 import SearchHeader from "./SearchHomepage/SearchHeader";
+import OrganizeSearchSection from "./SearchHomepage/OrganizeSearchSection";
 import HeroSection from "./HomeSections/HeroSection";
 import BudgetVersionInfoModal from "../Search/BudgetVersionInfoModal";
 import NavigateSection from "./HomeSections/NavigateSection";
 import BudgetSection from "./HomeSections/BudgetSection";
+import OrganizeBudgetSection from "./HomeSections/OrganizeBudgetSection";
 import BudgetSectionCountry from "./HomeSections/BudgetSectionCountry";
 import ArticalSection from "./HomeSections/ArticalSection";
 import SupportSection from "./HomeSections/SupportSection";
@@ -123,6 +125,23 @@ export default function HomeTemplate() {
           isLoading={status === "idle" || status === "loading"}
         />
         <BudgetSectionCountry
+          dataLabel={selectedDocSource?.label ?? ""}
+          data={budgetData}
+          dataValue={selectedDocSource?.value ?? ""}
+          isLoading={status === "idle" || status === "loading"}
+        />
+      </section>
+      <section
+        id="organization"
+        className="flex flex-col gap-[24px] bg-white px-[24px] py-[64px]"
+      >
+        <OrganizeSearchSection
+          tags={tags}
+          addTag={addTag}
+          removeTag={removeTag}
+          data={selectedDocSource?.value ?? ""}
+        />
+        <OrganizeBudgetSection
           dataLabel={selectedDocSource?.label ?? ""}
           data={budgetData}
           dataValue={selectedDocSource?.value ?? ""}
