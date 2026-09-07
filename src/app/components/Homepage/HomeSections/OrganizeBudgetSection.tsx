@@ -2,86 +2,32 @@ import React, { useMemo } from "react";
 import type { BudgetItem } from "@/types/budget";
 import Link from "next/dist/client/link";
 
-interface BudgetTag {
-  label: string;
-  variant: "gray" | "cyan" | "green";
-}
-
-interface BudgetCase {
+interface OrganizationCase {
   id: string;
-  topic: string;
-  tags: BudgetTag[];
+  ministry: string;
 }
 
 interface OrganizeBudgetSectionProps {
-  cases?: BudgetCase[];
+  cases?: OrganizationCase[];
   dataLabel: string;
   data: BudgetItem[];
   dataValue: string;
   isLoading?: boolean;
 }
 
-function buildSearchableText(item: BudgetItem): string {
-  return [
-    item.ministry,
-    item.budgetary,
-    item.plan,
-    item.output,
-    item.project,
-    item.category,
-    item.description,
-  ]
-    .join(" ")
-    .toLowerCase();
-}
-
-function filterByTags(data: BudgetItem[], tags: BudgetTag[]): BudgetItem[] {
-  const labels = tags.map((t) => t.label.toLowerCase());
-  return data.filter((item) => {
-    const text = buildSearchableText(item);
-    return labels.some((label) => text.includes(label));
-  });
+function filterByMinistry(data: BudgetItem[], ministry: string): BudgetItem[] {
+  return data.filter((item) => item.ministry === ministry);
 }
 
 function formatNumber(value: number): string {
   return value.toLocaleString("en-US");
 }
 
-const DEFAULT_CASES: BudgetCase[] = [
-  {
-    id: "flood",
-    topic: "น้ำท่วม",
-    tags: [
-      { label: "น้ำท่วม", variant: "gray" },
-      { label: "อุทกภัย", variant: "cyan" },
-      { label: "ฝาย", variant: "green" },
-    ],
-  },
-  {
-    id: "road",
-    topic: "ถนน",
-    tags: [
-      { label: "ถนน", variant: "gray" },
-      { label: "ทางหลวง", variant: "cyan" },
-      { label: "ผิวจราจร", variant: "green" },
-    ],
-  },
-  {
-    id: "elderly",
-    topic: "ผู้สูงอายุ",
-    tags: [
-      { label: "ผู้สูงอายุ", variant: "gray" },
-      { label: "สูงวัย", variant: "cyan" },
-      { label: "ชรา", variant: "green" },
-    ],
-  },
+const DEFAULT_CASES: OrganizationCase[] = [
+  { id: "defense", ministry: "กระทรวงกลาโหม" },
+  { id: "education", ministry: "กระทรวงศึกษาธิการ" },
+  { id: "interior", ministry: "กระทรวงมหาดไทย" },
 ];
-
-const TAG_STYLES: Record<BudgetTag["variant"], string> = {
-  gray: "bg-[#cdd3da] text-text-01",
-  cyan: "bg-cyan-20 text-cyan-70",
-  green: "bg-green-20 text-green-70",
-};
 
 function ArrowUpRight() {
   return (
@@ -104,14 +50,12 @@ function ArrowUpRight() {
 function CaseCard({
   caseItem,
   dataLabel,
-  itemCount,
   totalBudget,
   dataValue,
   isLoading = false,
 }: {
-  caseItem: BudgetCase;
+  caseItem: OrganizationCase;
   dataLabel: string;
-  itemCount: string;
   totalBudget: string;
   dataValue: string;
   isLoading?: boolean;
@@ -120,69 +64,32 @@ function CaseCard({
     <article className="bg-ui-01 flex flex-1 flex-col items-start">
       <div className="flex w-full flex-col gap-[12px] px-[16px] py-[24px]">
         <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
-          งบฯ เกี่ยวกับ &lsquo;{caseItem.topic}&rsquo;
+          กลุ่มหน่วยงานที่ได้รับงบประมาณมากที่สุด
         </p>
-        <div className="flex w-full flex-col gap-[16px]">
-          <div className="flex flex-col justify-center gap-[4px]">
-            <p className="text-text-01 text-[14px] leading-[22px]">
-              ตัวอย่างคำค้น
+        <div className="flex flex-col">
+          <div className="bg-ui-03 flex items-center justify-center gap-[4px] px-[8px] py-[6px]">
+            <p className="text-gray-60 text-[14px] leading-[18px]">ปีงบฯ</p>
+            <p className="text-gray-60 text-[14px] leading-[18px] font-semibold">
+              {dataLabel}
             </p>
-            <div className="flex flex-wrap items-center gap-[4px]">
-              {caseItem.tags.map((tag) => (
-                <span
-                  key={tag.label}
-                  className={`inline-flex h-[24px] items-center gap-[2px] rounded-full px-[8px] text-[12px] leading-[16px] ${TAG_STYLES[tag.variant]}`}
-                >
-                  {tag.label}
-                </span>
-              ))}
-            </div>
           </div>
-          <div className="flex flex-col">
-            <div className="bg-ui-03 flex items-center justify-center gap-[4px] px-[8px] py-[6px]">
-              <p className="text-gray-60 text-[14px] leading-[18px]">ปีงบฯ</p>
-              <p className="text-gray-60 text-[14px] leading-[18px] font-semibold">
-                {dataLabel}
+          <div className="flex flex-col items-start bg-white p-[8px]">
+            <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
+              {caseItem.ministry}
+            </p>
+            {isLoading ? (
+              <div className="bg-ui-03 mt-[4px] h-[36px] w-[140px] animate-pulse" />
+            ) : (
+              <p className="text-text-01 font-serif text-[20px] leading-[36px] font-bold">
+                {totalBudget}
               </p>
-            </div>
-            <div className="flex bg-white">
-              <div className="border-ui-01 flex flex-1 flex-col items-start border-r p-[8px]">
-                <p className="text-gray-60 text-[12px] leading-[16px]">
-                  จำนวนรายการ
-                </p>
-                {isLoading ? (
-                  <div className="bg-ui-03 h-[28px] w-[100px] animate-pulse" />
-                ) : (
-                  <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
-                    {itemCount}
-                  </p>
-                )}
-
-                <p className="text-gray-70 text-[12px] leading-[16px]">
-                  รายการ
-                </p>
-              </div>
-              <div className="flex flex-1 flex-col items-start p-[8px]">
-                <p className="text-gray-60 text-[12px] leading-[16px]">
-                  งบประมาณทั้งหมด
-                </p>
-                {isLoading ? (
-                  <div className="bg-ui-03 h-[28px] w-[100px] animate-pulse" />
-                ) : (
-                  <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
-                    {totalBudget}
-                  </p>
-                )}
-                <p className="text-gray-70 text-[12px] leading-[16px]">
-                  ล้านบาท
-                </p>
-              </div>
-            </div>
+            )}
+            <p className="text-gray-70 text-[12px] leading-[16px]">ล้านบาท</p>
           </div>
         </div>
       </div>
       <Link
-        href={`/search?q=${encodeURIComponent(caseItem.tags.map((tag) => tag.label).join(","))}&budget_source=${dataValue}`}
+        href={`/search?q=${encodeURIComponent(caseItem.ministry)}&budget_source=${dataValue}`}
         className="border-ui-03 flex w-full items-center justify-center gap-[16px] border-t px-[24px] py-[12px]"
       >
         <span className="text-interactive-01 text-[14px] leading-[18px] font-semibold">
@@ -202,11 +109,10 @@ const OrganizeBudgetSection = ({
 }: OrganizeBudgetSectionProps) => {
   const caseStats = useMemo(() => {
     return cases.map((caseItem) => {
-      const filtered = filterByTags(data, caseItem.tags);
+      const filtered = filterByMinistry(data, caseItem.ministry);
       const totalBaht = filtered.reduce((sum, item) => sum + item.amount, 0);
       return {
         id: caseItem.id,
-        itemCount: formatNumber(filtered.length),
         totalBudget: formatNumber(Math.round(totalBaht / 1_000_000)),
       };
     });
@@ -216,7 +122,7 @@ const OrganizeBudgetSection = ({
     <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[12px]">
       <div className="bg-ui-05 flex h-[44px] items-center px-[16px] py-[8px]">
         <p className="text-text-04 font-serif text-[20px] leading-[28px] font-bold whitespace-nowrap">
-          ค้นหางบฯ ในประเด็นที่คุณสนใจ เช่น
+          ค้นหางบฯ ผ่านหน่วยงานที่คุณสนใจ เช่น
         </p>
       </div>
       <div className="flex snap-x snap-mandatory gap-[12px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:snap-none md:flex-row md:items-stretch md:justify-between md:overflow-visible [&::-webkit-scrollbar]:hidden">
@@ -225,12 +131,11 @@ const OrganizeBudgetSection = ({
           return (
             <div
               key={caseItem.id}
-              className="flex min-w-[280px] flex-1 snap-start md:min-w-0"
+              className="flex min-w-[280px] flex-1 snap-start flex-col md:min-w-0"
             >
               <CaseCard
                 caseItem={caseItem}
                 dataLabel={dataLabel}
-                itemCount={stats.itemCount}
                 totalBudget={stats.totalBudget}
                 dataValue={dataValue}
                 isLoading={isLoading}

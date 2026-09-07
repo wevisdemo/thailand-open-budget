@@ -17,6 +17,7 @@ import BudgetSectionCountry from "./HomeSections/BudgetSectionCountry";
 import ArticalSection from "./HomeSections/ArticalSection";
 import SupportSection from "./HomeSections/SupportSection";
 import Footer from "../shared/Footer";
+import Link from "next/link";
 
 export default function HomeTemplate() {
   const router = useRouter();
@@ -133,7 +134,7 @@ export default function HomeTemplate() {
       </section>
       <section
         id="organization"
-        className="flex flex-col gap-[24px] bg-white px-[24px] py-[64px]"
+        className="bg-ui-01 flex flex-col gap-[24px] px-[24px] py-[64px]"
       >
         <OrganizeSearchSection
           tags={tags}
@@ -147,6 +148,14 @@ export default function HomeTemplate() {
           dataValue={selectedDocSource?.value ?? ""}
           isLoading={status === "idle" || status === "loading"}
         />
+        <div className="flex w-full max-w-[1280px] items-center justify-end">
+          <Link
+            href="/organizations"
+            className="text-interactive-01 text-[14px] leading-[18px] underline"
+          >
+            ดูหน่วยงานทั้งหมด →
+          </Link>
+        </div>
       </section>
       <section id="articles" className="bg-ui-02 px-[24px] py-[64px]">
         <ArticalSection />
