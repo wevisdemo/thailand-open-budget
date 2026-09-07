@@ -10,6 +10,9 @@ importers:
       carbon-components:
         specifier: ^10.59.2
         version: 10.59.2
+      fuse.js:
+        specifier: ^7.5.0
+        version: 7.5.0
       next:
         specifier: 16.2.3
         version: 16.2.3(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.99.0)
@@ -2288,6 +2291,13 @@ packages:
       {
         integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==,
       }
+
+  fuse.js@7.5.0:
+    resolution:
+      {
+        integrity: sha512-sQtrEfA+ez/3G0cCZecF70oqpCRttCexYUG4mUrtWL49ULUzUyxokt5kyqwtKzj1270RaKih+hcP3qLcumccow==,
+      }
+    engines: { node: ">=10" }
 
   generator-function@2.0.1:
     resolution:
@@ -5611,6 +5621,8 @@ snapshots:
       is-callable: 1.2.7
 
   functions-have-names@1.2.3: {}
+
+  fuse.js@7.5.0: {}
 
   generator-function@2.0.1: {}
 

@@ -1,6 +1,7 @@
 "use client";
 
 import type { Tag } from "@/types/search";
+import type { BudgetItem } from "@/types/budget";
 import SearchPanel from "./SearchPanel";
 import TagList from "./TagList";
 import SearchCategoriesIcon from "../../shared/icons/search-categories-icon";
@@ -12,6 +13,8 @@ interface OrganizeSearchSectionProps {
   addTag: (word: string) => void;
   removeTag: (word: string) => void;
   data: string;
+  budgetData: BudgetItem[];
+  isLoading?: boolean;
 }
 
 export default function OrganizeSearchSection({
@@ -19,6 +22,8 @@ export default function OrganizeSearchSection({
   addTag,
   removeTag,
   data,
+  budgetData,
+  isLoading = false,
 }: OrganizeSearchSectionProps) {
   return (
     <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[8px]">
@@ -46,6 +51,8 @@ export default function OrganizeSearchSection({
         addTag={addTag}
         removeTag={removeTag}
         data={data}
+        budgetData={budgetData}
+        isLoading={isLoading}
       />
     </div>
   );

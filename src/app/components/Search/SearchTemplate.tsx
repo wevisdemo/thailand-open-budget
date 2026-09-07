@@ -83,17 +83,23 @@ export default function SearchTemplate() {
 
   const keywords = tags.map((t) => t.word.toLowerCase());
 
+  // `ministry` and `budgetary` are matched too, so an organization name picked
+  // from the homepage organization search resolves to that unit's line items.
+  function matchesKeywords(item: BudgetItem): boolean {
+    return keywords.some(
+      (kw) =>
+        item.description.toLowerCase().includes(kw) ||
+        item.output.toLowerCase().includes(kw) ||
+        item.project.toLowerCase().includes(kw) ||
+        item.plan.toLowerCase().includes(kw) ||
+        item.ministry.toLowerCase().includes(kw) ||
+        item.budgetary.toLowerCase().includes(kw),
+    );
+  }
+
   function filterTotal(data: BudgetItem[]): number {
     return data
-      .filter((item) =>
-        keywords.some(
-          (kw) =>
-            item.description.toLowerCase().includes(kw) ||
-            item.output.toLowerCase().includes(kw) ||
-            item.project.toLowerCase().includes(kw) ||
-            item.plan.toLowerCase().includes(kw),
-        ),
-      )
+      .filter(matchesKeywords)
       .reduce((sum, item) => sum + item.amount, 0);
   }
 
@@ -117,15 +123,7 @@ export default function SearchTemplate() {
       totalBudgetBaht: budget2570.reduce((s, i) => s + i.amount, 0),
     },
   ];
-  const displayBudgetList = budgetData.filter((item) =>
-    keywords.some(
-      (kw) =>
-        item.description.toLowerCase().includes(kw) ||
-        item.output.toLowerCase().includes(kw) ||
-        item.project.toLowerCase().includes(kw) ||
-        item.plan.toLowerCase().includes(kw),
-    ),
-  );
+  const displayBudgetList = budgetData.filter(matchesKeywords);
 
   const totalBudgetAmount = budgetData.reduce(
     (sum, item) => sum + item.amount,

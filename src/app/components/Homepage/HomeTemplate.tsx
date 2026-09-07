@@ -141,6 +141,8 @@ export default function HomeTemplate() {
           addTag={addTag}
           removeTag={removeTag}
           data={selectedDocSource?.value ?? ""}
+          budgetData={budgetData}
+          isLoading={status === "idle" || status === "loading"}
         />
         <OrganizeBudgetSection
           dataLabel={selectedDocSource?.label ?? ""}
