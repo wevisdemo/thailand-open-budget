@@ -157,7 +157,7 @@ export default function FuzzySearchPanel({
     <div ref={containerRef} className="relative">
       <div className="flex items-stretch">
         <div
-          className="bg-field-01 border-ui-04 flex min-h-[48px] flex-1 items-center gap-[4px] border-b-[2px] px-[16px] py-[8px] hover:cursor-text"
+          className="border-ui-04 flex min-h-[48px] flex-1 items-center gap-[4px] border-b-[2px] bg-white px-[16px] py-[8px] hover:cursor-text"
           onClick={() => inputRef.current?.focus()}
         >
           <SearchIcon
@@ -193,9 +193,12 @@ export default function FuzzySearchPanel({
               กำลังโหลดข้อมูลหน่วยงาน...
             </p>
           ) : flatSuggestions.length === 0 ? (
-            <p className="text-text-02 px-[16px] py-[14px] text-[14px]">
-              ไม่พบหน่วยงานที่ตรงกับคำค้นหา
-            </p>
+            <div className="flex flex-col gap-[8px] px-[16px] py-[14px]">
+              <p className="text-text-01 text-[16px]">ไม่พบหน่วยงานนี้</p>
+              <p className="text-text-02 text-[12px]">
+                ตรวจสอบตัวสะกด หรือลองใช้คำอื่นที่เกี่ยวข้อง
+              </p>
+            </div>
           ) : (
             <ul id="organization-suggestions" role="listbox">
               {groups.map((group) => (
