@@ -19,3 +19,18 @@ export const DOC_SOURCE_OPTIONS: { value: DocSourceValue; label: string }[] = [
 export function getFiscalYear(docSource: DocSourceValue): string {
   return (parseInt(docSource) - 543).toString();
 }
+
+// Converts a BudgetItem fiscal year to its Buddhist-era label for display,
+// e.g. "2025" -> "2568". The inverse of getFiscalYear.
+export function toBuddhistYear(fiscalYear: string): string {
+  return (parseInt(fiscalYear) + 543).toString();
+}
+
+// Label for an obliged item's span of fiscal years, e.g. "2568-2573".
+// Returns null when the item is committed to a single year only.
+export function getObligedYearRange(fiscalYearList: string[]): string | null {
+  if (fiscalYearList.length < 2) return null;
+  const first = toBuddhistYear(fiscalYearList[0]);
+  const last = toBuddhistYear(fiscalYearList[fiscalYearList.length - 1]);
+  return `${first}-${last}`;
+}

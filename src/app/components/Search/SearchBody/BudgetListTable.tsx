@@ -5,6 +5,7 @@ import type { Tag } from "@/types/search";
 import { useState } from "react";
 import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-icon";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
+import { getObligedYearRange } from "@/constants/budget";
 import Paginate from "./Paginate";
 import ProjectOutputInfoModal from "@/app/components/Search/ProjectOutputInfoModal";
 
@@ -15,6 +16,10 @@ interface BudgetListTableProps {
   tags: Tag[];
   sortDir: "asc" | "desc";
   onSortDirChange: (dir: "asc" | "desc") => void;
+}
+
+function formatBaht(amount: number): string {
+  return amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
 }
 
 function highlightTags(text: string, tags: Tag[]): React.ReactNode {
@@ -105,44 +110,60 @@ export default function BudgetListTable({
             </tr>
           </thead>
           <tbody>
-            {pageItems.map((item, index) => (
-              <tr
-                key={index}
-                className="border-ui-03 hover:bg-ui-01 border-b bg-white align-top leading-[18px] transition-colors"
-              >
-                <td className="text-text-02 px-[16px] py-[16px]">
-                  {startIndex + index + 1}
-                </td>
-                <td className="px-[16px] py-[16px]">
-                  <p className="font-bold">
-                    {highlightTags(item.description, tags)}
-                  </p>
-                  <p className="text-gray-60">หมวดงบประมาณ: {item.category}</p>
-                </td>
-                <td className="px-[16px] py-[16px] text-right whitespace-nowrap">
-                  {item.amount.toLocaleString(undefined, {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  }) || "-"}
-                </td>
-                <td className="px-[16px] py-[16px]">
-                  {item.project
-                    ? highlightTags(item.project, tags)
-                    : item.output
-                      ? highlightTags(item.output, tags)
-                      : "-"}
-                </td>
-                <td className="px-[16px] py-[16px]">
-                  {item.plan ? highlightTags(item.plan, tags) : "-"}
-                </td>
-                <td className="px-[16px] py-[16px]">
-                  <p>{item.budgetary}</p>
-                  {item.ministry && (
-                    <p className="text-gray-60">{item.ministry}</p>
-                  )}
-                </td>
-              </tr>
-            ))}
+            {pageItems.map((item, index) => {
+              const obligedYearRange = getObligedYearRange(
+                item.fiscal_year_list,
+              );
+              return (
+                <tr
+                  key={index}
+                  className="border-ui-03 hover:bg-ui-01 border-b bg-white align-top leading-[18px] transition-colors"
+                >
+                  <td className="text-text-02 px-[16px] py-[16px]">
+                    {startIndex + index + 1}
+                  </td>
+                  <td className="px-[16px] py-[16px]">
+                    <p className="font-bold">
+                      {highlightTags(item.description, tags)}
+                    </p>
+                    <p className="text-gray-60">
+                      หมวดงบประมาณ: {item.category}
+                    </p>
+                    {obligedYearRange && (
+                      <p className="text-blue-50">
+                        งบผูกพัน ({obligedYearRange})
+                      </p>
+                    )}
+                  </td>
+                  <td className="px-[16px] py-[16px] text-right whitespace-nowrap">
+                    <p>{formatBaht(item.amount)}</p>
+                    {obligedYearRange && (
+                      <p className="text-blue-50">
+                        รวมทุกปี
+                        <br />
+                        {formatBaht(item.total_fiscal_amount)}
+                      </p>
+                    )}
+                  </td>
+                  <td className="px-[16px] py-[16px]">
+                    {item.project
+                      ? highlightTags(item.project, tags)
+                      : item.output
+                        ? highlightTags(item.output, tags)
+                        : "-"}
+                  </td>
+                  <td className="px-[16px] py-[16px]">
+                    {item.plan ? highlightTags(item.plan, tags) : "-"}
+                  </td>
+                  <td className="px-[16px] py-[16px]">
+                    <p>{item.budgetary}</p>
+                    {item.ministry && (
+                      <p className="text-gray-60">{item.ministry}</p>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
