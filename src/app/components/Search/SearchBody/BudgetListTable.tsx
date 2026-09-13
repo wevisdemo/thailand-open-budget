@@ -153,7 +153,22 @@ export default function BudgetListTable({
                         : "-"}
                   </td>
                   <td className="px-[16px] py-[16px]">
-                    {item.plan ? highlightTags(item.plan, tags) : "-"}
+                    {item.plan_prefix || item.plan_suffix ? (
+                      <>
+                        {item.plan_prefix && (
+                          <p>{highlightTags(item.plan_prefix, tags)}</p>
+                        )}
+                        {item.plan_suffix && (
+                          <p className="text-gray-60">
+                            {highlightTags(item.plan_suffix, tags)}
+                          </p>
+                        )}
+                      </>
+                    ) : item.plan ? (
+                      highlightTags(item.plan, tags)
+                    ) : (
+                      "-"
+                    )}
                   </td>
                   <td className="px-[16px] py-[16px]">
                     <p>{item.budgetary}</p>

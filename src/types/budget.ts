@@ -3,6 +3,8 @@ export interface BudgetItem {
   ministry: string;
   budgetary: string;
   plan: string;
+  plan_prefix: string;
+  plan_suffix: string;
   output: string;
   project: string;
   category: string;
