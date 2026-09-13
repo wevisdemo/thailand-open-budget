@@ -14,6 +14,15 @@ export interface BudgetItem {
   fiscal_year_list: string[];
 }
 
+export type BudgetSortKey = "amount" | "project" | "plan" | "category";
+
+// The table's sort state. `null` is the third state of the header cycle: no
+// column sorted, so there is no direction to hold either.
+export interface BudgetSort {
+  key: BudgetSortKey;
+  dir: "asc" | "desc";
+}
+
 export interface BudgetYearTotal {
   year: number;
   isCurrent: boolean;

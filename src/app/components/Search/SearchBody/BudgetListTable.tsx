@@ -1,11 +1,11 @@
 "use client";
 
-import type { BudgetItem } from "@/types/budget";
+import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
 import type { Tag } from "@/types/search";
-import { useState } from "react";
-import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-icon";
+import { useMemo, useState } from "react";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
-import { getObligedYearRange } from "@/constants/budget";
+import { getObligedYearRange, sortBudgetItems } from "@/constants/budget";
+import SortableHeader from "./SortableHeader";
 import Paginate from "./Paginate";
 import ProjectOutputInfoModal from "@/app/components/Search/ProjectOutputInfoModal";
 
@@ -14,8 +14,8 @@ const PAGE_SIZE = 10;
 interface BudgetListTableProps {
   data: BudgetItem[];
   tags: Tag[];
-  sortDir: "asc" | "desc";
-  onSortDirChange: (dir: "asc" | "desc") => void;
+  sort: BudgetSort | null;
+  onSortChange: (key: BudgetSortKey) => void;
 }
 
 function formatBaht(amount: number): string {
@@ -50,15 +50,14 @@ function highlightTags(text: string, tags: Tag[]): React.ReactNode {
 export default function BudgetListTable({
   data,
   tags,
-  sortDir,
-  onSortDirChange,
+  sort,
+  onSortChange,
 }: BudgetListTableProps) {
   const [page, setPage] = useState(1);
   const [projectInfoOpen, setProjectInfoOpen] = useState(false);
 
-  const sorted = [...data].sort((a, b) =>
-    sortDir === "desc" ? b.amount - a.amount : a.amount - b.amount,
-  );
+  // Thai collation over a long result list is not free, and paging re-renders.
+  const sorted = useMemo(() => sortBudgetItems(data, sort), [data, sort]);
 
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
   const startIndex = (page - 1) * PAGE_SIZE;
@@ -78,35 +77,46 @@ export default function BudgetListTable({
               <th className="w-[24%] px-[16px] py-[8px] text-left font-semibold">
                 รายการ
               </th>
-              <th
-                className="w-[17%] px-[16px] py-[8px] text-right font-semibold hover:cursor-pointer hover:bg-[#CACACA]"
-                onClick={() =>
-                  onSortDirChange(sortDir === "desc" ? "asc" : "desc")
-                }
+              <SortableHeader
+                label="จำนวนเงิน"
+                widthClassName="w-[17%]"
+                align="right"
+                sortKey="amount"
+                sort={sort}
+                onSortChange={onSortChange}
+              />
+              <SortableHeader
+                label="โครงการ/ผลผลิต"
+                widthClassName="w-[15%]"
+                sortKey="project"
+                sort={sort}
+                onSortChange={onSortChange}
               >
-                <span className="flex items-center justify-end gap-[8px]">
-                  จำนวนเงิน
-                  <ArrowsVerticalIcon />
-                </span>
-              </th>
-              <th className="w-[15%] px-[16px] py-[8px] text-left font-semibold">
-                <span className="flex items-center gap-[8px]">
-                  โครงการ/ผลผลิต
-                  <button
-                    type="button"
-                    onClick={() => setProjectInfoOpen(true)}
-                    className="cursor-pointer"
-                  >
-                    <InformationIcon />
-                  </button>
-                </span>
-              </th>
-              <th className="w-[13%] px-[16px] py-[8px] text-left font-semibold">
-                แผนงาน
-              </th>
-              <th className="w-[11%] px-[16px] py-[8px] text-left font-semibold">
-                ประเภทงบ
-              </th>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setProjectInfoOpen(true);
+                  }}
+                  className="shrink-0 cursor-pointer"
+                >
+                  <InformationIcon />
+                </button>
+              </SortableHeader>
+              <SortableHeader
+                label="แผนงาน"
+                widthClassName="w-[13%]"
+                sortKey="plan"
+                sort={sort}
+                onSortChange={onSortChange}
+              />
+              <SortableHeader
+                label="ประเภทงบ"
+                widthClassName="w-[11%]"
+                sortKey="category"
+                sort={sort}
+                onSortChange={onSortChange}
+              />
               <th className="w-[14%] px-[16px] py-[8px] text-left font-semibold">
                 หน่วยงาน
               </th>

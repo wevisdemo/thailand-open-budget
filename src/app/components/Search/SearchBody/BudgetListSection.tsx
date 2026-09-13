@@ -1,10 +1,11 @@
 "use client";
 
 import BudgetListTable from "./BudgetListTable";
-import type { BudgetItem } from "@/types/budget";
+import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
 import type { Tag } from "@/types/search";
 import { useState } from "react";
 import DownloadIcon from "../../shared/icons/download-icon";
+import { getNextSort, sortBudgetItems } from "@/constants/budget";
 
 interface BudgetListSectionProps {
   tags: Tag[];
@@ -14,7 +15,11 @@ interface BudgetListSectionProps {
 }
 
 export default function BudgetListSection(props: BudgetListSectionProps) {
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  const [sort, setSort] = useState<BudgetSort | null>(null);
+
+  function handleSortChange(key: BudgetSortKey) {
+    setSort(getNextSort(key, sort));
+  }
 
   function handleExportCSV() {
     const headers = [
@@ -27,9 +32,7 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
       "หน่วยงาน",
       "กระทรวง",
     ];
-    const sorted = [...props.data].sort((a, b) =>
-      sortDir === "desc" ? b.amount - a.amount : a.amount - b.amount,
-    );
+    const sorted = sortBudgetItems(props.data, sort);
     const rows = sorted.map((item, index) => [
       index + 1,
       item.description,
@@ -76,7 +79,15 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
               ปีงบฯ {props.year} · {props.version}
             </span>
             <span className="text-gray-60">
-              {sortDir === "desc" ? "เรียงจากมากไปน้อย" : "เรียงจากน้อยไปมาก"}
+              {!sort
+                ? "เรียงตามลำดับในเอกสาร"
+                : sort.key === "amount"
+                  ? sort.dir === "asc"
+                    ? "เรียงจากน้อยไปมาก"
+                    : "เรียงจากมากไปน้อย"
+                  : sort.dir === "asc"
+                    ? "เรียงจาก ก-ฮ"
+                    : "เรียงจาก ฮ-ก"}
             </span>
           </p>
         </div>
@@ -92,8 +103,8 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
         <BudgetListTable
           tags={props.tags}
           data={props.data}
-          sortDir={sortDir}
-          onSortDirChange={setSortDir}
+          sort={sort}
+          onSortChange={handleSortChange}
         />
       </div>
     </div>

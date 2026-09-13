@@ -1,3 +1,5 @@
+import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
+
 export type DocSourceValue = "2568-draft-1" | "2569-draft-1" | "2570-draft-1";
 
 // Maps dropdown value → public/data/ JSON filename (without .json)
@@ -33,4 +35,44 @@ export function getObligedYearRange(fiscalYearList: string[]): string | null {
   const first = toBuddhistYear(fiscalYearList[0]);
   const last = toBuddhistYear(fiscalYearList[fiscalYearList.length - 1]);
   return `${first}-${last}`;
+}
+
+// The full แผนงาน name. The sheet splits it into a prefix (the plan's type,
+// e.g. แผนงานบูรณาการ) and the suffix naming the plan itself; joined they are
+// the plan name verbatim.
+export function getPlanName(item: BudgetItem): string {
+  return item.plan_prefix + item.plan_suffix;
+}
+
+// The text a sortable column shows, so its order matches what the reader sees:
+// โครงการ/ผลผลิต falls back to `output`, แผนงาน reads as prefix + suffix.
+function getSortText(item: BudgetItem, sortKey: BudgetSortKey): string {
+  if (sortKey === "project") return item.project || item.output;
+  if (sortKey === "plan") return getPlanName(item);
+  return item.category;
+}
+
+// Unsorted rows keep the order they have in the budget document.
+export function sortBudgetItems(
+  data: BudgetItem[],
+  sort: BudgetSort | null,
+): BudgetItem[] {
+  if (!sort) return data;
+
+  const { key } = sort;
+  const dir = sort.dir === "desc" ? -1 : 1;
+  return [...data].sort((a, b) => {
+    if (key === "amount") return (a.amount - b.amount) * dir;
+    return getSortText(a, key).localeCompare(getSortText(b, key), "th") * dir;
+  });
+}
+
+// Every header cycles through the same three states: ascending, descending, off.
+export function getNextSort(
+  clickedKey: BudgetSortKey,
+  sort: BudgetSort | null,
+): BudgetSort | null {
+  if (sort?.key !== clickedKey) return { key: clickedKey, dir: "asc" };
+  if (sort.dir === "asc") return { key: clickedKey, dir: "desc" };
+  return null;
 }
