@@ -8,6 +8,8 @@ export interface BudgetItem {
   category: string;
   description: string;
   amount: number;
+  total_fiscal_amount: number;
+  fiscal_year_list: string[];
 }
 
 export interface BudgetYearTotal {

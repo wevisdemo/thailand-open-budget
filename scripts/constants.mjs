@@ -19,4 +19,17 @@ export const COLUMN_MAP = {
   ITEM_DESCRIPTION: "description",
   AMOUNT: "amount",
   FISCAL_YEAR: "fiscal_year",
+  "OBLIGED?": "obliged",
 };
+
+// Fields that must match for two obliged rows to be treated as the same item
+// spread across fiscal years.
+export const OBLIGED_KEY_FIELDS = [
+  "ministry",
+  "budgetary",
+  "plan",
+  "output",
+  "project",
+  "category",
+  "description",
+];
