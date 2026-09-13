@@ -83,17 +83,14 @@ export default function SearchTemplate() {
 
   const keywords = tags.map((t) => t.word.toLowerCase());
 
-  // `ministry` and `budgetary` are matched too, so an organization name picked
-  // from the homepage organization search resolves to that unit's line items.
+  // Only the three item-level fields the table highlights are matched, so every
+  // hit is visible on the row it returns.
   function matchesKeywords(item: BudgetItem): boolean {
     return keywords.some(
       (kw) =>
         item.description.toLowerCase().includes(kw) ||
         item.output.toLowerCase().includes(kw) ||
-        item.project.toLowerCase().includes(kw) ||
-        item.plan.toLowerCase().includes(kw) ||
-        item.ministry.toLowerCase().includes(kw) ||
-        item.budgetary.toLowerCase().includes(kw),
+        item.project.toLowerCase().includes(kw),
     );
   }
 
