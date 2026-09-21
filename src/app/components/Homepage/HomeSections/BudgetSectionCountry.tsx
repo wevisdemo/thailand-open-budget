@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import type { BudgetItem } from "@/types/budget";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 
 interface BudgetTag {
   label: string;
@@ -108,7 +108,10 @@ function CaseCard({
   isLoading?: boolean;
 }) {
   return (
-    <article className="bg-ui-01 flex flex-1 flex-col items-start">
+    <Link
+      href={`/search?q=${encodeURIComponent(caseItem.tags.map((tag) => tag.label).join(","))}&budget_source=${dataValue}`}
+      className="bg-ui-01 flex flex-1 flex-col items-start transition-colors hover:cursor-pointer hover:bg-[#E5E5E5]"
+    >
       <div className="flex h-full w-full flex-col justify-between gap-[12px] px-[16px] py-[24px]">
         <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
           งบฯ เกี่ยวกับ &lsquo;{caseItem.topic}&rsquo;
@@ -174,15 +177,12 @@ function CaseCard({
           </div>
         </div>
       </div>
-      <Link
-        href={`/search?q=${encodeURIComponent(caseItem.tags.map((tag) => tag.label).join(","))}&budget_source=${dataValue}`}
-        className="border-ui-03 flex w-full items-center justify-center gap-[16px] border-t px-[24px] py-[12px]"
-      >
+      <div className="border-ui-03 flex w-full items-center justify-center gap-[16px] border-t px-[24px] py-[12px]">
         <span className="text-interactive-01 text-[14px] leading-[18px] font-semibold">
           สำรวจ →
         </span>
-      </Link>
-    </article>
+      </div>
+    </Link>
   );
 }
 

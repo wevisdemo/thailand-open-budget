@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import type { BudgetItem } from "@/types/budget";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 
 interface OrganizationCase {
   id: string;
@@ -47,21 +47,39 @@ function ArrowUpRight() {
   );
 }
 
+// The whole card is one link to the ministry's organization page. Until the
+// budget rows arrive there is no registry id to link to, so the card keeps its
+// old search destination.
+function caseHref(
+  ministry: string,
+  ministryId: number | null,
+  dataValue: string,
+): string {
+  return ministryId === null
+    ? `/search?q=${encodeURIComponent(ministry)}&budget_source=${dataValue}`
+    : `/organizations/${ministryId}?budget_source=${dataValue}`;
+}
+
 function CaseCard({
   caseItem,
   dataLabel,
   totalBudget,
+  ministryId,
   dataValue,
   isLoading = false,
 }: {
   caseItem: OrganizationCase;
   dataLabel: string;
   totalBudget: string;
+  ministryId: number | null;
   dataValue: string;
   isLoading?: boolean;
 }) {
   return (
-    <article className="bg-ui-01 flex flex-1 flex-col items-start">
+    <Link
+      href={caseHref(caseItem.ministry, ministryId, dataValue)}
+      className="bg-ui-01 flex flex-1 flex-col items-start transition-colors hover:cursor-pointer hover:bg-[#E5E5E5]"
+    >
       <div className="flex w-full flex-col gap-[12px] px-[16px] py-[24px]">
         <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
           กลุ่มหน่วยงานที่ได้รับงบประมาณมากที่สุด
@@ -88,15 +106,12 @@ function CaseCard({
           </div>
         </div>
       </div>
-      <Link
-        href={`/search?q=${encodeURIComponent(caseItem.ministry)}&budget_source=${dataValue}`}
-        className="border-ui-03 flex w-full items-center justify-center gap-[16px] border-t px-[24px] py-[12px]"
-      >
+      <div className="border-ui-03 flex w-full items-center justify-center gap-[16px] border-t px-[24px] py-[12px]">
         <span className="text-interactive-01 text-[14px] leading-[18px] font-semibold">
           สำรวจ →
         </span>
-      </Link>
-    </article>
+      </div>
+    </Link>
   );
 }
 
@@ -114,6 +129,11 @@ const OrganizeBudgetSection = ({
       return {
         id: caseItem.id,
         totalBudget: formatNumber(Math.round(totalBaht / 1_000_000)),
+        // Every row of a ministry carries the same registry id, so the first
+        // row that has one answers for the whole group.
+        ministryId:
+          filtered.find((item) => item.ministry_id !== null)?.ministry_id ??
+          null,
       };
     });
   }, [cases, data]);
@@ -137,6 +157,7 @@ const OrganizeBudgetSection = ({
                 caseItem={caseItem}
                 dataLabel={dataLabel}
                 totalBudget={stats.totalBudget}
+                ministryId={stats.ministryId}
                 dataValue={dataValue}
                 isLoading={isLoading}
               />
