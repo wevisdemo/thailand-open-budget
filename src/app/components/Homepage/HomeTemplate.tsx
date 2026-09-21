@@ -134,7 +134,7 @@ export default function HomeTemplate() {
       </section>
       <section
         id="organization"
-        className="bg-ui-01 flex flex-col gap-[24px] px-[24px] py-[64px]"
+        className="flex flex-col gap-[24px] bg-white px-[24px] py-[64px]"
       >
         <OrganizeSearchSection
           tags={tags}

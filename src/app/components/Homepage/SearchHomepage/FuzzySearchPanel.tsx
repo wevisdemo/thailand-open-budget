@@ -157,7 +157,7 @@ export default function FuzzySearchPanel({
     <div ref={containerRef} className="relative">
       <div className="flex items-stretch">
         <div
-          className="border-ui-04 flex min-h-[48px] flex-1 items-center gap-[4px] border-b-[2px] bg-white px-[16px] py-[8px] hover:cursor-text"
+          className="bg-field-01 border-ui-04 flex min-h-[48px] flex-1 items-center gap-[4px] border-b-[2px] px-[16px] py-[8px] hover:cursor-text"
           onClick={() => inputRef.current?.focus()}
         >
           <SearchIcon
