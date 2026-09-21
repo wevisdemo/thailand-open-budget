@@ -4,6 +4,7 @@ import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
 import type { Tag } from "@/types/search";
 import { useMemo, useState } from "react";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
+import PdfIcon from "@/app/components/shared/icons/pdf-icon";
 import { getObligedYearRange, sortBudgetItems } from "@/constants/budget";
 import SortableHeader from "./SortableHeader";
 import Paginate from "./Paginate";
@@ -70,16 +71,16 @@ export default function BudgetListTable({
         onClose={() => setProjectInfoOpen(false)}
       />
       <div className="mx-[-24px] overflow-x-auto px-[24px] md:mx-0 md:px-[0px]">
-        <table className="w-full min-w-[900px] table-fixed border-collapse text-[14px]">
+        <table className="w-full min-w-[1000px] table-fixed border-collapse text-[14px]">
           <thead>
             <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
-              <th className="w-[6%] px-[16px] py-[8px]" />
-              <th className="w-[24%] px-[16px] py-[8px] text-left font-semibold">
+              <th className="w-[5%] px-[16px] py-[8px]" />
+              <th className="w-[22%] px-[16px] py-[8px] text-left font-semibold">
                 รายการ
               </th>
               <SortableHeader
                 label="จำนวนเงิน"
-                widthClassName="w-[17%]"
+                widthClassName="w-[16%]"
                 align="right"
                 sortKey="amount"
                 sort={sort}
@@ -87,7 +88,7 @@ export default function BudgetListTable({
               />
               <SortableHeader
                 label="โครงการ/ผลผลิต"
-                widthClassName="w-[15%]"
+                widthClassName="w-[14%]"
                 sortKey="project"
                 sort={sort}
                 onSortChange={onSortChange}
@@ -105,7 +106,7 @@ export default function BudgetListTable({
               </SortableHeader>
               <SortableHeader
                 label="แผนงาน"
-                widthClassName="w-[13%]"
+                widthClassName="w-[12%]"
                 sortKey="plan"
                 sort={sort}
                 onSortChange={onSortChange}
@@ -117,8 +118,11 @@ export default function BudgetListTable({
                 sort={sort}
                 onSortChange={onSortChange}
               />
-              <th className="w-[14%] px-[16px] py-[8px] text-left font-semibold">
+              <th className="w-[13%] px-[16px] py-[8px] text-left font-semibold">
                 หน่วยงาน
+              </th>
+              <th className="w-[7%] px-[16px] py-[8px] text-center font-semibold">
+                อ้างอิง
               </th>
             </tr>
           </thead>
@@ -181,6 +185,21 @@ export default function BudgetListTable({
                     <p>{item.budgetary}</p>
                     {item.ministry && (
                       <p className="text-gray-60">{item.ministry}</p>
+                    )}
+                  </td>
+                  <td className="px-[16px] py-[16px] text-center">
+                    {item.page_url ? (
+                      <a
+                        href={item.page_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="เปิดเอกสารงบประมาณหน้าที่อ้างอิง"
+                        className="inline-flex"
+                      >
+                        <PdfIcon className="h-[16px] w-[16px] shrink-0" />
+                      </a>
+                    ) : (
+                      "-"
                     )}
                   </td>
                 </tr>

@@ -101,6 +101,7 @@ function parseCSV(csv) {
       amount: Number(row[colIndex.AMOUNT]?.replace(/,/g, "")) || 0,
       fiscal_year: row[colIndex.FISCAL_YEAR] || "",
       obliged: (row[colIndex["OBLIGED?"]] || "").toUpperCase() === "TRUE",
+      page_url: row[colIndex.PAGE_URL] || "",
     };
   });
 }
@@ -167,6 +168,7 @@ function collapseObliged(rows, reportYear) {
     description: row.description,
     amount: row.obliged ? reportYearAmount : row.amount,
     fiscal_year: row.obliged ? reportYear : row.fiscal_year,
+    page_url: row.page_url,
     total_fiscal_amount: total,
     fiscal_year_list: [...years].sort(),
   }));

@@ -22,6 +22,7 @@ export const COLUMN_MAP = {
   AMOUNT: "amount",
   FISCAL_YEAR: "fiscal_year",
   "OBLIGED?": "obliged",
+  PAGE_URL: "page_url",
 };
 
 // Fields that must match for two obliged rows to be treated as the same item

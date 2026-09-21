@@ -10,6 +10,7 @@ export interface BudgetItem {
   category: string;
   description: string;
   amount: number;
+  page_url: string;
   total_fiscal_amount: number;
   fiscal_year_list: string[];
 }
