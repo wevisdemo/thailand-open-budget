@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Imports all budget sheets and saves them to public/data/.
+ * Imports all budget sheets and saves them to public/data/, then rebuilds the
+ * organization registry and per-year organization files from them.
  * Runs each sheet sequentially to avoid hammering the Google Sheets export API.
  *
  * Usage:
@@ -15,6 +16,7 @@ import { SHEET_GID_MAP } from "./constants.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const fetchScript = join(__dirname, "fetch-budget-data.mjs");
+const organizationsScript = join(__dirname, "build-organizations.mjs");
 
 const SHEETS = Object.keys(SHEET_GID_MAP);
 
@@ -28,5 +30,8 @@ for (const sheet of SHEETS) {
     );
   }
 }
+
+console.error("\n=== Building organizations ===");
+execSync(`node ${organizationsScript}`, { stdio: "inherit" });
 
 console.error("\nDone.");

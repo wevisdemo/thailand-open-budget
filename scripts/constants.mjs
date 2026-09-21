@@ -36,3 +36,20 @@ export const OBLIGED_KEY_FIELDS = [
   "category",
   "description",
 ];
+
+// The registry key for one ministry/budgetary pair, built from the names
+// exactly as the source sheet spells them. The sheet does contain names that
+// differ only in invisible ways (see docs/organization-id-risks.md) — those
+// are deliberately left as distinct organizations here, pending a decision on
+// how to reconcile them.
+export function organizationKey(ministry, budgetary) {
+  return `${ministry}_${budgetary}`;
+}
+
+// The sheet holding the fiscal year before `sheetName`, e.g.
+// "2569_drafted" -> "2568_drafted". Returns null when the name carries no year.
+export function previousSheetName(sheetName) {
+  const match = sheetName.match(/^(\d{4})(_.*)$/);
+  if (!match) return null;
+  return `${Number(match[1]) - 1}${match[2]}`;
+}
