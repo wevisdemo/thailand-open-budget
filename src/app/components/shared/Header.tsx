@@ -33,18 +33,18 @@ const leftLinks: NavLinkItem[] = [
           />
         ),
       },
-      // {
-      //   label: "ผ่านหน่วยงาน",
-      //   url: "/",
-      //   icon: (
-      //     <Image
-      //       src={withBasePath("/icons/agency.svg")}
-      //       alt="search-by-agency"
-      //       width={14}
-      //       height={14}
-      //     />
-      //   ),
-      // },
+      {
+        label: "ผ่านหน่วยงาน",
+        url: "/organizations",
+        icon: (
+          <Image
+            src={withBasePath("/icons/agency.svg")}
+            alt="search-by-agency"
+            width={14}
+            height={14}
+          />
+        ),
+      },
     ],
   },
   {
