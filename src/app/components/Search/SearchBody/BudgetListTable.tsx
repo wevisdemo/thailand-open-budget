@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
 import type { Tag } from "@/types/search";
 import { useMemo, useState } from "react";
+import { useUrlSearch } from "@/hooks/useUrlSearch";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
 import PdfIcon from "@/app/components/shared/icons/pdf-icon";
 import { getObligedYearRange, sortBudgetItems } from "@/constants/budget";
@@ -21,6 +23,21 @@ interface BudgetListTableProps {
 
 function formatBaht(amount: number): string {
   return amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
+}
+
+// A budget row carries the registry ids of the organization that owns it, so
+// it can link straight to that organization's page. Passing the selected
+// budget document along keeps the reader on the same fiscal year.
+function organizationHref(
+  ministryId: number,
+  budgetaryId: number | null,
+  docSource: string | null,
+): string {
+  const path =
+    budgetaryId === null
+      ? `/organizations/${ministryId}`
+      : `/organizations/${ministryId}/${budgetaryId}`;
+  return docSource ? `${path}?budget_source=${docSource}` : path;
 }
 
 function highlightTags(text: string, tags: Tag[]): React.ReactNode {
@@ -56,6 +73,7 @@ export default function BudgetListTable({
 }: BudgetListTableProps) {
   const [page, setPage] = useState(1);
   const [projectInfoOpen, setProjectInfoOpen] = useState(false);
+  const docSource = new URLSearchParams(useUrlSearch()).get("budget_source");
 
   // Thai collation over a long result list is not free, and paging re-renders.
   const sorted = useMemo(() => sortBudgetItems(data, sort), [data, sort]);
@@ -182,10 +200,35 @@ export default function BudgetListTable({
                     {item.category || "-"}
                   </td>
                   <td className="px-[16px] py-[16px]">
-                    <p>{item.budgetary}</p>
-                    {item.ministry && (
-                      <p className="text-gray-60">{item.ministry}</p>
+                    {item.budgetary_id !== null && item.ministry_id !== null ? (
+                      <Link
+                        href={organizationHref(
+                          item.ministry_id,
+                          item.budgetary_id,
+                          docSource,
+                        )}
+                        className="text-link-01 hover:underline"
+                      >
+                        {item.budgetary}
+                      </Link>
+                    ) : (
+                      <p>{item.budgetary}</p>
                     )}
+                    {item.ministry &&
+                      (item.ministry_id !== null ? (
+                        <Link
+                          href={organizationHref(
+                            item.ministry_id,
+                            null,
+                            docSource,
+                          )}
+                          className="text-gray-60 block hover:underline"
+                        >
+                          {item.ministry}
+                        </Link>
+                      ) : (
+                        <p className="text-gray-60">{item.ministry}</p>
+                      ))}
                   </td>
                   <td className="px-[16px] py-[16px] text-center">
                     {item.page_url ? (
