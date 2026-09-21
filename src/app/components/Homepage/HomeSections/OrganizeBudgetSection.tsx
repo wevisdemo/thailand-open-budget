@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import type { BudgetItem } from "@/types/budget";
 import Link from "next/link";
+import CardCarousel from "@/app/components/shared/CardCarousel";
 
 interface OrganizationCase {
   id: string;
@@ -145,26 +146,22 @@ const OrganizeBudgetSection = ({
           ค้นหางบฯ ผ่านหน่วยงานที่คุณสนใจ เช่น
         </p>
       </div>
-      <div className="flex snap-x snap-mandatory gap-[12px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:snap-none md:flex-row md:items-stretch md:justify-between md:overflow-visible [&::-webkit-scrollbar]:hidden">
+      <CardCarousel label="ค้นหางบฯ ผ่านหน่วยงานที่คุณสนใจ">
         {cases.map((caseItem, index) => {
           const stats = caseStats[index];
           return (
-            <div
+            <CaseCard
               key={caseItem.id}
-              className="flex min-w-[280px] flex-1 snap-start flex-col md:min-w-0"
-            >
-              <CaseCard
-                caseItem={caseItem}
-                dataLabel={dataLabel}
-                totalBudget={stats.totalBudget}
-                ministryId={stats.ministryId}
-                dataValue={dataValue}
-                isLoading={isLoading}
-              />
-            </div>
+              caseItem={caseItem}
+              dataLabel={dataLabel}
+              totalBudget={stats.totalBudget}
+              ministryId={stats.ministryId}
+              dataValue={dataValue}
+              isLoading={isLoading}
+            />
           );
         })}
-      </div>
+      </CardCarousel>
     </div>
   );
 };
