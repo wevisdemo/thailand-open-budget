@@ -28,6 +28,7 @@ const DEFAULT_CASES: OrganizationCase[] = [
   { id: "defense", ministry: "กระทรวงกลาโหม" },
   { id: "education", ministry: "กระทรวงศึกษาธิการ" },
   { id: "interior", ministry: "กระทรวงมหาดไทย" },
+  { id: "finance", ministry: "กระทรวงการคลัง" },
 ];
 
 function ArrowUpRight() {
