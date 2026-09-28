@@ -50,3 +50,14 @@ export interface OrganizationYearTotal {
   // `previous_year_amount` as a share of the previous year's grand total, 0-100.
   previous_year_percent: number | null;
 }
+
+// One homepage highlight card: an organization picked out of a year's totals,
+// the page it links to and the figure it leads with.
+export interface OrganizationHighlight {
+  id: string;
+  title: string;
+  name: string;
+  href: string;
+  value: string;
+  unit: string;
+}

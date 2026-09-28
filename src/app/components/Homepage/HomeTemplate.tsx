@@ -2,10 +2,12 @@
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import AboutSection from "@/app/components/shared/AboutSection";
 import Dropdown, { type DropdownOption } from "../shared/Dropdown";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
+import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
+import { getOrganizationHighlights } from "@/constants/organization";
 import SearchHeader from "./SearchHomepage/SearchHeader";
 import OrganizeSearchSection from "./SearchHomepage/OrganizeSearchSection";
 import HeroSection from "./HomeSections/HeroSection";
@@ -61,6 +63,18 @@ export default function HomeTemplate() {
 
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
+  );
+  const { data: organizationTotals, status: organizationStatus } =
+    useOrganizationYearTotals(
+      (selectedDocSource?.value as DocSourceValue) ?? null,
+    );
+  const organizationHighlights = useMemo(
+    () =>
+      getOrganizationHighlights(
+        organizationTotals,
+        selectedDocSource?.value ?? "",
+      ),
+    [organizationTotals, selectedDocSource],
   );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
   const totalBudgetAmount = budgetData.reduce(
@@ -146,9 +160,10 @@ export default function HomeTemplate() {
         />
         <OrganizeBudgetSection
           dataLabel={selectedDocSource?.label ?? ""}
-          data={budgetData}
-          dataValue={selectedDocSource?.value ?? ""}
-          isLoading={status === "idle" || status === "loading"}
+          highlights={organizationHighlights}
+          isLoading={
+            organizationStatus === "idle" || organizationStatus === "loading"
+          }
         />
         <div className="flex w-full max-w-[1280px] items-center justify-end">
           <Link
