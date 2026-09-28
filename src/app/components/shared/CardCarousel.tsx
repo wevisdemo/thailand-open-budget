@@ -65,7 +65,7 @@ export default function CardCarousel({ children, label }: CardCarouselProps) {
           type="button"
           onClick={() => scrollByPage(-1)}
           aria-label="การ์ดก่อนหน้า"
-          className="absolute top-[50%] left-0 z-10 flex h-[48px] w-[36px] -translate-y-[50%] items-center justify-center"
+          className="absolute top-[50%] left-0 z-10 flex h-[48px] w-[36px] -translate-y-[50%] items-center justify-center hover:cursor-pointer"
         >
           <ChevronRightIcon className="rotate-180" />
         </button>
@@ -75,7 +75,7 @@ export default function CardCarousel({ children, label }: CardCarouselProps) {
           type="button"
           onClick={() => scrollByPage(1)}
           aria-label="การ์ดถัดไป"
-          className="absolute top-[50%] right-0 z-10 flex h-[48px] w-[36px] -translate-y-[50%] items-center justify-center"
+          className="absolute top-[50%] right-0 z-10 flex h-[48px] w-[36px] -translate-y-[50%] items-center justify-center hover:cursor-pointer"
         >
           <ChevronRightIcon />
         </button>
