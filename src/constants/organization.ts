@@ -1,5 +1,6 @@
 import type {
   OrganizationHighlight,
+  OrganizationMinistryGroup,
   OrganizationYearTotal,
 } from "@/types/organization";
 
@@ -109,4 +110,46 @@ export function getOrganizationHighlights(
   }
 
   return highlights;
+}
+
+// Groups a year's budgetary units under their ministries, both levels sorted
+// by budget, largest first.
+export function groupByMinistry(
+  data: OrganizationYearTotal[],
+): OrganizationMinistryGroup[] {
+  const groups = new Map<number, OrganizationMinistryGroup>();
+  for (const unit of data) {
+    const group = groups.get(unit.ministry_id) ?? {
+      ministry_id: unit.ministry_id,
+      ministry_name: unit.ministry_name,
+      budget_amount: 0,
+      previous_year_amount: null,
+      units: [],
+    };
+    group.budget_amount += unit.budget_amount;
+    if (unit.previous_year_amount !== null) {
+      group.previous_year_amount =
+        (group.previous_year_amount ?? 0) + unit.previous_year_amount;
+    }
+    group.units.push(unit);
+    groups.set(unit.ministry_id, group);
+  }
+
+  const sorted = [...groups.values()].sort(
+    (a, b) => b.budget_amount - a.budget_amount,
+  );
+  for (const group of sorted) {
+    group.units.sort((a, b) => b.budget_amount - a.budget_amount);
+  }
+  return sorted;
+}
+
+// Growth of an amount over the previous year's, as a percentage. Null when
+// there is no previous-year allocation to compare against.
+export function getChangePercent(
+  amount: number,
+  previousAmount: number | null,
+): number | null {
+  if (!previousAmount) return null;
+  return ((amount - previousAmount) / previousAmount) * 100;
 }

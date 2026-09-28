@@ -61,3 +61,21 @@ export interface OrganizationHighlight {
   value: string;
   unit: string;
 }
+
+// A ministry's budgetary units for one fiscal year, with the ministry's totals
+// summed from them. Units are sorted by budget, largest first.
+export interface OrganizationMinistryGroup {
+  ministry_id: number;
+  ministry_name: string;
+  budget_amount: number;
+  // Null when none of its units has a previous-year amount.
+  previous_year_amount: number | null;
+  units: OrganizationYearTotal[];
+}
+
+export type OrganizationSortKey = "amount" | "change";
+
+export interface OrganizationSort {
+  key: OrganizationSortKey;
+  dir: "asc" | "desc";
+}
