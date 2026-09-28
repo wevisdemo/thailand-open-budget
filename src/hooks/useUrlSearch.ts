@@ -28,7 +28,9 @@ function patchHistory() {
       ...args: Parameters<History["pushState"]>
     ) {
       const result = original(...args);
-      emit();
+      // Next calls replaceState inside useInsertionEffect, where React forbids
+      // scheduling updates; notify once that commit has finished.
+      queueMicrotask(emit);
       return result;
     };
   }
