@@ -184,7 +184,7 @@ export default function OrganizationListSection({
 
   return (
     <div className="mx-auto flex w-full max-w-[1128px] flex-col">
-      <div className="flex flex-col justify-between gap-[8px] pb-[14px] md:flex-row">
+      <div className="flex flex-col justify-between gap-[16px] pb-[14px] md:flex-row">
         <div>
           <h2 className="font-serif text-[28px] font-bold">
             หน่วยงานที่ได้รับงบประมาณ

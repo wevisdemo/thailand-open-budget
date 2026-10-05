@@ -66,7 +66,7 @@ export default function OrganizationsTemplate() {
         onChangeDocSource={onChangeDocSource}
         onOpenVersionInfo={() => setVersionInfoOpen(true)}
       />
-      <section className="bg-white px-[24px] pt-[40px] pb-[24px] md:pt-[56px]">
+      <section className="bg-white px-[24px] pt-[24px] pb-[24px] md:pt-[56px]">
         <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px]">
           <div className="flex flex-col gap-[8px]">
             <h1 className="font-serif text-[28px] font-bold md:text-[42px]">
@@ -112,7 +112,7 @@ export default function OrganizationsTemplate() {
           </div>
         </div>
       </section>
-      <section className="bg-ui-01 px-[24px] py-[40px]">
+      <section className="bg-ui-01 px-[24px] py-[32px]">
         {/* Keyed by year so a new year starts from page 1, unfiltered. */}
         <OrganizationListSection
           key={selectedDocSource.value}

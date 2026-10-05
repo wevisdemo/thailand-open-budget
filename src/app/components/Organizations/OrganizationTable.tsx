@@ -79,7 +79,9 @@ export default function OrganizationTable({
   dataValue,
 }: OrganizationTableProps) {
   return (
-    <div className="mx-[-24px] overflow-x-auto px-[24px] md:mx-0 md:px-[0px]">
+    // `relative` keeps the badges' absolutely positioned sr-only text inside
+    // the scroller; without it that text widens the whole page on mobile.
+    <div className="relative mx-[-24px] overflow-x-auto px-[24px] md:mx-0 md:px-[0px]">
       <table className="w-full min-w-[800px] table-fixed border-collapse text-[14px]">
         <thead>
           <tr className="bg-ui-03">
