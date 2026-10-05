@@ -11,6 +11,7 @@
     "data:index": "node scripts/fetch-index-data.mjs",
     "data:import": "node scripts/import-all.mjs",
     "data:organizations": "node scripts/build-organizations.mjs",
+    "data:core": "node scripts/fetch-core-content.mjs",
     "sass:build": "sass --load-path=node_modules --style=compressed --no-source-map src/styles/carbon/index.scss src/styles/carbon/pre-compiled.css",
     "prepare": "husky"
   },

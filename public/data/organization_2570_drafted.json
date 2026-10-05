@@ -29079,13 +29079,13 @@
     "previous_year_percent": 0.001002
   },
   {
-    "budgetary_id": 3362,
-    "budgetary_name": "เทศบาลตำบลเวียง อำเภอไชยา จังหวัดสุราษฏร์ธานี",
+    "budgetary_id": 1022,
+    "budgetary_name": "เทศบาลตำบลเวียง อำเภอไชยา จังหวัดสุราษฎร์ธานี",
     "ministry_id": 13,
     "ministry_name": "องค์กรปกครองส่วนท้องถิ่น",
     "budget_amount": 32499600,
-    "previous_year_amount": null,
-    "previous_year_percent": null
+    "previous_year_amount": 30549900,
+    "previous_year_percent": 0.000808
   },
   {
     "budgetary_id": 1773,

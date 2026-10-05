@@ -81,3 +81,12 @@ export interface OrganizationSort {
   key: OrganizationSortKey;
   dir: "asc" | "desc";
 }
+
+// An organization's vision, mission and objectives, from the CoreContent sheet,
+// as written there: mission and objective are usually numbered lists, one item
+// per line. Null when the sheet leaves the field blank.
+export interface OrganizationCoreContent {
+  vision: string | null;
+  mission: string | null;
+  objective: string | null;
+}
