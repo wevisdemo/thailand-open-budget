@@ -1,6 +1,8 @@
 import type {
   OrganizationHighlight,
   OrganizationMinistryGroup,
+  OrganizationSort,
+  OrganizationSortKey,
   OrganizationYearTotal,
 } from "@/types/organization";
 
@@ -113,7 +115,7 @@ export function getOrganizationHighlights(
 }
 
 // Groups a year's budgetary units under their ministries, both levels sorted
-// by budget, largest first.
+// by name, ก-ฮ.
 export function groupByMinistry(
   data: OrganizationYearTotal[],
 ): OrganizationMinistryGroup[] {
@@ -135,11 +137,13 @@ export function groupByMinistry(
     groups.set(unit.ministry_id, group);
   }
 
-  const sorted = [...groups.values()].sort(
-    (a, b) => b.budget_amount - a.budget_amount,
+  const sorted = [...groups.values()].sort((a, b) =>
+    a.ministry_name.localeCompare(b.ministry_name, "th"),
   );
   for (const group of sorted) {
-    group.units.sort((a, b) => b.budget_amount - a.budget_amount);
+    group.units.sort((a, b) =>
+      a.budgetary_name.localeCompare(b.budgetary_name, "th"),
+    );
   }
   return sorted;
 }
@@ -152,4 +156,14 @@ export function getChangePercent(
 ): number | null {
   if (!previousAmount) return null;
   return ((amount - previousAmount) / previousAmount) * 100;
+}
+
+// Every header cycles through the same three states: ascending, descending, off.
+export function getNextOrganizationSort(
+  clickedKey: OrganizationSortKey,
+  sort: OrganizationSort | null,
+): OrganizationSort | null {
+  if (sort?.key !== clickedKey) return { key: clickedKey, dir: "asc" };
+  if (sort.dir === "asc") return { key: clickedKey, dir: "desc" };
+  return null;
 }

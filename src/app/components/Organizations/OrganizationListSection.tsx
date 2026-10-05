@@ -7,7 +7,10 @@ import type {
   OrganizationSortKey,
   OrganizationYearTotal,
 } from "@/types/organization";
-import { getChangePercent } from "@/constants/organization";
+import {
+  getChangePercent,
+  getNextOrganizationSort,
+} from "@/constants/organization";
 import DownloadIcon from "@/app/components/shared/icons/download-icon";
 import SearchIcon from "@/app/components/shared/icons/search-icon";
 import Paginate from "@/app/components/Search/SearchBody/Paginate";
@@ -71,10 +74,13 @@ function compareBy<T>(
   };
 }
 
+// Unsorted groups keep their default order, by name ก-ฮ.
 function sortGroups(
   groups: OrganizationMinistryGroup[],
-  sort: OrganizationSort,
+  sort: OrganizationSort | null,
 ): OrganizationMinistryGroup[] {
+  if (!sort) return groups;
+
   const byUnit = compareBy<OrganizationYearTotal>(sort, (unit) => [
     unit.budget_amount,
     unit.previous_year_amount,
@@ -143,10 +149,7 @@ export default function OrganizationListSection({
   isError,
 }: OrganizationListSectionProps) {
   const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<OrganizationSort>({
-    key: "amount",
-    dir: "desc",
-  });
+  const [sort, setSort] = useState<OrganizationSort | null>(null);
   const [page, setPage] = useState(1);
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
 
@@ -165,13 +168,8 @@ export default function OrganizationListSection({
     setExpandedIds(filterGroups(allGroups, value).unitMatchIds);
   }
 
-  // A new column starts from the largest; the same column flips direction.
   function handleSortChange(key: OrganizationSortKey) {
-    setSort((prev) =>
-      prev.key === key
-        ? { key, dir: prev.dir === "desc" ? "asc" : "desc" }
-        : { key, dir: "desc" },
-    );
+    setSort(getNextOrganizationSort(key, sort));
     setPage(1);
   }
 
@@ -199,7 +197,11 @@ export default function OrganizationListSection({
               ปีงบฯ {year} · {version}
             </span>
             <span className="text-gray-60">
-              {sort.dir === "desc" ? "เรียงจากมากไปน้อย" : "เรียงจากน้อยไปมาก"}
+              {!sort
+                ? "เรียงจาก ก-ฮ"
+                : sort.dir === "asc"
+                  ? "เรียงจากน้อยไปมาก"
+                  : "เรียงจากมากไปน้อย"}
             </span>
           </p>
         </div>

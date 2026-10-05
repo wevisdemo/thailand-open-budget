@@ -63,7 +63,7 @@ export interface OrganizationHighlight {
 }
 
 // A ministry's budgetary units for one fiscal year, with the ministry's totals
-// summed from them. Units are sorted by budget, largest first.
+// summed from them. Units are sorted by name, ก-ฮ.
 export interface OrganizationMinistryGroup {
   ministry_id: number;
   ministry_name: string;
@@ -75,6 +75,8 @@ export interface OrganizationMinistryGroup {
 
 export type OrganizationSortKey = "amount" | "change";
 
+// The table's sort state. `null` is the third state of the header cycle: no
+// column sorted, so groups keep their default order, by name ก-ฮ.
 export interface OrganizationSort {
   key: OrganizationSortKey;
   dir: "asc" | "desc";
