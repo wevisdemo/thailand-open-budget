@@ -18,6 +18,8 @@ interface BudgetListSectionProps {
   amountText?: string;
   // The order the table opens in; by default the budget document's.
   defaultSort?: BudgetSort | null;
+  // Unset, the table lists each item's หน่วยงาน.
+  showOrganization?: boolean;
   tags: Tag[];
   data: BudgetItem[];
   year: number;
@@ -87,6 +89,7 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
           data={props.data}
           sort={sort}
           onSortChange={handleSortChange}
+          showOrganization={props.showOrganization}
         />
       </div>
     </div>

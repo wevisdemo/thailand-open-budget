@@ -19,6 +19,8 @@ interface BudgetListTableProps {
   tags: Tag[];
   sort: BudgetSort | null;
   onSortChange: (key: BudgetSortKey) => void;
+  // The หน่วยงาน column; an organization's own page has no use for it.
+  showOrganization?: boolean;
 }
 
 function formatBaht(amount: number): string {
@@ -70,6 +72,7 @@ export default function BudgetListTable({
   tags,
   sort,
   onSortChange,
+  showOrganization = true,
 }: BudgetListTableProps) {
   const [page, setPage] = useState(1);
   const [projectInfoOpen, setProjectInfoOpen] = useState(false);
@@ -136,9 +139,11 @@ export default function BudgetListTable({
                 sort={sort}
                 onSortChange={onSortChange}
               />
-              <th className="w-[13%] px-[16px] py-[8px] text-left font-semibold">
-                หน่วยงาน
-              </th>
+              {showOrganization && (
+                <th className="w-[13%] px-[16px] py-[8px] text-left font-semibold">
+                  หน่วยงาน
+                </th>
+              )}
               <th className="w-[7%] px-[16px] py-[8px] text-center font-semibold">
                 อ้างอิง
               </th>
@@ -199,37 +204,40 @@ export default function BudgetListTable({
                   <td className="px-[16px] py-[16px]">
                     {item.category || "-"}
                   </td>
-                  <td className="px-[16px] py-[16px]">
-                    {item.budgetary_id !== null && item.ministry_id !== null ? (
-                      <Link
-                        href={organizationHref(
-                          item.ministry_id,
-                          item.budgetary_id,
-                          docSource,
-                        )}
-                        className="text-text-01 underline"
-                      >
-                        {item.budgetary}
-                      </Link>
-                    ) : (
-                      <p>{item.budgetary}</p>
-                    )}
-                    {item.ministry &&
-                      (item.ministry_id !== null ? (
+                  {showOrganization && (
+                    <td className="px-[16px] py-[16px]">
+                      {item.budgetary_id !== null &&
+                      item.ministry_id !== null ? (
                         <Link
                           href={organizationHref(
                             item.ministry_id,
-                            null,
+                            item.budgetary_id,
                             docSource,
                           )}
-                          className="text-gray-60 block underline"
+                          className="text-text-01 underline"
                         >
-                          {item.ministry}
+                          {item.budgetary}
                         </Link>
                       ) : (
-                        <p className="text-gray-60">{item.ministry}</p>
-                      ))}
-                  </td>
+                        <p>{item.budgetary}</p>
+                      )}
+                      {item.ministry &&
+                        (item.ministry_id !== null ? (
+                          <Link
+                            href={organizationHref(
+                              item.ministry_id,
+                              null,
+                              docSource,
+                            )}
+                            className="text-gray-60 block underline"
+                          >
+                            {item.ministry}
+                          </Link>
+                        ) : (
+                          <p className="text-gray-60">{item.ministry}</p>
+                        ))}
+                    </td>
+                  )}
                   <td className="px-[16px] py-[16px] text-center">
                     {item.page_url ? (
                       <a
