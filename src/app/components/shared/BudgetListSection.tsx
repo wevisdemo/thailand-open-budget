@@ -12,6 +12,10 @@ import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
 interface BudgetListSectionProps {
   title: string | null;
   subtitle: string | null;
+  // Words before the item count; the search page says "พบทั้งหมด".
+  countPrefix?: string;
+  // An optional total after the count, e.g. "500,000 ล้านบาท (28.59 %)".
+  amountText?: string;
   tags: Tag[];
   data: BudgetItem[];
   year: number;
@@ -63,7 +67,8 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
       <TableSectionHeader
         title={props.title}
         subtitle={props.subtitle}
-        countText={`พบทั้งหมด ${props.data.length.toLocaleString()} รายการ`}
+        countText={`${props.countPrefix ?? "พบทั้งหมด"} ${props.data.length.toLocaleString()} รายการ`}
+        amountText={props.amountText}
         year={props.year}
         version={props.version}
         sortLabel={getSortLabel(sort?.dir ?? null, {

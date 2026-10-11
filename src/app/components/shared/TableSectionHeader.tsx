@@ -10,6 +10,8 @@ interface TableSectionHeaderProps {
   subtitle: string | null;
   // e.g. "พบทั้งหมด 99 หน่วยงาน"
   countText: string;
+  // An optional total after the count, e.g. "500,000 ล้านบาท (28.59 %)".
+  amountText?: string;
   year: number;
   version: string;
   // e.g. "เรียงจากมากไปน้อย", from getSortLabel
@@ -24,6 +26,7 @@ export default function TableSectionHeader({
   title,
   subtitle,
   countText,
+  amountText,
   year,
   version,
   sortLabel,
@@ -37,6 +40,7 @@ export default function TableSectionHeader({
         {subtitle && <p className="text-[16px] font-bold">{subtitle}</p>}
         <p className="text-text-01 flex flex-wrap gap-x-[8px]">
           <span className="text-interactive-01">{countText}</span>
+          {amountText && <span>{amountText}</span>}
           <span>
             ปีงบฯ {year} · {version}
           </span>

@@ -33,6 +33,14 @@ export default function MinistryItemSection({
     ? items.filter((item) => matchesAnyKeyword(item, words))
     : items;
   const keywordText = `ที่มีคำว่า '${words.join(", ")}'`;
+  // The listed items' total, and its share of all the ministry's items.
+  const shownAmount = shown.reduce((sum, item) => sum + item.amount, 0);
+  const allAmount = items.reduce((sum, item) => sum + item.amount, 0);
+  const share = allAmount > 0 ? (shownAmount / allAmount) * 100 : 0;
+  const amountText = `${Math.round(shownAmount / 1_000_000).toLocaleString()} ล้านบาท (${share.toFixed(2)} %)`;
+  const subtitle = words.length
+    ? `ที่เกี่ยวข้องกับหน่วยงาน และมีคำว่า '${words.join(", ")}'`
+    : "ที่เกี่ยวข้องกับหน่วยงาน";
 
   function addTag(word: string) {
     if (!words.includes(word)) setWords([...words, word]);
@@ -43,7 +51,7 @@ export default function MinistryItemSection({
   }
 
   return (
-    <div className="flex flex-col gap-[24px]">
+    <div className="flex flex-col gap-[8px]">
       <div className="flex flex-col gap-[8px]">
         <h2 className="font-serif text-[28px] font-bold">รายการงบประมาณ</h2>
         <KeywordSearch
@@ -76,7 +84,9 @@ export default function MinistryItemSection({
         <BudgetListSection
           key={`${docSource}|${words.join(",")}`}
           title={null}
-          subtitle={words.length ? keywordText : null}
+          subtitle={subtitle}
+          countPrefix="ทั้งหมด"
+          amountText={amountText}
           tags={tags}
           data={shown}
           year={year}
