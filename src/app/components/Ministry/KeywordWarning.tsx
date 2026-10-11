@@ -1,6 +1,7 @@
 import ExclamationIcon from "@/app/components/shared/icons/exclamation-icon";
 
-// Shown with keyword results: a keyword can mean more than one thing.
+// Shown with the ministry's keyword results: a keyword can mean more than
+// one thing.
 export default function KeywordWarning() {
   return (
     <div className="border-interactive-01 flex gap-[12px] border border-l-[3px] bg-[#eef2ff] px-[8px] py-[16px] md:px-[20px]">

@@ -5,7 +5,7 @@ import { DataTableSkeleton } from "@carbon/react";
 import type { BudgetItem } from "@/types/budget";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
 import KeywordSearch from "@/app/components/shared/KeywordSearch";
-import KeywordWarning from "@/app/components/shared/KeywordWarning";
+import KeywordWarning from "./KeywordWarning";
 import BudgetListSection from "@/app/components/shared/BudgetListSection";
 
 interface MinistryItemSectionProps {

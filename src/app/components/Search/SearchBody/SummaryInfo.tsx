@@ -1,5 +1,4 @@
 import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
-import KeywordWarning from "@/app/components/shared/KeywordWarning";
 
 interface SummaryInfoProps {
   itemAmount: number;
@@ -33,7 +32,6 @@ export default function SummaryInfo({
           unit="หน่วยงาน"
         />
       </div>
-      <KeywordWarning />
     </div>
   );
 }
