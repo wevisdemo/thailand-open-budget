@@ -27,6 +27,7 @@ import ShareButtons from "@/app/components/shared/ShareButtons";
 import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
 import BudgetBaseSelect from "@/app/components/shared/BudgetBaseSelect";
+import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
 
 interface BudgetaryTemplateProps {
   ministryId: number;
@@ -226,6 +227,15 @@ export default function BudgetaryTemplate({
               }
             />
           </div>
+          <OrganizationItemSection
+            items={items}
+            isMinistry={false}
+            year={year}
+            version={version}
+            docSource={docSource}
+            isLoading={isBudgetLoading}
+            isError={budgetStatus === "error"}
+          />
         </div>
       </section>
       <AboutSection />

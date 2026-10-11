@@ -25,7 +25,7 @@ import CoreContentTabs from "@/app/components/shared/CoreContentTabs";
 import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
 import ShareButtons from "@/app/components/shared/ShareButtons";
 import MinistryUnitSection from "./MinistryUnitSection";
-import MinistryItemSection from "./MinistryItemSection";
+import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
 import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
 
 const coreContent = coreContentRaw as Record<string, OrganizationCoreContent>;
@@ -201,8 +201,9 @@ export default function MinistryTemplate({
             isLoading={isTotalsLoading}
             isError={totalsStatus === "error"}
           />
-          <MinistryItemSection
+          <OrganizationItemSection
             items={items}
+            isMinistry
             year={year}
             version={version}
             docSource={docSource}

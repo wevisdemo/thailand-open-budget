@@ -8,11 +8,14 @@ import KeywordSearch from "@/app/components/shared/KeywordSearch";
 import KeywordWarning from "@/app/components/shared/KeywordWarning";
 import BudgetListSection from "@/app/components/shared/BudgetListSection";
 
-// Like the units table above it, the list opens on the biggest items.
+// Like the ministry's units table, the list opens on the biggest items.
 const DEFAULT_SORT: BudgetSort = { key: "amount", dir: "desc" };
 
-interface MinistryItemSectionProps {
+interface OrganizationItemSectionProps {
   items: BudgetItem[];
+  // The ministry page heads its table "ที่เกี่ยวข้องกับหน่วยงาน" and lists
+  // each item's unit; a unit's own page needs neither.
+  isMinistry: boolean;
   year: number;
   version: string;
   docSource: string;
@@ -20,30 +23,35 @@ interface MinistryItemSectionProps {
   isError: boolean;
 }
 
-// The ministry's budget items for the year, all of them until keywords
+// An organization's budget items for the year, all of them until keywords
 // narrow the list down. Keywords stay when the year changes.
-export default function MinistryItemSection({
+export default function OrganizationItemSection({
   items,
+  isMinistry,
   year,
   version,
   docSource,
   isLoading,
   isError,
-}: MinistryItemSectionProps) {
+}: OrganizationItemSectionProps) {
   const [words, setWords] = useState<string[]>([]);
   const tags = toTags(words);
   const shown = words.length
     ? items.filter((item) => matchesAnyKeyword(item, words))
     : items;
   const keywordText = `ที่มีคำว่า '${words.join(", ")}'`;
-  // The listed items' total, and its share of all the ministry's items.
+  // The listed items' total, and its share of all the organization's items.
   const shownAmount = shown.reduce((sum, item) => sum + item.amount, 0);
   const allAmount = items.reduce((sum, item) => sum + item.amount, 0);
   const share = allAmount > 0 ? (shownAmount / allAmount) * 100 : 0;
   const amountText = `${Math.round(shownAmount / 1_000_000).toLocaleString()} ล้านบาท (${share.toFixed(2)} %)`;
-  const subtitle = words.length
-    ? `ที่เกี่ยวข้องกับหน่วยงาน และมีคำว่า '${words.join(", ")}'`
-    : "ที่เกี่ยวข้องกับหน่วยงาน";
+  const subtitle = isMinistry
+    ? words.length
+      ? `ที่เกี่ยวข้องกับหน่วยงาน และมีคำว่า '${words.join(", ")}'`
+      : "ที่เกี่ยวข้องกับหน่วยงาน"
+    : words.length
+      ? keywordText
+      : null;
 
   function addTag(word: string) {
     if (!words.includes(word)) setWords([...words, word]);
@@ -67,7 +75,7 @@ export default function MinistryItemSection({
       {words.length > 0 && <KeywordWarning />}
       {isLoading ? (
         <DataTableSkeleton
-          columnCount={7}
+          columnCount={isMinistry ? 7 : 6}
           rowCount={10}
           showHeader={false}
           showToolbar={false}
@@ -91,6 +99,7 @@ export default function MinistryItemSection({
           countPrefix="ทั้งหมด"
           amountText={amountText}
           defaultSort={DEFAULT_SORT}
+          showOrganization={isMinistry}
           tags={tags}
           data={shown}
           year={year}
