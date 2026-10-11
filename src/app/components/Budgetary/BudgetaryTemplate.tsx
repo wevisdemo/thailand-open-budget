@@ -74,9 +74,9 @@ export default function BudgetaryTemplate({
   const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
   const { data: budgetaryContent } = useBudgetaryCoreContent(budgetaryId);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
-  // Each card measures the unit against its own pick of base.
-  const [shareBase, setShareBase] = useState<BudgetBase>("country");
-  const [trendBase, setTrendBase] = useState<BudgetBase>("country");
+  // Both cards measure the unit against the same base; either card's
+  // dropdown changes it for both.
+  const [base, setBase] = useState<BudgetBase>("country");
 
   const unit = yearTotals.find((u) => u.budgetary_id === budgetaryId) ?? null;
   const items = useMemo(
@@ -97,14 +97,14 @@ export default function BudgetaryTemplate({
   const year = parseInt(selectedDocSource.value);
   const version = selectedDocSource.label.replace(/^\d{4}\s*/, "");
   const isUnit = (u: OrganizationYearTotal) => u.budgetary_id === budgetaryId;
-  const isInBase = (base: BudgetBase) => (u: OrganizationYearTotal) =>
+  const isInBase = (u: OrganizationYearTotal) =>
     base === "country" || u.ministry_id === ministryId;
   const shareTotal = getOrganizationYearTotal(
     yearTotals,
     isUnit,
     year,
     true,
-    isInBase(shareBase),
+    isInBase,
   );
   const trendTotals = [
     { data: totals2568.data, year: 2568 },
@@ -116,7 +116,7 @@ export default function BudgetaryTemplate({
       isUnit,
       totalYear,
       totalYear === year,
-      isInBase(trendBase),
+      isInBase,
     ),
   );
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
@@ -197,18 +197,16 @@ export default function BudgetaryTemplate({
               filteredBudget={shareTotal.totalSelectedBaht}
               totalBudget={shareTotal.totalBudgetBaht}
               totalLabel={
-                shareBase === "country"
-                  ? "งบฯ ทั้งประเทศ"
-                  : `งบฯ ${ministryName}`
+                base === "country" ? "งบฯ ทั้งประเทศ" : `งบฯ ${ministryName}`
               }
               donutLabel={
-                shareBase === "country" ? "ของงบฯ ประเทศ" : "ของงบฯ กระทรวง"
+                base === "country" ? "ของงบฯ ประเทศ" : "ของงบฯ กระทรวง"
               }
               baseSelect={
                 <BudgetBaseSelect
                   id="share-base"
-                  base={shareBase}
-                  onChange={setShareBase}
+                  base={base}
+                  onChange={setBase}
                 />
               }
               year={year}
@@ -221,8 +219,8 @@ export default function BudgetaryTemplate({
               baseSelect={
                 <BudgetBaseSelect
                   id="trend-base"
-                  base={trendBase}
-                  onChange={setTrendBase}
+                  base={base}
+                  onChange={setBase}
                 />
               }
             />
