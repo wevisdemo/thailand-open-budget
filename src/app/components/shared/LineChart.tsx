@@ -45,16 +45,27 @@ function formatPointValue(v: number, unit: "million" | "percent"): string {
 
 // Ticks at a round step (1, 2 or 5 × 10^n) from just below the lowest value
 // to just above the highest, so the line uses the chart's full height rather
-// than sitting at the top of an axis that starts at zero.
-function getNiceTicks(min: number, max: number, count: number): number[] {
+// than sitting at the top of an axis that starts at zero. No tick goes past
+// `ceiling`: an axis that would end above it ends there, starting a step lower
+// if need be.
+function getNiceTicks(
+  min: number,
+  max: number,
+  count: number,
+  ceiling = Infinity,
+): number[] {
   const range = max - min || Math.abs(max) || 1;
   const roughStep = range / (count - 1);
   const magnitude = Math.pow(10, Math.floor(Math.log10(roughStep)));
   const step =
     [1, 2, 5, 10].map((m) => m * magnitude).find((s) => s >= roughStep) ??
     10 * magnitude;
-  const start = Math.floor(min / step) * step;
-  const end = Math.max(Math.ceil(max / step) * step, start + step);
+  let start = Math.floor(min / step) * step;
+  if (start >= ceiling) start = ceiling - step;
+  const end = Math.min(
+    Math.max(Math.ceil(max / step) * step, start + step),
+    ceiling,
+  );
   const ticks: number[] = [];
   for (let i = 0; start + i * step <= end + step / 2; i++) {
     // Rounded so float drift doesn't print as 0.30000000000000004.
@@ -75,7 +86,13 @@ export default function LineChart({ data, unit }: LineChartProps) {
   const chartH = H - pt - pb;
 
   const values = data.map((d) => d.value);
-  const yTicks = getNiceTicks(Math.min(...values), Math.max(...values), 5);
+  // A share is never more than the whole.
+  const yTicks = getNiceTicks(
+    Math.min(...values),
+    Math.max(...values),
+    5,
+    unit === "percent" ? 100 : Infinity,
+  );
   const yMin = yTicks[0];
   const yMax = yTicks[yTicks.length - 1];
   const yStep = yTicks[1] - yTicks[0];
