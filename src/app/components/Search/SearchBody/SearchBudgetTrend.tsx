@@ -50,6 +50,10 @@ export default function SearchBudgetTrend({
     URL.revokeObjectURL(url);
   }
 
+  const years = yearTotals.map((t) => t.year);
+  const firstYear = Math.min(...years);
+  const lastYear = Math.max(...years);
+
   const trendData = yearTotals.map(
     ({ year, totalSelectedBaht: totalBaht, totalBudgetBaht, isCurrent }) => ({
       year,
@@ -74,12 +78,7 @@ export default function SearchBudgetTrend({
             <div className="shrink-1">
               <p className="text-[16px] font-bold">{subtitle}</p>
               <p className="text-text-01">
-                ปีงบฯ{" "}
-                {yearTotals
-                  .map((t) => t.year)
-                  .sort((a, b) => a - b)
-                  .join("–")}{" "}
-                · {version}
+                ปีงบฯ {firstYear}–{lastYear} · {version}
               </p>
             </div>
             <Button

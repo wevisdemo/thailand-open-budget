@@ -65,6 +65,7 @@
 @use "@carbon/react/scss/components/button";
 @use "@carbon/react/scss/components/content-switcher";
 @use "@carbon/react/scss/components/tabs";
+@use "@carbon/react/scss/components/tooltip";
 
 :root {
   @include theme.theme();
