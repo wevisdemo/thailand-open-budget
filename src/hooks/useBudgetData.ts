@@ -43,6 +43,9 @@ export function useBudgetData(docSource: DocSourceValue | null) {
 
     const fileName = DOC_SOURCE_DATA_FILE[docSource];
     const fiscalYear = getFiscalYear(docSource);
+    // A newer year may be requested before this file arrives; its response
+    // must not overwrite the newer one.
+    let ignore = false;
     dispatch({ type: "loading" });
 
     fetch(withBasePath(`/data/${fileName}.json`))
@@ -50,13 +53,20 @@ export function useBudgetData(docSource: DocSourceValue | null) {
         if (!res.ok) throw new Error(`${res.status}`);
         return res.json() as Promise<BudgetItem[]>;
       })
-      .then((data) =>
+      .then((data) => {
+        if (ignore) return;
         dispatch({
           type: "success",
           data: data.filter((item) => item.fiscal_year === fiscalYear),
-        }),
-      )
-      .catch(() => dispatch({ type: "error" }));
+        });
+      })
+      .catch(() => {
+        if (!ignore) dispatch({ type: "error" });
+      });
+
+    return () => {
+      ignore = true;
+    };
   }, [docSource]);
 
   return { data, status };

@@ -43,6 +43,9 @@ export function useOrganizationYearTotals(docSource: DocSourceValue | null) {
       /^budget_/,
       "organization_",
     );
+    // A newer year may be requested before this file arrives; its response
+    // must not overwrite the newer one.
+    let ignore = false;
     dispatch({ type: "loading" });
 
     fetch(withBasePath(`/data/${fileName}.json`))
@@ -50,8 +53,16 @@ export function useOrganizationYearTotals(docSource: DocSourceValue | null) {
         if (!res.ok) throw new Error(`${res.status}`);
         return res.json() as Promise<OrganizationYearTotal[]>;
       })
-      .then((data) => dispatch({ type: "success", data }))
-      .catch(() => dispatch({ type: "error" }));
+      .then((data) => {
+        if (!ignore) dispatch({ type: "success", data });
+      })
+      .catch(() => {
+        if (!ignore) dispatch({ type: "error" });
+      });
+
+    return () => {
+      ignore = true;
+    };
   }, [docSource]);
 
   return { data, status };
