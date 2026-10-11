@@ -9,6 +9,12 @@ import ChangeBadge from "@/app/components/shared/ChangeBadge";
 
 const UNIT_PAGE_SIZE = 10;
 
+// A click on the row's own link or button already does its job; only clicks
+// elsewhere in the row expand it, so the chevron doesn't toggle twice.
+function isFromControl(event: React.MouseEvent) {
+  return (event.target as HTMLElement).closest("a, button") !== null;
+}
+
 interface MinistryRowsProps {
   group: OrganizationMinistryGroup;
   rank: number;
@@ -63,10 +69,19 @@ export default function MinistryRows({
 }: MinistryRowsProps) {
   const [visibleCount, setVisibleCount] = useState(UNIT_PAGE_SIZE);
   const remaining = group.units.length - visibleCount;
+  const ministryHref = `/organizations/${group.ministry_id}?budget_source=${dataValue}`;
+
+  function handleRowClick(event: React.MouseEvent) {
+    if (isFromControl(event)) return;
+    onToggle(group.ministry_id);
+  }
 
   return (
     <>
-      <tr className="border-ui-03 border-b bg-white align-top leading-[18px]">
+      <tr
+        onClick={handleRowClick}
+        className="border-ui-03 hover:bg-gray-10 border-b bg-white align-top leading-[18px] hover:cursor-pointer"
+      >
         <td className="py-[16px] text-center">
           <button
             type="button"
@@ -83,8 +98,8 @@ export default function MinistryRows({
         <td className="py-[16px] text-center">{rank}</td>
         <td className="px-[16px] py-[16px]">
           <Link
-            href={`/organizations/${group.ministry_id}?budget_source=${dataValue}`}
-            className="text-text-01 underline"
+            href={ministryHref}
+            className="text-text-01 hover:text-blue-70 underline"
           >
             {group.ministry_name}
           </Link>
@@ -100,29 +115,32 @@ export default function MinistryRows({
         />
       </tr>
       {isExpanded &&
-        group.units.slice(0, visibleCount).map((unit) => (
-          <tr
-            key={unit.budgetary_id}
-            className="border-ui-03 bg-ui-01 border-b align-top leading-[18px]"
-          >
-            <td />
-            <td />
-            <td className="px-[16px] py-[16px]">
-              <Link
-                href={`/organizations/${unit.ministry_id}/${unit.budgetary_id}?budget_source=${dataValue}`}
-                className="text-text-01 underline"
-              >
-                {unit.budgetary_name}
-              </Link>
-            </td>
-            <AmountCells
-              amount={unit.budget_amount}
-              previousAmount={unit.previous_year_amount}
-              totalBudget={totalBudget}
-              maxAmount={maxAmount}
-            />
-          </tr>
-        ))}
+        group.units.slice(0, visibleCount).map((unit) => {
+          const unitHref = `/organizations/${unit.ministry_id}/${unit.budgetary_id}?budget_source=${dataValue}`;
+          return (
+            <tr
+              key={unit.budgetary_id}
+              className="border-ui-03 bg-ui-01 hover:bg-gray-10 border-b align-top leading-[18px]"
+            >
+              <td />
+              <td />
+              <td className="px-[16px] py-[16px]">
+                <Link
+                  href={unitHref}
+                  className="text-text-01 hover:text-blue-70 underline"
+                >
+                  {unit.budgetary_name}
+                </Link>
+              </td>
+              <AmountCells
+                amount={unit.budget_amount}
+                previousAmount={unit.previous_year_amount}
+                totalBudget={totalBudget}
+                maxAmount={maxAmount}
+              />
+            </tr>
+          );
+        })}
       {isExpanded && remaining > 0 && (
         <tr className="border-ui-03 bg-ui-01 border-b">
           <td />
