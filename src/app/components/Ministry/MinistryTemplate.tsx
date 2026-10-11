@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { OrganizationCoreContent } from "@/types/organization";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
+import { getRelatedDocuments } from "@/constants/ministry";
 import { useBudgetData } from "@/hooks/useBudgetData";
 import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
@@ -11,6 +13,12 @@ import Footer from "@/app/components/shared/Footer";
 import SearchNavbar from "@/app/components/Search/SearchNavbar";
 import BudgetVersionInfoModal from "@/app/components/Search/BudgetVersionInfoModal";
 import SummaryInfoStatItem from "@/app/components/Search/SearchBody/SummaryInfoStatItem";
+import MinistryCoreContent from "./MinistryCoreContent";
+import RelatedDocuments from "./RelatedDocuments";
+import ShareButtons from "./ShareButtons";
+import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
+
+const coreContent = coreContentRaw as Record<string, OrganizationCoreContent>;
 
 interface MinistryTemplateProps {
   ministryId: number;
@@ -51,11 +59,14 @@ export default function MinistryTemplate({
     () => budgetData.filter((item) => item.ministry_id === ministryId),
     [budgetData, ministryId],
   );
+  const relatedDocuments = useMemo(() => getRelatedDocuments(items), [items]);
   const totalBudget = units.reduce((sum, unit) => sum + unit.budget_amount, 0);
 
   const year = parseInt(selectedDocSource.value);
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
+
+  const ministryContent = coreContent[ministryId] ?? null;
 
   const breadcrumb = [
     { label: "หน้าหลัก", href: "/" },
@@ -80,6 +91,19 @@ export default function MinistryTemplate({
           <h1 className="font-serif text-[28px] font-bold md:text-[42px]">
             {ministryName}
           </h1>
+          <div className="flex flex-col gap-[24px] md:flex-row">
+            <div className="min-w-0 flex-1">
+              {ministryContent && (
+                <MinistryCoreContent content={ministryContent} />
+              )}
+            </div>
+            <div className="flex flex-col gap-[16px] md:w-[240px]">
+              {relatedDocuments.length > 0 && (
+                <RelatedDocuments documents={relatedDocuments} />
+              )}
+              <ShareButtons title={ministryName} />
+            </div>
+          </div>
           <div className="flex flex-col md:flex-row">
             <SummaryInfoStatItem
               label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
