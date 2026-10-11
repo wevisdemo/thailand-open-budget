@@ -1,0 +1,71 @@
+// Styles for @carbon/react (Carbon v11, `cds--` classes), compiled to
+// pre-compiled.css by `pnpm sass:build:react`.
+//
+// It sits beside the Carbon v10 CSS in ../carbon (`bx--` classes) while pages
+// move over. Only the theme tokens and the components the site uses are
+// emitted; reset, body, font-face and default type styles stay off so pages
+// keep their current look. Add a component's `@use` below when you first use
+// it from @carbon/react.
+
+@use "sass:map";
+
+@use "@carbon/react/scss/config" with (
+  $css--reset: false,
+  $css--body: false,
+  $css--font-face: false,
+  $css--default-type: false
+);
+@use "@carbon/react/scss/themes";
+
+// The site's v10 theme (../carbon/theme.scss) in v11 token names, with the
+// palette from tailwind-config.css. Tokens not listed keep Carbon's white
+// theme values.
+@use "@carbon/react/scss/theme" with (
+  $theme: map.merge(
+      themes.$white,
+      (
+        background: #ffffff,
+        layer-01: #f4f4f4,
+        field-01: #f4f4f4,
+        border-subtle-00: #e0e0e0,
+        border-subtle-01: #e0e0e0,
+        border-strong-01: #8d8d8d,
+        border-interactive: #3904e9,
+        interactive: #3904e9,
+        focus: #3904e9,
+        text-primary: #161616,
+        text-secondary: #6f6f6f,
+        text-placeholder: #a8a8a8,
+        text-helper: #6f6f6f,
+        text-error: #c72502,
+        link-primary: #3904e9,
+        link-primary-hover: #2e03bd,
+        link-visited: #8a3ffc,
+        icon-primary: #161616,
+        icon-secondary: #525252,
+        button-primary: #3904e9,
+        button-primary-hover: #2e03bd,
+        button-primary-active: #2600a3,
+        button-tertiary: #3904e9,
+        button-tertiary-hover: #2e03bd,
+        button-tertiary-active: #2600a3,
+        support-error: #c72502,
+        support-success: #00838b,
+        support-warning: #f1c21b,
+        support-info: #2e03bd,
+        highlight: #aac2fe,
+      )
+    )
+);
+
+// Layout tokens (--cds-layout-*): component sizes and paddings read them.
+@use "@carbon/react/scss/layout";
+
+// Components
+@use "@carbon/react/scss/components/button";
+@use "@carbon/react/scss/components/link";
+@use "@carbon/react/scss/components/tabs";
+
+:root {
+  @include theme.theme();
+}

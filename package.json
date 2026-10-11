@@ -13,9 +13,12 @@
     "data:organizations": "node scripts/build-organizations.mjs",
     "data:core": "node scripts/fetch-core-content.mjs",
     "sass:build": "sass --load-path=node_modules --style=compressed --no-source-map src/styles/carbon/index.scss src/styles/carbon/pre-compiled.css",
+    "sass:build:react": "sass --load-path=node_modules --load-path=node_modules/.pnpm/node_modules --style=compressed --no-source-map --quiet-deps src/styles/carbon-react/index.scss src/styles/carbon-react/pre-compiled.css",
     "prepare": "husky"
   },
   "dependencies": {
+    "@carbon/icons-react": "^11.90.0",
+    "@carbon/react": "^1.118.0",
     "carbon-components": "^10.59.2",
     "fuse.js": "^7.5.0",
     "next": "16.2.3",

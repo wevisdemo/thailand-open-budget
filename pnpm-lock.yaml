@@ -7,6 +7,12 @@ settings:
 importers:
   .:
     dependencies:
+      "@carbon/icons-react":
+        specifier: ^11.90.0
+        version: 11.90.0(react@19.2.4)
+      "@carbon/react":
+        specifier: ^1.118.0
+        version: 1.118.0(react-dom@19.2.4(react@19.2.4))(react-is@18.3.1)(react@19.2.4)(sass@1.99.0)
       carbon-components:
         specifier: ^10.59.2
         version: 10.59.2
@@ -171,6 +177,19 @@ packages:
     engines: { node: ">=6.0.0" }
     hasBin: true
 
+  "@babel/runtime@7.29.10":
+    resolution:
+      {
+        integrity: sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/runtime@8.0.7":
+    resolution:
+      {
+        integrity: sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg==,
+      }
+
   "@babel/template@7.28.6":
     resolution:
       {
@@ -192,12 +211,97 @@ packages:
       }
     engines: { node: ">=6.9.0" }
 
+  "@carbon/colors@11.60.0":
+    resolution:
+      {
+        integrity: sha512-hJ5fPDfT9EfjkLm3I6a7dhpIE6TmeTt39qEnlrDGRIUo00fiOh6ZwkZ/I7r9nZNjW9dQZUZfO+dTPcGAC1hpOQ==,
+      }
+
+  "@carbon/feature-flags@1.10.0":
+    resolution:
+      {
+        integrity: sha512-dRqo+H1wy2Zzghj813qLTaROXPKISp1IpxOgdSqsd0NqB9is1Hlv5fr6Asygzo5LTLXNvGyRmsHbFCyfDxmZxQ==,
+      }
+
+  "@carbon/grid@11.64.0":
+    resolution:
+      {
+        integrity: sha512-nzMje7whWZAoQmNKpPeVOK8T1jnxa7pHDCPbF9ykNUpxBi/Xm0NX/zMVjzIz1K75dY6MKmrzR4Bf+4MJH48pfg==,
+      }
+
+  "@carbon/icon-helpers@10.84.0":
+    resolution:
+      {
+        integrity: sha512-G+LVR42568CbluBzu7uV+ZMmI5tT2ojnWCmRgDB8Z3xKls1D5DU6fQHyiAg10JjLo+zBGUih6eEVSCqq9oXkEw==,
+      }
+
+  "@carbon/icons-react@11.90.0":
+    resolution:
+      {
+        integrity: sha512-WcYBnIJNEuLXpNxibe1ltVe1HAsTDuGanRVdzRYK/gN+adayDmHplMnXXDNjNlwB4PjSKesqhvt7UAZlLs7uYg==,
+      }
+    peerDependencies:
+      react: ">=16"
+
+  "@carbon/layout@11.61.0":
+    resolution:
+      {
+        integrity: sha512-+j3wKiGe4XaJyub31TUhDXDL8py2cCg/ZqQ1y0BWp3/yi5IvlbH5lXhBjV/iJwpMgtbiGJuKkKBCKMgqDlf8tQ==,
+      }
+
+  "@carbon/motion@11.54.0":
+    resolution:
+      {
+        integrity: sha512-gBixqCLn5DvH7DfY7CqvzDphWuU+/zgsEi5RtVzHSxgfx7dQ8Y/XwdAJvlCSh5kgxlVfXpnFc5UtyNVCuy+ZLg==,
+      }
+
+  "@carbon/react@1.118.0":
+    resolution:
+      {
+        integrity: sha512-YmwU2HdxfixQkbj/eC6BTk6bM2BCSlV4MyeTAks0q4/GvL63KBH4Nu0ikyRYaCct/sddXR2wuAJXKDnxPTCeew==,
+      }
+    peerDependencies:
+      react: ^16.8.6 || ^17.0.1 || ^18.2.0 || ^19.0.0
+      react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0 || ^19.0.0
+      react-is: ^16.13.1 || ^17.0.2 || ^18.3.1 || ^19.0.0
+      sass: ^1.33.0
+
+  "@carbon/styles@1.117.0":
+    resolution:
+      {
+        integrity: sha512-1m/UH8aeSbDQ4PVIZ8no4QxvGhCswVV0tzMxdAaIrnRRtea6aMj6xQ3bKc1SR+F2SvpF2LJyut0Yd7hVQ4uoyQ==,
+      }
+    peerDependencies:
+      sass: ^1.33.0
+    peerDependenciesMeta:
+      sass:
+        optional: true
+
   "@carbon/telemetry@0.1.0":
     resolution:
       {
         integrity: sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==,
       }
     hasBin: true
+
+  "@carbon/themes@11.83.0":
+    resolution:
+      {
+        integrity: sha512-YxfO7BsoPCT+tJbJq/JiOZaYE+OE1ZSGMK93yC5pws/X5l25qUpKxWOb85OQBkOnYrwKGUsPEbAKm2wXvbFb5w==,
+      }
+    engines: { node: ">=22" }
+
+  "@carbon/type@11.69.0":
+    resolution:
+      {
+        integrity: sha512-8gmk6VrFV8+R7786YfLk+x1eS6EIGaCz7JLX/UEKlnVSck/7qnZdRjAkFceO3J6NL6hifP2X3wDO1qW9BMmESA==,
+      }
+
+  "@carbon/utilities@0.27.0":
+    resolution:
+      {
+        integrity: sha512-wjQ33XDkuvrQxaSf1v72JYIEieYZjLz3jfNs/hFzEIaK8xlo56ie/VU48oJhpjfjcBlU6TtLbLrOO64pzQ2q5Q==,
+      }
 
   "@commitlint/cli@20.5.0":
     resolution:
@@ -417,6 +521,42 @@ packages:
       }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
 
+  "@floating-ui/core@1.8.0":
+    resolution:
+      {
+        integrity: sha512-0CIZ5itps/8x7BG8dEIhs53BvCUH2PCoogtakwRTut+Arm58sJooJ0AuZhLw2HJYIR5cMLNPBSS728sPho2khQ==,
+      }
+
+  "@floating-ui/dom@1.8.0":
+    resolution:
+      {
+        integrity: sha512-yXSrzeHZBTZadLOlfyhCkJHNeLJnHRnRInwdZ40L7ZiaAtrBwoYlsDrX3v5zB1Utk7CLfzcOVnVVWoXEky7Ceg==,
+      }
+
+  "@floating-ui/react-dom@2.1.9":
+    resolution:
+      {
+        integrity: sha512-JDjEFGCpImxDCA7JJKviA0M9+RtmJdj0m/NVU5IMgBK+AmZouAQQ7/+2GLH0GXXY0YMw9oXPB8hKdbPYg5QLYg==,
+      }
+    peerDependencies:
+      react: ">=16.8.0"
+      react-dom: ">=16.8.0"
+
+  "@floating-ui/react@0.27.20":
+    resolution:
+      {
+        integrity: sha512-CMqMy7OaXl9W0eq1Uy7L7i2Y/anPvHmFmESd2CEw0t5YvZhcVCeo4MBevAmswRllX7Y2dEidA4ozGPunLSTQpw==,
+      }
+    peerDependencies:
+      react: ">=17.0.0"
+      react-dom: ">=17.0.0"
+
+  "@floating-ui/utils@0.2.12":
+    resolution:
+      {
+        integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==,
+      }
+
   "@humanfs/core@0.19.1":
     resolution:
       {
@@ -444,6 +584,67 @@ packages:
         integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==,
       }
     engines: { node: ">=18.18" }
+
+  "@ibm/plex-mono@2.5.0":
+    resolution:
+      {
+        integrity: sha512-STBJIPxPomOYPmBMO7z5TKPJUotAF9u3gAUumTqVgwgrAO+K4FRNh0MlhsoJjKhJKsMbBJR10/bk4inkj/wc1w==,
+      }
+
+  "@ibm/plex-sans-arabic@1.1.0":
+    resolution:
+      {
+        integrity: sha512-u8wIS6szLAOFvlBjCFZmtpKIqbhuIuniG2N0J+sio8vV6INH58hP0t0QNYrSl9SZtCv2Fwb4oQGuZJY3kJ4+QA==,
+      }
+
+  "@ibm/plex-sans-devanagari@1.1.0":
+    resolution:
+      {
+        integrity: sha512-IVNV9NxXZDzcGZRao/xj+kiFwkdLkcw5vNiKwY8wEzzkpjApXJnPhJ0a7mIKNAh8oIadTIF68+iGtzRKK3nXAQ==,
+      }
+
+  "@ibm/plex-sans-hebrew@1.1.0":
+    resolution:
+      {
+        integrity: sha512-iix0rLpUD0E8dE8q+/t3B7u1or7h6gEzoy6TK9NwP41AN31WE55f2cFwQAXomBDwr0Ozc9sHYy97NutEukZXzQ==,
+      }
+
+  "@ibm/plex-sans-thai-looped@1.1.0":
+    resolution:
+      {
+        integrity: sha512-9zbDGzmtscHgBRTF88y3/92zQx6lmKjz5ZxhgcljilwOpj08BAytDc3mzUl9XGUh+DmOMl0Ql1lk6ecsEYYg2w==,
+      }
+
+  "@ibm/plex-sans-thai@1.1.0":
+    resolution:
+      {
+        integrity: sha512-vk7IrjdO69eEElJpFBppCha/wvU48DFyVuDewcfIf5L6Z11s0vbROANCvKipVPRUz1LE4ron8KoitWGcl3AlfA==,
+      }
+
+  "@ibm/plex-sans@1.1.0":
+    resolution:
+      {
+        integrity: sha512-WPgvO6Yfj2w5YbhyAr1tv95RUz4LRJlqN+CmYvBglabXteufP1D1E9BABMde+ZIKdRbFJDoKF5eQzfhpnbgZcQ==,
+      }
+
+  "@ibm/plex-serif@2.0.0":
+    resolution:
+      {
+        integrity: sha512-xVu9JsC18tBoQF2M6fofpsWrHj5a94saxlOZbYmXoC0E3UfjgS1JlibgrnaUJjnkLlEyCpMgI2PdhkDxijw0gA==,
+      }
+
+  "@ibm/plex@6.4.1":
+    resolution:
+      {
+        integrity: sha512-fnsipQywHt3zWvsnlyYKMikcVI7E2fEwpiPnIHFqlbByXVfQfANAAeJk1IV4mNnxhppUIDlhU0TzwYwL++Rn2g==,
+      }
+
+  "@ibm/telemetry-js@1.12.0":
+    resolution:
+      {
+        integrity: sha512-tNgmk2k8loNDTnPInlu7yMP9YOCr9UMwSnXN7SCEsGIV8xHfTawhXlDnp1PV0Lbv+2GoLQKSgkShlJeGPi4jTg==,
+      }
+    hasBin: true
 
   "@img/colour@1.1.0":
     resolution:
@@ -656,6 +857,12 @@ packages:
     engines: { node: ^18.17.0 || ^20.3.0 || >=21.0.0 }
     cpu: [x64]
     os: [win32]
+
+  "@internationalized/number@3.6.9":
+    resolution:
+      {
+        integrity: sha512-GgWy2caO/+hV9sT/oCTWGHvbjmJMPT9kkXzoKRLnkEq7adghhR7UprhvY9sXrKfrp3NcDfhF6QQHXR1KfQbB8g==,
+      }
 
   "@jridgewell/gen-mapping@0.3.13":
     resolution:
@@ -1649,6 +1856,12 @@ packages:
       }
     engines: { node: ">= 14.16.0" }
 
+  classnames@2.5.1:
+    resolution:
+      {
+        integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==,
+      }
+
   cli-cursor@5.0.0:
     resolution:
       {
@@ -1689,6 +1902,19 @@ packages:
         integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==,
       }
 
+  color-string@1.9.1:
+    resolution:
+      {
+        integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==,
+      }
+
+  color@4.2.3:
+    resolution:
+      {
+        integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==,
+      }
+    engines: { node: ">=12.5.0" }
+
   colorette@2.0.20:
     resolution:
       {
@@ -1706,6 +1932,12 @@ packages:
     resolution:
       {
         integrity: sha512-zHig5N+tPWARooBnb0Zx1MFcdfpyJrfTJ3Y5L+IFvUm8rM74hHz66z0gw0x4tijh5CorKkKUCnW82R2vmpeCRA==,
+      }
+
+  compute-scroll-into-view@3.1.1:
+    resolution:
+      {
+        integrity: sha512-VRhuHOLoKYOy4UbilLbUzbYg93XLjv2PncJC50EuTWPA3gaja1UjBsUP/D/9/juV3vQFr6XBEzn9KCAHdUvOHw==,
       }
 
   concat-map@0.0.1:
@@ -1740,6 +1972,12 @@ packages:
     resolution:
       {
         integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==,
+      }
+
+  copy-to-clipboard@4.0.2:
+    resolution:
+      {
+        integrity: sha512-gklSft7IuhriZKHKpuoA1fpJSLPNgvUMWMo5BlnzAJm0zNKnznoSv23IjtNqclx8eKi6ZcdvFFzYEER/+U1LoQ==,
       }
 
   cosmiconfig-typescript-loader@6.3.0:
@@ -1869,6 +2107,14 @@ packages:
       }
     engines: { node: ">=8" }
 
+  downshift@9.4.0:
+    resolution:
+      {
+        integrity: sha512-yIwyzRYzycKwMZhvOahsn4BmRr4Ffi0JymdWOtTDhR+LGDEXCZHTcwgUbNBC/oZLT6YrR46iwJe/BrQUS5ClQQ==,
+      }
+    peerDependencies:
+      react: ">=16.12.0"
+
   dunder-proto@1.0.1:
     resolution:
       {
@@ -1982,6 +2228,12 @@ packages:
         integrity: sha512-w+5mJ3GuFL+NjVtJlvydShqE1eN3h3PbI7/5LAsYJP/2qtuMXjfL2LpHSRqo4b4eSF5K/DH1JXKUAHSB2UW50g==,
       }
     engines: { node: ">= 0.4" }
+
+  es-toolkit@1.52.0:
+    resolution:
+      {
+        integrity: sha512-XTNEJQh1tY1ZJVcf6ayP/2n4ZPyaHlW2FWs7xvw5ddPuhUVjLD3olQVQS7kf58JbAB48iL0uL/jerTrjtV3lDA==,
+      }
 
   escalade@3.2.0:
     resolution:
@@ -2260,6 +2512,12 @@ packages:
         integrity: sha512-3ULSxbXmcMIRzer/2jLNweoqHpwDvsjEawO2FUd9UFR8uPwLM+LruZcPDpuZStcEgbQKhuFOfXo4nYdGladSNw==,
       }
 
+  flatpickr@4.6.13:
+    resolution:
+      {
+        integrity: sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==,
+      }
+
   flatted@3.4.2:
     resolution:
       {
@@ -2272,6 +2530,20 @@ packages:
         integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==,
       }
     engines: { node: ">= 0.4" }
+
+  framer-motion@13.5.1:
+    resolution:
+      {
+        integrity: sha512-HeWOaeHD3kyTSIEMT6+nw7fBn4saIfxxabZyAITbycAl4xr1kzGJKIvGt/OWghSlvIA9qTnZ1zTGelHAe6S8DA==,
+      }
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   function-bind@1.1.2:
     resolution:
@@ -2539,6 +2811,12 @@ packages:
       }
     engines: { node: ">= 0.4" }
 
+  invariant@2.2.4:
+    resolution:
+      {
+        integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==,
+      }
+
   is-array-buffer@3.0.5:
     resolution:
       {
@@ -2550,6 +2828,12 @@ packages:
     resolution:
       {
         integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==,
+      }
+
+  is-arrayish@0.3.4:
+    resolution:
+      {
+        integrity: sha512-m6UrgzFVUYawGBh1dUsWR5M2Clqic9RVXC/9f8ceNlv2IcO9j9J/z8UoCLPqtsPBFNzEpfR3xftohbfqDx8EQA==,
       }
 
   is-async-function@2.1.1:
@@ -3141,6 +3425,32 @@ packages:
         integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==,
       }
 
+  motion-dom@13.5.1:
+    resolution:
+      {
+        integrity: sha512-/7CVCD20Mz1KobktorpdgvowV0V41J7UxqE+qWS3GkSJqrRr5ft+2RloOYtEKv+wvBp3JaSFBclhxt4ja8ovHg==,
+      }
+
+  motion-utils@13.5.0:
+    resolution:
+      {
+        integrity: sha512-Hqe/sqjIKliPZg8sVjWAkdySDPJNIeKH+euVkDOG8ri3DUUU7ZjndmHsGqEPz2iHpiyVaV5I22iguCMHU2he+Q==,
+      }
+
+  motion@13.5.1:
+    resolution:
+      {
+        integrity: sha512-eV9SUem6KnzEa9+eT+dVBeDlhy5TTdn09YWR1WhUsKoZCJPw/n4TcYhjbxq2Gy5PTwDr//4H3r5vxkcZnNnO1w==,
+      }
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   ms@2.1.3:
     resolution:
       {
@@ -3478,10 +3788,22 @@ packages:
     peerDependencies:
       react: ^19.2.4
 
+  react-fast-compare@3.2.2:
+    resolution:
+      {
+        integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==,
+      }
+
   react-is@16.13.1:
     resolution:
       {
         integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
+      }
+
+  react-is@18.3.1:
+    resolution:
+      {
+        integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==,
       }
 
   react@19.2.4:
@@ -3707,6 +4029,12 @@ packages:
       }
     engines: { node: ">=14" }
 
+  simple-swizzle@0.2.4:
+    resolution:
+      {
+        integrity: sha512-nAu1WFPQSMNr2Zn9PGSZK9AGn4t/y97lEm+MXTtUDwfP0ksAIX4nO+6ruD9Jwut4C49SB1Ws+fbXsm/yScWOHw==,
+      }
+
   slice-ansi@7.1.2:
     resolution:
       {
@@ -3868,6 +4196,12 @@ packages:
       }
     engines: { node: ">= 0.4" }
 
+  tabbable@6.5.0:
+    resolution:
+      {
+        integrity: sha512-wieBHXygIm7OyQOu5hQlkk62/WyCFYGlWg7L6/ZCUZwx0o398Zkn4pVmMyfYhfMG8kGrj/Krt8eIk6UKC6VzwA==,
+      }
+
   tailwindcss@4.2.2:
     resolution:
       {
@@ -3880,6 +4214,24 @@ packages:
         integrity: sha512-1MOpMXuhGzGL5TTCZFItxCc0AARf1EZFQkGqMm7ERKj8+Hgr5oLvJOVFcC+lRmR8hCe2S3jC4T5D7Vg/d7/fhA==,
       }
     engines: { node: ">=6" }
+
+  temporal-polyfill@1.0.5:
+    resolution:
+      {
+        integrity: sha512-+H/mmY74i6wXCMcjIhGuSnODcyZnc4eois2myhOyX0UqRAKNXQY5m9iB1en5jQ/n4SXtjLXo1ElBI5bmn8tZwQ==,
+      }
+
+  temporal-spec@1.0.1:
+    resolution:
+      {
+        integrity: sha512-wxVoanmDeavXie1vu2JaQ3WIc3JZnWAOYFBsJyATaVsXsycKYUflGsyBmrRSnoCpZJpwPyr38VpgSUlQ8CbFxg==,
+      }
+
+  temporal-utils@1.0.3:
+    resolution:
+      {
+        integrity: sha512-9jbTSX3HvkOWvDpNpFzwX/d1mkCrgQgwLmVTOEiuocZGKHsrQJtttGZFmybJ2zYP5zCSZuU5ZyeS8+eOEPABiQ==,
+      }
 
   tinyexec@1.1.1:
     resolution:
@@ -4210,6 +4562,10 @@ snapshots:
     dependencies:
       "@babel/types": 7.29.0
 
+  "@babel/runtime@7.29.10": {}
+
+  "@babel/runtime@8.0.7": {}
+
   "@babel/template@7.28.6":
     dependencies:
       "@babel/code-frame": 7.29.0
@@ -4233,7 +4589,107 @@ snapshots:
       "@babel/helper-string-parser": 7.27.1
       "@babel/helper-validator-identifier": 7.28.5
 
+  "@carbon/colors@11.60.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@carbon/feature-flags@1.10.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@carbon/grid@11.64.0":
+    dependencies:
+      "@carbon/layout": 11.61.0
+      "@ibm/telemetry-js": 1.12.0
+
+  "@carbon/icon-helpers@10.84.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@carbon/icons-react@11.90.0(react@19.2.4)":
+    dependencies:
+      "@carbon/icon-helpers": 10.84.0
+      "@ibm/telemetry-js": 1.12.0
+      prop-types: 15.8.1
+      react: 19.2.4
+
+  "@carbon/layout@11.61.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@carbon/motion@11.54.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@carbon/react@1.118.0(react-dom@19.2.4(react@19.2.4))(react-is@18.3.1)(react@19.2.4)(sass@1.99.0)":
+    dependencies:
+      "@babel/runtime": 8.0.7
+      "@carbon/feature-flags": 1.10.0
+      "@carbon/icons-react": 11.90.0(react@19.2.4)
+      "@carbon/layout": 11.61.0
+      "@carbon/motion": 11.54.0
+      "@carbon/styles": 1.117.0(sass@1.99.0)
+      "@carbon/utilities": 0.27.0
+      "@floating-ui/react": 0.27.20(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      "@ibm/telemetry-js": 1.12.0
+      classnames: 2.5.1
+      copy-to-clipboard: 4.0.2
+      downshift: 9.4.0(react@19.2.4)
+      es-toolkit: 1.52.0
+      flatpickr: 4.6.13
+      invariant: 2.2.4
+      motion: 13.5.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+      react-fast-compare: 3.2.2
+      react-is: 18.3.1
+      sass: 1.99.0
+      tabbable: 6.5.0
+
+  "@carbon/styles@1.117.0(sass@1.99.0)":
+    dependencies:
+      "@carbon/colors": 11.60.0
+      "@carbon/feature-flags": 1.10.0
+      "@carbon/grid": 11.64.0
+      "@carbon/layout": 11.61.0
+      "@carbon/motion": 11.54.0
+      "@carbon/themes": 11.83.0
+      "@carbon/type": 11.69.0
+      "@ibm/plex": 6.4.1
+      "@ibm/plex-mono": 2.5.0
+      "@ibm/plex-sans": 1.1.0
+      "@ibm/plex-sans-arabic": 1.1.0
+      "@ibm/plex-sans-devanagari": 1.1.0
+      "@ibm/plex-sans-hebrew": 1.1.0
+      "@ibm/plex-sans-thai": 1.1.0
+      "@ibm/plex-sans-thai-looped": 1.1.0
+      "@ibm/plex-serif": 2.0.0
+      "@ibm/telemetry-js": 1.12.0
+    optionalDependencies:
+      sass: 1.99.0
+
   "@carbon/telemetry@0.1.0": {}
+
+  "@carbon/themes@11.83.0":
+    dependencies:
+      "@carbon/colors": 11.60.0
+      "@carbon/layout": 11.61.0
+      "@carbon/type": 11.69.0
+      "@ibm/telemetry-js": 1.12.0
+      color: 4.2.3
+
+  "@carbon/type@11.69.0":
+    dependencies:
+      "@carbon/grid": 11.64.0
+      "@carbon/layout": 11.61.0
+      "@ibm/telemetry-js": 1.12.0
+
+  "@carbon/utilities@0.27.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+      "@internationalized/number": 3.6.9
+      temporal-polyfill: 1.0.5
 
   "@commitlint/cli@20.5.0(@types/node@20.19.39)(conventional-commits-parser@6.4.0)(typescript@5.9.3)":
     dependencies:
@@ -4419,6 +4875,31 @@ snapshots:
       "@eslint/core": 0.17.0
       levn: 0.4.1
 
+  "@floating-ui/core@1.8.0":
+    dependencies:
+      "@floating-ui/utils": 0.2.12
+
+  "@floating-ui/dom@1.8.0":
+    dependencies:
+      "@floating-ui/core": 1.8.0
+      "@floating-ui/utils": 0.2.12
+
+  "@floating-ui/react-dom@2.1.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)":
+    dependencies:
+      "@floating-ui/dom": 1.8.0
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  "@floating-ui/react@0.27.20(react-dom@19.2.4(react@19.2.4))(react@19.2.4)":
+    dependencies:
+      "@floating-ui/react-dom": 2.1.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      "@floating-ui/utils": 0.2.12
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+      tabbable: 6.5.0
+
+  "@floating-ui/utils@0.2.12": {}
+
   "@humanfs/core@0.19.1": {}
 
   "@humanfs/node@0.16.7":
@@ -4429,6 +4910,44 @@ snapshots:
   "@humanwhocodes/module-importer@1.0.1": {}
 
   "@humanwhocodes/retry@0.4.3": {}
+
+  "@ibm/plex-mono@2.5.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex-sans-arabic@1.1.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex-sans-devanagari@1.1.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex-sans-hebrew@1.1.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex-sans-thai-looped@1.1.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex-sans-thai@1.1.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex-sans@1.1.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex-serif@2.0.0":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/plex@6.4.1":
+    dependencies:
+      "@ibm/telemetry-js": 1.12.0
+
+  "@ibm/telemetry-js@1.12.0": {}
 
   "@img/colour@1.1.0":
     optional: true
@@ -4526,6 +5045,10 @@ snapshots:
 
   "@img/sharp-win32-x64@0.34.5":
     optional: true
+
+  "@internationalized/number@3.6.9":
+    dependencies:
+      "@swc/helpers": 0.5.15
 
   "@jridgewell/gen-mapping@0.3.13":
     dependencies:
@@ -5095,6 +5618,8 @@ snapshots:
     dependencies:
       readdirp: 4.1.2
 
+  classnames@2.5.1: {}
+
   cli-cursor@5.0.0:
     dependencies:
       restore-cursor: 5.1.0
@@ -5118,6 +5643,16 @@ snapshots:
 
   color-name@1.1.4: {}
 
+  color-string@1.9.1:
+    dependencies:
+      color-name: 1.1.4
+      simple-swizzle: 0.2.4
+
+  color@4.2.3:
+    dependencies:
+      color-convert: 2.0.1
+      color-string: 1.9.1
+
   colorette@2.0.20: {}
 
   commander@14.0.3: {}
@@ -5126,6 +5661,8 @@ snapshots:
     dependencies:
       array-ify: 1.0.0
       dot-prop: 5.3.0
+
+  compute-scroll-into-view@3.1.1: {}
 
   concat-map@0.0.1: {}
 
@@ -5143,6 +5680,8 @@ snapshots:
       meow: 13.2.0
 
   convert-source-map@2.0.0: {}
+
+  copy-to-clipboard@4.0.2: {}
 
   cosmiconfig-typescript-loader@6.3.0(@types/node@20.19.39)(cosmiconfig@9.0.1(typescript@5.9.3))(typescript@5.9.3):
     dependencies:
@@ -5219,6 +5758,15 @@ snapshots:
   dot-prop@5.3.0:
     dependencies:
       is-obj: 2.0.0
+
+  downshift@9.4.0(react@19.2.4):
+    dependencies:
+      "@babel/runtime": 7.29.10
+      compute-scroll-into-view: 3.1.1
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-is: 18.3.1
+      tslib: 2.8.1
 
   dunder-proto@1.0.1:
     dependencies:
@@ -5347,6 +5895,8 @@ snapshots:
       is-callable: 1.2.7
       is-date-object: 1.1.0
       is-symbol: 1.1.1
+
+  es-toolkit@1.52.0: {}
 
   escalade@3.2.0: {}
 
@@ -5603,11 +6153,22 @@ snapshots:
 
   flatpickr@4.6.1: {}
 
+  flatpickr@4.6.13: {}
+
   flatted@3.4.2: {}
 
   for-each@0.3.5:
     dependencies:
       is-callable: 1.2.7
+
+  framer-motion@13.5.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+    dependencies:
+      motion-dom: 13.5.1
+      motion-utils: 13.5.0
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
 
   function-bind@1.1.2: {}
 
@@ -5746,6 +6307,10 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.1.0
 
+  invariant@2.2.4:
+    dependencies:
+      loose-envify: 1.4.0
+
   is-array-buffer@3.0.5:
     dependencies:
       call-bind: 1.0.9
@@ -5753,6 +6318,8 @@ snapshots:
       get-intrinsic: 1.3.0
 
   is-arrayish@0.2.1: {}
+
+  is-arrayish@0.3.4: {}
 
   is-async-function@2.1.1:
     dependencies:
@@ -6063,6 +6630,20 @@ snapshots:
 
   minimist@1.2.8: {}
 
+  motion-dom@13.5.1:
+    dependencies:
+      motion-utils: 13.5.0
+
+  motion-utils@13.5.0: {}
+
+  motion@13.5.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+    dependencies:
+      framer-motion: 13.5.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
   ms@2.1.3: {}
 
   nanoid@3.3.11: {}
@@ -6237,7 +6818,11 @@ snapshots:
       react: 19.2.4
       scheduler: 0.27.0
 
+  react-fast-compare@3.2.2: {}
+
   react-is@16.13.1: {}
+
+  react-is@18.3.1: {}
 
   react@19.2.4: {}
 
@@ -6418,6 +7003,10 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
+  simple-swizzle@0.2.4:
+    dependencies:
+      is-arrayish: 0.3.4
+
   slice-ansi@7.1.2:
     dependencies:
       ansi-styles: 6.2.3
@@ -6531,9 +7120,20 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
+  tabbable@6.5.0: {}
+
   tailwindcss@4.2.2: {}
 
   tapable@2.3.2: {}
+
+  temporal-polyfill@1.0.5:
+    dependencies:
+      temporal-spec: 1.0.1
+      temporal-utils: 1.0.3
+
+  temporal-spec@1.0.1: {}
+
+  temporal-utils@1.0.3: {}
 
   tinyexec@1.1.1: {}
 
