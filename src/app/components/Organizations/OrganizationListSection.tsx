@@ -12,8 +12,10 @@ import {
   getChangePercent,
   getNextOrganizationSort,
 } from "@/constants/organization";
-import DownloadIcon from "@/app/components/shared/icons/download-icon";
+import { getSortLabel } from "@/constants/table";
+import { downloadCsv } from "@/lib/csv";
 import SearchIcon from "@/app/components/shared/icons/search-icon";
+import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
 import Paginate from "@/app/components/Search/SearchBody/Paginate";
 import OrganizationTable from "./OrganizationTable";
 
@@ -101,18 +103,7 @@ function exportCsv(
     }),
   );
 
-  const csv = [headers, ...rows]
-    .map((row) =>
-      row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","),
-    )
-    .join("\n");
-  const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = `organization_budget_${year}.csv`;
-  link.click();
-  URL.revokeObjectURL(url);
+  downloadCsv(headers, rows, `organization_budget_${year}.csv`);
 }
 
 export default function OrganizationListSection({
@@ -160,37 +151,16 @@ export default function OrganizationListSection({
 
   return (
     <div className="mx-auto flex w-full max-w-[1128px] flex-col">
-      <div className="flex flex-col justify-between gap-[16px] pb-[14px] md:flex-row">
-        <div>
-          <h2 className="font-serif text-[28px] font-bold">
-            หน่วยงานที่ได้รับงบประมาณ
-          </h2>
-          <p className="text-text-01 flex flex-wrap gap-x-[8px]">
-            <span className="text-interactive-01">
-              พบทั้งหมด {groups.length.toLocaleString()} กลุ่มหน่วยงาน
-            </span>
-            <span>
-              ปีงบฯ {year} · {version}
-            </span>
-            <span className="text-gray-60">
-              {!sort
-                ? "เรียงจาก ก-ฮ"
-                : sort.dir === "asc"
-                  ? "เรียงจากน้อยไปมาก"
-                  : "เรียงจากมากไปน้อย"}
-            </span>
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => exportCsv(groups, totalBudget, year)}
-          disabled={isLoading || groups.length === 0}
-          className="text-gray-70 border-gray-20 mt-auto flex h-fit w-fit shrink-0 items-center gap-[8px] border bg-white px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer disabled:cursor-default disabled:opacity-50"
-        >
-          ดาวน์โหลดตารางนี้
-          <DownloadIcon color="currentColor" />
-        </button>
-      </div>
+      <TableSectionHeader
+        title="หน่วยงานที่ได้รับงบประมาณ"
+        subtitle={null}
+        countText={`พบทั้งหมด ${groups.length.toLocaleString()} กลุ่มหน่วยงาน`}
+        year={year}
+        version={version}
+        sortLabel={getSortLabel(sort?.dir ?? null)}
+        onDownload={() => exportCsv(groups, totalBudget, year)}
+        downloadDisabled={isLoading || groups.length === 0}
+      />
       <div className="border-ui-04 flex min-h-[48px] items-center gap-[12px] border-b bg-white px-[16px]">
         <SearchIcon color="#525252" className="h-[16px] w-[16px] shrink-0" />
         <input

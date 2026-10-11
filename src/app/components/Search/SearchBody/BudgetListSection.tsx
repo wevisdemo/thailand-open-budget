@@ -4,8 +4,10 @@ import BudgetListTable from "./BudgetListTable";
 import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
 import type { Tag } from "@/types/search";
 import { useState } from "react";
-import DownloadIcon from "../../shared/icons/download-icon";
 import { getNextSort, sortBudgetItems } from "@/constants/budget";
+import { getSortLabel } from "@/constants/table";
+import { downloadCsv } from "@/lib/csv";
+import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
 
 interface BudgetListSectionProps {
   tags: Tag[];
@@ -47,58 +49,27 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
       item.ministry,
     ]);
 
-    const csv = [headers, ...rows]
-      .map((row) =>
-        row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","),
-      )
-      .join("\n");
-
-    const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `budget_${props.year}_${props.tags.map((t) => t.word).join("_")}.csv`;
-    link.click();
-    URL.revokeObjectURL(url);
+    downloadCsv(
+      headers,
+      rows,
+      `budget_${props.year}_${props.tags.map((t) => t.word).join("_")}.csv`,
+    );
   }
 
   return (
     <div>
-      <div className="flex flex-col justify-between pb-[14px] md:flex-row">
-        <div>
-          <h2 className="font-serif text-[28px] font-bold">รายการงบประมาณ</h2>
-          <p className="text-[16px] font-bold">
-            ที่มีคำว่า &apos;{props.tags.map((t) => t.word).join(", ")}
-            &apos;
-          </p>
-          <p className="text-text-01 flex flex-wrap gap-x-[4px]">
-            <span className="text-blue-70">
-              พบทั้งหมด {props.data.length.toLocaleString()} รายการ
-            </span>
-            <span>
-              ปีงบฯ {props.year} · {props.version}
-            </span>
-            <span className="text-gray-60">
-              {!sort
-                ? "เรียงตามลำดับในเอกสาร"
-                : sort.key === "amount"
-                  ? sort.dir === "asc"
-                    ? "เรียงจากน้อยไปมาก"
-                    : "เรียงจากมากไปน้อย"
-                  : sort.dir === "asc"
-                    ? "เรียงจาก ก-ฮ"
-                    : "เรียงจาก ฮ-ก"}
-            </span>
-          </p>
-        </div>
-        <button
-          onClick={handleExportCSV}
-          className="text-gray-70 border-gray-20 mt-auto flex h-fit w-fit shrink-0 items-center gap-[8px] border bg-white px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer"
-        >
-          <DownloadIcon color="currentColor" />
-          ดาวน์โหลดตารางนี้
-        </button>
-      </div>
+      <TableSectionHeader
+        title="รายการงบประมาณ"
+        subtitle={`ที่มีคำว่า '${props.tags.map((t) => t.word).join(", ")}'`}
+        countText={`พบทั้งหมด ${props.data.length.toLocaleString()} รายการ`}
+        year={props.year}
+        version={props.version}
+        sortLabel={getSortLabel(sort?.dir ?? null, {
+          isText: sort?.key !== "amount",
+          unsortedLabel: "เรียงตามลำดับในเอกสาร",
+        })}
+        onDownload={handleExportCSV}
+      />
       <div>
         <BudgetListTable
           tags={props.tags}

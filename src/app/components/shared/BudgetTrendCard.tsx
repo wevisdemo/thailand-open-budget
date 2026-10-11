@@ -5,6 +5,7 @@ import { Button, ContentSwitcher, Switch } from "@carbon/react";
 import { Download } from "@carbon/icons-react";
 import LineChart from "./LineChart";
 import type { BudgetYearTotal } from "@/types/budget";
+import { downloadCsv } from "@/lib/csv";
 
 type BudgetUnit = "million" | "percent";
 
@@ -28,26 +29,24 @@ export default function BudgetTrendCard({
   const [unit, setUnit] = useState<BudgetUnit>("million");
 
   function handleDownload() {
-    const rows = [
-      "year,totalbudget,percentage(%)",
-      ...yearTotals
-        .slice()
-        .sort((a, b) => a.year - b.year)
-        .map((t) => {
-          const percentage =
-            t.totalBudgetBaht > 0
-              ? (t.totalSelectedBaht / t.totalBudgetBaht) * 100
-              : 0;
-          return `${t.year},"${t.totalSelectedBaht.toLocaleString("en-US")}",${percentage.toFixed(2)}%`;
-        }),
-    ];
-    const blob = new Blob([rows.join("\n")], { type: "text/csv" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "budget-trend.csv";
-    a.click();
-    URL.revokeObjectURL(url);
+    const rows = [...yearTotals]
+      .sort((a, b) => a.year - b.year)
+      .map((t) => {
+        const percentage =
+          t.totalBudgetBaht > 0
+            ? (t.totalSelectedBaht / t.totalBudgetBaht) * 100
+            : 0;
+        return [
+          t.year,
+          t.totalSelectedBaht.toLocaleString("en-US"),
+          `${percentage.toFixed(2)}%`,
+        ];
+      });
+    downloadCsv(
+      ["year", "totalbudget", "percentage(%)"],
+      rows,
+      "budget-trend.csv",
+    );
   }
 
   const years = yearTotals.map((t) => t.year);
