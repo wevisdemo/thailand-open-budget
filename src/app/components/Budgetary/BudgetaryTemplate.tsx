@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "@carbon/icons-react";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
+import { getRelatedDocuments } from "@/constants/ministry";
 import { useBudgetData } from "@/hooks/useBudgetData";
+import { useBudgetaryCoreContent } from "@/hooks/useBudgetaryCoreContent";
 import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
 import { type DropdownOption } from "@/app/components/shared/Dropdown";
@@ -14,6 +16,9 @@ import Footer from "@/app/components/shared/Footer";
 import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
 import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
 import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
+import CoreContentTabs from "@/app/components/shared/CoreContentTabs";
+import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
+import ShareButtons from "@/app/components/shared/ShareButtons";
 
 interface BudgetaryTemplateProps {
   ministryId: number;
@@ -49,6 +54,7 @@ export default function BudgetaryTemplate({
   const { data: yearTotals, status: totalsStatus } =
     useOrganizationYearTotals(docSource);
   const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
+  const { data: budgetaryContent } = useBudgetaryCoreContent(budgetaryId);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   const unit = yearTotals.find((u) => u.budgetary_id === budgetaryId) ?? null;
@@ -56,6 +62,7 @@ export default function BudgetaryTemplate({
     () => budgetData.filter((item) => item.budgetary_id === budgetaryId),
     [budgetData, budgetaryId],
   );
+  const relatedDocuments = useMemo(() => getRelatedDocuments(items), [items]);
 
   // A unit is built if it is budgeted in any year; in a year it isn't, there
   // is nothing to show, so the reader goes on to every organization that year.
@@ -103,6 +110,19 @@ export default function BudgetaryTemplate({
             <h1 className="font-serif text-[28px] font-bold md:text-[42px]">
               {budgetaryName}
             </h1>
+          </div>
+          <div className="flex flex-col gap-[24px] md:flex-row">
+            <div className="min-w-0 flex-1">
+              {budgetaryContent && (
+                <CoreContentTabs content={budgetaryContent} />
+              )}
+            </div>
+            <div className="flex flex-col gap-[16px] md:w-[240px]">
+              {relatedDocuments.length > 0 && (
+                <RelatedDocuments documents={relatedDocuments} />
+              )}
+              <ShareButtons title={budgetaryName} />
+            </div>
           </div>
           <div className="flex flex-col md:flex-row">
             <SummaryStatItem
