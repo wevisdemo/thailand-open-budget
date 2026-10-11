@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "@carbon/icons-react";
+import type { BudgetBase } from "@/types/budget";
 import type { OrganizationYearTotal } from "@/types/organization";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import {
@@ -25,6 +26,7 @@ import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
 import ShareButtons from "@/app/components/shared/ShareButtons";
 import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
+import BudgetBaseSelect from "@/app/components/shared/BudgetBaseSelect";
 
 interface BudgetaryTemplateProps {
   ministryId: number;
@@ -71,6 +73,9 @@ export default function BudgetaryTemplate({
   const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
   const { data: budgetaryContent } = useBudgetaryCoreContent(budgetaryId);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
+  // Each card measures the unit against its own pick of base.
+  const [shareBase, setShareBase] = useState<BudgetBase>("country");
+  const [trendBase, setTrendBase] = useState<BudgetBase>("country");
 
   const unit = yearTotals.find((u) => u.budgetary_id === budgetaryId) ?? null;
   const items = useMemo(
@@ -90,13 +95,29 @@ export default function BudgetaryTemplate({
 
   const year = parseInt(selectedDocSource.value);
   const version = selectedDocSource.label.replace(/^\d{4}\s*/, "");
-  const countryBudget = yearTotals.reduce((sum, u) => sum + u.budget_amount, 0);
   const isUnit = (u: OrganizationYearTotal) => u.budgetary_id === budgetaryId;
+  const isInBase = (base: BudgetBase) => (u: OrganizationYearTotal) =>
+    base === "country" || u.ministry_id === ministryId;
+  const shareTotal = getOrganizationYearTotal(
+    yearTotals,
+    isUnit,
+    year,
+    true,
+    isInBase(shareBase),
+  );
   const trendTotals = [
-    getOrganizationYearTotal(totals2568.data, isUnit, 2568, year === 2568),
-    getOrganizationYearTotal(totals2569.data, isUnit, 2569, year === 2569),
-    getOrganizationYearTotal(totals2570.data, isUnit, 2570, year === 2570),
-  ];
+    { data: totals2568.data, year: 2568 },
+    { data: totals2569.data, year: 2569 },
+    { data: totals2570.data, year: 2570 },
+  ].map(({ data, year: totalYear }) =>
+    getOrganizationYearTotal(
+      data,
+      isUnit,
+      totalYear,
+      totalYear === year,
+      isInBase(trendBase),
+    ),
+  );
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
   const ministryHref = `/organizations/${ministryId}?budget_source=${docSource}`;
@@ -172,8 +193,23 @@ export default function BudgetaryTemplate({
               subtitle={budgetaryName}
               selectedLabel={`งบฯ ${budgetaryName}`}
               selectedLabelMaxLength={24}
-              filteredBudget={unit?.budget_amount ?? 0}
-              totalBudget={countryBudget}
+              filteredBudget={shareTotal.totalSelectedBaht}
+              totalBudget={shareTotal.totalBudgetBaht}
+              totalLabel={
+                shareBase === "country"
+                  ? "งบฯ ทั้งประเทศ"
+                  : `งบฯ ${ministryName}`
+              }
+              donutLabel={
+                shareBase === "country" ? "ของงบฯ ประเทศ" : "ของงบฯ กระทรวง"
+              }
+              baseSelect={
+                <BudgetBaseSelect
+                  id="share-base"
+                  base={shareBase}
+                  onChange={setShareBase}
+                />
+              }
               year={year}
               version={version}
             />
@@ -181,6 +217,13 @@ export default function BudgetaryTemplate({
               subtitle={budgetaryName}
               yearTotals={trendTotals}
               version={version}
+              baseSelect={
+                <BudgetBaseSelect
+                  id="trend-base"
+                  base={trendBase}
+                  onChange={setTrendBase}
+                />
+              }
             />
           </div>
         </div>

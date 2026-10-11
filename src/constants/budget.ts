@@ -1,4 +1,9 @@
-import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
+import type {
+  BudgetBase,
+  BudgetItem,
+  BudgetSort,
+  BudgetSortKey,
+} from "@/types/budget";
 
 export type DocSourceValue = "2568-draft-1" | "2569-draft-1" | "2570-draft-1";
 
@@ -14,6 +19,11 @@ export const DOC_SOURCE_OPTIONS: { value: DocSourceValue; label: string }[] = [
   { value: "2569-draft-1", label: "2569 ฉบับร่าง (วาระ 1)" },
   { value: "2570-draft-1", label: "2570 ฉบับร่าง (วาระ 1)" },
   // { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
+];
+
+export const BUDGET_BASE_OPTIONS: { value: BudgetBase; label: string }[] = [
+  { value: "country", label: "งบฯ ประเทศ" },
+  { value: "ministry", label: "งบฯ กระทรวง" },
 ];
 
 // Converts a doc source value's leading Buddhist-era year to its Gregorian

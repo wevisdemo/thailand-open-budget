@@ -54,3 +54,7 @@ export interface BudgetDocument {
   source_url: string | null;
   csv_url: string | null;
 }
+
+// The budget a share is measured against: the whole country's, or the
+// ministry the measured unit belongs to.
+export type BudgetBase = "country" | "ministry";

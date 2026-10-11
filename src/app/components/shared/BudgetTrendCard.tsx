@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Button, ContentSwitcher, Switch } from "@carbon/react";
 import { Download } from "@carbon/icons-react";
 import LineChart from "./LineChart";
@@ -19,12 +19,16 @@ interface BudgetTrendCardProps {
   subtitle: string;
   yearTotals: BudgetYearTotal[];
   version: string;
+  // A control to change what the percentages are of, beside the unit switch
+  // while it shows ร้อยละ.
+  baseSelect?: ReactNode;
 }
 
 export default function BudgetTrendCard({
   subtitle,
   yearTotals,
   version,
+  baseSelect,
 }: BudgetTrendCardProps) {
   const [unit, setUnit] = useState<BudgetUnit>("million");
 
@@ -95,16 +99,19 @@ export default function BudgetTrendCard({
         {/* The selected switch takes the brand blue, as in the design,
             instead of Carbon's dark grey, and each switch fits its label
             rather than truncating to an even share of the width. */}
-        <ContentSwitcher
-          selectedIndex={UNITS.findIndex((u) => u.value === unit)}
-          onChange={({ index }) => setUnit(UNITS[index ?? 0].value)}
-          size="sm"
-          className="w-fit [--cds-layer-selected-inverse:var(--color-interactive-01)] [&_.cds--content-switcher-btn]:w-auto [&_.cds--content-switcher-btn]:shrink-0 [&_.cds--content-switcher-btn]:px-[24px]"
-        >
-          {UNITS.map(({ value, label }) => (
-            <Switch key={value} name={value} text={label} />
-          ))}
-        </ContentSwitcher>
+        <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:justify-between">
+          <ContentSwitcher
+            selectedIndex={UNITS.findIndex((u) => u.value === unit)}
+            onChange={({ index }) => setUnit(UNITS[index ?? 0].value)}
+            size="sm"
+            className="w-fit [--cds-layer-selected-inverse:var(--color-interactive-01)] [&_.cds--content-switcher-btn]:w-auto [&_.cds--content-switcher-btn]:shrink-0 [&_.cds--content-switcher-btn]:px-[24px]"
+          >
+            {UNITS.map(({ value, label }) => (
+              <Switch key={value} name={value} text={label} />
+            ))}
+          </ContentSwitcher>
+          {unit === "percent" && baseSelect}
+        </div>
         {trendData.length > 0 && <LineChart data={trendData} unit={unit} />}
       </div>
     </div>

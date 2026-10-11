@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { truncateText } from "@/lib/truncate";
 import DonutChart from "./DonutChart";
 
@@ -11,11 +12,18 @@ interface BudgetProportionCardProps {
   selectedLabelMaxLength?: number;
   filteredBudget: number;
   totalBudget: number;
+  // What totalBudget is, in the legend and under the donut; the country's
+  // budget by default.
+  totalLabel?: string;
+  donutLabel?: string;
+  // A control to change what the share is measured against, under the year.
+  baseSelect?: ReactNode;
   year: number;
   version: string;
 }
 
 export default function BudgetProportionCard(props: BudgetProportionCardProps) {
+  const totalLabel = props.totalLabel ?? "งบฯ ทั้งประเทศ";
   const percentage =
     props.totalBudget > 0
       ? (props.filteredBudget / props.totalBudget) * 100
@@ -30,8 +38,9 @@ export default function BudgetProportionCard(props: BudgetProportionCardProps) {
           ปีงบฯ {props.year} · {props.version}
         </p>
       </div>
+      {props.baseSelect}
       <div className="flex flex-1 items-center justify-center">
-        <DonutChart percentage={percentage} />
+        <DonutChart percentage={percentage} label={props.donutLabel} />
       </div>
       <div className="flex flex-col gap-[4px]">
         <p className="text-blue-70 flex gap-[8px]">
@@ -48,9 +57,13 @@ export default function BudgetProportionCard(props: BudgetProportionCardProps) {
             บาท
           </span>
         </p>
-        <p>
-          งบฯ ทั้งประเทศ{" "}
-          <span className="font-bold">
+        <p className="flex gap-[8px]">
+          <span title={totalLabel}>
+            {props.selectedLabelMaxLength
+              ? truncateText(totalLabel, props.selectedLabelMaxLength)
+              : totalLabel}
+          </span>
+          <span className="shrink-0 font-bold">
             {props.totalBudget.toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,

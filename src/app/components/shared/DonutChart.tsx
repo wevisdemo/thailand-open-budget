@@ -1,8 +1,13 @@
 interface DonutChartProps {
   percentage: number;
+  // What the percentage is of, under it.
+  label?: string;
 }
 
-export default function DonutChart({ percentage }: DonutChartProps) {
+export default function DonutChart({
+  percentage,
+  label = "ของงบฯ ทั้งประเทศ",
+}: DonutChartProps) {
   const radius = 90;
   const circumference = 2 * Math.PI * radius;
   const filledLength = (percentage / 100) * circumference;
@@ -41,9 +46,7 @@ export default function DonutChart({ percentage }: DonutChartProps) {
         <span className="text-interactive-01 text-[28px] font-bold">
           {percentage.toFixed(2)}%
         </span>
-        <span className="text-text-02 mt-[2px] text-[14px]">
-          ของงบฯ ทั้งประเทศ
-        </span>
+        <span className="text-text-02 mt-[2px] text-[14px]">{label}</span>
       </div>
     </div>
   );
