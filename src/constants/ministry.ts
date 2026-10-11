@@ -1,4 +1,5 @@
-import type { BudgetItem } from "@/types/budget";
+import type { BudgetItem, BudgetYearTotal } from "@/types/budget";
+import type { OrganizationYearTotal } from "@/types/organization";
 import type {
   CoreContentBlock,
   CoreContentField,
@@ -56,4 +57,22 @@ export function getRelatedDocuments(items: BudgetItem[]): RelatedDocument[] {
   return [...documents]
     .map(([name, url]) => ({ name: toArabicDigits(name), url }))
     .sort((a, b) => a.name.localeCompare(b.name, "th", { numeric: true }));
+}
+
+// A ministry's total and the country's for one year's organization file, in
+// the shape the budget proportion and trend cards take.
+export function getMinistryYearTotal(
+  data: OrganizationYearTotal[],
+  ministryId: number,
+  year: number,
+  isCurrent: boolean,
+): BudgetYearTotal {
+  let totalSelectedBaht = 0;
+  let totalBudgetBaht = 0;
+  for (const unit of data) {
+    totalBudgetBaht += unit.budget_amount;
+    if (unit.ministry_id === ministryId)
+      totalSelectedBaht += unit.budget_amount;
+  }
+  return { year, isCurrent, totalSelectedBaht, totalBudgetBaht };
 }

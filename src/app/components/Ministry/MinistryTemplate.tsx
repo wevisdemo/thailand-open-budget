@@ -3,7 +3,10 @@
 import { useMemo, useState } from "react";
 import type { OrganizationCoreContent } from "@/types/organization";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
-import { getRelatedDocuments } from "@/constants/ministry";
+import {
+  getMinistryYearTotal,
+  getRelatedDocuments,
+} from "@/constants/ministry";
 import { useBudgetData } from "@/hooks/useBudgetData";
 import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
@@ -13,6 +16,8 @@ import Footer from "@/app/components/shared/Footer";
 import SearchNavbar from "@/app/components/Search/SearchNavbar";
 import BudgetVersionInfoModal from "@/app/components/Search/BudgetVersionInfoModal";
 import SummaryInfoStatItem from "@/app/components/Search/SearchBody/SummaryInfoStatItem";
+import SearchBudgetProportion from "@/app/components/Search/SearchBody/SearchBudgetProportion";
+import SearchBudgetTrend from "@/app/components/Search/SearchBody/SearchBudgetTrend";
 import MinistryCoreContent from "./MinistryCoreContent";
 import RelatedDocuments from "./RelatedDocuments";
 import ShareButtons from "./ShareButtons";
@@ -46,8 +51,17 @@ export default function MinistryTemplate({
   }
 
   const docSource = selectedDocSource.value as DocSourceValue;
+  // Every year's organization totals are loaded for the trend; the selected
+  // year's also feed the rest of the page.
+  const totals2568 = useOrganizationYearTotals("2568-draft-1");
+  const totals2569 = useOrganizationYearTotals("2569-draft-1");
+  const totals2570 = useOrganizationYearTotals("2570-draft-1");
   const { data: yearTotals, status: totalsStatus } =
-    useOrganizationYearTotals(docSource);
+    docSource === "2568-draft-1"
+      ? totals2568
+      : docSource === "2569-draft-1"
+        ? totals2569
+        : totals2570;
   const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
@@ -61,8 +75,18 @@ export default function MinistryTemplate({
   );
   const relatedDocuments = useMemo(() => getRelatedDocuments(items), [items]);
   const totalBudget = units.reduce((sum, unit) => sum + unit.budget_amount, 0);
+  const countryBudget = yearTotals.reduce(
+    (sum, unit) => sum + unit.budget_amount,
+    0,
+  );
 
   const year = parseInt(selectedDocSource.value);
+  const version = selectedDocSource.label.replace(/^\d{4}\s*/, "");
+  const trendTotals = [
+    getMinistryYearTotal(totals2568.data, ministryId, 2568, year === 2568),
+    getMinistryYearTotal(totals2569.data, ministryId, 2569, year === 2569),
+    getMinistryYearTotal(totals2570.data, ministryId, 2570, year === 2570),
+  ];
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
 
@@ -125,6 +149,24 @@ export default function MinistryTemplate({
               unit="รายการ"
             />
           </div>
+        </div>
+      </section>
+      <section className="bg-ui-01 px-[24px] py-[32px]">
+        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px] md:flex-row">
+          <SearchBudgetProportion
+            subtitle={ministryName}
+            selectedLabel={`งบฯ ${ministryName}`}
+            selectedLabelMaxLength={24}
+            filteredBudget={totalBudget}
+            totalBudget={countryBudget}
+            year={year}
+            version={version}
+          />
+          <SearchBudgetTrend
+            subtitle={ministryName}
+            yearTotals={trendTotals}
+            version={version}
+          />
         </div>
       </section>
       <AboutSection />

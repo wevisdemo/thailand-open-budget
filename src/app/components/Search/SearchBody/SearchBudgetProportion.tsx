@@ -1,3 +1,4 @@
+import { truncateText } from "@/lib/truncate";
 import SearchDonutChart from "./SearchDonutChart";
 
 interface SearchBudgetProportionProps {
@@ -5,6 +6,9 @@ interface SearchBudgetProportionProps {
   subtitle: string;
   // Label for the measured amount in the legend, e.g. "งบฯ <ministry>".
   selectedLabel: string;
+  // Cuts a long selectedLabel to this many characters, with the full label
+  // on hover. Unset, the label is shown whole.
+  selectedLabelMaxLength?: number;
   filteredBudget: number;
   totalBudget: number;
   year: number;
@@ -32,9 +36,13 @@ export default function SearchBudgetProportion(
         <SearchDonutChart percentage={percentage} />
       </div>
       <div className="flex flex-col gap-[4px]">
-        <p className="text-blue-70">
-          {props.selectedLabel}{" "}
-          <span className="font-bold">
+        <p className="text-blue-70 flex gap-[8px]">
+          <span title={props.selectedLabel}>
+            {props.selectedLabelMaxLength
+              ? truncateText(props.selectedLabel, props.selectedLabelMaxLength)
+              : props.selectedLabel}
+          </span>
+          <span className="shrink-0 font-bold">
             {props.filteredBudget.toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
