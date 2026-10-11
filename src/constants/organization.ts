@@ -167,3 +167,30 @@ export function getNextOrganizationSort(
   if (sort.dir === "asc") return { key: clickedKey, dir: "desc" };
   return null;
 }
+
+// Rows with no previous-year amount have no change to rank, so they sink to
+// the bottom whichever way the column is sorted.
+function sortValue(
+  amount: number,
+  previousAmount: number | null,
+  sort: OrganizationSort,
+): number | null {
+  if (sort.key === "amount") return amount;
+  return getChangePercent(amount, previousAmount);
+}
+
+// Compares rows by the sorted column; `pick` reads a row's amount and
+// previous-year amount.
+export function compareByOrganizationSort<T>(
+  sort: OrganizationSort,
+  pick: (item: T) => [number, number | null],
+) {
+  const dir = sort.dir === "desc" ? -1 : 1;
+  return (a: T, b: T) => {
+    const va = sortValue(...pick(a), sort);
+    const vb = sortValue(...pick(b), sort);
+    if (va === null) return vb === null ? 0 : 1;
+    if (vb === null) return -1;
+    return (va - vb) * dir;
+  };
+}

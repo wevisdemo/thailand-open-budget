@@ -8,6 +8,7 @@ import type {
   OrganizationYearTotal,
 } from "@/types/organization";
 import {
+  compareByOrganizationSort,
   getChangePercent,
   getNextOrganizationSort,
 } from "@/constants/organization";
@@ -49,31 +50,6 @@ function filterGroups(
   return { groups: filtered, unitMatchIds };
 }
 
-// Rows with no previous-year amount have no change to rank, so they sink to
-// the bottom whichever way the column is sorted.
-function sortValue(
-  amount: number,
-  previousAmount: number | null,
-  sort: OrganizationSort,
-): number | null {
-  if (sort.key === "amount") return amount;
-  return getChangePercent(amount, previousAmount);
-}
-
-function compareBy<T>(
-  sort: OrganizationSort,
-  pick: (item: T) => [number, number | null],
-) {
-  const dir = sort.dir === "desc" ? -1 : 1;
-  return (a: T, b: T) => {
-    const va = sortValue(...pick(a), sort);
-    const vb = sortValue(...pick(b), sort);
-    if (va === null) return vb === null ? 0 : 1;
-    if (vb === null) return -1;
-    return (va - vb) * dir;
-  };
-}
-
 // Unsorted groups keep their default order, by name ก-ฮ.
 function sortGroups(
   groups: OrganizationMinistryGroup[],
@@ -81,13 +57,13 @@ function sortGroups(
 ): OrganizationMinistryGroup[] {
   if (!sort) return groups;
 
-  const byUnit = compareBy<OrganizationYearTotal>(sort, (unit) => [
-    unit.budget_amount,
-    unit.previous_year_amount,
-  ]);
+  const byUnit = compareByOrganizationSort<OrganizationYearTotal>(
+    sort,
+    (unit) => [unit.budget_amount, unit.previous_year_amount],
+  );
   return [...groups]
     .sort(
-      compareBy<OrganizationMinistryGroup>(sort, (group) => [
+      compareByOrganizationSort<OrganizationMinistryGroup>(sort, (group) => [
         group.budget_amount,
         group.previous_year_amount,
       ]),

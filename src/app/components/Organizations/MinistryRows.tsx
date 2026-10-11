@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { OrganizationMinistryGroup } from "@/types/organization";
-import { getChangePercent } from "@/constants/organization";
 import DownAngleIcon from "@/app/components/shared/icons/down-angle-icon";
+import ShareBar from "@/app/components/shared/ShareBar";
+import ChangeBadge from "@/app/components/shared/ChangeBadge";
 
 const UNIT_PAGE_SIZE = 10;
 
@@ -18,61 +19,11 @@ interface MinistryRowsProps {
   dataValue: string;
 }
 
-interface ShareBarProps {
-  percent: number;
-  // Bar length, 0-100. Scaled to the largest ministry rather than the whole
-  // budget, since no row comes near 100%.
-  fill: number;
-}
-
-interface ChangeBadgeProps {
-  amount: number;
-  previousAmount: number | null;
-}
-
 interface AmountCellsProps {
   amount: number;
   previousAmount: number | null;
   totalBudget: number;
   maxAmount: number;
-}
-
-function ShareBar({ percent, fill }: ShareBarProps) {
-  return (
-    <div className="flex items-center justify-center gap-[12px]">
-      <div className="h-[4px] w-[80px]">
-        <div
-          className="bg-interactive-01 h-[4px]"
-          style={{ width: `${Math.min(fill, 100)}%` }}
-        />
-      </div>
-      <span className="w-[48px]">{percent.toFixed(1)}%</span>
-    </div>
-  );
-}
-
-function ChangeBadge({ amount, previousAmount }: ChangeBadgeProps) {
-  const percent = getChangePercent(amount, previousAmount);
-  const rounded = percent === null ? null : Number(percent.toFixed(1));
-
-  if (rounded === null || rounded === 0) {
-    return (
-      <span className="bg-ui-03 text-text-01 inline-flex rounded-full px-[8px] py-[2px]">
-        {rounded === null ? "ไม่พบข้อมูล" : "เท่าเดิม"}
-      </span>
-    );
-  }
-  return (
-    <span
-      className={`text-text-01 inline-flex items-center gap-[4px] rounded-full px-[8px] py-[2px] ${rounded > 0 ? "bg-green-30" : "bg-red-30"}`}
-    >
-      <span aria-hidden className="text-[10px]">
-        {rounded > 0 ? "▲" : "▼"}
-      </span>
-      <span className="sr-only">{rounded > 0 ? "เพิ่มขึ้น" : "ลดลง"}</span>
-      {Math.abs(rounded).toFixed(1)}%
-    </span>
-  );
 }
 
 function AmountCells({
