@@ -4,8 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "@carbon/icons-react";
+import type { OrganizationYearTotal } from "@/types/organization";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
-import { getRelatedDocuments } from "@/constants/ministry";
+import {
+  getOrganizationYearTotal,
+  getRelatedDocuments,
+} from "@/constants/ministry";
 import { useBudgetData } from "@/hooks/useBudgetData";
 import { useBudgetaryCoreContent } from "@/hooks/useBudgetaryCoreContent";
 import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
@@ -19,6 +23,8 @@ import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
 import CoreContentTabs from "@/app/components/shared/CoreContentTabs";
 import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
 import ShareButtons from "@/app/components/shared/ShareButtons";
+import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
+import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
 
 interface BudgetaryTemplateProps {
   ministryId: number;
@@ -51,8 +57,17 @@ export default function BudgetaryTemplate({
   }
 
   const docSource = selectedDocSource.value as DocSourceValue;
+  // Every year's organization totals are loaded for the trend; the selected
+  // year's also feed the rest of the page.
+  const totals2568 = useOrganizationYearTotals("2568-draft-1");
+  const totals2569 = useOrganizationYearTotals("2569-draft-1");
+  const totals2570 = useOrganizationYearTotals("2570-draft-1");
   const { data: yearTotals, status: totalsStatus } =
-    useOrganizationYearTotals(docSource);
+    docSource === "2568-draft-1"
+      ? totals2568
+      : docSource === "2569-draft-1"
+        ? totals2569
+        : totals2570;
   const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
   const { data: budgetaryContent } = useBudgetaryCoreContent(budgetaryId);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
@@ -74,6 +89,14 @@ export default function BudgetaryTemplate({
   }, [isUnbudgeted, router, docSource]);
 
   const year = parseInt(selectedDocSource.value);
+  const version = selectedDocSource.label.replace(/^\d{4}\s*/, "");
+  const countryBudget = yearTotals.reduce((sum, u) => sum + u.budget_amount, 0);
+  const isUnit = (u: OrganizationYearTotal) => u.budgetary_id === budgetaryId;
+  const trendTotals = [
+    getOrganizationYearTotal(totals2568.data, isUnit, 2568, year === 2568),
+    getOrganizationYearTotal(totals2569.data, isUnit, 2569, year === 2569),
+    getOrganizationYearTotal(totals2570.data, isUnit, 2570, year === 2570),
+  ];
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
   const ministryHref = `/organizations/${ministryId}?budget_source=${docSource}`;
@@ -138,6 +161,26 @@ export default function BudgetaryTemplate({
               label="จำนวนรายการ"
               value={isBudgetLoading ? "-" : items.length.toLocaleString()}
               unit="รายการ"
+            />
+          </div>
+        </div>
+      </section>
+      <section className="bg-ui-01 px-[24px] py-[32px]">
+        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[48px]">
+          <div className="flex flex-col gap-[32px] md:flex-row">
+            <BudgetProportionCard
+              subtitle={budgetaryName}
+              selectedLabel={`งบฯ ${budgetaryName}`}
+              selectedLabelMaxLength={24}
+              filteredBudget={unit?.budget_amount ?? 0}
+              totalBudget={countryBudget}
+              year={year}
+              version={version}
+            />
+            <BudgetTrendCard
+              subtitle={budgetaryName}
+              yearTotals={trendTotals}
+              version={version}
             />
           </div>
         </div>
