@@ -8,13 +8,14 @@ import type { BudgetYearTotal } from "@/types/budget";
 type BudgetUnit = "million" | "percent";
 
 interface SearchBudgetTrendProps {
-  keywords: string[];
+  // The line under the title naming what is measured, e.g. a ministry.
+  subtitle: string;
   yearTotals: BudgetYearTotal[];
   version: string;
 }
 
 export default function SearchBudgetTrend({
-  keywords,
+  subtitle,
   yearTotals,
   version,
 }: SearchBudgetTrendProps) {
@@ -65,9 +66,7 @@ export default function SearchBudgetTrend({
           </h2>
           <div className="flex flex-col justify-between md:flex-row md:items-end">
             <div className="shrink-1">
-              <p className="text-[16px] font-bold">
-                ที่มีคำว่า &apos;{keywords.join(", ")}&apos;
-              </p>
+              <p className="text-[16px] font-bold">{subtitle}</p>
               <p className="text-text-01">
                 ปีงบฯ{" "}
                 {yearTotals

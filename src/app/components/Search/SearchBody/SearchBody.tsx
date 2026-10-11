@@ -30,6 +30,7 @@ export default function SearchBody({
   version,
 }: SearchBodyProps) {
   const keywords = tags.map((t) => t.word);
+  const keywordText = `ที่มีคำว่า '${keywords.join(", ")}'`;
 
   const totalDisplayBudget = displayBudgetList.reduce(
     (sum, item) => sum + item.amount,
@@ -39,14 +40,15 @@ export default function SearchBody({
     <div className="content-container flex flex-col gap-[24px] md:gap-[32px]">
       <div className="flex flex-col gap-[32px] md:flex-row">
         <SearchBudgetProportion
-          keywords={keywords}
+          subtitle={`${keywordText} เทียบกับงบฯ ประเทศ`}
+          selectedLabel="งบฯ ที่เกี่ยวข้องกับคีย์เวิร์ด"
           filteredBudget={totalDisplayBudget}
           totalBudget={totalBudgetAmount}
           year={year}
           version={version}
         />
         <SearchBudgetTrend
-          keywords={keywords}
+          subtitle={keywordText}
           yearTotals={yearTotals}
           version={version}
         />

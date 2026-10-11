@@ -1,7 +1,10 @@
 import SearchDonutChart from "./SearchDonutChart";
 
 interface SearchBudgetProportionProps {
-  keywords: string[];
+  // The line under the title naming what is measured, e.g. a ministry.
+  subtitle: string;
+  // Label for the measured amount in the legend, e.g. "งบฯ <ministry>".
+  selectedLabel: string;
   filteredBudget: number;
   totalBudget: number;
   year: number;
@@ -20,9 +23,7 @@ export default function SearchBudgetProportion(
     <div className="flex h-full w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
       <div>
         <h2 className="font-serif text-[28px] font-bold">สัดส่วนงบประมาณ</h2>
-        <p className="text-[16px] font-bold">
-          ที่มีคำว่า &apos;{props.keywords.join(", ")}&apos; เทียบกับงบฯ ประเทศ
-        </p>
+        <p className="text-[16px] font-bold">{props.subtitle}</p>
         <p className="text-text-01">
           ปีงบฯ {props.year} · {props.version}
         </p>
@@ -32,7 +33,7 @@ export default function SearchBudgetProportion(
       </div>
       <div className="flex flex-col gap-[4px]">
         <p className="text-blue-70">
-          งบฯ ที่เกี่ยวข้องกับคีย์เวิร์ด{" "}
+          {props.selectedLabel}{" "}
           <span className="font-bold">
             {props.filteredBudget.toLocaleString(undefined, {
               minimumFractionDigits: 2,
