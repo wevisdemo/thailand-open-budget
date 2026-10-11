@@ -31,7 +31,17 @@ body {
    included. Keep it for keyboard focus only. Inputs are always
    :focus-visible, so fields keep their focus border. */
 @layer components {
+  /* Some Carbon v11 components name IBM Plex Sans outright; keep the site's
+     font, which covers Thai. */
+  [class*="cds--"] {
+    font-family: inherit;
+  }
+
+  /* Clearing the focus colours also clears rings Carbon draws on ::before
+     and ::after, as the content switcher does. */
   [class*="cds--"]:focus:not(:focus-visible) {
+    --cds-focus: transparent;
+    --cds-focus-inset: transparent;
     outline: none;
     box-shadow: none;
   }

@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import DownloadIcon from "../../shared/icons/download-icon";
+import { Button, ContentSwitcher, Switch } from "@carbon/react";
+import { Download } from "@carbon/icons-react";
 import SearchLineChart from "./SearchLineChart";
 import type { BudgetYearTotal } from "@/types/budget";
 
 type BudgetUnit = "million" | "percent";
+
+const UNITS: { value: BudgetUnit; label: string }[] = [
+  { value: "million", label: "ล้านบาท" },
+  { value: "percent", label: "ร้อยละ (%)" },
+];
 
 interface SearchBudgetTrendProps {
   // The line under the title naming what is measured, e.g. a ministry.
@@ -76,38 +82,31 @@ export default function SearchBudgetTrend({
                 · {version}
               </p>
             </div>
-            <button
+            <Button
+              kind="ghost"
+              size="sm"
+              renderIcon={Download}
               onClick={handleDownload}
-              className="text-gray-70 border-gray-20 flex h-fit w-fit shrink-0 items-center gap-[8px] border px-[15px] py-[9px] text-[12px] font-medium hover:cursor-pointer"
+              className="text-gray-70 border-gray-20 shrink-0 bg-white text-[12px] font-medium"
             >
-              <DownloadIcon color="currentColor" />
               ดาวน์โหลดข้อมูลส่วนนี้
-            </button>
+            </Button>
           </div>
         </div>
         <hr className="border-ui-03 w-full border-t-[1px]" />
-        <div className="flex w-fit">
-          <button
-            onClick={() => setUnit("million")}
-            className={`rounded-l-[4px] px-[16px] py-[8px] hover:cursor-pointer ${
-              unit === "million"
-                ? "bg-interactive-01 text-inverse-01"
-                : "border-ui-04 bg-ui-02 text-text-02 border"
-            }`}
-          >
-            ล้านบาท
-          </button>
-          <button
-            onClick={() => setUnit("percent")}
-            className={`rounded-r-[4px] px-[16px] py-[8px] hover:cursor-pointer ${
-              unit === "percent"
-                ? "bg-interactive-01 text-inverse-01"
-                : "border-ui-04 bg-ui-02 text-text-02 border"
-            }`}
-          >
-            ร้อยละ (%)
-          </button>
-        </div>
+        {/* The selected switch takes the brand blue, as in the design,
+            instead of Carbon's dark grey, and each switch fits its label
+            rather than truncating to an even share of the width. */}
+        <ContentSwitcher
+          selectedIndex={UNITS.findIndex((u) => u.value === unit)}
+          onChange={({ index }) => setUnit(UNITS[index ?? 0].value)}
+          size="sm"
+          className="w-fit [--cds-layer-selected-inverse:var(--color-interactive-01)] [&_.cds--content-switcher-btn]:w-auto [&_.cds--content-switcher-btn]:shrink-0 [&_.cds--content-switcher-btn]:px-[24px]"
+        >
+          {UNITS.map(({ value, label }) => (
+            <Switch key={value} name={value} text={label} />
+          ))}
+        </ContentSwitcher>
         {trendData.length > 0 && (
           <SearchLineChart data={trendData} unit={unit} />
         )}
