@@ -1,4 +1,4 @@
-import SummaryInfoStatItem from "./SummaryInfoStatItem";
+import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
 import ExclamationIcon from "@/app/components/shared/icons/exclamation-icon";
 
 interface SummaryInfoProps {
@@ -17,17 +17,17 @@ export default function SummaryInfo({
   return (
     <div className="content-container flex flex-col gap-[24px] bg-white md:gap-[8px]">
       <div className="divide-ui-03 flex flex-col justify-between md:flex-row">
-        <SummaryInfoStatItem
+        <SummaryStatItem
           label="จำนวนรายการ"
           value={`${itemAmount.toLocaleString()}`}
           unit="รายการ"
         />
-        <SummaryInfoStatItem
+        <SummaryStatItem
           label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
           value={totalBudgetAmount.toLocaleString()}
           unit="ล้านบาท"
         />
-        <SummaryInfoStatItem
+        <SummaryStatItem
           label="หน่วยงานที่ได้รับงบประมาณ"
           value={totalBudgetary.toLocaleString()}
           unit="หน่วยงาน"

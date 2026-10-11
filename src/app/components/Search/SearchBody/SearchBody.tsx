@@ -6,8 +6,8 @@ import type {
   BudgetYearTotal,
 } from "@/types/budget";
 import type { Tag } from "@/types/search";
-import SearchBudgetProportion from "./SearchBudgetProportion";
-import SearchBudgetTrend from "./SearchBudgetTrend";
+import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
+import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
 import BudgetListSection from "./BudgetListSection";
 import BudgetMinistryListSection from "./BudgetMinitryListSection";
 interface SearchBodyProps {
@@ -39,7 +39,7 @@ export default function SearchBody({
   return (
     <div className="content-container flex flex-col gap-[24px] md:gap-[32px]">
       <div className="flex flex-col gap-[32px] md:flex-row">
-        <SearchBudgetProportion
+        <BudgetProportionCard
           subtitle={`${keywordText} เทียบกับงบฯ ประเทศ`}
           selectedLabel="งบฯ ที่เกี่ยวข้องกับคีย์เวิร์ด"
           filteredBudget={totalDisplayBudget}
@@ -47,7 +47,7 @@ export default function SearchBody({
           year={year}
           version={version}
         />
-        <SearchBudgetTrend
+        <BudgetTrendCard
           subtitle={keywordText}
           yearTotals={yearTotals}
           version={version}

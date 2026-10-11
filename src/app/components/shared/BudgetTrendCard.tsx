@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button, ContentSwitcher, Switch } from "@carbon/react";
 import { Download } from "@carbon/icons-react";
-import SearchLineChart from "./SearchLineChart";
+import LineChart from "./LineChart";
 import type { BudgetYearTotal } from "@/types/budget";
 
 type BudgetUnit = "million" | "percent";
@@ -13,18 +13,18 @@ const UNITS: { value: BudgetUnit; label: string }[] = [
   { value: "percent", label: "ร้อยละ (%)" },
 ];
 
-interface SearchBudgetTrendProps {
+interface BudgetTrendCardProps {
   // The line under the title naming what is measured, e.g. a ministry.
   subtitle: string;
   yearTotals: BudgetYearTotal[];
   version: string;
 }
 
-export default function SearchBudgetTrend({
+export default function BudgetTrendCard({
   subtitle,
   yearTotals,
   version,
-}: SearchBudgetTrendProps) {
+}: BudgetTrendCardProps) {
   const [unit, setUnit] = useState<BudgetUnit>("million");
 
   function handleDownload() {
@@ -106,9 +106,7 @@ export default function SearchBudgetTrend({
             <Switch key={value} name={value} text={label} />
           ))}
         </ContentSwitcher>
-        {trendData.length > 0 && (
-          <SearchLineChart data={trendData} unit={unit} />
-        )}
+        {trendData.length > 0 && <LineChart data={trendData} unit={unit} />}
       </div>
     </div>
   );

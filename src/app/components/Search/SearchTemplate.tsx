@@ -12,15 +12,20 @@ import SearchBodySkeleton from "@/app/components/Search/SearchBody/SearchBodySke
 import SummaryInfo from "@/app/components/Search/SearchBody/SummaryInfo";
 import SearchEmptyState from "@/app/components/Search/SearchEmptyState";
 import SearchNotFound from "@/app/components/Search/SearchNotFound";
-import SearchNavbar from "@/app/components/Search/SearchNavbar";
+import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
 import { type DropdownOption } from "../shared/Dropdown";
-import BudgetVersionInfoModal from "./BudgetVersionInfoModal";
+import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
 import { useState } from "react";
 import { useBudgetData } from "@/hooks/useBudgetData";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
 import type { Tag } from "@/types/search";
 import { TAG_COLORS } from "@/constants/search";
 import Footer from "../shared/Footer";
+
+const BREADCRUMB = [
+  { label: "หน้าหลัก", href: "/" },
+  { label: "ผลการค้นหา", href: "/search" },
+];
 
 export default function SearchTemplate() {
   // The URL is the single source of truth. Tags and the selected doc source are
@@ -170,7 +175,8 @@ export default function SearchTemplate() {
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
       />
-      <SearchNavbar
+      <BudgetNavbar
+        breadcrumbItems={BREADCRUMB}
         selectedDocSource={selectedDocSource}
         onChangeDocSource={onChangeDocSource}
         onOpenVersionInfo={() => setVersionInfoOpen(true)}

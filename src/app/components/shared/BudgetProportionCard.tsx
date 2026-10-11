@@ -1,7 +1,7 @@
 import { truncateText } from "@/lib/truncate";
-import SearchDonutChart from "./SearchDonutChart";
+import DonutChart from "./DonutChart";
 
-interface SearchBudgetProportionProps {
+interface BudgetProportionCardProps {
   // The line under the title naming what is measured, e.g. a ministry.
   subtitle: string;
   // Label for the measured amount in the legend, e.g. "งบฯ <ministry>".
@@ -15,9 +15,7 @@ interface SearchBudgetProportionProps {
   version: string;
 }
 
-export default function SearchBudgetProportion(
-  props: SearchBudgetProportionProps,
-) {
+export default function BudgetProportionCard(props: BudgetProportionCardProps) {
   const percentage =
     props.totalBudget > 0
       ? (props.filteredBudget / props.totalBudget) * 100
@@ -33,7 +31,7 @@ export default function SearchBudgetProportion(
         </p>
       </div>
       <div className="flex flex-1 items-center justify-center">
-        <SearchDonutChart percentage={percentage} />
+        <DonutChart percentage={percentage} />
       </div>
       <div className="flex flex-col gap-[4px]">
         <p className="text-blue-70 flex gap-[8px]">

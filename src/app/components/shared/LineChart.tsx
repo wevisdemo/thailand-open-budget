@@ -9,7 +9,7 @@ interface TrendDataPoint {
   isCurrent: boolean;
 }
 
-interface SearchLineChartProps {
+interface LineChartProps {
   data: TrendDataPoint[];
   unit: "million" | "percent";
 }
@@ -63,7 +63,7 @@ function getNiceTicks(min: number, max: number, count: number): number[] {
   return ticks;
 }
 
-export default function SearchLineChart({ data, unit }: SearchLineChartProps) {
+export default function LineChart({ data, unit }: LineChartProps) {
   const W = 600;
   const H = 300;
   const pl = 90;

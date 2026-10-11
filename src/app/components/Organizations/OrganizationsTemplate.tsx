@@ -12,9 +12,9 @@ import { type DropdownOption } from "@/app/components/shared/Dropdown";
 import AboutSection from "@/app/components/shared/AboutSection";
 import Footer from "@/app/components/shared/Footer";
 import OrganizationHighlightCarousel from "@/app/components/shared/OrganizationHighlightCarousel";
-import SearchNavbar from "@/app/components/Search/SearchNavbar";
-import BudgetVersionInfoModal from "@/app/components/Search/BudgetVersionInfoModal";
-import SummaryInfoStatItem from "@/app/components/Search/SearchBody/SummaryInfoStatItem";
+import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
+import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
+import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
 import OrganizationListSection from "./OrganizationListSection";
 
 const BREADCRUMB = [
@@ -60,7 +60,7 @@ export default function OrganizationsTemplate() {
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
       />
-      <SearchNavbar
+      <BudgetNavbar
         breadcrumbItems={BREADCRUMB}
         selectedDocSource={selectedDocSource}
         onChangeDocSource={onChangeDocSource}
@@ -79,17 +79,17 @@ export default function OrganizationsTemplate() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row">
-            <SummaryInfoStatItem
+            <SummaryStatItem
               label="กระทรวง/หน่วยงานเทียบเท่ากระทรวง"
               value={isLoading ? "-" : groups.length.toLocaleString()}
               unit="กลุ่มหน่วยงาน"
             />
-            <SummaryInfoStatItem
+            <SummaryStatItem
               label="กรม/หน่วยงานเทียบเท่ากรม"
               value={isLoading ? "-" : data.length.toLocaleString()}
               unit="หน่วยงาน"
             />
-            <SummaryInfoStatItem
+            <SummaryStatItem
               label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
               value={
                 isLoading

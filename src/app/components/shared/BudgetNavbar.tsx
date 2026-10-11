@@ -6,24 +6,19 @@ import Dropdown, {
   type DropdownOption,
 } from "@/app/components/shared/Dropdown";
 
-const SEARCH_BREADCRUMB: BreadcrumbItem[] = [
-  { label: "หน้าหลัก", href: "/" },
-  { label: "ผลการค้นหา", href: "/search" },
-];
-
-interface SearchNavbarProps {
-  breadcrumbItems?: BreadcrumbItem[];
+interface BudgetNavbarProps {
+  breadcrumbItems: BreadcrumbItem[];
   selectedDocSource: DropdownOption | null;
   onChangeDocSource: (option: DropdownOption) => void;
   onOpenVersionInfo: () => void;
 }
 
-export default function SearchNavbar({
-  breadcrumbItems = SEARCH_BREADCRUMB,
+export default function BudgetNavbar({
+  breadcrumbItems,
   selectedDocSource,
   onChangeDocSource,
   onOpenVersionInfo,
-}: SearchNavbarProps) {
+}: BudgetNavbarProps) {
   return (
     <div className="border-gray-20 sticky top-0 z-20 flex items-center justify-between border-b-[2px] bg-white px-[8px] py-[4px] md:px-[32px]">
       <Breadcrumb items={breadcrumbItems} />

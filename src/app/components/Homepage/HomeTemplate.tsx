@@ -11,7 +11,7 @@ import { getOrganizationHighlights } from "@/constants/organization";
 import SearchHeader from "./SearchHomepage/SearchHeader";
 import OrganizeSearchSection from "./SearchHomepage/OrganizeSearchSection";
 import HeroSection from "./HomeSections/HeroSection";
-import BudgetVersionInfoModal from "../Search/BudgetVersionInfoModal";
+import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
 import NavigateSection from "./HomeSections/NavigateSection";
 import BudgetSection from "./HomeSections/BudgetSection";
 import OrganizeBudgetSection from "./HomeSections/OrganizeBudgetSection";

@@ -1,10 +1,8 @@
-interface SearchDonutChartProps {
+interface DonutChartProps {
   percentage: number;
 }
 
-export default function SearchDonutChart({
-  percentage,
-}: SearchDonutChartProps) {
+export default function DonutChart({ percentage }: DonutChartProps) {
   const radius = 90;
   const circumference = 2 * Math.PI * radius;
   const filledLength = (percentage / 100) * circumference;

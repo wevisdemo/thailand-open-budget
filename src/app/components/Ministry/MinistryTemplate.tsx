@@ -13,11 +13,11 @@ import { useUrlSearch } from "@/hooks/useUrlSearch";
 import { type DropdownOption } from "@/app/components/shared/Dropdown";
 import AboutSection from "@/app/components/shared/AboutSection";
 import Footer from "@/app/components/shared/Footer";
-import SearchNavbar from "@/app/components/Search/SearchNavbar";
-import BudgetVersionInfoModal from "@/app/components/Search/BudgetVersionInfoModal";
-import SummaryInfoStatItem from "@/app/components/Search/SearchBody/SummaryInfoStatItem";
-import SearchBudgetProportion from "@/app/components/Search/SearchBody/SearchBudgetProportion";
-import SearchBudgetTrend from "@/app/components/Search/SearchBody/SearchBudgetTrend";
+import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
+import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
+import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
+import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
+import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
 import MinistryCoreContent from "./MinistryCoreContent";
 import RelatedDocuments from "./RelatedDocuments";
 import ShareButtons from "./ShareButtons";
@@ -104,7 +104,7 @@ export default function MinistryTemplate({
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
       />
-      <SearchNavbar
+      <BudgetNavbar
         breadcrumbItems={breadcrumb}
         selectedDocSource={selectedDocSource}
         onChangeDocSource={onChangeDocSource}
@@ -129,7 +129,7 @@ export default function MinistryTemplate({
             </div>
           </div>
           <div className="flex flex-col md:flex-row">
-            <SummaryInfoStatItem
+            <SummaryStatItem
               label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
               value={
                 isTotalsLoading
@@ -138,12 +138,12 @@ export default function MinistryTemplate({
               }
               unit="ล้านบาท"
             />
-            <SummaryInfoStatItem
+            <SummaryStatItem
               label="จำนวนกรม/หน่วยงานเทียบเท่ากรม"
               value={isTotalsLoading ? "-" : units.length.toLocaleString()}
               unit="หน่วยงาน"
             />
-            <SummaryInfoStatItem
+            <SummaryStatItem
               label="จำนวนรายการ"
               value={isBudgetLoading ? "-" : items.length.toLocaleString()}
               unit="รายการ"
@@ -153,7 +153,7 @@ export default function MinistryTemplate({
       </section>
       <section className="bg-ui-01 px-[24px] py-[32px]">
         <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px] md:flex-row">
-          <SearchBudgetProportion
+          <BudgetProportionCard
             subtitle={ministryName}
             selectedLabel={`งบฯ ${ministryName}`}
             selectedLabelMaxLength={24}
@@ -162,7 +162,7 @@ export default function MinistryTemplate({
             year={year}
             version={version}
           />
-          <SearchBudgetTrend
+          <BudgetTrendCard
             subtitle={ministryName}
             yearTotals={trendTotals}
             version={version}
