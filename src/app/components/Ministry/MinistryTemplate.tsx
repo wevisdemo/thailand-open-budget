@@ -21,6 +21,7 @@ import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
 import MinistryCoreContent from "./MinistryCoreContent";
 import RelatedDocuments from "./RelatedDocuments";
 import ShareButtons from "./ShareButtons";
+import MinistryUnitSection from "./MinistryUnitSection";
 import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
 
 const coreContent = coreContentRaw as Record<string, OrganizationCoreContent>;
@@ -152,20 +153,34 @@ export default function MinistryTemplate({
         </div>
       </section>
       <section className="bg-ui-01 px-[24px] py-[32px]">
-        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px] md:flex-row">
-          <BudgetProportionCard
-            subtitle={ministryName}
-            selectedLabel={`งบฯ ${ministryName}`}
-            selectedLabelMaxLength={24}
-            filteredBudget={totalBudget}
-            totalBudget={countryBudget}
+        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[48px]">
+          <div className="flex flex-col gap-[32px] md:flex-row">
+            <BudgetProportionCard
+              subtitle={ministryName}
+              selectedLabel={`งบฯ ${ministryName}`}
+              selectedLabelMaxLength={24}
+              filteredBudget={totalBudget}
+              totalBudget={countryBudget}
+              year={year}
+              version={version}
+            />
+            <BudgetTrendCard
+              subtitle={ministryName}
+              yearTotals={trendTotals}
+              version={version}
+            />
+          </div>
+          {/* Keyed by year so a new year starts from page 1, unfiltered. */}
+          <MinistryUnitSection
+            key={docSource}
+            ministryId={ministryId}
+            units={units}
+            countryBudget={countryBudget}
             year={year}
             version={version}
-          />
-          <BudgetTrendCard
-            subtitle={ministryName}
-            yearTotals={trendTotals}
-            version={version}
+            dataValue={docSource}
+            isLoading={isTotalsLoading}
+            isError={totalsStatus === "error"}
           />
         </div>
       </section>
