@@ -1,0 +1,129 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "@carbon/icons-react";
+import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
+import { useBudgetData } from "@/hooks/useBudgetData";
+import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
+import { useUrlSearch } from "@/hooks/useUrlSearch";
+import { type DropdownOption } from "@/app/components/shared/Dropdown";
+import AboutSection from "@/app/components/shared/AboutSection";
+import Footer from "@/app/components/shared/Footer";
+import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
+import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
+import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
+
+interface BudgetaryTemplateProps {
+  ministryId: number;
+  ministryName: string;
+  budgetaryId: number;
+  budgetaryName: string;
+}
+
+export default function BudgetaryTemplate({
+  ministryId,
+  ministryName,
+  budgetaryId,
+  budgetaryName,
+}: BudgetaryTemplateProps) {
+  const router = useRouter();
+  // Same URL handling as the ministry page: the address bar is the source of
+  // truth for the year, and writes go through the History API.
+  const urlSearch = useUrlSearch();
+  const sourceValue = new URLSearchParams(urlSearch).get("budget_source");
+  const selectedDocSource: DropdownOption =
+    DOC_SOURCE_OPTIONS.find((o) => o.value === sourceValue) ??
+    DOC_SOURCE_OPTIONS[DOC_SOURCE_OPTIONS.length - 1];
+
+  function onChangeDocSource(option: DropdownOption) {
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}?budget_source=${option.value}`,
+    );
+  }
+
+  const docSource = selectedDocSource.value as DocSourceValue;
+  const { data: yearTotals, status: totalsStatus } =
+    useOrganizationYearTotals(docSource);
+  const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
+  const [versionInfoOpen, setVersionInfoOpen] = useState(false);
+
+  const unit = yearTotals.find((u) => u.budgetary_id === budgetaryId) ?? null;
+  const items = useMemo(
+    () => budgetData.filter((item) => item.budgetary_id === budgetaryId),
+    [budgetData, budgetaryId],
+  );
+
+  // A unit is built if it is budgeted in any year; in a year it isn't, there
+  // is nothing to show, so the reader goes on to every organization that year.
+  const isUnbudgeted = totalsStatus === "success" && unit === null;
+  useEffect(() => {
+    if (isUnbudgeted) {
+      router.replace(`/organizations?budget_source=${docSource}`);
+    }
+  }, [isUnbudgeted, router, docSource]);
+
+  const year = parseInt(selectedDocSource.value);
+  const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
+  const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
+  const ministryHref = `/organizations/${ministryId}?budget_source=${docSource}`;
+
+  const breadcrumb = [
+    { label: "หน้าหลัก", href: "/" },
+    { label: "หน้ารวมกระทรวง", href: "/organizations" },
+    { label: ministryName, href: ministryHref },
+    { label: budgetaryName },
+  ];
+
+  return (
+    <main className="mx-auto flex w-full flex-col">
+      <BudgetVersionInfoModal
+        isOpen={versionInfoOpen}
+        onClose={() => setVersionInfoOpen(false)}
+      />
+      <BudgetNavbar
+        breadcrumbItems={breadcrumb}
+        selectedDocSource={selectedDocSource}
+        onChangeDocSource={onChangeDocSource}
+        onOpenVersionInfo={() => setVersionInfoOpen(true)}
+      />
+      <section className="bg-white px-[24px] pt-[24px] pb-[24px] md:pt-[56px]">
+        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px]">
+          <div className="flex flex-col gap-[8px]">
+            <Link
+              href={ministryHref}
+              className="text-text-01! flex w-fit items-center gap-[8px] text-[18px] font-bold no-underline! hover:underline!"
+            >
+              <ArrowLeft size={16} className="shrink-0" />
+              {ministryName}
+            </Link>
+            <h1 className="font-serif text-[28px] font-bold md:text-[42px]">
+              {budgetaryName}
+            </h1>
+          </div>
+          <div className="flex flex-col md:flex-row">
+            <SummaryStatItem
+              label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
+              value={
+                isTotalsLoading || !unit
+                  ? "-"
+                  : Math.round(unit.budget_amount / 1_000_000).toLocaleString()
+              }
+              unit="ล้านบาท"
+            />
+            <SummaryStatItem
+              label="จำนวนรายการ"
+              value={isBudgetLoading ? "-" : items.length.toLocaleString()}
+              unit="รายการ"
+            />
+          </div>
+        </div>
+      </section>
+      <AboutSection />
+      <Footer />
+    </main>
+  );
+}
