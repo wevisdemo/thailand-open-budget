@@ -26,3 +26,16 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+/* Carbon (cds--) draws its blue focus ring on every focus, mouse clicks
+   included. Keep it for keyboard focus only. Inputs are always
+   :focus-visible, so fields keep their focus border. */
+@layer components {
+  [class*="cds--"]:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+  .cds--btn:focus:not(:focus-visible) {
+    border-color: transparent;
+  }
+}
