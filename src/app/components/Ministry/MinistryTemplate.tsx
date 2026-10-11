@@ -1,10 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { OrganizationCoreContent } from "@/types/organization";
+import type {
+  OrganizationCoreContent,
+  OrganizationYearTotal,
+} from "@/types/organization";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import {
-  getMinistryYearTotal,
+  getOrganizationYearTotal,
   getRelatedDocuments,
 } from "@/constants/ministry";
 import { useBudgetData } from "@/hooks/useBudgetData";
@@ -18,9 +21,9 @@ import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoMod
 import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
 import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
-import MinistryCoreContent from "./MinistryCoreContent";
-import RelatedDocuments from "./RelatedDocuments";
-import ShareButtons from "./ShareButtons";
+import CoreContentTabs from "@/app/components/shared/CoreContentTabs";
+import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
+import ShareButtons from "@/app/components/shared/ShareButtons";
 import MinistryUnitSection from "./MinistryUnitSection";
 import MinistryItemSection from "./MinistryItemSection";
 import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
@@ -84,10 +87,27 @@ export default function MinistryTemplate({
 
   const year = parseInt(selectedDocSource.value);
   const version = selectedDocSource.label.replace(/^\d{4}\s*/, "");
+  const isMinistryUnit = (unit: OrganizationYearTotal) =>
+    unit.ministry_id === ministryId;
   const trendTotals = [
-    getMinistryYearTotal(totals2568.data, ministryId, 2568, year === 2568),
-    getMinistryYearTotal(totals2569.data, ministryId, 2569, year === 2569),
-    getMinistryYearTotal(totals2570.data, ministryId, 2570, year === 2570),
+    getOrganizationYearTotal(
+      totals2568.data,
+      isMinistryUnit,
+      2568,
+      year === 2568,
+    ),
+    getOrganizationYearTotal(
+      totals2569.data,
+      isMinistryUnit,
+      2569,
+      year === 2569,
+    ),
+    getOrganizationYearTotal(
+      totals2570.data,
+      isMinistryUnit,
+      2570,
+      year === 2570,
+    ),
   ];
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
@@ -119,9 +139,7 @@ export default function MinistryTemplate({
           </h1>
           <div className="flex flex-col gap-[24px] md:flex-row">
             <div className="min-w-0 flex-1">
-              {ministryContent && (
-                <MinistryCoreContent content={ministryContent} />
-              )}
+              {ministryContent && <CoreContentTabs content={ministryContent} />}
             </div>
             <div className="flex flex-col gap-[16px] md:w-[240px]">
               {relatedDocuments.length > 0 && (

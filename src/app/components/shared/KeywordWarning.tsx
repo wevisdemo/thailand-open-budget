@@ -1,6 +1,6 @@
 import ExclamationIcon from "@/app/components/shared/icons/exclamation-icon";
 
-// Shown with the ministry's keyword results: a keyword can mean more than
+// Shown with an organization's keyword results: a keyword can mean more than
 // one thing.
 export default function KeywordWarning() {
   return (

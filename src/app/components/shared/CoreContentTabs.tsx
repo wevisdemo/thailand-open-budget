@@ -5,13 +5,11 @@ import type { OrganizationCoreContent } from "@/types/organization";
 import { CORE_CONTENT_TABS } from "@/constants/ministry";
 import CoreContentPanel from "./CoreContentPanel";
 
-interface MinistryCoreContentProps {
+interface CoreContentTabsProps {
   content: OrganizationCoreContent;
 }
 
-export default function MinistryCoreContent({
-  content,
-}: MinistryCoreContentProps) {
+export default function CoreContentTabs({ content }: CoreContentTabsProps) {
   // Only the fields the sheet fills in get a tab.
   const tabs = CORE_CONTENT_TABS.filter(({ field }) => content[field]);
 

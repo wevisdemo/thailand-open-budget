@@ -5,7 +5,7 @@ import { DataTableSkeleton } from "@carbon/react";
 import type { BudgetItem, BudgetSort } from "@/types/budget";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
 import KeywordSearch from "@/app/components/shared/KeywordSearch";
-import KeywordWarning from "./KeywordWarning";
+import KeywordWarning from "@/app/components/shared/KeywordWarning";
 import BudgetListSection from "@/app/components/shared/BudgetListSection";
 
 // Like the units table above it, the list opens on the biggest items.
