@@ -4,7 +4,8 @@ import { Button } from "@carbon/react";
 import { Download } from "@carbon/icons-react";
 
 interface TableSectionHeaderProps {
-  title: string;
+  // Null when the section's heading sits above other content, e.g. a search.
+  title: string | null;
   // A bold line under the title, e.g. the search keywords.
   subtitle: string | null;
   // e.g. "พบทั้งหมด 99 หน่วยงาน"
@@ -32,7 +33,7 @@ export default function TableSectionHeader({
   return (
     <div className="flex flex-col justify-between gap-[16px] pb-[14px] md:flex-row">
       <div>
-        <h2 className="font-serif text-[28px] font-bold">{title}</h2>
+        {title && <h2 className="font-serif text-[28px] font-bold">{title}</h2>}
         {subtitle && <p className="text-[16px] font-bold">{subtitle}</p>}
         <p className="text-text-01 flex flex-wrap gap-x-[8px]">
           <span className="text-interactive-01">{countText}</span>

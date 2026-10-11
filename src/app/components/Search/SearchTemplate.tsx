@@ -18,8 +18,7 @@ import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoMod
 import { useState } from "react";
 import { useBudgetData } from "@/hooks/useBudgetData";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
-import type { Tag } from "@/types/search";
-import { TAG_COLORS } from "@/constants/search";
+import { matchesAnyKeyword, toTags } from "@/constants/search";
 import Footer from "../shared/Footer";
 
 const BREADCRUMB = [
@@ -44,10 +43,7 @@ export default function SearchTemplate() {
     DOC_SOURCE_OPTIONS.find((o) => o.value === sourceValue) ??
     DOC_SOURCE_OPTIONS[DOC_SOURCE_OPTIONS.length - 1];
 
-  const tags: Tag[] = words.map((word, i) => ({
-    word,
-    color: TAG_COLORS[i % TAG_COLORS.length],
-  }));
+  const tags = toTags(words);
 
   function commit(nextWords: string[], nextSource: string) {
     const next = new URLSearchParams();
@@ -86,17 +82,8 @@ export default function SearchTemplate() {
   const { data: budget2570 } = useBudgetData("2570-draft-1");
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
-  const keywords = tags.map((t) => t.word.toLowerCase());
-
-  // Only the three item-level fields the table highlights are matched, so every
-  // hit is visible on the row it returns.
   function matchesKeywords(item: BudgetItem): boolean {
-    return keywords.some(
-      (kw) =>
-        item.description.toLowerCase().includes(kw) ||
-        item.output.toLowerCase().includes(kw) ||
-        item.project.toLowerCase().includes(kw),
-    );
+    return matchesAnyKeyword(item, words);
   }
 
   function filterTotal(data: BudgetItem[]): number {

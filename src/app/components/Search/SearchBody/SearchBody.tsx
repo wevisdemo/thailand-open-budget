@@ -55,6 +55,8 @@ export default function SearchBody({
       </div>
       <div>
         <BudgetListSection
+          title="รายการงบประมาณ"
+          subtitle={keywordText}
           tags={tags}
           year={year}
           version={version}

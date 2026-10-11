@@ -2,12 +2,15 @@ import Image from "next/image";
 import type { Tag } from "@/types/search";
 import { withBasePath } from "@/lib/base-path";
 
-interface TagListProps {
+interface KeywordTagListProps {
   tags: Tag[];
   removeTag: (word: string) => void;
 }
 
-export default function TagList({ tags, removeTag }: TagListProps) {
+export default function KeywordTagList({
+  tags,
+  removeTag,
+}: KeywordTagListProps) {
   if (tags.length === 0) return null;
 
   return (

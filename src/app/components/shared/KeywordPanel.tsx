@@ -3,17 +3,20 @@
 import { useRef, useState } from "react";
 import SearchIcon from "@/app/components/shared/icons/search-icon";
 
-interface SearchPanelProps {
+interface KeywordPanelProps {
   tags: { word: string }[];
   addTag: (word: string) => void;
   removeTag: (word: string) => void;
+  // On a grey layer the field is white, as Carbon's fields are.
+  onLayer?: boolean;
 }
 
-export default function SearchPanel({
+export default function KeywordPanel({
   tags,
   addTag,
   removeTag,
-}: SearchPanelProps) {
+  onLayer = false,
+}: KeywordPanelProps) {
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -45,7 +48,7 @@ export default function SearchPanel({
   return (
     <div className="flex items-stretch">
       <div
-        className="bg-field-01 border-ui-04 flex min-h-[48px] flex-1 items-center gap-[4px] border-b-[2px] px-[16px] py-[8px] hover:cursor-text"
+        className={`${onLayer ? "bg-field-02" : "bg-field-01"} border-ui-04 flex min-h-[48px] flex-1 items-center gap-[4px] border-b-[2px] px-[16px] py-[8px] hover:cursor-text`}
         onClick={() => inputRef.current?.focus()}
       >
         <SearchIcon

@@ -1,5 +1,5 @@
 import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
-import ExclamationIcon from "@/app/components/shared/icons/exclamation-icon";
+import KeywordWarning from "@/app/components/shared/KeywordWarning";
 
 interface SummaryInfoProps {
   itemAmount: number;
@@ -33,15 +33,7 @@ export default function SummaryInfo({
           unit="หน่วยงาน"
         />
       </div>
-      <div className="border-interactive-01 flex gap-[12px] border border-l-[3px] bg-[#eef2ff] px-[8px] py-[16px] md:px-[20px]">
-        <ExclamationIcon className="mt-[2px] shrink-0" />
-        <p className="text-text-01 text-[14px]">
-          <span className="font-bold">ข้อควรระวัง:</span>{" "}
-          คีย์เวิร์ดบางคำอาจมีได้มากกว่าหนึ่งความหมาย (เช่น
-          เป็นได้ทั้งชื่อสิ่งของหรือชื่อสถานที่)
-          จึงควรตรวจสอบบริบทที่ปรากฏคำดังกล่าว ก่อนนำผลลัพธ์ไปใช้หรือสื่อสาร
-        </p>
-      </div>
+      <KeywordWarning />
     </div>
   );
 }

@@ -10,6 +10,8 @@ import { downloadCsv } from "@/lib/csv";
 import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
 
 interface BudgetListSectionProps {
+  title: string | null;
+  subtitle: string | null;
   tags: Tag[];
   data: BudgetItem[];
   year: number;
@@ -59,8 +61,8 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
   return (
     <div>
       <TableSectionHeader
-        title="รายการงบประมาณ"
-        subtitle={`ที่มีคำว่า '${props.tags.map((t) => t.word).join(", ")}'`}
+        title={props.title}
+        subtitle={props.subtitle}
         countText={`พบทั้งหมด ${props.data.length.toLocaleString()} รายการ`}
         year={props.year}
         version={props.version}
