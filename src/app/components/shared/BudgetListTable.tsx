@@ -10,7 +10,7 @@ import PdfIcon from "@/app/components/shared/icons/pdf-icon";
 import { getObligedYearRange, sortBudgetItems } from "@/constants/budget";
 import SortableHeader from "./SortableHeader";
 import Paginate from "./Paginate";
-import ProjectOutputInfoModal from "@/app/components/Search/ProjectOutputInfoModal";
+import ProjectOutputInfoModal from "@/app/components/shared/ProjectOutputInfoModal";
 
 const PAGE_SIZE = 10;
 

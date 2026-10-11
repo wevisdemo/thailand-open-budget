@@ -6,7 +6,7 @@ import type { BudgetItem } from "@/types/budget";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
 import KeywordSearch from "@/app/components/shared/KeywordSearch";
 import KeywordWarning from "@/app/components/shared/KeywordWarning";
-import BudgetListSection from "@/app/components/Search/SearchBody/BudgetListSection";
+import BudgetListSection from "@/app/components/shared/BudgetListSection";
 
 interface MinistryItemSectionProps {
   items: BudgetItem[];

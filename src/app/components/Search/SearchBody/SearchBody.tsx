@@ -8,7 +8,7 @@ import type {
 import type { Tag } from "@/types/search";
 import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
-import BudgetListSection from "./BudgetListSection";
+import BudgetListSection from "@/app/components/shared/BudgetListSection";
 import BudgetMinistryListSection from "./BudgetMinitryListSection";
 interface SearchBodyProps {
   totalBudgetAmount: number;
