@@ -22,6 +22,7 @@ import MinistryCoreContent from "./MinistryCoreContent";
 import RelatedDocuments from "./RelatedDocuments";
 import ShareButtons from "./ShareButtons";
 import MinistryUnitSection from "./MinistryUnitSection";
+import MinistryItemSection from "./MinistryItemSection";
 import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
 
 const coreContent = coreContentRaw as Record<string, OrganizationCoreContent>;
@@ -181,6 +182,14 @@ export default function MinistryTemplate({
             dataValue={docSource}
             isLoading={isTotalsLoading}
             isError={totalsStatus === "error"}
+          />
+          <MinistryItemSection
+            items={items}
+            year={year}
+            version={version}
+            docSource={docSource}
+            isLoading={isBudgetLoading}
+            isError={budgetStatus === "error"}
           />
         </div>
       </section>
