@@ -16,6 +16,8 @@ interface BudgetListSectionProps {
   countPrefix?: string;
   // An optional total after the count, e.g. "500,000 ล้านบาท (28.59 %)".
   amountText?: string;
+  // The order the table opens in; by default the budget document's.
+  defaultSort?: BudgetSort | null;
   tags: Tag[];
   data: BudgetItem[];
   year: number;
@@ -23,7 +25,9 @@ interface BudgetListSectionProps {
 }
 
 export default function BudgetListSection(props: BudgetListSectionProps) {
-  const [sort, setSort] = useState<BudgetSort | null>(null);
+  const [sort, setSort] = useState<BudgetSort | null>(
+    props.defaultSort ?? null,
+  );
 
   function handleSortChange(key: BudgetSortKey) {
     setSort(getNextSort(key, sort));

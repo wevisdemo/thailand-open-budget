@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import { DataTableSkeleton } from "@carbon/react";
-import type { BudgetItem } from "@/types/budget";
+import type { BudgetItem, BudgetSort } from "@/types/budget";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
 import KeywordSearch from "@/app/components/shared/KeywordSearch";
 import KeywordWarning from "./KeywordWarning";
 import BudgetListSection from "@/app/components/shared/BudgetListSection";
+
+// Like the units table above it, the list opens on the biggest items.
+const DEFAULT_SORT: BudgetSort = { key: "amount", dir: "desc" };
 
 interface MinistryItemSectionProps {
   items: BudgetItem[];
@@ -87,6 +90,7 @@ export default function MinistryItemSection({
           subtitle={subtitle}
           countPrefix="ทั้งหมด"
           amountText={amountText}
+          defaultSort={DEFAULT_SORT}
           tags={tags}
           data={shown}
           year={year}
