@@ -168,6 +168,15 @@ export function getNextOrganizationSort(
   return null;
 }
 
+// A column's sort in the form Carbon's sortable table header takes.
+export function getOrganizationSortDirection(
+  key: OrganizationSortKey,
+  sort: OrganizationSort | null,
+): "ASC" | "DESC" | "NONE" {
+  if (sort?.key !== key) return "NONE";
+  return sort.dir === "asc" ? "ASC" : "DESC";
+}
+
 // Rows with no previous-year amount have no change to rank, so they sink to
 // the bottom whichever way the column is sorted.
 function sortValue(

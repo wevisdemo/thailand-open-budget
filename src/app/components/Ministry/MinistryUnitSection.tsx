@@ -22,6 +22,7 @@ import {
   compareByOrganizationSort,
   getChangePercent,
   getNextOrganizationSort,
+  getOrganizationSortDirection,
 } from "@/constants/organization";
 import { getSortLabel } from "@/constants/table";
 import { downloadCsv } from "@/lib/csv";
@@ -61,14 +62,6 @@ function sortUnits(
       unit.previous_year_amount,
     ]),
   );
-}
-
-function getSortDirection(
-  key: OrganizationSortKey,
-  sort: OrganizationSort | null,
-): "ASC" | "DESC" | "NONE" {
-  if (sort?.key !== key) return "NONE";
-  return sort.dir === "asc" ? "ASC" : "DESC";
 }
 
 function exportCsv(
@@ -190,7 +183,7 @@ export default function MinistryUnitSection({
                     isSortable
                     className="w-[180px]"
                     isSortHeader={sort?.key === "amount"}
-                    sortDirection={getSortDirection("amount", sort)}
+                    sortDirection={getOrganizationSortDirection("amount", sort)}
                     onClick={() => handleSortChange("amount")}
                   >
                     จำนวนเงิน
@@ -202,7 +195,7 @@ export default function MinistryUnitSection({
                     isSortable
                     className="w-[200px]"
                     isSortHeader={sort?.key === "change"}
-                    sortDirection={getSortDirection("change", sort)}
+                    sortDirection={getOrganizationSortDirection("change", sort)}
                     onClick={() => handleSortChange("change")}
                   >
                     การเปลี่ยนแปลง (%) จากปีก่อน
