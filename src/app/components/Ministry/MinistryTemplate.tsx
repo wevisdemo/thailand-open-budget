@@ -67,16 +67,15 @@ export default function MinistryTemplate({
       : docSource === "2569-draft-1"
         ? totals2569
         : totals2570;
-  const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
+  const { data: items, status: budgetStatus } = useBudgetData(
+    docSource,
+    ministryId,
+  );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   const units = useMemo(
     () => yearTotals.filter((unit) => unit.ministry_id === ministryId),
     [yearTotals, ministryId],
-  );
-  const items = useMemo(
-    () => budgetData.filter((item) => item.ministry_id === ministryId),
-    [budgetData, ministryId],
   );
   const relatedDocuments = useMemo(() => getRelatedDocuments(items), [items]);
   const totalBudget = units.reduce((sum, unit) => sum + unit.budget_amount, 0);

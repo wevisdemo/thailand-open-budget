@@ -71,7 +71,11 @@ export default function BudgetaryTemplate({
       : docSource === "2569-draft-1"
         ? totals2569
         : totals2570;
-  const { data: budgetData, status: budgetStatus } = useBudgetData(docSource);
+  // The unit's ministry's items; the unit's own are picked out below.
+  const { data: budgetData, status: budgetStatus } = useBudgetData(
+    docSource,
+    ministryId,
+  );
   const { data: budgetaryContent } = useBudgetaryCoreContent(budgetaryId);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
   // Both cards measure the unit against the same base; either card's

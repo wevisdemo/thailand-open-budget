@@ -32,7 +32,13 @@ function reducer(_state: State, action: Action): State {
   }
 }
 
-export function useBudgetData(docSource: DocSourceValue | null) {
+// Loads one budget document's items. With a ministry id it loads only that
+// ministry's, from the per-ministry split written at build time
+// (scripts/split-budget-by-ministry.mjs), instead of the whole country's.
+export function useBudgetData(
+  docSource: DocSourceValue | null,
+  ministryId: number | null = null,
+) {
   const [{ data, status }, dispatch] = useReducer(reducer, {
     data: [],
     status: "idle",
@@ -48,8 +54,15 @@ export function useBudgetData(docSource: DocSourceValue | null) {
     let ignore = false;
     dispatch({ type: "loading" });
 
-    fetch(withBasePath(`/data/${fileName}.json`))
+    const path =
+      ministryId === null
+        ? `/data/${fileName}.json`
+        : `/data/budget_by_ministry/${fileName.replace(/^budget_/, "")}/${ministryId}.json`;
+
+    fetch(withBasePath(path))
       .then((res) => {
+        // A ministry with no items in a document has no file for it.
+        if (ministryId !== null && res.status === 404) return [];
         if (!res.ok) throw new Error(`${res.status}`);
         return res.json() as Promise<BudgetItem[]>;
       })
@@ -67,7 +80,7 @@ export function useBudgetData(docSource: DocSourceValue | null) {
     return () => {
       ignore = true;
     };
-  }, [docSource]);
+  }, [docSource, ministryId]);
 
   return { data, status };
 }
