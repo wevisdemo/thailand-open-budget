@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/split-budget-by-ministry.mjs && next dev",
+    "build": "node scripts/split-budget-by-ministry.mjs && next build",
     "start": "next start",
     "lint": "eslint",
     "data:fetch": "node scripts/fetch-budget-data.mjs",
@@ -12,6 +12,7 @@
     "data:import": "node scripts/import-all.mjs",
     "data:organizations": "node scripts/build-organizations.mjs",
     "data:core": "node scripts/fetch-core-content.mjs",
+    "data:split": "node scripts/split-budget-by-ministry.mjs",
     "sass:build": "sass --load-path=node_modules --style=compressed --no-source-map src/styles/carbon/index.scss src/styles/carbon/pre-compiled.css",
     "sass:build:react": "sass --load-path=node_modules --load-path=node_modules/.pnpm/node_modules --style=compressed --no-source-map --quiet-deps src/styles/carbon-react/index.scss src/styles/carbon-react/pre-compiled.css",
     "prepare": "husky"

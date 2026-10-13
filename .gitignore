@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated from public/data/budget_*.json by scripts/split-budget-by-ministry.mjs
+/public/data/budget_by_ministry/
