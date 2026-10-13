@@ -26,6 +26,7 @@ import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
 import ShareButtons from "@/app/components/shared/ShareButtons";
 import MinistryUnitSection from "./MinistryUnitSection";
 import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
+import BudgetProportionComparisonSection from "@/app/components/shared/BudgetProportionComparisonSection";
 import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
 
 const coreContent = coreContentRaw as Record<string, OrganizationCoreContent>;
@@ -71,6 +72,16 @@ export default function MinistryTemplate({
     docSource,
     ministryId,
   );
+  // The year before's items, for the treemap's change from the previous year.
+  // The first year in the data has none.
+  const previousDocSource =
+    DOC_SOURCE_OPTIONS[
+      DOC_SOURCE_OPTIONS.findIndex((o) => o.value === docSource) - 1
+    ]?.value ?? null;
+  const { data: previousItems, status: previousStatus } = useBudgetData(
+    previousDocSource,
+    ministryId,
+  );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   const units = useMemo(
@@ -110,6 +121,9 @@ export default function MinistryTemplate({
   ];
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
+  const isPreviousLoading =
+    previousDocSource !== null &&
+    (previousStatus === "idle" || previousStatus === "loading");
 
   const ministryContent = coreContent[ministryId] ?? null;
 
@@ -199,6 +213,19 @@ export default function MinistryTemplate({
             dataValue={docSource}
             isLoading={isTotalsLoading}
             isError={totalsStatus === "error"}
+          />
+          <BudgetProportionComparisonSection
+            items={items}
+            previousItems={
+              previousDocSource && previousStatus === "success"
+                ? previousItems
+                : null
+            }
+            countryBudget={countryBudget}
+            year={year}
+            csvName={`ministry_${ministryId}`}
+            isLoading={isBudgetLoading || isPreviousLoading}
+            isError={budgetStatus === "error"}
           />
           <OrganizationItemSection
             items={items}
