@@ -51,7 +51,8 @@ interface BudgetProportionComparisonSectionProps {
 
 // "เปรียบเทียบสัดส่วนงบตาม": a set of budget items as a treemap of their
 // groups, by plan, budget category or obligation. Clicking a group shows the
-// groups inside it; a table view lists the groups, each opening to its own.
+// groups inside it; a table view lists the same level's groups, each
+// opening to its own, down to the deepest level.
 export default function BudgetProportionComparisonSection({
   items,
   previousItems,
@@ -109,32 +110,31 @@ export default function BudgetProportionComparisonSection({
     setPath(child.path);
   }
 
-  // The table's rows: each group, then its sub-groups.
+  // The table's rows for the level shown, every level open: each group,
+  // then its groups, named by their path from the level shown.
   function handleDownload() {
-    function toRow(group: TreemapNode, subGroup: TreemapNode | null) {
-      const row = subGroup ?? group;
-      const change = getChangePercent(row.amount, getPreviousAmount(row));
+    function toRows(group: TreemapNode): string[][] {
+      const change = getChangePercent(group.amount, getPreviousAmount(group));
       return [
-        group.name,
-        subGroup?.name ?? "",
-        row.amount.toLocaleString("en-US"),
-        `${countryBudget > 0 ? ((row.amount / countryBudget) * 100).toFixed(2) : "0.00"}%`,
-        change === null ? "" : `${change.toFixed(2)}%`,
+        [
+          String(group.path.length - node.path.length),
+          group.path.slice(node.path.length).join(" / "),
+          group.amount.toLocaleString("en-US"),
+          `${countryBudget > 0 ? ((group.amount / countryBudget) * 100).toFixed(2) : "0.00"}%`,
+          change === null ? "" : `${change.toFixed(2)}%`,
+        ],
+        ...group.children.flatMap(toRows),
       ];
     }
-    const rows = tree.children.flatMap((group) => [
-      toRow(group, null),
-      ...group.children.map((subGroup) => toRow(group, subGroup)),
-    ]);
     downloadCsv(
       [
+        "level",
         "group",
-        "subgroup",
         "amount",
         "percentage_of_country(%)",
         "change_from_previous_year(%)",
       ],
-      rows,
+      node.children.flatMap(toRows),
       `${csvName}_${grouping.value}_${year}.csv`,
     );
   }
@@ -175,15 +175,12 @@ export default function BudgetProportionComparisonSection({
           ดาวน์โหลดตารางนี้
         </Button>
       </div>
-      {/* The table shows every level at once, so it has no breadcrumb. */}
       <div className="flex flex-wrap items-center justify-between gap-[8px]">
-        {view === "treemap" && (
-          <TreemapBreadcrumb
-            tree={tree}
-            node={node}
-            onSelect={(step) => setPath(step.path)}
-          />
-        )}
+        <TreemapBreadcrumb
+          tree={tree}
+          node={node}
+          onSelect={(step) => setPath(step.path)}
+        />
         <ContentSwitcher
           selectedIndex={VIEWS.findIndex((v) => v.value === view)}
           onChange={({ index }) => setView(VIEWS[index ?? 0].value)}
@@ -219,8 +216,11 @@ export default function BudgetProportionComparisonSection({
           onDrill={handleDrill}
         />
       ) : (
+        // Keyed by level, like the treemap, so a new level opens with its
+        // rows closed.
         <TreemapTable
-          tree={tree}
+          key={getTreemapPathKey(node.path)}
+          node={node}
           countryBudget={countryBudget}
           getPreviousAmount={getPreviousAmount}
         />
