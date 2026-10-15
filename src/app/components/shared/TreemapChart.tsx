@@ -4,7 +4,11 @@ import { useMemo, useState } from "react";
 import { hierarchy, treemap } from "d3-hierarchy";
 import { Popover, PopoverContent } from "@carbon/react";
 import type { TreemapNode } from "@/types/treemap";
-import { TREEMAP_COLORS, formatTreemapPercent } from "@/constants/treemap";
+import {
+  TREEMAP_COLORS,
+  TREEMAP_MAX_TILES,
+  formatTreemapPercent,
+} from "@/constants/treemap";
 import ChangeBadge from "./ChangeBadge";
 
 // A tile needs this much room for its name, and this much height for its
@@ -61,10 +65,11 @@ export default function TreemapChart({
 
   const tiles = useMemo<Tile[]>(() => {
     if (width === 0) return [];
-    // Only the shown level's groups are tiles; their own groups wait for a
-    // click.
+    // Only the shown level's largest groups are tiles, filling the treemap
+    // between them; their own groups wait for a click. Each tile's
+    // percentage stays its share of the whole level.
     const root = hierarchy<TreemapNode>(node, (d) =>
-      d === node ? d.children : undefined,
+      d === node ? d.children.slice(0, TREEMAP_MAX_TILES) : undefined,
     ).sum((d) => (d === node ? 0 : d.amount));
     return (
       treemap<TreemapNode>().size([width, height]).paddingInner(4)(root)

@@ -24,6 +24,10 @@ export const TREEMAP_GROUPINGS: TreemapGroupingOption[] = [
   },
 ];
 
+// The most groups a treemap level shows, largest first. The table lists them
+// all.
+export const TREEMAP_MAX_TILES = 4;
+
 // Tile fills, given out in order from the largest tile.
 export const TREEMAP_COLORS = [
   "bg-blue-10",
