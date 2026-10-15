@@ -64,7 +64,7 @@ The split files are copies of `budget_*.json`, which is already in git. Committi
 Proposal:
 
 - A script (`scripts/split-budget-by-ministry.mjs`) writes the split files from the country-wide budget files.
-- It runs as `predev` and `prebuild` in `package.json`, and in `pnpm data:import`.
+- It runs before `next dev` and `next build` in the `dev` and `build` scripts in `package.json`, and in `pnpm data:import`.
 - `public/data/budget_by_ministry/` (and `budget_by_budgetary/` for C) goes in `.gitignore`.
 
 Both deploy workflows, `.github/workflows/deploy.yml` and `production.yml`, run `pnpm build`, so CI generates the files without workflow changes.
@@ -80,3 +80,79 @@ Both deploy workflows, `.github/workflows/deploy.yml` and `production.yml`, run 
 1. Is generating the split files at build time (gitignored) acceptable, or should data files always be committed?
 2. Is an ~845 MB published site (B) acceptable, given GitHub Pages' 1 GB limit? The ~420 MB of pre-rendered unit pages may be worth trimming separately.
 3. Should ministry 13's unit pages get per-unit files now, or wait until they're measured as slow?
+
+## Outcome
+
+Option B was adopted on 2026-10-13 and built as proposed (`split-budget-by-ministry.mjs`; the ministry and unit pages load `budget_by_ministry/`). C was not built.
+
+Changed since the comparison above:
+
+- **The split files also carry each row's budget category levels** (`category_levels`, the sheet's CATEGORY_LV\* columns), which only the treemap's ประเภทงบ grouping uses. They come from `public/data/category_levels/<year>.json`, which `pnpm data:import` writes beside each budget file: each distinct path once and each row as its path's index, in the budget file's row order. That file is committed, since the build can't fetch the sheet, and is about 1 MB for all three years. Pages never load it; the country-wide budget files, which Home and Search load, don't carry the levels.
+- **The split files are larger by about 10–15 %.** Measured on 2568–2570: 207 MB generated in total (was about 180 MB), median per-ministry file 0.7–0.9 MB, largest 18.6 MB (ministry 13, 2570; was 16.9 MB). Ministry 22's 2570 file is 359 KB (was 328 KB).
+- **The published site is estimated at about 875 MB** (was ~845 MB measured), still under GitHub Pages' 1 GB limit.
+
+### File shapes
+
+One real row, from ministry 22 in 2570, with the long fields shortened.
+
+`public/data/budget_2570_drafted.json`: every row in the country, the file Home and Search load.
+
+```jsonc
+[
+  {
+    "ministry": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "ministry_id": 22,
+    "budgetary": "สำนักงานส่งเสริมเศรษฐกิจดิจิทัล",
+    "budgetary_id": 207,
+    "plan": "แผนงานยุทธศาสตร์พัฒนาเศรษฐกิจและสังคมดิจิทัล",
+    "plan_prefix": "แผนงานยุทธศาสตร์",
+    "plan_suffix": "พัฒนาเศรษฐกิจและสังคมดิจิทัล",
+    "output": "ขับเคลื่อนยุทธศาสตร์ส่งเสริมเศรษฐกิจดิจิทัล",
+    "project": "",
+    "category": "งบเงินอุดหนุน",
+    "description": "ค่าเช่ารถยนต์ 4 คัน",
+    "amount": 2738400,
+    "fiscal_year": "2027",
+    "pdf_name": "เอกสารงบประมาณ ฉบับที่ ๓ เล่มที่ ๕",
+    "page_url": "https://bbstore.bb.go.th/cms/…pdf?#page=785",
+    "total_fiscal_amount": 18198600,
+    "fiscal_year_list": ["2023", "2024", "…", "2031"],
+  },
+  // … 47,688 rows in 2570
+]
+```
+
+`public/data/category_levels/2570_drafted.json`: each distinct level path once, and each budget row as its path's index, in the budget file's row order. Committed, not loaded by any page.
+
+```jsonc
+{
+  "paths": [
+    ["งบเงินอุดหนุน", "เงินอุดหนุนทั่วไป"],
+    ["งบเงินอุดหนุน", "เงินอุดหนุนทั่วไป", "ค่าใช้จ่ายดำเนินงาน"],
+    ["งบดำเนินงาน", "ค่าตอบแทน ใช้สอยและวัสดุ"],
+    // … 321 paths in 2570
+  ],
+  "rows": [0, 0, 1, 2 /* … one per budget row, 47,688 in 2570 */],
+}
+```
+
+`public/data/budget_by_ministry/2570_drafted/22.json`: generated at build time, gitignored. The ministry's rows only, unchanged, each with its levels added.
+
+```jsonc
+[
+  {
+    "ministry": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "ministry_id": 22,
+    "budgetary_id": 207,
+    "description": "ค่าเช่ารถยนต์ 4 คัน",
+    "amount": 2738400,
+    // … the same fields as in budget_2570_drafted.json
+    "category_levels": [
+      "งบเงินอุดหนุน",
+      "เงินอุดหนุนทั่วไป",
+      "ค่าใช้จ่ายดำเนินงาน",
+    ],
+  },
+  // … 267 rows for ministry 22 in 2570
+]
+```
