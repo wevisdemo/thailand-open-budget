@@ -29,6 +29,26 @@ export const COLUMN_MAP = {
   PAGE_URL: "page_url",
 };
 
+// The sheets' budget category columns, broadest first. Sheets differ in how
+// many they have (2570 adds an LV7); a sheet without one reads it as empty.
+export const CATEGORY_LEVEL_COLUMNS = [
+  "CATEGORY_LV1",
+  "CATEGORY_LV2",
+  "CATEGORY_LV3",
+  "CATEGORY_LV4",
+  "CATEGORY_LV5",
+  "CATEGORY_LV6",
+  "CATEGORY_LV7",
+];
+
+// A budget's category levels, in their own file beside the budget file:
+// only the per-ministry split adds them to rows (see
+// split-budget-by-ministry.mjs), so the country-wide budget files stay as
+// small as they are. No page loads this file itself.
+export function categoryLevelsFile(dataDir, sheetName) {
+  return `${dataDir}/category_levels/${sheetName}.json`;
+}
+
 // Fields that must match for two obliged rows to be treated as the same item
 // spread across fiscal years.
 export const OBLIGED_KEY_FIELDS = [

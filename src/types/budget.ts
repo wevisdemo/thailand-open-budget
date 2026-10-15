@@ -13,6 +13,12 @@ export interface BudgetItem {
   output: string;
   project: string;
   category: string;
+  // ["category_level1", "category_level2", ...]: the sheet's CATEGORY_LV*
+  // columns, broadest first, up to the row's last filled level, e.g.
+  // ["งบดำเนินงาน", "ค่าตอบแทน ใช้สอยและวัสดุ"]. Only in the per-ministry
+  // files the ministry and budgetary pages load
+  // (scripts/split-budget-by-ministry.mjs), not the country-wide ones.
+  category_levels?: string[];
   description: string;
   amount: number;
   pdf_name: string;

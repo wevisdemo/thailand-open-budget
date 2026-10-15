@@ -13,6 +13,8 @@
  *
  * Output:
  *   public/data/budget_<sheet_name>.json
+ *   public/data/category_levels/<sheet_name>.json
+ *     each row's CATEGORY_LV* levels, in the budget file's row order
  */
 
 import { writeFile, mkdir } from "fs/promises";
@@ -23,6 +25,8 @@ import {
   SHEET_GID_MAP,
   COLUMN_MAP,
   OBLIGED_KEY_FIELDS,
+  CATEGORY_LEVEL_COLUMNS,
+  categoryLevelsFile,
 } from "./constants.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -30,6 +34,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SHEET_NAME = process.argv[2] || "2568_drafted";
 const OUT_DIR = join(__dirname, "..", "public", "data");
 const OUT_FILE = join(OUT_DIR, `budget_${SHEET_NAME}.json`);
+const LEVELS_FILE = categoryLevelsFile(OUT_DIR, SHEET_NAME);
 
 async function fetchCSV() {
   const gid = SHEET_GID_MAP[SHEET_NAME];
@@ -78,6 +83,11 @@ function parseCSV(csv) {
     Object.keys(COLUMN_MAP).map((col) => [col, headers.indexOf(col)]),
   );
 
+  // The category level columns the sheet has, broadest first.
+  const levelIndexes = CATEGORY_LEVEL_COLUMNS.map((col) =>
+    headers.indexOf(col),
+  ).filter((index) => index !== -1);
+
   const missing = Object.entries(colIndex)
     .filter(([, idx]) => idx === -1)
     .map(([col]) => col);
@@ -97,6 +107,11 @@ function parseCSV(csv) {
       output: row[colIndex.OUTPUT] || "",
       project: row[colIndex.PROJECT] || "",
       category: row[colIndex.CATEGORY_LV1] || "",
+      // Trimmed, as the sheet spells some names with a trailing space, and
+      // without the empty levels after the last one a row has.
+      category_levels: levelIndexes
+        .map((index) => (row[index] || "").trim())
+        .filter(Boolean),
       description: row[colIndex.ITEM_DESCRIPTION] || "",
       amount: Number(row[colIndex.AMOUNT]?.replace(/,/g, "")) || 0,
       fiscal_year: row[colIndex.FISCAL_YEAR] || "",
@@ -166,6 +181,7 @@ function collapseObliged(rows, reportYear) {
     output: row.output,
     project: row.project,
     category: row.category,
+    category_levels: row.category_levels,
     description: row.description,
     amount: row.obliged ? reportYearAmount : row.amount,
     fiscal_year: row.obliged ? reportYear : row.fiscal_year,
@@ -196,11 +212,32 @@ async function main() {
   const data = collapsed.filter((row) => row.fiscal_year === reportYear);
   console.log(`Dropped ${collapsed.length - data.length} off-year rows`);
 
-  await mkdir(OUT_DIR, { recursive: true });
-  await writeFile(OUT_FILE, JSON.stringify(data));
+  // The category levels go to their own file, each distinct path once and
+  // each row as its path's index, in the budget file's row order.
+  const pathIndex = new Map();
+  const paths = [];
+  const levelRows = [];
+  const budget = data.map(({ category_levels, ...row }) => {
+    const key = category_levels.join("\u001f");
+    if (!pathIndex.has(key)) {
+      pathIndex.set(key, paths.length);
+      paths.push(category_levels);
+    }
+    levelRows.push(pathIndex.get(key));
+    return row;
+  });
 
-  const sizeKB = Buffer.byteLength(JSON.stringify(data)) / 1024;
+  await mkdir(OUT_DIR, { recursive: true });
+  await writeFile(OUT_FILE, JSON.stringify(budget));
+  const sizeKB = Buffer.byteLength(JSON.stringify(budget)) / 1024;
   console.log(`Saved → ${OUT_FILE} (${sizeKB.toFixed(0)} KB)`);
+
+  const levels = JSON.stringify({ paths, rows: levelRows });
+  await mkdir(dirname(LEVELS_FILE), { recursive: true });
+  await writeFile(LEVELS_FILE, levels);
+  console.log(
+    `Saved → ${LEVELS_FILE} (${paths.length} paths, ${(Buffer.byteLength(levels) / 1024).toFixed(0)} KB)`,
+  );
 }
 
 main().catch((err) => {
