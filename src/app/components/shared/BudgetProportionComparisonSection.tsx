@@ -151,6 +151,9 @@ export default function BudgetProportionComparisonSection({
   }
 
   const InfoModal = INFO_MODALS[grouping.value];
+  // A grouping of one level, like งบผูกพัน, has nowhere to go, so it has no
+  // breadcrumb.
+  const hasLevels = tree.children.some((group) => group.children.length > 0);
   const isEmpty = !isLoading && !isError && node.children.length === 0;
 
   return (
@@ -194,11 +197,13 @@ export default function BudgetProportionComparisonSection({
         </Button>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-[8px]">
-        <TreemapBreadcrumb
-          tree={tree}
-          node={node}
-          onSelect={(step) => setPath(step.path)}
-        />
+        {hasLevels && (
+          <TreemapBreadcrumb
+            tree={tree}
+            node={node}
+            onSelect={(step) => setPath(step.path)}
+          />
+        )}
         <ContentSwitcher
           selectedIndex={VIEWS.findIndex((v) => v.value === view)}
           onChange={({ index }) => setView(VIEWS[index ?? 0].value)}
