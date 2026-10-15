@@ -146,6 +146,14 @@ export function getTreemapNode(
   return node;
 }
 
+// How many levels of groups lie below a node: 0 for a group with none, 1 for
+// one whose groups have none, and so on.
+export function getTreemapDepth(node: TreemapNode): number {
+  return node.children.length === 0
+    ? 0
+    : 1 + Math.max(...node.children.map(getTreemapDepth));
+}
+
 export function getTreemapPathKey(path: string[]): string {
   return path.join("\u001f");
 }

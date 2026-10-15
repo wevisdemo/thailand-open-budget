@@ -19,6 +19,7 @@ import {
   TREEMAP_GROUPINGS,
   buildTreemapTree,
   getTreemapAmounts,
+  getTreemapDepth,
   getTreemapNode,
   getTreemapPathKey,
 } from "@/constants/treemap";
@@ -153,7 +154,7 @@ export default function BudgetProportionComparisonSection({
   const InfoModal = INFO_MODALS[grouping.value];
   // A grouping of one level, like งบผูกพัน, has nowhere to go, so it has no
   // breadcrumb.
-  const hasLevels = tree.children.some((group) => group.children.length > 0);
+  const hasLevels = getTreemapDepth(tree) > 1;
   const isEmpty = !isLoading && !isError && node.children.length === 0;
 
   return (

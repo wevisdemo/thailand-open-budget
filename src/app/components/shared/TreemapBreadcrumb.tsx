@@ -1,5 +1,5 @@
 import type { TreemapNode } from "@/types/treemap";
-import { getTreemapNode } from "@/constants/treemap";
+import { getTreemapDepth, getTreemapNode } from "@/constants/treemap";
 
 interface TreemapBreadcrumbProps {
   tree: TreemapNode;
@@ -10,7 +10,8 @@ interface TreemapBreadcrumbProps {
 
 // The levels from the top down to the one shown, e.g. "แผนงานทั้งหมด /
 // แผนงานบูรณาการ"; each level above it goes back there. While the shown
-// level's groups have groups of their own, a hint says they can be clicked.
+// level's groups have groups of their own, a hint says how many levels down
+// a click can still go.
 export default function TreemapBreadcrumb({
   tree,
   node,
@@ -22,7 +23,9 @@ export default function TreemapBreadcrumb({
       (_, i) => getTreemapNode(tree, node.path.slice(0, i + 1))!,
     ),
   ];
-  const canDrill = node.children.some((child) => child.children.length > 0);
+  // The levels a click can still go down: the shown tiles are one level
+  // below the node, so a node reaching LV6 from LV1 tiles leaves 5.
+  const levelsLeft = getTreemapDepth(node) - 1;
 
   return (
     <nav aria-label="ระดับที่แสดง">
@@ -48,11 +51,11 @@ export default function TreemapBreadcrumb({
             )}
           </li>
         ))}
-        {canDrill && (
+        {levelsLeft > 0 && (
           <li className="text-text-02 flex items-center gap-[8px]">
             <span aria-hidden>/</span>
             <span aria-hidden>•</span>
-            คลิกเพื่อดูอีก 1 ระดับ
+            คลิกเพื่อดูอีก {levelsLeft} ระดับ
           </li>
         )}
       </ol>
