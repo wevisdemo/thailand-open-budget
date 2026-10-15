@@ -53,11 +53,12 @@ function getItemPath(item: BudgetItem, grouping: TreemapGrouping): string[] {
     const levels = item.category_levels ?? [];
     return levels.length ? levels : ["ไม่ระบุประเภทงบ"];
   }
-  // TODO: 2569's data lists a single fiscal year for every item, so 2570's
-  // obligation groups have no fair 2569 figure to compare with. Decide
-  // whether to hide the change for this grouping until the sheet is fixed.
-  const years = item.fiscal_year_list.length;
-  return years > 1 ? ["งบผูกพันข้ามปี", `ผูกพัน ${years} ปี`] : ["งบปีเดียว"];
+  // One level: whether the item is committed across fiscal years.
+  // 2569's sheet lists a single fiscal year for every item, so in 2570 the
+  // งบผูกพันข้ามปี group finds no 2569 figure and shows ไม่พบข้อมูล.
+  return item.fiscal_year_list.length > 1
+    ? ["งบผูกพันข้ามปี"]
+    : ["ไม่ใช่งบผูกพันข้ามปี"];
 }
 
 // The group a level's items that go no deeper fall in, beside the level's
