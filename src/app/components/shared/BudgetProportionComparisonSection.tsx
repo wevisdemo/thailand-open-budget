@@ -24,6 +24,7 @@ import {
 } from "@/constants/treemap";
 import { getChangePercent } from "@/constants/organization";
 import { downloadCsv } from "@/lib/csv";
+import CategoryInfoModal from "./CategoryInfoModal";
 import PlanInfoModal from "./PlanInfoModal";
 import TreemapBreadcrumb from "./TreemapBreadcrumb";
 import TreemapChart from "./TreemapChart";
@@ -68,7 +69,7 @@ export default function BudgetProportionComparisonSection({
   );
   const [path, setPath] = useState<string[]>([]);
   const [view, setView] = useState<TreemapView>("treemap");
-  const [planInfoOpen, setPlanInfoOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
   const [width, setWidth] = useState(0);
   const height = width < 640 ? 400 : 580;
 
@@ -146,8 +147,12 @@ export default function BudgetProportionComparisonSection({
   return (
     <div ref={measureRef} className="flex flex-col gap-[16px]">
       <PlanInfoModal
-        isOpen={planInfoOpen}
-        onClose={() => setPlanInfoOpen(false)}
+        isOpen={infoOpen && grouping.value === "plan"}
+        onClose={() => setInfoOpen(false)}
+      />
+      <CategoryInfoModal
+        isOpen={infoOpen && grouping.value === "category"}
+        onClose={() => setInfoOpen(false)}
       />
       <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-[8px]">
@@ -167,13 +172,14 @@ export default function BudgetProportionComparisonSection({
             }}
             className="w-[160px] [&_.cds--list-box]:bg-white [&_.cds--list-box\_\_label]:text-[16px] [&_.cds--list-box\_\_label]:font-bold"
           />
-          {grouping.value === "plan" && (
+          {/* งบผูกพัน has no explainer. */}
+          {grouping.value !== "obligation" && (
             <button
               type="button"
-              onClick={() => setPlanInfoOpen(true)}
+              onClick={() => setInfoOpen(true)}
               className="text-link-01 cursor-pointer text-[14px] underline"
             >
-              แผนงานคืออะไร?
+              {grouping.label}คืออะไร?
             </button>
           )}
         </div>
