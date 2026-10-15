@@ -51,10 +51,8 @@ function getItemPath(item: BudgetItem, grouping: TreemapGrouping): string[] {
       : [item.plan_prefix];
   }
   if (grouping === "category") {
-    return [
-      item.category || "ไม่ระบุประเภทงบ",
-      item.description || item.output,
-    ];
+    const levels = item.category_levels ?? [];
+    return levels.length ? levels : ["ไม่ระบุประเภทงบ"];
   }
   // TODO: 2569's data lists a single fiscal year for every item, so 2570's
   // obligation groups have no fair 2569 figure to compare with. Decide
@@ -63,26 +61,41 @@ function getItemPath(item: BudgetItem, grouping: TreemapGrouping): string[] {
   return years > 1 ? ["งบผูกพันข้ามปี", `ผูกพัน ${years} ปี`] : ["งบปีเดียว"];
 }
 
+// The group a level's items that go no deeper fall in, beside the level's
+// groups: a budget category's items without a sub-category, for one.
+const NO_SUBGROUP = "ไม่ระบุหมวดย่อย";
+
 interface MutableNode {
   name: string;
   path: string[];
   amount: number;
+  // The amount of the items whose path ends here.
+  ownAmount: number;
   children: Map<string, MutableNode>;
 }
 
 function freeze(node: MutableNode): TreemapNode {
+  const children = [...node.children.values()].map(freeze);
+  if (children.length > 0 && node.ownAmount > 0) {
+    children.push({
+      name: NO_SUBGROUP,
+      path: [...node.path, NO_SUBGROUP],
+      amount: node.ownAmount,
+      children: [],
+    });
+  }
   return {
     name: node.name,
     path: node.path,
     amount: node.amount,
-    children: [...node.children.values()]
-      .map(freeze)
-      .sort((a, b) => b.amount - a.amount),
+    children: children.sort((a, b) => b.amount - a.amount),
   };
 }
 
 // The items summed into groups, then into the groups' own groups. Items of
-// no amount are left out: they would have no area to show.
+// no amount are left out: they would have no area to show. A group with
+// both items that stop there and deeper groups shows the stopping items as
+// one more group, ไม่ระบุหมวดย่อย, so its groups add up to its amount.
 export function buildTreemapTree(
   items: BudgetItem[],
   grouping: TreemapGrouping,
@@ -92,6 +105,7 @@ export function buildTreemapTree(
     name: rootLabel,
     path: [],
     amount: 0,
+    ownAmount: 0,
     children: new Map(),
   };
   for (const item of items) {
@@ -105,6 +119,7 @@ export function buildTreemapTree(
           name,
           path: [...node.path, name],
           amount: 0,
+          ownAmount: 0,
           children: new Map(),
         };
         node.children.set(name, child);
@@ -112,6 +127,7 @@ export function buildTreemapTree(
       child.amount += item.amount;
       node = child;
     }
+    node.ownAmount += item.amount;
   }
   return freeze(root);
 }
