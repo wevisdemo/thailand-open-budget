@@ -4,7 +4,6 @@ import type {
   TreemapGroupingOption,
   TreemapNode,
 } from "@/types/treemap";
-import { getPlanName } from "@/constants/budget";
 
 export const TREEMAP_GROUPINGS: TreemapGroupingOption[] = [
   {
@@ -40,14 +39,16 @@ export const TREEMAP_COLORS = [
   "bg-red-20",
 ];
 
-// The groups an item falls in, from the top level down. A plan whose name is
-// only its type, e.g. แผนงานบุคลากรภาครัฐ, has no level under its type.
+// The groups an item falls in, from the top level down. A plan is named
+// under its type without the type, which the level above already shows:
+// แผนงานพื้นฐานด้านความมั่นคง is ด้านความมั่นคง under แผนงานพื้นฐาน. A plan
+// whose name is only its type, e.g. แผนงานบุคลากรภาครัฐ, has no level under
+// its type.
 function getItemPath(item: BudgetItem, grouping: TreemapGrouping): string[] {
   if (grouping === "plan") {
-    const plan = getPlanName(item);
-    return plan === item.plan_prefix
-      ? [item.plan_prefix]
-      : [item.plan_prefix, plan];
+    return item.plan_suffix
+      ? [item.plan_prefix, item.plan_suffix]
+      : [item.plan_prefix];
   }
   if (grouping === "category") {
     return [

@@ -35,14 +35,6 @@ interface TreemapTableProps {
   getPreviousAmount: (group: TreemapNode) => number | null;
 }
 
-// A sub-group's name without its group's, which the row above already
-// shows: "แผนงานยุทธศาสตร์พัฒนา…" under แผนงานยุทธศาสตร์ reads "พัฒนา…".
-function getSubGroupName(group: TreemapNode, parent: TreemapNode): string {
-  return group.name.startsWith(parent.name) && group.name !== parent.name
-    ? group.name.slice(parent.name.length)
-    : group.name;
-}
-
 // The groups as a table, each opening to its sub-groups. Unsorted, groups
 // keep the treemap's order, largest first.
 export default function TreemapTable({
@@ -164,7 +156,7 @@ export default function TreemapTable({
                       className="[&>td]:bg-ui-01! [&>td]:border-transparent!"
                     >
                       <TableCell />
-                      <TableCell>{getSubGroupName(child, group)}</TableCell>
+                      <TableCell>{child.name}</TableCell>
                       {renderCells(child)}
                     </TableRow>
                   ))}
