@@ -10,22 +10,21 @@ export const TREEMAP_GROUPINGS: TreemapGroupingOption[] = [
     value: "plan",
     label: "แผนงาน",
     rootLabel: "แผนงานทั้งหมด",
+    maxTiles: 4,
   },
   {
     value: "category",
     label: "ประเภทงบ",
     rootLabel: "ประเภทงบทั้งหมด",
+    maxTiles: 5,
   },
   {
     value: "obligation",
     label: "งบผูกพัน",
     rootLabel: "งบทั้งหมด",
+    maxTiles: 4,
   },
 ];
-
-// The most groups a treemap level shows, largest first. The table lists them
-// all.
-export const TREEMAP_MAX_TILES = 4;
 
 // Tile fills, given out in order from the largest tile.
 export const TREEMAP_COLORS = [

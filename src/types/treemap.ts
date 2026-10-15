@@ -16,4 +16,7 @@ export interface TreemapGroupingOption {
   label: string;
   // The breadcrumb's first step, e.g. "แผนงานทั้งหมด".
   rootLabel: string;
+  // The most groups a treemap level shows, largest first. The table lists
+  // them all.
+  maxTiles: number;
 }
