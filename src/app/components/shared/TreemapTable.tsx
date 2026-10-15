@@ -39,9 +39,8 @@ interface TreemapTableProps {
   // The level the treemap shows: its groups are the rows, each opening to
   // its own groups, down to the deepest level.
   node: TreemapNode;
-  // The country's budget, which the % column is a share of.
-  // TODO: confirm the design means the country's budget, as its header
-  // says, rather than the organization's own.
+  // The country's budget, which the % column is a share of, as its header
+  // says: "% ของงบฯ ประเทศ".
   countryBudget: number;
   getPreviousAmount: (group: TreemapNode) => number | null;
 }
