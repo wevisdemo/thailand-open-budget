@@ -6,7 +6,11 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft } from "@carbon/icons-react";
 import type { BudgetBase } from "@/types/budget";
 import type { OrganizationYearTotal } from "@/types/organization";
-import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
+import {
+  DOC_SOURCE_OPTIONS,
+  type DocSourceValue,
+  getPreviousDocSource,
+} from "@/constants/budget";
 import {
   getOrganizationYearTotal,
   getRelatedDocuments,
@@ -28,6 +32,7 @@ import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
 import BudgetBaseSelect from "@/app/components/shared/BudgetBaseSelect";
 import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
+import BudgetProportionComparisonSection from "@/app/components/shared/BudgetProportionComparisonSection";
 
 interface BudgetaryTemplateProps {
   ministryId: number;
@@ -76,6 +81,13 @@ export default function BudgetaryTemplate({
     docSource,
     ministryId,
   );
+  // The year before's items, likewise the ministry's, for the treemap's
+  // change from the previous year. The first year in the data has none.
+  const previousDocSource = getPreviousDocSource(docSource);
+  const { data: previousBudgetData, status: previousStatus } = useBudgetData(
+    previousDocSource,
+    ministryId,
+  );
   const { data: budgetaryContent } = useBudgetaryCoreContent(budgetaryId);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
   // Both cards measure the unit against the same base; either card's
@@ -87,7 +99,16 @@ export default function BudgetaryTemplate({
     () => budgetData.filter((item) => item.budgetary_id === budgetaryId),
     [budgetData, budgetaryId],
   );
+  const previousItems = useMemo(
+    () =>
+      previousBudgetData.filter((item) => item.budgetary_id === budgetaryId),
+    [previousBudgetData, budgetaryId],
+  );
   const relatedDocuments = useMemo(() => getRelatedDocuments(items), [items]);
+  const countryBudget = yearTotals.reduce(
+    (sum, total) => sum + total.budget_amount,
+    0,
+  );
 
   // A unit is built if it is budgeted in any year; in a year it isn't, there
   // is nothing to show, so the reader goes on to every organization that year.
@@ -125,6 +146,9 @@ export default function BudgetaryTemplate({
   );
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
+  const isPreviousLoading =
+    previousDocSource !== null &&
+    (previousStatus === "idle" || previousStatus === "loading");
   const ministryHref = `/organizations/${ministryId}?budget_source=${docSource}`;
 
   const breadcrumb = [
@@ -229,6 +253,19 @@ export default function BudgetaryTemplate({
               }
             />
           </div>
+          <BudgetProportionComparisonSection
+            items={items}
+            previousItems={
+              previousDocSource && previousStatus === "success"
+                ? previousItems
+                : null
+            }
+            countryBudget={countryBudget}
+            year={year}
+            csvName={`budgetary_${budgetaryId}`}
+            isLoading={isBudgetLoading || isPreviousLoading}
+            isError={budgetStatus === "error"}
+          />
           <OrganizationItemSection
             items={items}
             isMinistry={false}
