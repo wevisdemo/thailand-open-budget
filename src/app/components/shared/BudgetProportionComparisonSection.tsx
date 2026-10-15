@@ -25,12 +25,20 @@ import {
 import { getChangePercent } from "@/constants/organization";
 import { downloadCsv } from "@/lib/csv";
 import CategoryInfoModal from "./CategoryInfoModal";
+import ObligationInfoModal from "./ObligationInfoModal";
 import PlanInfoModal from "./PlanInfoModal";
 import TreemapBreadcrumb from "./TreemapBreadcrumb";
 import TreemapChart from "./TreemapChart";
 import TreemapTable from "./TreemapTable";
 
 type TreemapView = "treemap" | "table";
+
+// The modal the "…คืออะไร?" link beside the dropdown opens, per grouping.
+const INFO_MODALS = {
+  plan: PlanInfoModal,
+  category: CategoryInfoModal,
+  obligation: ObligationInfoModal,
+};
 
 const VIEWS: { value: TreemapView; label: string }[] = [
   { value: "treemap", label: "แผนภาพ" },
@@ -142,18 +150,12 @@ export default function BudgetProportionComparisonSection({
     );
   }
 
+  const InfoModal = INFO_MODALS[grouping.value];
   const isEmpty = !isLoading && !isError && node.children.length === 0;
 
   return (
     <div ref={measureRef} className="flex flex-col gap-[16px]">
-      <PlanInfoModal
-        isOpen={infoOpen && grouping.value === "plan"}
-        onClose={() => setInfoOpen(false)}
-      />
-      <CategoryInfoModal
-        isOpen={infoOpen && grouping.value === "category"}
-        onClose={() => setInfoOpen(false)}
-      />
+      <InfoModal isOpen={infoOpen} onClose={() => setInfoOpen(false)} />
       <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-[8px]">
           <h2 className="font-serif text-[28px] font-bold">
@@ -172,16 +174,13 @@ export default function BudgetProportionComparisonSection({
             }}
             className="w-[160px] [&_.cds--list-box]:bg-white [&_.cds--list-box\_\_label]:text-[16px] [&_.cds--list-box\_\_label]:font-bold"
           />
-          {/* งบผูกพัน has no explainer. */}
-          {grouping.value !== "obligation" && (
-            <button
-              type="button"
-              onClick={() => setInfoOpen(true)}
-              className="text-link-01 cursor-pointer text-[14px] underline"
-            >
-              {grouping.label}คืออะไร?
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={() => setInfoOpen(true)}
+            className="text-link-01 cursor-pointer text-[14px] underline"
+          >
+            {grouping.label}คืออะไร?
+          </button>
         </div>
         <Button
           kind="ghost"
