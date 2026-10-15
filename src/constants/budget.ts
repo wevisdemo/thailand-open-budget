@@ -21,6 +21,15 @@ export const DOC_SOURCE_OPTIONS: { value: DocSourceValue; label: string }[] = [
   // { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
 ];
 
+// The document of the year before `docSource`, for changes from the
+// previous year; null for the first year in the data.
+export function getPreviousDocSource(
+  docSource: DocSourceValue,
+): DocSourceValue | null {
+  const index = DOC_SOURCE_OPTIONS.findIndex((o) => o.value === docSource);
+  return DOC_SOURCE_OPTIONS[index - 1]?.value ?? null;
+}
+
 export const BUDGET_BASE_OPTIONS: { value: BudgetBase; label: string }[] = [
   { value: "country", label: "งบฯ ประเทศ" },
   { value: "ministry", label: "งบฯ กระทรวง" },

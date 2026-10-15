@@ -5,7 +5,11 @@ import type {
   OrganizationCoreContent,
   OrganizationYearTotal,
 } from "@/types/organization";
-import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
+import {
+  DOC_SOURCE_OPTIONS,
+  type DocSourceValue,
+  getPreviousDocSource,
+} from "@/constants/budget";
 import {
   getOrganizationYearTotal,
   getRelatedDocuments,
@@ -74,10 +78,7 @@ export default function MinistryTemplate({
   );
   // The year before's items, for the treemap's change from the previous year.
   // The first year in the data has none.
-  const previousDocSource =
-    DOC_SOURCE_OPTIONS[
-      DOC_SOURCE_OPTIONS.findIndex((o) => o.value === docSource) - 1
-    ]?.value ?? null;
+  const previousDocSource = getPreviousDocSource(docSource);
   const { data: previousItems, status: previousStatus } = useBudgetData(
     previousDocSource,
     ministryId,
