@@ -24,6 +24,7 @@ import {
 } from "@/constants/treemap";
 import { getChangePercent } from "@/constants/organization";
 import { downloadCsv } from "@/lib/csv";
+import PlanInfoModal from "./PlanInfoModal";
 import TreemapBreadcrumb from "./TreemapBreadcrumb";
 import TreemapChart from "./TreemapChart";
 import TreemapTable from "./TreemapTable";
@@ -67,6 +68,7 @@ export default function BudgetProportionComparisonSection({
   );
   const [path, setPath] = useState<string[]>([]);
   const [view, setView] = useState<TreemapView>("treemap");
+  const [planInfoOpen, setPlanInfoOpen] = useState(false);
   const [width, setWidth] = useState(0);
   const height = width < 640 ? 400 : 580;
 
@@ -143,6 +145,10 @@ export default function BudgetProportionComparisonSection({
 
   return (
     <div ref={measureRef} className="flex flex-col gap-[16px]">
+      <PlanInfoModal
+        isOpen={planInfoOpen}
+        onClose={() => setPlanInfoOpen(false)}
+      />
       <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-[8px]">
           <h2 className="font-serif text-[28px] font-bold">
@@ -161,8 +167,15 @@ export default function BudgetProportionComparisonSection({
             }}
             className="w-[160px] [&_.cds--list-box]:bg-white [&_.cds--list-box\_\_label]:text-[16px] [&_.cds--list-box\_\_label]:font-bold"
           />
-          {/* TODO: the design's "แผนงานคืออะไร?" link goes here, once what
-              it shows or links to is decided. */}
+          {grouping.value === "plan" && (
+            <button
+              type="button"
+              onClick={() => setPlanInfoOpen(true)}
+              className="text-link-01 cursor-pointer text-[14px] underline"
+            >
+              แผนงานคืออะไร?
+            </button>
+          )}
         </div>
         <Button
           kind="ghost"
