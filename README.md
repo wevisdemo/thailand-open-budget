@@ -19,8 +19,8 @@ Since 2022, we have been converting draft budget data from PDF & non-machinable 
 
 ### **Related resources**
 
-- Figma link
-- Spreadsheet
-- Budget data sources
-- openbudget-validation-tools
-- wevis-openbudget-ocr
+- [Figma link](https://www.figma.com/design/qpfj9wEV0LY0Le2OHKLuzL/Open-budget-Re-design?node-id=2428-37680&t=CAGUUmtE9T7H5sGc-1)
+- [Spreadsheet](https://docs.google.com/spreadsheets/d/1OfQIUzd82a5A_WpMk88-1G-dmsYI-8naJHtg7_1LSZg/edit?usp=sharing)
+- [Budget data sources](https://www.bb.go.th/topic.php?gid=543&mid=308)
+- [openbudget-validation-tools](https://github.com/wevisdemo/wevis-openbudget-validation-tools)
+- [wevis-openbudget-ocr](https://github.com/wevisdemo/wevis-openbudget-ocr)
