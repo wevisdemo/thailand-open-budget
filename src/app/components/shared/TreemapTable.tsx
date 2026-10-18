@@ -25,7 +25,7 @@ import ShareBar from "./ShareBar";
 import ChangeBadge from "./ChangeBadge";
 
 // Each level down sits this much further right.
-const INDENT = 56;
+const INDENT = 48;
 
 // Each level down sits on a darker grey, from the third level on the same;
 // only the top level's rows are divided by lines.
@@ -97,28 +97,21 @@ export default function TreemapTable({
         className={ROW_STYLES[Math.min(depth, ROW_STYLES.length - 1)]}
       >
         <TableCell style={{ paddingLeft: 16 + depth * INDENT }}>
-          <div className="flex items-start gap-[16px]">
+          <div className="flex items-start gap-[32px]">
             {hasChildren ? (
               <button
                 type="button"
                 aria-expanded={isExpanded}
                 aria-label={isExpanded ? "ซ่อนหมวดย่อย" : "ดูหมวดย่อย"}
                 onClick={() => toggle(key)}
-                className="flex h-[24px] w-[24px] shrink-0 cursor-pointer items-center justify-center"
+                className="flex h-[22px] w-[16px] shrink-0 cursor-pointer items-center justify-center"
               >
                 <Chevron />
               </button>
             ) : (
-              <span className="w-[24px] shrink-0" />
+              <span className="w-[16px] shrink-0" />
             )}
-            <div>
-              <p>{group.name}</p>
-              {depth === 0 && hasChildren && (
-                <p className="text-text-03 text-[14px]">
-                  มี {group.children.length.toLocaleString()} หมวดย่อย
-                </p>
-              )}
-            </div>
+            <p>{group.name}</p>
           </div>
         </TableCell>
         <TableCell className="text-right whitespace-nowrap">
@@ -132,10 +125,13 @@ export default function TreemapTable({
             fill={(group.amount / maxAmount) * 100}
           />
         </TableCell>
-        <TableCell className="text-right">
+        {/* The badge is taller than a line of text: less padding keeps the
+            row at the text's height. */}
+        <TableCell className="py-[10px]! text-right">
           <ChangeBadge
             amount={group.amount}
             previousAmount={getPreviousAmount(group)}
+            onLayer={depth > 0}
           />
         </TableCell>
       </TableRow>
@@ -153,7 +149,7 @@ export default function TreemapTable({
     <div className="overflow-x-auto">
       {/* The design shows the ↑↓ icon on unsorted columns too, as in the
           units table, with each cell aligned to its row's first line. */}
-      <Table className="[&_td]:text-text-01 [&_.cds--table-sort\_\_icon-unsorted]:opacity-100 [&_td]:py-[14px] [&_td]:align-top">
+      <Table className="[&_td]:text-text-01 [&_.cds--table-sort\_\_icon-unsorted]:opacity-100 [&_td]:py-[12px] [&_td]:align-top [&_td]:leading-[22px]">
         <TableHead>
           <TableRow>
             <TableHeader>ประเภท</TableHeader>
