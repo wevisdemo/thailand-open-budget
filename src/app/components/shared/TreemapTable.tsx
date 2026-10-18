@@ -36,20 +36,21 @@ const ROW_STYLES = [
 ];
 
 interface TreemapTableProps {
-  // The level the treemap shows: its groups are the rows, each opening to
-  // its own groups, down to the deepest level.
-  node: TreemapNode;
+  // The top level: its groups are the rows, each opening to its own groups,
+  // down to the deepest level.
+  tree: TreemapNode;
   // The country's budget, which the % column is a share of, as its header
   // says: "% ของงบฯ ประเทศ".
   countryBudget: number;
   getPreviousAmount: (group: TreemapNode) => number | null;
 }
 
-// The treemap's level as a tree table: a group's chevron opens its groups
-// in rows under it, one step further right, and so on down. Unsorted, groups
-// keep the treemap's order, largest first; a sort orders every level.
+// The groups as a tree table, from the top level whichever level the
+// treemap shows: a group's chevron opens its groups in rows under it, one
+// step further right, and so on down. Unsorted, groups keep the treemap's
+// order, largest first; a sort orders every level.
 export default function TreemapTable({
-  node,
+  tree,
   countryBudget,
   getPreviousAmount,
 }: TreemapTableProps) {
@@ -57,7 +58,7 @@ export default function TreemapTable({
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   // Bars are scaled to the level's largest group, as no group nears 100%.
-  const maxAmount = Math.max(...node.children.map((g) => g.amount), 1);
+  const maxAmount = Math.max(...tree.children.map((g) => g.amount), 1);
 
   function sortGroups(groups: TreemapNode[]): TreemapNode[] {
     if (!sort) return groups;
@@ -166,7 +167,7 @@ export default function TreemapTable({
           </TableRow>
         </TableHead>
         <TableBody>
-          {sortGroups(node.children).flatMap((group) => renderRows(group, 0))}
+          {sortGroups(tree.children).flatMap((group) => renderRows(group, 0))}
         </TableBody>
       </Table>
     </div>

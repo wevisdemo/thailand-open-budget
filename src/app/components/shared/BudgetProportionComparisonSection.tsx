@@ -62,8 +62,8 @@ interface BudgetProportionComparisonSectionProps {
 
 // "เปรียบเทียบสัดส่วนงบตาม": a set of budget items as a treemap of their
 // groups, by plan, budget category or obligation. Clicking a group shows the
-// groups inside it; a table view lists the same level's groups, each
-// opening to its own, down to the deepest level.
+// groups inside it; a table view lists the top level's groups, each opening
+// to its own, down to the deepest level.
 export default function BudgetProportionComparisonSection({
   items,
   previousItems,
@@ -122,15 +122,15 @@ export default function BudgetProportionComparisonSection({
     setPath(child.path);
   }
 
-  // The table's rows for the level shown, every level open: each group,
-  // then its groups, named by their path from the level shown.
+  // The table's rows, every level open: each group, then its groups, named
+  // by their path from the top.
   function handleDownload() {
     function toRows(group: TreemapNode): string[][] {
       const change = getChangePercent(group.amount, getPreviousAmount(group));
       return [
         [
-          String(group.path.length - node.path.length),
-          group.path.slice(node.path.length).join(" / "),
+          String(group.path.length),
+          group.path.join(" / "),
           group.amount.toLocaleString("en-US"),
           `${countryBudget > 0 ? ((group.amount / countryBudget) * 100).toFixed(2) : "0.00"}%`,
           change === null ? "" : `${change.toFixed(2)}%`,
@@ -146,7 +146,7 @@ export default function BudgetProportionComparisonSection({
         "percentage_of_country(%)",
         "change_from_previous_year(%)",
       ],
-      node.children.flatMap(toRows),
+      tree.children.flatMap(toRows),
       `${csvName}_${grouping.value}_${year}.csv`,
     );
   }
@@ -198,7 +198,9 @@ export default function BudgetProportionComparisonSection({
         </Button>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-[8px]">
-        {hasLevels && (
+        {/* The table always shows the top level, so only the treemap has a
+            breadcrumb. */}
+        {view === "treemap" && hasLevels && (
           <TreemapBreadcrumb
             tree={tree}
             node={node}
@@ -239,11 +241,10 @@ export default function BudgetProportionComparisonSection({
           onDrill={handleDrill}
         />
       ) : (
-        // Keyed by level, like the treemap, so a new level opens with its
-        // rows closed.
+        // Keyed by grouping, so another grouping opens with its rows closed.
         <TreemapTable
-          key={getTreemapPathKey(node.path)}
-          node={node}
+          key={grouping.value}
+          tree={tree}
           countryBudget={countryBudget}
           getPreviousAmount={getPreviousAmount}
         />
