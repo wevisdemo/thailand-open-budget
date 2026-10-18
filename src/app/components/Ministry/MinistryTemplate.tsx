@@ -31,6 +31,7 @@ import ShareButtons from "@/app/components/shared/ShareButtons";
 import MinistryUnitSection from "./MinistryUnitSection";
 import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
 import BudgetProportionComparisonSection from "@/app/components/shared/BudgetProportionComparisonSection";
+import OrganizationEmptyState from "@/app/components/shared/OrganizationEmptyState";
 import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
 
 const coreContent = coreContentRaw as Record<string, OrganizationCoreContent>;
@@ -121,6 +122,9 @@ export default function MinistryTemplate({
     ),
   ];
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
+  // A ministry with no units in the selected year has nothing to show below
+  // the title.
+  const isUnbudgeted = totalsStatus === "success" && units.length === 0;
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
   const isPreviousLoading =
     previousDocSource !== null &&
@@ -162,83 +166,89 @@ export default function MinistryTemplate({
               <ShareButtons title={ministryName} />
             </div>
           </div>
-          <div className="flex flex-col md:flex-row">
-            <SummaryStatItem
-              label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
-              value={
-                isTotalsLoading
-                  ? "-"
-                  : Math.round(totalBudget / 1_000_000).toLocaleString()
-              }
-              unit="ล้านบาท"
-            />
-            <SummaryStatItem
-              label="จำนวนกรม/หน่วยงานเทียบเท่ากรม"
-              value={isTotalsLoading ? "-" : units.length.toLocaleString()}
-              unit="หน่วยงาน"
-            />
-            <SummaryStatItem
-              label="จำนวนรายการ"
-              value={isBudgetLoading ? "-" : items.length.toLocaleString()}
-              unit="รายการ"
-            />
-          </div>
+          {!isUnbudgeted && (
+            <div className="flex flex-col md:flex-row">
+              <SummaryStatItem
+                label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
+                value={
+                  isTotalsLoading
+                    ? "-"
+                    : Math.round(totalBudget / 1_000_000).toLocaleString()
+                }
+                unit="ล้านบาท"
+              />
+              <SummaryStatItem
+                label="จำนวนกรม/หน่วยงานเทียบเท่ากรม"
+                value={isTotalsLoading ? "-" : units.length.toLocaleString()}
+                unit="หน่วยงาน"
+              />
+              <SummaryStatItem
+                label="จำนวนรายการ"
+                value={isBudgetLoading ? "-" : items.length.toLocaleString()}
+                unit="รายการ"
+              />
+            </div>
+          )}
         </div>
       </section>
-      <section className="bg-ui-01 px-[24px] py-[32px]">
-        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[48px]">
-          <div className="flex flex-col gap-[32px] md:flex-row">
-            <BudgetProportionCard
-              subtitle={ministryName}
-              selectedLabel={`งบฯ ${ministryName}`}
-              selectedLabelMaxLength={24}
-              filteredBudget={totalBudget}
-              totalBudget={countryBudget}
+      {isUnbudgeted ? (
+        <OrganizationEmptyState />
+      ) : (
+        <section className="bg-ui-01 px-[24px] py-[32px]">
+          <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[48px]">
+            <div className="flex flex-col gap-[32px] md:flex-row">
+              <BudgetProportionCard
+                subtitle={ministryName}
+                selectedLabel={`งบฯ ${ministryName}`}
+                selectedLabelMaxLength={24}
+                filteredBudget={totalBudget}
+                totalBudget={countryBudget}
+                year={year}
+                version={version}
+              />
+              <BudgetTrendCard
+                subtitle={ministryName}
+                yearTotals={trendTotals}
+                version={version}
+              />
+            </div>
+            {/* Keyed by year so a new year starts from page 1, unfiltered. */}
+            <MinistryUnitSection
+              key={docSource}
+              ministryId={ministryId}
+              units={units}
+              countryBudget={countryBudget}
               year={year}
               version={version}
+              dataValue={docSource}
+              isLoading={isTotalsLoading}
+              isError={totalsStatus === "error"}
             />
-            <BudgetTrendCard
-              subtitle={ministryName}
-              yearTotals={trendTotals}
+            <BudgetProportionComparisonSection
+              items={items}
+              previousItems={
+                previousDocSource && previousStatus === "success"
+                  ? previousItems
+                  : null
+              }
+              countryBudget={countryBudget}
+              year={year}
+              csvName={`ministry_${ministryId}`}
+              isLoading={isBudgetLoading || isPreviousLoading}
+              isError={budgetStatus === "error"}
+            />
+            <OrganizationItemSection
+              items={items}
+              isMinistry
+              year={year}
               version={version}
+              docSource={docSource}
+              isLoading={isBudgetLoading}
+              isError={budgetStatus === "error"}
             />
           </div>
-          {/* Keyed by year so a new year starts from page 1, unfiltered. */}
-          <MinistryUnitSection
-            key={docSource}
-            ministryId={ministryId}
-            units={units}
-            countryBudget={countryBudget}
-            year={year}
-            version={version}
-            dataValue={docSource}
-            isLoading={isTotalsLoading}
-            isError={totalsStatus === "error"}
-          />
-          <BudgetProportionComparisonSection
-            items={items}
-            previousItems={
-              previousDocSource && previousStatus === "success"
-                ? previousItems
-                : null
-            }
-            countryBudget={countryBudget}
-            year={year}
-            csvName={`ministry_${ministryId}`}
-            isLoading={isBudgetLoading || isPreviousLoading}
-            isError={budgetStatus === "error"}
-          />
-          <OrganizationItemSection
-            items={items}
-            isMinistry
-            year={year}
-            version={version}
-            docSource={docSource}
-            isLoading={isBudgetLoading}
-            isError={budgetStatus === "error"}
-          />
-        </div>
-      </section>
+        </section>
+      )}
       <AboutSection />
       <Footer />
     </main>
