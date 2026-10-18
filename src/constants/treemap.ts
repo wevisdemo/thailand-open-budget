@@ -23,16 +23,15 @@ export const TREEMAP_GROUPINGS: TreemapGroupingOption[] = [
   },
 ];
 
-// Tile fills, given out in order from the largest tile.
+// Tile fills and their hover fills, given out in order from the largest
+// tile and repeating after the fifth. Three of the design's hover shades
+// aren't in the palette.
 export const TREEMAP_COLORS = [
-  "bg-blue-10",
-  "bg-cyan-20",
-  "bg-green-20",
-  "bg-purple-20",
-  "bg-magenta-20",
-  "bg-teal-20",
-  "bg-orange-20",
-  "bg-red-20",
+  "bg-blue-10 hover:bg-blue-30",
+  "bg-cyan-20 hover:bg-[#99daff]",
+  "bg-green-20 hover:bg-green-30",
+  "bg-magenta-20 hover:bg-[#ffbdda]",
+  "bg-purple-20 hover:bg-[#dcc7ff]",
 ];
 
 // The groups an item falls in, from the top level down. A plan is named

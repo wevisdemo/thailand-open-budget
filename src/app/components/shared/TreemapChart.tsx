@@ -113,7 +113,7 @@ export default function TreemapChart({
               })
             }
             onBlur={() => setHover(null)}
-            className={`absolute flex flex-col items-center justify-center overflow-hidden rounded-[2px] px-[8px] text-center ${tile.color} ${drillable ? "cursor-pointer hover:brightness-95" : ""}`}
+            className={`absolute flex flex-col items-center justify-center overflow-hidden rounded-[2px] px-[8px] text-center ${tile.color} ${drillable ? "cursor-pointer" : ""}`}
             style={{
               left: tile.x,
               top: tile.y,
