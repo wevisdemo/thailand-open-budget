@@ -92,9 +92,12 @@ export default function TreemapTable({
     const isExpanded = expanded.has(key);
     const Chevron = isExpanded ? ChevronDown : ChevronRight;
     const row = (
+      // A click anywhere in a row with groups opens or closes them; the
+      // chevron is the same toggle for the keyboard.
       <TableRow
         key={key}
-        className={ROW_STYLES[Math.min(depth, ROW_STYLES.length - 1)]}
+        onClick={hasChildren ? () => toggle(key) : undefined}
+        className={`${ROW_STYLES[Math.min(depth, ROW_STYLES.length - 1)]} ${hasChildren ? "cursor-pointer" : ""}`}
       >
         <TableCell style={{ paddingLeft: 16 + depth * INDENT }}>
           <div className="flex items-start gap-[32px]">
@@ -103,7 +106,10 @@ export default function TreemapTable({
                 type="button"
                 aria-expanded={isExpanded}
                 aria-label={isExpanded ? "ซ่อนหมวดย่อย" : "ดูหมวดย่อย"}
-                onClick={() => toggle(key)}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  toggle(key);
+                }}
                 className="flex h-[22px] w-[16px] shrink-0 cursor-pointer items-center justify-center"
               >
                 <Chevron />
