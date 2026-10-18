@@ -21,6 +21,8 @@ interface BudgetListTableProps {
   onSortChange: (key: BudgetSortKey) => void;
   // The หน่วยงาน column; an organization's own page has no use for it.
   showOrganization?: boolean;
+  // Shown in the table body, under the column headers, when there are no rows.
+  emptyState?: React.ReactNode;
 }
 
 function formatBaht(amount: number): string {
@@ -73,6 +75,7 @@ export default function BudgetListTable({
   sort,
   onSortChange,
   showOrganization = true,
+  emptyState,
 }: BudgetListTableProps) {
   const [page, setPage] = useState(1);
   const [projectInfoOpen, setProjectInfoOpen] = useState(false);
@@ -150,6 +153,11 @@ export default function BudgetListTable({
             </tr>
           </thead>
           <tbody>
+            {sorted.length === 0 && emptyState && (
+              <tr className="bg-white">
+                <td colSpan={showOrganization ? 8 : 7}>{emptyState}</td>
+              </tr>
+            )}
             {pageItems.map((item, index) => {
               const obligedYearRange = getObligedYearRange(
                 item.fiscal_year_list,
@@ -259,13 +267,15 @@ export default function BudgetListTable({
           </tbody>
         </table>
       </div>
-      <Paginate
-        page={page}
-        totalPages={totalPages}
-        totalItems={sorted.length}
-        pageSize={PAGE_SIZE}
-        onChange={setPage}
-      />
+      {sorted.length > 0 && (
+        <Paginate
+          page={page}
+          totalPages={totalPages}
+          totalItems={sorted.length}
+          pageSize={PAGE_SIZE}
+          onChange={setPage}
+        />
+      )}
     </div>
   );
 }

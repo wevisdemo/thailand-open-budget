@@ -24,6 +24,8 @@ interface BudgetListSectionProps {
   data: BudgetItem[];
   year: number;
   version: string;
+  // Shown in the table body when there are no rows.
+  emptyState?: React.ReactNode;
 }
 
 export default function BudgetListSection(props: BudgetListSectionProps) {
@@ -82,6 +84,7 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
           unsortedLabel: "เรียงตามลำดับในเอกสาร",
         })}
         onDownload={handleExportCSV}
+        downloadDisabled={props.data.length === 0}
       />
       <div>
         <BudgetListTable
@@ -90,6 +93,7 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
           sort={sort}
           onSortChange={handleSortChange}
           showOrganization={props.showOrganization}
+          emptyState={props.emptyState}
         />
       </div>
     </div>

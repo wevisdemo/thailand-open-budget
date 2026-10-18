@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { DataTableSkeleton } from "@carbon/react";
+import { Button, DataTableSkeleton } from "@carbon/react";
 import type { BudgetItem, BudgetSort } from "@/types/budget";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
 import KeywordSearch from "@/app/components/shared/KeywordSearch";
 import KeywordWarning from "@/app/components/shared/KeywordWarning";
 import BudgetListSection from "@/app/components/shared/BudgetListSection";
+import SearchNotFoundIcon from "@/app/components/shared/icons/search-not-found-icon";
 
 // Like the ministry's units table, the list opens on the biggest items.
 const DEFAULT_SORT: BudgetSort = { key: "amount", dir: "desc" };
@@ -84,11 +85,9 @@ export default function OrganizationItemSection({
         <p className="text-support-01 bg-white px-[16px] py-[24px]">
           โหลดข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
         </p>
-      ) : shown.length === 0 ? (
+      ) : items.length === 0 ? (
         <p className="text-text-02 bg-white px-[16px] py-[24px]">
-          {words.length
-            ? `ไม่พบรายการ${keywordText}`
-            : "ไม่มีรายการงบประมาณในปีนี้"}
+          ไม่มีรายการงบประมาณในปีนี้
         </p>
       ) : (
         // Keyed so new keywords or a new year start from page 1, unsorted.
@@ -104,6 +103,24 @@ export default function OrganizationItemSection({
           data={shown}
           year={year}
           version={version}
+          emptyState={
+            <div className="flex flex-col items-center gap-[8px] px-[16px] py-[80px] text-center">
+              <SearchNotFoundIcon className="text-text-01 mb-[24px] h-[48px] w-[48px]" />
+              <p className="font-serif text-[24px] font-bold">
+                ไม่พบข้อมูลที่เกี่ยวข้องกับ{" "}
+                {words.map((w) => `‘${w}’`).join(", ")}
+              </p>
+              <p className="text-[16px]">ลองใช้คำอื่นที่เกี่ยวข้อง</p>
+              <Button
+                kind="primary"
+                size="md"
+                onClick={() => setWords([])}
+                className="bg-interactive-01 shrink-0 px-[24px] text-[12px] font-semibold text-white hover:cursor-pointer hover:opacity-90"
+              >
+                ล้างการค้นหา
+              </Button>
+            </div>
+          }
         />
       )}
     </div>
