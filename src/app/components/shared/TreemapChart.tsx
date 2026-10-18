@@ -35,8 +35,6 @@ interface TreemapChartProps {
   node: TreemapNode;
   width: number;
   height: number;
-  // The most groups shown as tiles, largest first.
-  maxTiles: number;
   getPreviousAmount: (child: TreemapNode) => number | null;
   onDrill: (child: TreemapNode) => void;
 }
@@ -56,7 +54,6 @@ export default function TreemapChart({
   node,
   width,
   height,
-  maxTiles,
   getPreviousAmount,
   onDrill,
 }: TreemapChartProps) {
@@ -64,11 +61,10 @@ export default function TreemapChart({
 
   const tiles = useMemo<Tile[]>(() => {
     if (width === 0) return [];
-    // Only the shown level's largest groups are tiles, filling the treemap
-    // between them; their own groups wait for a click. Each tile's
-    // percentage stays its share of the whole level.
+    // Only the shown level's groups are tiles; their own groups wait for a
+    // click.
     const root = hierarchy<TreemapNode>(node, (d) =>
-      d === node ? d.children.slice(0, maxTiles) : undefined,
+      d === node ? d.children : undefined,
     ).sum((d) => (d === node ? 0 : d.amount));
     return (
       treemap<TreemapNode>().size([width, height]).paddingInner(4)(root)
@@ -81,7 +77,7 @@ export default function TreemapChart({
       height: leaf.y1 - leaf.y0,
       color: TREEMAP_COLORS[i % TREEMAP_COLORS.length],
     }));
-  }, [node, width, height, maxTiles]);
+  }, [node, width, height]);
 
   return (
     <div

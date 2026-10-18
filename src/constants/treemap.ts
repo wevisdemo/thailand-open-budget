@@ -10,19 +10,16 @@ export const TREEMAP_GROUPINGS: TreemapGroupingOption[] = [
     value: "plan",
     label: "แผนงาน",
     rootLabel: "แผนงานทั้งหมด",
-    maxTiles: 4,
   },
   {
     value: "category",
     label: "ประเภทงบ",
     rootLabel: "ประเภทงบทั้งหมด",
-    maxTiles: 5,
   },
   {
     value: "obligation",
     label: "งบผูกพัน",
     rootLabel: "งบทั้งหมด",
-    maxTiles: 4,
   },
 ];
 

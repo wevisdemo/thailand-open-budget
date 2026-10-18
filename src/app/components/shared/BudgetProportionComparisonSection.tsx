@@ -235,7 +235,6 @@ export default function BudgetProportionComparisonSection({
           node={node}
           width={width}
           height={height}
-          maxTiles={grouping.maxTiles}
           getPreviousAmount={getPreviousAmount}
           onDrill={handleDrill}
         />
