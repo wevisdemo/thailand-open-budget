@@ -27,12 +27,13 @@ import ChangeBadge from "./ChangeBadge";
 // Each level down sits this much further right.
 const INDENT = 48;
 
-// Each level down sits on a darker grey, from the third level on the same;
-// only the top level's rows are divided by lines.
+// Each level down sits on a darker grey, from the third level on the same,
+// and goes darker again under the pointer; only the top level's rows are
+// divided by lines. The hover greys aren't in the palette.
 const ROW_STYLES = [
-  "[&>td]:bg-white!",
-  "[&>td]:bg-gray-10! [&>td]:border-transparent!",
-  "[&>td]:bg-gray-20! [&>td]:border-transparent!",
+  "[&>td]:bg-white! hover:[&>td]:bg-[#e5e5e5]!",
+  "[&>td]:bg-gray-10! hover:[&>td]:bg-[#cacaca]! [&>td]:border-transparent!",
+  "[&>td]:bg-gray-20! hover:[&>td]:bg-[#cacaca]! [&>td]:border-transparent!",
 ];
 
 interface TreemapTableProps {
