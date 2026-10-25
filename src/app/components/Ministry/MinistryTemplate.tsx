@@ -139,7 +139,7 @@ export default function MinistryTemplate({
   ];
 
   return (
-    <main className="mx-auto flex w-full flex-col">
+    <main className="mx-auto flex w-full flex-col overflow-x-clip">
       <BudgetVersionInfoModal
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
@@ -152,9 +152,7 @@ export default function MinistryTemplate({
       />
       <section className="bg-white px-[24px] pt-[24px] pb-[24px] md:pt-[56px]">
         <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px]">
-          <h1 className="font-serif text-[28px] font-bold md:text-[42px]">
-            {ministryName}
-          </h1>
+          <h1 className="font-serif text-[42px] font-bold">{ministryName}</h1>
           <div className="flex flex-col gap-[24px] md:flex-row">
             <div className="min-w-0 flex-1">
               {ministryContent && <CoreContentTabs content={ministryContent} />}

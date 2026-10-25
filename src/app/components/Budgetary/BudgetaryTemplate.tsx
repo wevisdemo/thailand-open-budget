@@ -169,7 +169,7 @@ export default function BudgetaryTemplate({
           <div className="flex flex-col gap-[8px]">
             <Link
               href={ministryHref}
-              className="text-text-01! flex w-fit items-center gap-[8px] text-[18px] font-bold no-underline! hover:underline!"
+              className="text-text-01! flex w-fit items-center gap-[8px] font-serif text-[18px] font-bold no-underline! hover:underline!"
             >
               <ArrowLeft size={16} className="shrink-0" />
               {ministryName}

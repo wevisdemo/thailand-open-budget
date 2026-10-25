@@ -69,7 +69,7 @@ export default function OrganizationsTemplate() {
       <section className="bg-white px-[24px] pt-[24px] pb-[24px] md:pt-[56px]">
         <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px]">
           <div className="flex flex-col gap-[8px]">
-            <h1 className="font-serif text-[28px] font-bold md:text-[42px]">
+            <h1 className="font-serif text-[42px] font-bold">
               สำรวจงบประมาณผ่านหน่วยงาน
             </h1>
             <p className="text-text-01">

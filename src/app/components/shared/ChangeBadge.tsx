@@ -25,9 +25,11 @@ export default function ChangeBadge({
       </span>
     );
   }
+  // `relative` keeps the absolutely positioned sr-only text inside the badge,
+  // so it can't escape a scrolling table and widen the page.
   return (
     <span
-      className={`text-text-01 inline-flex items-center gap-[4px] rounded-full px-[8px] py-[2px] ${rounded > 0 ? "bg-green-30" : "bg-red-30"}`}
+      className={`text-text-01 relative inline-flex items-center gap-[4px] rounded-full px-[8px] py-[2px] ${rounded > 0 ? "bg-green-30" : "bg-red-30"}`}
     >
       <span aria-hidden className="text-[10px]">
         {rounded > 0 ? "▲" : "▼"}

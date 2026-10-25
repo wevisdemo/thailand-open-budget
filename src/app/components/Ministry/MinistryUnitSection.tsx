@@ -170,12 +170,14 @@ export default function MinistryUnitSection({
         </p>
       ) : (
         <>
-          <div className="overflow-x-auto">
+          {/* Like the budget list table: on mobile the table bleeds to the
+              screen edges and scrolls here, not in Carbon's own wrapper. */}
+          <div className="relative mx-[-24px] overflow-x-auto px-[24px] md:mx-0 md:px-[0px] [&_.cds--data-table-content]:overflow-visible">
             {/* The design shows the ↑↓ icon on unsorted columns too, not only
                 on hover, and cells in the primary text colour. The number
                 columns keep fixed widths so the table doesn't shift as rows
                 are sorted, searched or paged. */}
-            <Table className="[&_td]:text-text-01 [&_.cds--table-sort\_\_icon-unsorted]:opacity-100">
+            <Table className="[&_td]:text-text-01 min-w-[800px] [&_.cds--table-sort\_\_icon-unsorted]:opacity-100">
               <TableHead>
                 <TableRow>
                   <TableHeader>หน่วยงาน</TableHeader>

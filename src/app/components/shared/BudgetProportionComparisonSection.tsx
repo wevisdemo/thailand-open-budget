@@ -176,7 +176,7 @@ export default function BudgetProportionComparisonSection({
             onChange={({ selectedItem }) => {
               if (selectedItem) handleGroupingChange(selectedItem);
             }}
-            className="w-[160px] [&_.cds--list-box]:bg-white [&_.cds--list-box\_\_label]:text-[16px] [&_.cds--list-box\_\_label]:font-bold"
+            className="w-[160px] font-serif [&_.cds--list-box]:bg-white [&_.cds--list-box\_\_label]:text-[16px] [&_.cds--list-box\_\_label]:font-bold"
           />
           <button
             type="button"
