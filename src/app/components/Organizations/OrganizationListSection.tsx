@@ -86,8 +86,10 @@ function exportCsv(
     "% ของงบฯ ประเทศ",
     "การเปลี่ยนแปลง (%) จากปีก่อน",
   ];
+  // Each ministry starts with its whole total, as หน่วยงาน "ทั้งหมด", then
+  // lists its units.
   const rows = groups.flatMap((group, index) =>
-    group.units.map((unit) => {
+    [{ ...group, budgetary_name: "ทั้งหมด" }, ...group.units].map((unit) => {
       const change = getChangePercent(
         unit.budget_amount,
         unit.previous_year_amount,
@@ -96,7 +98,7 @@ function exportCsv(
         index + 1,
         group.ministry_name,
         unit.budgetary_name,
-        unit.budget_amount,
+        unit.budget_amount.toLocaleString("en-US"),
         ((unit.budget_amount / totalBudget) * 100).toFixed(2),
         change === null ? "" : change.toFixed(2),
       ];
