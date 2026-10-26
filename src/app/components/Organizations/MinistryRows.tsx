@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import type { OrganizationMinistryGroup } from "@/types/organization";
 import DownAngleIcon from "@/app/components/shared/icons/down-angle-icon";
 import ShareBar from "@/app/components/shared/ShareBar";
 import ChangeBadge from "@/app/components/shared/ChangeBadge";
 
-const UNIT_PAGE_SIZE = 10;
+// The units' own table repeats the outer table's column widths so its cells
+// line up with the ministry rows.
+const UNIT_COLUMN_WIDTHS = ["5%", "5%", "38%", "18%", "18%", "16%"];
 
 // A click on the row's own link or button already does its job; only clicks
 // elsewhere in the row expand it, so the chevron doesn't toggle twice.
@@ -56,8 +57,9 @@ function AmountCells({
   );
 }
 
-// One ministry's row, and under it, while expanded, its units a page at a
-// time: a ministry can hold thousands (องค์กรปกครองส่วนท้องถิ่น has ~2,850).
+// One ministry's row, and under it, while expanded, its units in a box that
+// scrolls past half the screen: a ministry can hold thousands
+// (องค์กรปกครองส่วนท้องถิ่น has ~2,850).
 export default function MinistryRows({
   group,
   rank,
@@ -67,8 +69,6 @@ export default function MinistryRows({
   maxAmount,
   dataValue,
 }: MinistryRowsProps) {
-  const [visibleCount, setVisibleCount] = useState(UNIT_PAGE_SIZE);
-  const remaining = group.units.length - visibleCount;
   const ministryHref = `/organizations/${group.ministry_id}?budget_source=${dataValue}`;
 
   function handleRowClick(event: React.MouseEvent) {
@@ -114,45 +114,46 @@ export default function MinistryRows({
           maxAmount={maxAmount}
         />
       </tr>
-      {isExpanded &&
-        group.units.slice(0, visibleCount).map((unit) => {
-          const unitHref = `/organizations/${unit.ministry_id}/${unit.budgetary_id}?budget_source=${dataValue}`;
-          return (
-            <tr
-              key={unit.budgetary_id}
-              className="border-ui-03 bg-ui-01 hover:bg-gray-10 border-b align-top leading-[18px]"
-            >
-              <td />
-              <td />
-              <td className="px-[16px] py-[16px]">
-                <Link
-                  href={unitHref}
-                  className="text-text-01 hover:text-blue-70 underline"
-                >
-                  {unit.budgetary_name}
-                </Link>
-              </td>
-              <AmountCells
-                amount={unit.budget_amount}
-                previousAmount={unit.previous_year_amount}
-                totalBudget={totalBudget}
-                maxAmount={maxAmount}
-              />
-            </tr>
-          );
-        })}
-      {isExpanded && remaining > 0 && (
-        <tr className="border-ui-03 bg-ui-01 border-b">
-          <td />
-          <td />
-          <td colSpan={4} className="px-[16px] py-[12px]">
-            <button
-              type="button"
-              onClick={() => setVisibleCount((count) => count + UNIT_PAGE_SIZE)}
-              className="text-interactive-01 text-[14px] font-semibold hover:cursor-pointer"
-            >
-              แสดงเพิ่ม (เหลืออีก {remaining.toLocaleString()} หน่วยงาน)
-            </button>
+      {isExpanded && (
+        <tr>
+          <td colSpan={6} className="p-0">
+            <div className="max-h-[50vh] overflow-y-auto">
+              <table className="w-full table-fixed border-collapse">
+                <colgroup>
+                  {UNIT_COLUMN_WIDTHS.map((width, i) => (
+                    <col key={i} style={{ width }} />
+                  ))}
+                </colgroup>
+                <tbody>
+                  {group.units.map((unit) => {
+                    const unitHref = `/organizations/${unit.ministry_id}/${unit.budgetary_id}?budget_source=${dataValue}`;
+                    return (
+                      <tr
+                        key={unit.budgetary_id}
+                        className="border-ui-03 bg-ui-01 hover:bg-gray-10 border-b align-top leading-[18px]"
+                      >
+                        <td />
+                        <td />
+                        <td className="px-[16px] py-[16px]">
+                          <Link
+                            href={unitHref}
+                            className="text-text-01 hover:text-blue-70 underline"
+                          >
+                            {unit.budgetary_name}
+                          </Link>
+                        </td>
+                        <AmountCells
+                          amount={unit.budget_amount}
+                          previousAmount={unit.previous_year_amount}
+                          totalBudget={totalBudget}
+                          maxAmount={maxAmount}
+                        />
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </td>
         </tr>
       )}
