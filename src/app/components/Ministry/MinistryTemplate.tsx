@@ -22,12 +22,9 @@ import AboutSection from "@/app/components/shared/AboutSection";
 import Footer from "@/app/components/shared/Footer";
 import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
 import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
-import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
 import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
-import CoreContentTabs from "@/app/components/shared/CoreContentTabs";
-import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
-import ShareButtons from "@/app/components/shared/ShareButtons";
+import MinistryHeaderSection from "./MinistryHeaderSection";
 import MinistryUnitSection from "./MinistryUnitSection";
 import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
 import BudgetProportionComparisonSection from "@/app/components/shared/BudgetProportionComparisonSection";
@@ -150,45 +147,18 @@ export default function MinistryTemplate({
         onChangeDocSource={onChangeDocSource}
         onOpenVersionInfo={() => setVersionInfoOpen(true)}
       />
-      <section className="bg-white px-[24px] pt-[24px] pb-[24px] md:pt-[56px]">
-        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px]">
-          <h1 className="font-serif text-[42px] font-bold">{ministryName}</h1>
-          <div className="flex flex-col gap-[24px] md:flex-row">
-            <div className="min-w-0 flex-1">
-              {ministryContent && <CoreContentTabs content={ministryContent} />}
-            </div>
-            <div className="flex flex-col gap-[16px] md:w-[240px]">
-              {relatedDocuments.length > 0 && (
-                <RelatedDocuments documents={relatedDocuments} />
-              )}
-              <ShareButtons title={ministryName} />
-            </div>
-          </div>
-          {!isUnbudgeted && (
-            <div className="flex flex-col md:flex-row">
-              <SummaryStatItem
-                label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
-                value={
-                  isTotalsLoading
-                    ? "-"
-                    : Math.round(totalBudget / 1_000_000).toLocaleString()
-                }
-                unit="ล้านบาท"
-              />
-              <SummaryStatItem
-                label="จำนวนกรม/หน่วยงานเทียบเท่ากรม"
-                value={isTotalsLoading ? "-" : units.length.toLocaleString()}
-                unit="หน่วยงาน"
-              />
-              <SummaryStatItem
-                label="จำนวนรายการ"
-                value={isBudgetLoading ? "-" : items.length.toLocaleString()}
-                unit="รายการ"
-              />
-            </div>
-          )}
-        </div>
-      </section>
+      <MinistryHeaderSection
+        ministryName={ministryName}
+        content={ministryContent}
+        relatedDocuments={relatedDocuments}
+        year={year}
+        totalBudget={totalBudget}
+        unitCount={units.length}
+        itemCount={items.length}
+        isTotalsLoading={isTotalsLoading}
+        isBudgetLoading={isBudgetLoading}
+        isUnbudgeted={isUnbudgeted}
+      />
       {isUnbudgeted ? (
         <OrganizationEmptyState />
       ) : (

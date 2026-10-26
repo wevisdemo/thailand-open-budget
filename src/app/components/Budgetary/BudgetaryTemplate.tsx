@@ -1,8 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { ArrowLeft } from "@carbon/icons-react";
 import type { BudgetBase } from "@/types/budget";
 import type { OrganizationYearTotal } from "@/types/organization";
 import {
@@ -23,16 +21,13 @@ import AboutSection from "@/app/components/shared/AboutSection";
 import Footer from "@/app/components/shared/Footer";
 import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
 import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
-import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
-import CoreContentTabs from "@/app/components/shared/CoreContentTabs";
-import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
-import ShareButtons from "@/app/components/shared/ShareButtons";
 import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
 import BudgetBaseSelect from "@/app/components/shared/BudgetBaseSelect";
 import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
 import BudgetProportionComparisonSection from "@/app/components/shared/BudgetProportionComparisonSection";
 import OrganizationEmptyState from "@/app/components/shared/OrganizationEmptyState";
+import BudgetaryHeaderSection from "./BudgetaryHeaderSection";
 
 interface BudgetaryTemplateProps {
   ministryId: number;
@@ -164,55 +159,19 @@ export default function BudgetaryTemplate({
         onChangeDocSource={onChangeDocSource}
         onOpenVersionInfo={() => setVersionInfoOpen(true)}
       />
-      <section className="bg-white px-[24px] pt-[24px] pb-[24px] md:pt-[56px]">
-        <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[32px]">
-          <div className="flex flex-col gap-[8px]">
-            <Link
-              href={ministryHref}
-              className="text-text-01! flex w-fit items-center gap-[8px] font-serif text-[18px] font-bold no-underline! hover:underline!"
-            >
-              <ArrowLeft size={16} className="shrink-0" />
-              {ministryName}
-            </Link>
-            <h1 className="font-serif text-[28px] font-bold md:text-[42px]">
-              {budgetaryName}
-            </h1>
-          </div>
-          <div className="flex flex-col gap-[24px] md:flex-row">
-            <div className="min-w-0 flex-1">
-              {budgetaryContent && (
-                <CoreContentTabs content={budgetaryContent} />
-              )}
-            </div>
-            <div className="flex flex-col gap-[16px] md:w-[240px]">
-              {relatedDocuments.length > 0 && (
-                <RelatedDocuments documents={relatedDocuments} />
-              )}
-              <ShareButtons title={budgetaryName} />
-            </div>
-          </div>
-          {!isUnbudgeted && (
-            <div className="flex flex-col md:flex-row">
-              <SummaryStatItem
-                label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
-                value={
-                  isTotalsLoading || !unit
-                    ? "-"
-                    : Math.round(
-                        unit.budget_amount / 1_000_000,
-                      ).toLocaleString()
-                }
-                unit="ล้านบาท"
-              />
-              <SummaryStatItem
-                label="จำนวนรายการ"
-                value={isBudgetLoading ? "-" : items.length.toLocaleString()}
-                unit="รายการ"
-              />
-            </div>
-          )}
-        </div>
-      </section>
+      <BudgetaryHeaderSection
+        ministryName={ministryName}
+        ministryHref={ministryHref}
+        budgetaryName={budgetaryName}
+        content={budgetaryContent}
+        relatedDocuments={relatedDocuments}
+        year={year}
+        totalBudget={unit?.budget_amount ?? null}
+        itemCount={items.length}
+        isTotalsLoading={isTotalsLoading}
+        isBudgetLoading={isBudgetLoading}
+        isUnbudgeted={isUnbudgeted}
+      />
       {isUnbudgeted ? (
         <OrganizationEmptyState />
       ) : (
