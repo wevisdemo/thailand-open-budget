@@ -1,120 +1,12 @@
 [
   {
-    "budgetary_id": 1736,
-    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตแห่งชาติ",
-    "ministry_id": 28,
-    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
-    "budget_amount": 4328338100,
-    "previous_year_amount": 4519414400,
-    "previous_year_percent": 0.119542
-  },
-  {
-    "budgetary_id": 268,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการต่างประเทศ",
-    "ministry_id": 24,
-    "ministry_name": "กระทรวงการต่างประเทศ",
-    "budget_amount": 8256806900,
-    "previous_year_amount": 9200251200,
-    "previous_year_percent": 0.243354
-  },
-  {
-    "budgetary_id": 1831,
-    "budgetary_name": "สำนักงานศาลปกครอง",
-    "ministry_id": 29,
-    "ministry_name": "หน่วยงานของศาล",
-    "budget_amount": 3918875400,
-    "previous_year_amount": 3531205700,
-    "previous_year_percent": 0.093403
-  },
-  {
-    "budgetary_id": 464,
-    "budgetary_name": "สำนักงานการตรวจเงินแผ่นดิน",
-    "ministry_id": 28,
-    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
-    "budget_amount": 3142702400,
-    "previous_year_amount": 3039060000,
-    "previous_year_percent": 0.080386
-  },
-  {
-    "budgetary_id": 2001,
-    "budgetary_name": "กรมธนารักษ์",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 6443359600,
-    "previous_year_amount": 5783939200,
-    "previous_year_percent": 0.15299
-  },
-  {
-    "budgetary_id": 20,
-    "budgetary_name": "สำนักงานปลัดกระทรวงสาธารณสุข",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 129513058000,
-    "previous_year_amount": 125625585000,
-    "previous_year_percent": 3.322901
-  },
-  {
-    "budgetary_id": 1828,
-    "budgetary_name": "สำนักงานอัยการสูงสุด",
-    "ministry_id": 28,
-    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
-    "budget_amount": 14767239800,
-    "previous_year_amount": 14922118100,
-    "previous_year_percent": 0.394702
-  },
-  {
-    "budgetary_id": 284,
-    "budgetary_name": "สำนักงานนโยบายและแผนทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 826093500,
-    "previous_year_amount": 1185594700,
-    "previous_year_percent": 0.03136
-  },
-  {
-    "budgetary_id": 104,
-    "budgetary_name": "กรมชลประทาน",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 78946984300,
-    "previous_year_amount": 87807849900,
-    "previous_year_percent": 2.32259
-  },
-  {
-    "budgetary_id": 292,
-    "budgetary_name": "กรมประมง",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 4804187400,
-    "previous_year_amount": 4516489700,
-    "previous_year_percent": 0.119465
-  },
-  {
-    "budgetary_id": 1830,
-    "budgetary_name": "สำนักงานศาลยุติธรรม",
-    "ministry_id": 29,
-    "ministry_name": "หน่วยงานของศาล",
-    "budget_amount": 24171926800,
-    "previous_year_amount": 24181196600,
-    "previous_year_percent": 0.639613
-  },
-  {
-    "budgetary_id": 392,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลกรุงเทพ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 747842700,
-    "previous_year_amount": 766638500,
-    "previous_year_percent": 0.020278
-  },
-  {
-    "budgetary_id": 75,
-    "budgetary_name": "กรุงเทพมหานคร",
-    "ministry_id": 13,
-    "ministry_name": "องค์กรปกครองส่วนท้องถิ่น",
-    "budget_amount": 28953010800,
-    "previous_year_amount": 29321101800,
-    "previous_year_percent": 0.775567
+    "budgetary_id": 25,
+    "budgetary_name": "กองทัพเรือ",
+    "ministry_id": 7,
+    "ministry_name": "กระทรวงกลาโหม",
+    "budget_amount": 43382518600,
+    "previous_year_amount": 43491821500,
+    "previous_year_percent": 1.150395
   },
   {
     "budgetary_id": 257,
@@ -126,492 +18,6 @@
     "previous_year_percent": 0.256466
   },
   {
-    "budgetary_id": 459,
-    "budgetary_name": "สำนักงานปลัดกระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 2310179000,
-    "previous_year_amount": 2072594500,
-    "previous_year_percent": 0.054822
-  },
-  {
-    "budgetary_id": 326,
-    "budgetary_name": "มหาวิทยาลัยรามคำแหง",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1273289100,
-    "previous_year_amount": 1157846800,
-    "previous_year_percent": 0.030626
-  },
-  {
-    "budgetary_id": 137,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏนครศรีธรรมราช",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 516041600,
-    "previous_year_amount": 502949800,
-    "previous_year_percent": 0.013303
-  },
-  {
-    "budgetary_id": 300,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏอุตรดิตถ์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 500337800,
-    "previous_year_amount": 498903600,
-    "previous_year_percent": 0.013196
-  },
-  {
-    "budgetary_id": 105,
-    "budgetary_name": "กรมทางหลวงชนบท",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 45903061000,
-    "previous_year_amount": 53598975600,
-    "previous_year_percent": 1.417737
-  },
-  {
-    "budgetary_id": 2004,
-    "budgetary_name": "การรถไฟฟ้าขนส่งมวลชนแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 40523706000,
-    "previous_year_amount": 33258173300,
-    "previous_year_percent": 0.879706
-  },
-  {
-    "budgetary_id": 1996,
-    "budgetary_name": "สำนักงานคณะกรรมการสิทธิมนุษยชนแห่งชาติ",
-    "ministry_id": 28,
-    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
-    "budget_amount": 351603900,
-    "previous_year_amount": 344335100,
-    "previous_year_percent": 0.009108
-  },
-  {
-    "budgetary_id": 31,
-    "budgetary_name": "สำนักงานตำรวจแห่งชาติ",
-    "ministry_id": 9,
-    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
-    "budget_amount": 125356964500,
-    "previous_year_amount": 125788139300,
-    "previous_year_percent": 3.3272
-  },
-  {
-    "budgetary_id": 25,
-    "budgetary_name": "กองทัพเรือ",
-    "ministry_id": 7,
-    "ministry_name": "กระทรวงกลาโหม",
-    "budget_amount": 43382518600,
-    "previous_year_amount": 43491821500,
-    "previous_year_percent": 1.150395
-  },
-  {
-    "budgetary_id": 1737,
-    "budgetary_name": "สำนักงานปลัดกระทรวงมหาดไทย",
-    "ministry_id": 14,
-    "ministry_name": "กระทรวงมหาดไทย",
-    "budget_amount": 6289226500,
-    "previous_year_amount": 6454245000,
-    "previous_year_percent": 0.17072
-  },
-  {
-    "budgetary_id": 181,
-    "budgetary_name": "กรมพินิจและคุ้มครองเด็กและเยาวชน",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 2151530600,
-    "previous_year_amount": 2154999900,
-    "previous_year_percent": 0.057002
-  },
-  {
-    "budgetary_id": 1833,
-    "budgetary_name": "สำนักงานปลัดกระทรวงยุติธรรม",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 893355900,
-    "previous_year_amount": 1038669200,
-    "previous_year_percent": 0.027474
-  },
-  {
-    "budgetary_id": 101,
-    "budgetary_name": "สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 276232317300,
-    "previous_year_amount": 270261723800,
-    "previous_year_percent": 7.148646
-  },
-  {
-    "budgetary_id": 103,
-    "budgetary_name": "กรมทางหลวง",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 116964050700,
-    "previous_year_amount": 131932286400,
-    "previous_year_percent": 3.489718
-  },
-  {
-    "budgetary_id": 432,
-    "budgetary_name": "กรมท่าอากาศยาน",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 4884490300,
-    "previous_year_amount": 5349186000,
-    "previous_year_percent": 0.14149
-  },
-  {
-    "budgetary_id": 2005,
-    "budgetary_name": "การรถไฟแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 17966757800,
-    "previous_year_amount": 19418539700,
-    "previous_year_percent": 0.513636
-  },
-  {
-    "budgetary_id": 30,
-    "budgetary_name": "มหาวิทยาลัยขอนแก่น",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 5159881700,
-    "previous_year_amount": 5517353900,
-    "previous_year_percent": 0.145939
-  },
-  {
-    "budgetary_id": 2,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏสุรินทร์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 502955300,
-    "previous_year_amount": 516037800,
-    "previous_year_percent": 0.01365
-  },
-  {
-    "budgetary_id": 236,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏวไลยอลงกรณ์ ในพระบรมราชูปถัมภ์ จังหวัดปทุมธานี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 607361600,
-    "previous_year_amount": 603494600,
-    "previous_year_percent": 0.015963
-  },
-  {
-    "budgetary_id": 12,
-    "budgetary_name": "กรมการแพทย์",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 8036119400,
-    "previous_year_amount": 8576931500,
-    "previous_year_percent": 0.226867
-  },
-  {
-    "budgetary_id": 465,
-    "budgetary_name": "กรมเจ้าท่า",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 3843554400,
-    "previous_year_amount": 4253335200,
-    "previous_year_percent": 0.112504
-  },
-  {
-    "budgetary_id": 1997,
-    "budgetary_name": "สำนักงานคณะกรรมการการเลือกตั้ง",
-    "ministry_id": 28,
-    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
-    "budget_amount": 2723765400,
-    "previous_year_amount": 3333091900,
-    "previous_year_percent": 0.088163
-  },
-  {
-    "budgetary_id": 405,
-    "budgetary_name": "กรมส่งเสริมการค้าระหว่างประเทศ",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 2274760000,
-    "previous_year_amount": 2339130500,
-    "previous_year_percent": 0.061872
-  },
-  {
-    "budgetary_id": 1995,
-    "budgetary_name": "สำนักงานผู้ตรวจการแผ่นดิน",
-    "ministry_id": 28,
-    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
-    "budget_amount": 552339100,
-    "previous_year_amount": 533230800,
-    "previous_year_percent": 0.014104
-  },
-  {
-    "budgetary_id": 36,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏเชียงใหม่",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 752909100,
-    "previous_year_amount": 770595500,
-    "previous_year_percent": 0.020383
-  },
-  {
-    "budgetary_id": 1,
-    "budgetary_name": "มหาวิทยาลัยสงขลานครินทร์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 5310425000,
-    "previous_year_amount": 5518044800,
-    "previous_year_percent": 0.145957
-  },
-  {
-    "budgetary_id": 205,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏราชนครินทร์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 438021000,
-    "previous_year_amount": 428987700,
-    "previous_year_percent": 0.011347
-  },
-  {
-    "budgetary_id": 17,
-    "budgetary_name": "มหาวิทยาลัยศรีนครินทรวิโรฒ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 4552271900,
-    "previous_year_amount": 4782140500,
-    "previous_year_percent": 0.126492
-  },
-  {
-    "budgetary_id": 314,
-    "budgetary_name": "มหาวิทยาลัยทักษิณ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1173913200,
-    "previous_year_amount": 1210071600,
-    "previous_year_percent": 0.032007
-  },
-  {
-    "budgetary_id": 482,
-    "budgetary_name": "สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 4834024000,
-    "previous_year_amount": 5198699200,
-    "previous_year_percent": 0.13751
-  },
-  {
-    "budgetary_id": 414,
-    "budgetary_name": "กรมส่งเสริมวัฒนธรรม",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 1140401900,
-    "previous_year_amount": 1739687200,
-    "previous_year_percent": 0.046016
-  },
-  {
-    "budgetary_id": 156,
-    "budgetary_name": "กรมโยธาธิการและผังเมือง",
-    "ministry_id": 14,
-    "ministry_name": "กระทรวงมหาดไทย",
-    "budget_amount": 34949674800,
-    "previous_year_amount": 42280357100,
-    "previous_year_percent": 1.11835
-  },
-  {
-    "budgetary_id": 69,
-    "budgetary_name": "กรมราชทัณฑ์",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 16883008700,
-    "previous_year_amount": 16905405400,
-    "previous_year_percent": 0.447162
-  },
-  {
-    "budgetary_id": 171,
-    "budgetary_name": "กรมการขนส่งทางบก",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 3784120200,
-    "previous_year_amount": 3913561100,
-    "previous_year_percent": 0.103517
-  },
-  {
-    "budgetary_id": 180,
-    "budgetary_name": "การกีฬาแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 3445743800,
-    "previous_year_amount": 3764113900,
-    "previous_year_percent": 0.099564
-  },
-  {
-    "budgetary_id": 258,
-    "budgetary_name": "องค์การจัดการน้ำเสีย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 1736811800,
-    "previous_year_amount": 1969606800,
-    "previous_year_percent": 0.052098
-  },
-  {
-    "budgetary_id": 462,
-    "budgetary_name": "กรมพัฒนาพลังงานทดแทนและอนุรักษ์พลังงาน",
-    "ministry_id": 27,
-    "ministry_name": "กระทรวงพลังงาน",
-    "budget_amount": 997851700,
-    "previous_year_amount": 1499146700,
-    "previous_year_percent": 0.039654
-  },
-  {
-    "budgetary_id": 22,
-    "budgetary_name": "มหาวิทยาลัยเกษตรศาสตร์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 5951104600,
-    "previous_year_amount": 5990650700,
-    "previous_year_percent": 0.158458
-  },
-  {
-    "budgetary_id": 6,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีสุรนารี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1989912600,
-    "previous_year_amount": 2110429200,
-    "previous_year_percent": 0.055823
-  },
-  {
-    "budgetary_id": 15,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 8184823100,
-    "previous_year_amount": 10368677300,
-    "previous_year_percent": 0.27426
-  },
-  {
-    "budgetary_id": 306,
-    "budgetary_name": "กรมควบคุมโรค",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 3993105600,
-    "previous_year_amount": 3836031300,
-    "previous_year_percent": 0.101466
-  },
-  {
-    "budgetary_id": 178,
-    "budgetary_name": "ศูนย์อำนวยการรักษาผลประโยชน์ของชาติทางทะเล",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 845634700,
-    "previous_year_amount": 955093500,
-    "previous_year_percent": 0.025263
-  },
-  {
-    "budgetary_id": 283,
-    "budgetary_name": "สำนักงบประมาณ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 1050997500,
-    "previous_year_amount": 1230706400,
-    "previous_year_percent": 0.032553
-  },
-  {
-    "budgetary_id": 431,
-    "budgetary_name": "สำนักงานทรัพยากรน้ำแห่งชาติ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 653980100,
-    "previous_year_amount": 942247000,
-    "previous_year_percent": 0.024923
-  },
-  {
-    "budgetary_id": 419,
-    "budgetary_name": "กรมการปกครอง",
-    "ministry_id": 14,
-    "ministry_name": "กระทรวงมหาดไทย",
-    "budget_amount": 53352464100,
-    "previous_year_amount": 52387711800,
-    "previous_year_percent": 1.385698
-  },
-  {
-    "budgetary_id": 1836,
-    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ",
-    "ministry_id": 9,
-    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
-    "budget_amount": 792872200,
-    "previous_year_amount": 772319100,
-    "previous_year_percent": 0.020428
-  },
-  {
-    "budgetary_id": 485,
-    "budgetary_name": "สำนักงานปลัดกระทรวงคมนาคม",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 626595400,
-    "previous_year_amount": 1123896500,
-    "previous_year_percent": 0.029728
-  },
-  {
-    "budgetary_id": 34,
-    "budgetary_name": "สภากาชาดไทย",
-    "ministry_id": 10,
-    "ministry_name": "สภากาชาดไทย",
-    "budget_amount": 9723323800,
-    "previous_year_amount": 9375278100,
-    "previous_year_percent": 0.247984
-  },
-  {
-    "budgetary_id": 1994,
-    "budgetary_name": "สำนักงานศาลรัฐธรรมนูญ",
-    "ministry_id": 29,
-    "ministry_name": "หน่วยงานของศาล",
-    "budget_amount": 391225400,
-    "previous_year_amount": 370003300,
-    "previous_year_percent": 0.009787
-  },
-  {
-    "budgetary_id": 276,
-    "budgetary_name": "กรมสุขภาพจิต",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 3034132100,
-    "previous_year_amount": 2989122700,
-    "previous_year_percent": 0.079065
-  },
-  {
-    "budgetary_id": 308,
-    "budgetary_name": "สถาบันพระบรมราชชนก",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 2984436200,
-    "previous_year_amount": 2879949500,
-    "previous_year_percent": 0.076177
-  },
-  {
-    "budgetary_id": 3056,
-    "budgetary_name": "สำนักงานคณะกรรมการกฤษฎีกา",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 522462000,
-    "previous_year_amount": 532307700,
-    "previous_year_percent": 0.01408
-  },
-  {
-    "budgetary_id": 451,
-    "budgetary_name": "สำนักงานพระพุทธศาสนาแห่งชาติ",
-    "ministry_id": 9,
-    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
-    "budget_amount": 5559667400,
-    "previous_year_amount": 5518130800,
-    "previous_year_percent": 0.145959
-  },
-  {
-    "budgetary_id": 412,
-    "budgetary_name": "องค์การบริหารการพัฒนาพื้นที่พิเศษเพื่อการท่องเที่ยวอย่างยั่งยืน (องค์การมหาชน)",
-    "ministry_id": 21,
-    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
-    "budget_amount": 301093500,
-    "previous_year_amount": 417893900,
-    "previous_year_percent": 0.011054
-  },
-  {
     "budgetary_id": 252,
     "budgetary_name": "กองบัญชาการกองทัพไทย",
     "ministry_id": 7,
@@ -621,814 +27,13 @@
     "previous_year_percent": 0.402405
   },
   {
-    "budgetary_id": 170,
-    "budgetary_name": "องค์การสวนสัตว์แห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 2202434300,
-    "previous_year_amount": 2589563900,
-    "previous_year_percent": 0.068496
-  },
-  {
-    "budgetary_id": 454,
-    "budgetary_name": "กรมธุรกิจพลังงาน",
-    "ministry_id": 27,
-    "ministry_name": "กระทรวงพลังงาน",
-    "budget_amount": 303457100,
-    "previous_year_amount": 303213500,
-    "previous_year_percent": 0.00802
-  },
-  {
-    "budgetary_id": 460,
-    "budgetary_name": "สำนักงานปลัดกระทรวงพลังงาน",
-    "ministry_id": 27,
-    "ministry_name": "กระทรวงพลังงาน",
-    "budget_amount": 559011200,
-    "previous_year_amount": 651596200,
-    "previous_year_percent": 0.017235
-  },
-  {
-    "budgetary_id": 273,
-    "budgetary_name": "สำนักงานปลัดกระทรวงแรงงาน",
-    "ministry_id": 23,
-    "ministry_name": "กระทรวงแรงงาน",
-    "budget_amount": 1260267600,
-    "previous_year_amount": 1367666400,
-    "previous_year_percent": 0.036176
-  },
-  {
-    "budgetary_id": 1832,
-    "budgetary_name": "สำนักงานเลขาธิการสภาผู้แทนราษฎร",
-    "ministry_id": 30,
-    "ministry_name": "หน่วยงานของรัฐสภา",
-    "budget_amount": 5087375900,
-    "previous_year_amount": 6297687200,
-    "previous_year_percent": 0.166579
-  },
-  {
-    "budgetary_id": 438,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการคลัง",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 907772300,
-    "previous_year_amount": 843045800,
-    "previous_year_percent": 0.022299
-  },
-  {
-    "budgetary_id": 2002,
-    "budgetary_name": "สำนักงานบริหารหนี้สาธารณะ",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 410868243000,
-    "previous_year_amount": 366915470500,
-    "previous_year_percent": 9.705218
-  },
-  {
-    "budgetary_id": 470,
-    "budgetary_name": "กรมบัญชีกลาง",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 1836989400,
-    "previous_year_amount": 1965363200,
-    "previous_year_percent": 0.051985
-  },
-  {
-    "budgetary_id": 403,
-    "budgetary_name": "กรมเจรจาการค้าระหว่างประเทศ",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 360518300,
-    "previous_year_amount": 367840400,
-    "previous_year_percent": 0.00973
-  },
-  {
-    "budgetary_id": 299,
-    "budgetary_name": "สำนักงานการปฏิรูปที่ดินเพื่อเกษตรกรรม",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 1589772600,
-    "previous_year_amount": 1605070200,
-    "previous_year_percent": 0.042455
-  },
-  {
-    "budgetary_id": 442,
-    "budgetary_name": "สำนักงานปลัดกระทรวงเกษตรและสหกรณ์",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 1456715500,
-    "previous_year_amount": 1421056300,
-    "previous_year_percent": 0.037588
-  },
-  {
-    "budgetary_id": 445,
-    "budgetary_name": "กรมอุตสาหกรรมพื้นฐานและการเหมืองแร่",
-    "ministry_id": 25,
-    "ministry_name": "กระทรวงอุตสาหกรรม",
-    "budget_amount": 348970300,
-    "previous_year_amount": 399921700,
-    "previous_year_percent": 0.010578
-  },
-  {
-    "budgetary_id": 301,
-    "budgetary_name": "สำนักงานคณะกรรมการอ้อยและน้ำตาลทราย",
-    "ministry_id": 25,
-    "ministry_name": "กระทรวงอุตสาหกรรม",
-    "budget_amount": 386802300,
-    "previous_year_amount": 762460400,
-    "previous_year_percent": 0.020168
-  },
-  {
-    "budgetary_id": 449,
-    "budgetary_name": "กรมโรงงานอุตสาหกรรม",
-    "ministry_id": 25,
-    "ministry_name": "กระทรวงอุตสาหกรรม",
-    "budget_amount": 714569000,
-    "previous_year_amount": 804421100,
-    "previous_year_percent": 0.021278
-  },
-  {
-    "budgetary_id": 461,
-    "budgetary_name": "สำนักงานปลัดกระทรวงอุตสาหกรรม",
-    "ministry_id": 25,
-    "ministry_name": "กระทรวงอุตสาหกรรม",
-    "budget_amount": 1004794500,
-    "previous_year_amount": 1082447700,
-    "previous_year_percent": 0.028632
-  },
-  {
-    "budgetary_id": 433,
-    "budgetary_name": "สำนักงานมาตรฐานผลิตภัณฑ์อุตสาหกรรม",
-    "ministry_id": 25,
-    "ministry_name": "กระทรวงอุตสาหกรรม",
-    "budget_amount": 788041000,
-    "previous_year_amount": 931984300,
-    "previous_year_percent": 0.024652
-  },
-  {
-    "budgetary_id": 35,
-    "budgetary_name": "มหาวิทยาลัยธรรมศาสตร์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 4486828100,
-    "previous_year_amount": 4837916500,
-    "previous_year_percent": 0.127967
-  },
-  {
-    "budgetary_id": 1991,
-    "budgetary_name": "มหาวิทยาลัยมหาสารคาม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1465147800,
-    "previous_year_amount": 1528585800,
-    "previous_year_percent": 0.040432
-  },
-  {
-    "budgetary_id": 5,
-    "budgetary_name": "มหาวิทยาลัยมหิดล",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 14458829400,
-    "previous_year_amount": 15217636300,
-    "previous_year_percent": 0.402519
-  },
-  {
-    "budgetary_id": 191,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏนครราชสีมา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 576445900,
-    "previous_year_amount": 573802000,
-    "previous_year_percent": 0.015178
-  },
-  {
-    "budgetary_id": 413,
-    "budgetary_name": "กรมวิทยาศาสตร์บริการ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 469862200,
-    "previous_year_amount": 408473800,
-    "previous_year_percent": 0.010804
-  },
-  {
-    "budgetary_id": 9,
-    "budgetary_name": "มหาวิทยาลัยแม่ฟ้าหลวง",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 2042092700,
-    "previous_year_amount": 2117384200,
-    "previous_year_percent": 0.056007
-  },
-  {
-    "budgetary_id": 1835,
-    "budgetary_name": "สำนักงานปลัดกระทรวงวัฒนธรรม",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 2936555500,
-    "previous_year_amount": 2789330500,
-    "previous_year_percent": 0.07378
-  },
-  {
-    "budgetary_id": 198,
-    "budgetary_name": "สถาบันบัณฑิตพัฒนศิลป์",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 1116583300,
-    "previous_year_amount": 1206195900,
-    "previous_year_percent": 0.031905
-  },
-  {
-    "budgetary_id": 455,
-    "budgetary_name": "สำนักงานคณะกรรมการอาหารและยา",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 902564500,
-    "previous_year_amount": 971273000,
-    "previous_year_percent": 0.025691
-  },
-  {
-    "budgetary_id": 213,
-    "budgetary_name": "กรมวิทยาศาสตร์การแพทย์",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 1135285800,
-    "previous_year_amount": 1396773400,
-    "previous_year_percent": 0.036946
-  },
-  {
-    "budgetary_id": 218,
-    "budgetary_name": "กรมอนามัย",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 1772169800,
-    "previous_year_amount": 1803956500,
-    "previous_year_percent": 0.047716
-  },
-  {
-    "budgetary_id": 457,
-    "budgetary_name": "สำนักงานหลักประกันสุขภาพแห่งชาติ",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 1456910500,
-    "previous_year_amount": 1710705900,
-    "previous_year_percent": 0.04525
-  },
-  {
-    "budgetary_id": 207,
-    "budgetary_name": "สำนักงานส่งเสริมเศรษฐกิจดิจิทัล",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 1017740400,
-    "previous_year_amount": 1317723500,
-    "previous_year_percent": 0.034855
-  },
-  {
-    "budgetary_id": 266,
-    "budgetary_name": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 5511409900,
-    "previous_year_amount": 2857136500,
-    "previous_year_percent": 0.075574
-  },
-  {
-    "budgetary_id": 2023,
-    "budgetary_name": "สำนักงานส่งเสริมเศรษฐกิจสร้างสรรค์ (องค์การมหาชน)",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 402056100,
-    "previous_year_amount": 566412500,
-    "previous_year_percent": 0.014982
-  },
-  {
-    "budgetary_id": 260,
-    "budgetary_name": "สำนักเลขาธิการนายกรัฐมนตรี",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 8394974700,
-    "previous_year_amount": 6673482400,
-    "previous_year_percent": 0.176519
-  },
-  {
-    "budgetary_id": 254,
-    "budgetary_name": "สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 903496200,
-    "previous_year_amount": 896985400,
-    "previous_year_percent": 0.023726
-  },
-  {
-    "budgetary_id": 249,
-    "budgetary_name": "กองอำนวยการรักษาความมั่นคงภายในราชอาณาจักร",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 5737390300,
-    "previous_year_amount": 6919392800,
-    "previous_year_percent": 0.183024
-  },
-  {
-    "budgetary_id": 269,
-    "budgetary_name": "สำนักงานคณะกรรมการพัฒนาระบบราชการ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 531189400,
-    "previous_year_amount": 361804400,
-    "previous_year_percent": 0.00957
-  },
-  {
-    "budgetary_id": 443,
-    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมการลงทุน",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 731801900,
-    "previous_year_amount": 723714700,
-    "previous_year_percent": 0.019143
-  },
-  {
-    "budgetary_id": 263,
-    "budgetary_name": "สำนักงานคณะกรรมการการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 440117300,
-    "previous_year_amount": 547358600,
-    "previous_year_percent": 0.014478
-  },
-  {
-    "budgetary_id": 143,
-    "budgetary_name": "กรมประชาสัมพันธ์",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 2271443000,
-    "previous_year_amount": 2407088400,
-    "previous_year_percent": 0.063669
-  },
-  {
-    "budgetary_id": 2007,
-    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามยาเสพติด",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 2516487000,
-    "previous_year_amount": 2780175600,
-    "previous_year_percent": 0.073538
-  },
-  {
-    "budgetary_id": 242,
-    "budgetary_name": "กรมคุมประพฤติ",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 2189110700,
-    "previous_year_amount": 2226336300,
-    "previous_year_percent": 0.058888
-  },
-  {
-    "budgetary_id": 26,
-    "budgetary_name": "กรมสอบสวนคดีพิเศษ",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 1316510600,
-    "previous_year_amount": 1327576700,
-    "previous_year_percent": 0.035116
-  },
-  {
-    "budgetary_id": 467,
-    "budgetary_name": "สถาบันนิติวิทยาศาสตร์",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 526173600,
-    "previous_year_amount": 581237600,
-    "previous_year_percent": 0.015374
-  },
-  {
-    "budgetary_id": 206,
-    "budgetary_name": "กรมการท่องเที่ยว",
-    "ministry_id": 21,
-    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
-    "budget_amount": 2529358400,
-    "previous_year_amount": 2707861400,
-    "previous_year_percent": 0.071625
-  },
-  {
-    "budgetary_id": 240,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการท่องเที่ยวและกีฬา",
-    "ministry_id": 21,
-    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
-    "budget_amount": 681679800,
-    "previous_year_amount": 884311200,
-    "previous_year_percent": 0.023391
-  },
-  {
-    "budgetary_id": 197,
-    "budgetary_name": "สำนักงานปลัดกระทรวงศึกษาธิการ",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 39620201200,
-    "previous_year_amount": 41247093100,
-    "previous_year_percent": 1.09102
-  },
-  {
-    "budgetary_id": 441,
-    "budgetary_name": "กรมส่งเสริมการเรียนรู้",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 12152961900,
-    "previous_year_amount": 12009930700,
-    "previous_year_percent": 0.317673
-  },
-  {
-    "budgetary_id": 1837,
-    "budgetary_name": "สถาบันส่งเสริมการสอนวิทยาศาสตร์และเทคโนโลยี",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 2396214900,
-    "previous_year_amount": 2168428600,
-    "previous_year_percent": 0.057357
-  },
-  {
-    "budgetary_id": 286,
-    "budgetary_name": "สำนักงานนโยบายและแผนการขนส่งและจราจร",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 252020600,
-    "previous_year_amount": 274182500,
-    "previous_year_percent": 0.007252
-  },
-  {
-    "budgetary_id": 253,
-    "budgetary_name": "กรมควบคุมมลพิษ",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 3792196300,
-    "previous_year_amount": 860334500,
-    "previous_year_percent": 0.022757
-  },
-  {
-    "budgetary_id": 18,
-    "budgetary_name": "กรมทรัพยากรทางทะเลและชายฝั่ง",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 1932096600,
-    "previous_year_amount": 2114736900,
-    "previous_year_percent": 0.055937
-  },
-  {
-    "budgetary_id": 219,
-    "budgetary_name": "กรมป่าไม้",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 5149186900,
-    "previous_year_amount": 5451801100,
-    "previous_year_percent": 0.144205
-  },
-  {
-    "budgetary_id": 474,
-    "budgetary_name": "การท่องเที่ยวแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 5756812300,
-    "previous_year_amount": 6199734300,
-    "previous_year_percent": 0.163988
-  },
-  {
-    "budgetary_id": 251,
-    "budgetary_name": "องค์การพิพิธภัณฑ์วิทยาศาสตร์แห่งชาติ",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 794750400,
-    "previous_year_amount": 1164901900,
-    "previous_year_percent": 0.030813
-  },
-  {
-    "budgetary_id": 2999,
-    "budgetary_name": "การประปาส่วนภูมิภาค",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 5950247200,
-    "previous_year_amount": 6087254800,
-    "previous_year_percent": 0.161013
-  },
-  {
-    "budgetary_id": 424,
-    "budgetary_name": "สถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 649088500,
-    "previous_year_amount": 837762500,
-    "previous_year_percent": 0.02216
-  },
-  {
-    "budgetary_id": 202,
-    "budgetary_name": "กรมศุลกากร",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 4229676200,
-    "previous_year_amount": 4282399600,
-    "previous_year_percent": 0.113273
-  },
-  {
-    "budgetary_id": 476,
-    "budgetary_name": "กรมสรรพากร",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 10148329400,
-    "previous_year_amount": 10080414200,
-    "previous_year_percent": 0.266635
-  },
-  {
-    "budgetary_id": 458,
-    "budgetary_name": "สำนักงานปลัดกระทรวงพาณิชย์",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 1767816900,
-    "previous_year_amount": 1737502700,
-    "previous_year_percent": 0.045958
-  },
-  {
-    "budgetary_id": 245,
-    "budgetary_name": "กรมตรวจบัญชีสหกรณ์",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 1395915100,
-    "previous_year_amount": 1348123200,
-    "previous_year_percent": 0.035659
-  },
-  {
-    "budgetary_id": 239,
-    "budgetary_name": "สถาบันวิจัยและพัฒนาพื้นที่สูง (องค์การมหาชน)",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 520975100,
-    "previous_year_amount": 564015100,
-    "previous_year_percent": 0.014919
-  },
-  {
-    "budgetary_id": 295,
-    "budgetary_name": "กรมฝนหลวงและการบินเกษตร",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 3217226300,
-    "previous_year_amount": 2715498700,
-    "previous_year_percent": 0.071827
-  },
-  {
-    "budgetary_id": 244,
-    "budgetary_name": "กรมส่งเสริมสหกรณ์",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 2868134000,
-    "previous_year_amount": 2935347600,
-    "previous_year_percent": 0.077642
-  },
-  {
-    "budgetary_id": 447,
-    "budgetary_name": "สำนักงานเศรษฐกิจอุตสาหกรรม",
-    "ministry_id": 25,
-    "ministry_name": "กระทรวงอุตสาหกรรม",
-    "budget_amount": 249699500,
-    "previous_year_amount": 283535200,
-    "previous_year_percent": 0.0075
-  },
-  {
-    "budgetary_id": 421,
-    "budgetary_name": "สำนักงานปรมาณูเพื่อสันติ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 426035000,
-    "previous_year_amount": 458544700,
-    "previous_year_percent": 0.012129
-  },
-  {
-    "budgetary_id": 4,
-    "budgetary_name": "มหาวิทยาลัยวลัยลักษณ์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1749169800,
-    "previous_year_amount": 1837500100,
-    "previous_year_percent": 0.048603
-  },
-  {
-    "budgetary_id": 24,
-    "budgetary_name": "มหาวิทยาลัยแม่โจ้",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1399853600,
-    "previous_year_amount": 1455408700,
-    "previous_year_percent": 0.038497
-  },
-  {
-    "budgetary_id": 144,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏพิบูลสงคราม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 637525800,
-    "previous_year_amount": 603966100,
-    "previous_year_percent": 0.015975
-  },
-  {
-    "budgetary_id": 230,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏยะลา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 502614500,
-    "previous_year_amount": 505047200,
-    "previous_year_percent": 0.013359
-  },
-  {
-    "budgetary_id": 437,
-    "budgetary_name": "สถาบันมาตรวิทยาแห่งชาติ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 412669100,
-    "previous_year_amount": 419638400,
-    "previous_year_percent": 0.0111
-  },
-  {
-    "budgetary_id": 29,
-    "budgetary_name": "สถาบันวิจัยดาราศาสตร์แห่งชาติ (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 436244000,
-    "previous_year_amount": 440577500,
-    "previous_year_percent": 0.011654
-  },
-  {
-    "budgetary_id": 400,
-    "budgetary_name": "สถาบันวิทยาลัยชุมชน",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 806167900,
-    "previous_year_amount": 762785100,
-    "previous_year_percent": 0.020176
-  },
-  {
-    "budgetary_id": 259,
-    "budgetary_name": "สำนักงานศิลปวัฒนธรรมร่วมสมัย",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 293984400,
-    "previous_year_amount": 350880300,
-    "previous_year_percent": 0.009281
-  },
-  {
-    "budgetary_id": 1840,
-    "budgetary_name": "สถาบันวัคซีนแห่งชาติ",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 51138500,
-    "previous_year_amount": 132307300,
-    "previous_year_percent": 0.0035
-  },
-  {
-    "budgetary_id": 471,
-    "budgetary_name": "กรมสนับสนุนบริการสุขภาพ",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 27598692400,
-    "previous_year_amount": 26721163500,
-    "previous_year_percent": 0.706797
-  },
-  {
-    "budgetary_id": 313,
-    "budgetary_name": "สถาบันข้อมูลขนาดใหญ่ (องค์การมหาชน)",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 472183600,
-    "previous_year_amount": 511630800,
-    "previous_year_percent": 0.013533
-  },
-  {
-    "budgetary_id": 1829,
-    "budgetary_name": "กรมอุตุนิยมวิทยา",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 3902749200,
-    "previous_year_amount": 2692751000,
-    "previous_year_percent": 0.071225
-  },
-  {
-    "budgetary_id": 418,
-    "budgetary_name": "สำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 341924300,
-    "previous_year_amount": 405916300,
-    "previous_year_percent": 0.010737
-  },
-  {
-    "budgetary_id": 2009,
-    "budgetary_name": "สำนักงานสถิติแห่งชาติ",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 1096011300,
-    "previous_year_amount": 947810400,
-    "previous_year_percent": 0.02507
-  },
-  {
-    "budgetary_id": 264,
-    "budgetary_name": "สำนักเลขาธิการคณะรัฐมนตรี",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 712144100,
-    "previous_year_amount": 698813600,
-    "previous_year_percent": 0.018484
-  },
-  {
-    "budgetary_id": 265,
-    "budgetary_name": "สำนักงานปลัดสำนักนายกรัฐมนตรี",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 752212900,
-    "previous_year_amount": 917441700,
-    "previous_year_percent": 0.024267
-  },
-  {
-    "budgetary_id": 278,
-    "budgetary_name": "สำนักงานคณะกรรมการคุ้มครองผู้บริโภค",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 249520600,
-    "previous_year_amount": 302762800,
-    "previous_year_percent": 0.008008
-  },
-  {
-    "budgetary_id": 415,
-    "budgetary_name": "สำนักงานคณะกรรมการข้าราชการพลเรือน",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 1635995400,
-    "previous_year_amount": 1818266100,
-    "previous_year_percent": 0.048095
-  },
-  {
-    "budgetary_id": 282,
-    "budgetary_name": "สำนักงานบริหารและพัฒนาองค์ความรู้ (องค์การมหาชน)",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 552151300,
-    "previous_year_amount": 643010500,
-    "previous_year_percent": 0.017008
-  },
-  {
-    "budgetary_id": 243,
-    "budgetary_name": "สำนักข่าวกรองแห่งชาติ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 687557600,
-    "previous_year_amount": 647904400,
-    "previous_year_percent": 0.017138
-  },
-  {
-    "budgetary_id": 468,
-    "budgetary_name": "สำนักงานคณะกรรมการนโยบายที่ดินแห่งชาติ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 355125800,
-    "previous_year_amount": 341587200,
-    "previous_year_percent": 0.009035
-  },
-  {
-    "budgetary_id": 250,
-    "budgetary_name": "เมืองพัทยา",
-    "ministry_id": 13,
-    "ministry_name": "องค์กรปกครองส่วนท้องถิ่น",
-    "budget_amount": 2300779500,
-    "previous_year_amount": 2402958500,
-    "previous_year_percent": 0.06356
-  },
-  {
-    "budgetary_id": 175,
-    "budgetary_name": "กรมป้องกันและบรรเทาสาธารณภัย",
-    "ministry_id": 14,
-    "ministry_name": "กระทรวงมหาดไทย",
-    "budget_amount": 6164802300,
-    "previous_year_amount": 7026425300,
-    "previous_year_percent": 0.185855
-  },
-  {
-    "budgetary_id": 2000,
-    "budgetary_name": "สำนักงานคณะกรรมการนโยบายเขตพัฒนาพิเศษภาคตะวันออก",
-    "ministry_id": 9,
-    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
-    "budget_amount": 765063400,
-    "previous_year_amount": 647586800,
-    "previous_year_percent": 0.017129
-  },
-  {
-    "budgetary_id": 319,
-    "budgetary_name": "สำนักงานคณะกรรมการการอาชีวศึกษา",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 27736764200,
-    "previous_year_amount": 28004218900,
-    "previous_year_percent": 0.740735
-  },
-  {
-    "budgetary_id": 430,
-    "budgetary_name": "สำนักงานสภาเกษตรกรแห่งชาติ",
-    "ministry_id": 26,
-    "ministry_name": "หน่วยงานอื่นของรัฐ",
-    "budget_amount": 417825700,
-    "previous_year_amount": 422885300,
-    "previous_year_percent": 0.011186
+    "budgetary_id": 256,
+    "budgetary_name": "กองทัพบก",
+    "ministry_id": 7,
+    "ministry_name": "กระทรวงกลาโหม",
+    "budget_amount": 96250745900,
+    "previous_year_amount": 97169661500,
+    "previous_year_percent": 2.570218
   },
   {
     "budgetary_id": 27,
@@ -1440,94 +45,22 @@
     "previous_year_percent": 0.997761
   },
   {
-    "budgetary_id": 411,
-    "budgetary_name": "กรมการขนส่งทางราง",
-    "ministry_id": 16,
-    "ministry_name": "กระทรวงคมนาคม",
-    "budget_amount": 162666800,
-    "previous_year_amount": 142166500,
-    "previous_year_percent": 0.00376
+    "budgetary_id": 466,
+    "budgetary_name": "สถาบันเทคโนโลยีป้องกันประเทศ",
+    "ministry_id": 7,
+    "ministry_name": "กระทรวงกลาโหม",
+    "budget_amount": 1037887900,
+    "previous_year_amount": 1142641500,
+    "previous_year_percent": 0.030224
   },
   {
-    "budgetary_id": 408,
-    "budgetary_name": "กรมทรัพยากรธรณี",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 949260800,
-    "previous_year_amount": 948084700,
-    "previous_year_percent": 0.025078
-  },
-  {
-    "budgetary_id": 160,
-    "budgetary_name": "กรมทรัพยากรน้ำ",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 7329655000,
-    "previous_year_amount": 9282502100,
-    "previous_year_percent": 0.24553
-  },
-  {
-    "budgetary_id": 1998,
-    "budgetary_name": "สำนักงานพัฒนาเศรษฐกิจจากฐานชีวภาพ (องค์การมหาชน)",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 119606000,
-    "previous_year_amount": 131233100,
-    "previous_year_percent": 0.003471
-  },
-  {
-    "budgetary_id": 2998,
-    "budgetary_name": "องค์การขนส่งมวลชนกรุงเทพ",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 4173016900,
-    "previous_year_amount": 4897713600,
-    "previous_year_percent": 0.129549
-  },
-  {
-    "budgetary_id": 309,
-    "budgetary_name": "องค์การสวนพฤกษศาสตร์",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 163972700,
-    "previous_year_amount": 209835800,
-    "previous_year_percent": 0.00555
-  },
-  {
-    "budgetary_id": 1999,
-    "budgetary_name": "สถาบันการบินพลเรือน",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 656817100,
-    "previous_year_amount": 308294100,
-    "previous_year_percent": 0.008155
-  },
-  {
-    "budgetary_id": 698,
-    "budgetary_name": "องค์การตลาดเพื่อเกษตรกร",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 65094600,
-    "previous_year_amount": 101507200,
-    "previous_year_percent": 0.002685
-  },
-  {
-    "budgetary_id": 436,
-    "budgetary_name": "กรมเชื้อเพลิงธรรมชาติ",
-    "ministry_id": 27,
-    "ministry_name": "กระทรวงพลังงาน",
-    "budget_amount": 221871800,
-    "previous_year_amount": 228791800,
-    "previous_year_percent": 0.006052
-  },
-  {
-    "budgetary_id": 1992,
-    "budgetary_name": "สำนักงานเลขาธิการวุฒิสภา",
-    "ministry_id": 30,
-    "ministry_name": "หน่วยงานของรัฐสภา",
-    "budget_amount": 2198454900,
-    "previous_year_amount": 2303413400,
-    "previous_year_percent": 0.060927
+    "budgetary_id": 2002,
+    "budgetary_name": "สำนักงานบริหารหนี้สาธารณะ",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 410868243000,
+    "previous_year_amount": 366915470500,
+    "previous_year_percent": 9.705218
   },
   {
     "budgetary_id": 272,
@@ -1539,22 +72,148 @@
     "previous_year_percent": 0.013156
   },
   {
-    "budgetary_id": 404,
-    "budgetary_name": "กรมทรัพย์สินทางปัญญา",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 464673900,
-    "previous_year_amount": 510778800,
-    "previous_year_percent": 0.013511
+    "budgetary_id": 438,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการคลัง",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 907772300,
+    "previous_year_amount": 843045800,
+    "previous_year_percent": 0.022299
   },
   {
-    "budgetary_id": 483,
-    "budgetary_name": "กรมพัฒนาธุรกิจการค้า",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 482358800,
-    "previous_year_amount": 491696700,
-    "previous_year_percent": 0.013006
+    "budgetary_id": 2011,
+    "budgetary_name": "สำนักงานคณะกรรมการนโยบายรัฐวิสาหกิจ",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 142509300,
+    "previous_year_amount": 184330600,
+    "previous_year_percent": 0.004876
+  },
+  {
+    "budgetary_id": 2001,
+    "budgetary_name": "กรมธนารักษ์",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 6443359600,
+    "previous_year_amount": 5783939200,
+    "previous_year_percent": 0.15299
+  },
+  {
+    "budgetary_id": 470,
+    "budgetary_name": "กรมบัญชีกลาง",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 1836989400,
+    "previous_year_amount": 1965363200,
+    "previous_year_percent": 0.051985
+  },
+  {
+    "budgetary_id": 202,
+    "budgetary_name": "กรมศุลกากร",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 4229676200,
+    "previous_year_amount": 4282399600,
+    "previous_year_percent": 0.113273
+  },
+  {
+    "budgetary_id": 1839,
+    "budgetary_name": "กรมสรรพสามิต",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 5554719400,
+    "previous_year_amount": 6912769200,
+    "previous_year_percent": 0.182848
+  },
+  {
+    "budgetary_id": 476,
+    "budgetary_name": "กรมสรรพากร",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 10148329400,
+    "previous_year_amount": 10080414200,
+    "previous_year_percent": 0.266635
+  },
+  {
+    "budgetary_id": 2018,
+    "budgetary_name": "สำนักงานความร่วมมือพัฒนาเศรษฐกิจกับประเทศเพื่อนบ้าน (องค์การมหาชน)",
+    "ministry_id": 19,
+    "ministry_name": "กระทรวงการคลัง",
+    "budget_amount": 253405500,
+    "previous_year_amount": 391569400,
+    "previous_year_percent": 0.010357
+  },
+  {
+    "budgetary_id": 268,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการต่างประเทศ",
+    "ministry_id": 24,
+    "ministry_name": "กระทรวงการต่างประเทศ",
+    "budget_amount": 8256806900,
+    "previous_year_amount": 9200251200,
+    "previous_year_percent": 0.243354
+  },
+  {
+    "budgetary_id": 412,
+    "budgetary_name": "องค์การบริหารการพัฒนาพื้นที่พิเศษเพื่อการท่องเที่ยวอย่างยั่งยืน (องค์การมหาชน)",
+    "ministry_id": 21,
+    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
+    "budget_amount": 301093500,
+    "previous_year_amount": 417893900,
+    "previous_year_percent": 0.011054
+  },
+  {
+    "budgetary_id": 321,
+    "budgetary_name": "มหาวิทยาลัยการกีฬาแห่งชาติ",
+    "ministry_id": 21,
+    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
+    "budget_amount": 1716842000,
+    "previous_year_amount": 1861889600,
+    "previous_year_percent": 0.049249
+  },
+  {
+    "budgetary_id": 206,
+    "budgetary_name": "กรมการท่องเที่ยว",
+    "ministry_id": 21,
+    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
+    "budget_amount": 2529358400,
+    "previous_year_amount": 2707861400,
+    "previous_year_percent": 0.071625
+  },
+  {
+    "budgetary_id": 311,
+    "budgetary_name": "กรมพลศึกษา",
+    "ministry_id": 21,
+    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
+    "budget_amount": 627209500,
+    "previous_year_amount": 769544400,
+    "previous_year_percent": 0.020355
+  },
+  {
+    "budgetary_id": 240,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการท่องเที่ยวและกีฬา",
+    "ministry_id": 21,
+    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
+    "budget_amount": 681679800,
+    "previous_year_amount": 884311200,
+    "previous_year_percent": 0.023391
+  },
+  {
+    "budgetary_id": 307,
+    "budgetary_name": "กรมพัฒนาสังคมและสวัสดิการ",
+    "ministry_id": 20,
+    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
+    "budget_amount": 1833909400,
+    "previous_year_amount": 1943553000,
+    "previous_year_percent": 0.051409
+  },
+  {
+    "budgetary_id": 271,
+    "budgetary_name": "กรมกิจการผู้สูงอายุ",
+    "ministry_id": 20,
+    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
+    "budget_amount": 1561858500,
+    "previous_year_amount": 1622485700,
+    "previous_year_percent": 0.042916
   },
   {
     "budgetary_id": 212,
@@ -1575,6 +234,15 @@
     "previous_year_percent": 0.015187
   },
   {
+    "budgetary_id": 204,
+    "budgetary_name": "กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
+    "ministry_id": 20,
+    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
+    "budget_amount": 853443900,
+    "previous_year_amount": 862160400,
+    "previous_year_percent": 0.022805
+  },
+  {
     "budgetary_id": 217,
     "budgetary_name": "สำนักงานปลัดกระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
     "ministry_id": 20,
@@ -1584,31 +252,40 @@
     "previous_year_percent": 0.053101
   },
   {
-    "budgetary_id": 227,
-    "budgetary_name": "สำนักงานพิพิธภัณฑ์เกษตรเฉลิมพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัว (องค์การมหาชน)",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 233122600,
-    "previous_year_amount": 255312200,
-    "previous_year_percent": 0.006753
+    "budgetary_id": 3011,
+    "budgetary_name": "สถาบันพัฒนาองค์กรชุมชน (องค์การมหาชน)",
+    "ministry_id": 20,
+    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
+    "budget_amount": 1396585200,
+    "previous_year_amount": 1814208300,
+    "previous_year_percent": 0.047987
   },
   {
-    "budgetary_id": 21,
-    "budgetary_name": "กรมวิชาการเกษตร",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 3791714100,
-    "previous_year_amount": 4052824200,
-    "previous_year_percent": 0.107201
+    "budgetary_id": 1834,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏสกลนคร",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 550648600,
+    "previous_year_amount": 550957500,
+    "previous_year_percent": 0.014573
   },
   {
-    "budgetary_id": 302,
-    "budgetary_name": "กรมส่งเสริมอุตสาหกรรม",
-    "ministry_id": 25,
-    "ministry_name": "กระทรวงอุตสาหกรรม",
-    "budget_amount": 1027440700,
-    "previous_year_amount": 1240803100,
-    "previous_year_percent": 0.03282
+    "budgetary_id": 329,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏชัยภูมิ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 324179900,
+    "previous_year_amount": 323527300,
+    "previous_year_percent": 0.008558
+  },
+  {
+    "budgetary_id": 392,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลกรุงเทพ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 747842700,
+    "previous_year_amount": 766638500,
+    "previous_year_percent": 0.020278
   },
   {
     "budgetary_id": 305,
@@ -1620,6 +297,96 @@
     "previous_year_percent": 0.021681
   },
   {
+    "budgetary_id": 332,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1411861200,
+    "previous_year_amount": 1293616700,
+    "previous_year_percent": 0.034217
+  },
+  {
+    "budgetary_id": 2031,
+    "budgetary_name": "สำนักงานนวัตกรรมแห่งชาติ (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 380772400,
+    "previous_year_amount": 396136700,
+    "previous_year_percent": 0.010478
+  },
+  {
+    "budgetary_id": 390,
+    "budgetary_name": "สถาบันการพยาบาลศรีสวรินทิรา สภากาชาดไทย",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 340142700,
+    "previous_year_amount": 359134100,
+    "previous_year_percent": 0.009499
+  },
+  {
+    "budgetary_id": 8,
+    "budgetary_name": "จุฬาลงกรณ์มหาวิทยาลัย",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 5858504400,
+    "previous_year_amount": 6113365500,
+    "previous_year_percent": 0.161704
+  },
+  {
+    "budgetary_id": 421,
+    "budgetary_name": "สำนักงานปรมาณูเพื่อสันติ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 426035000,
+    "previous_year_amount": 458544700,
+    "previous_year_percent": 0.012129
+  },
+  {
+    "budgetary_id": 36,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏเชียงใหม่",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 752909100,
+    "previous_year_amount": 770595500,
+    "previous_year_percent": 0.020383
+  },
+  {
+    "budgetary_id": 328,
+    "budgetary_name": "มหาวิทยาลัยกาฬสินธุ์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 486077800,
+    "previous_year_amount": 437790800,
+    "previous_year_percent": 0.01158
+  },
+  {
+    "budgetary_id": 30,
+    "budgetary_name": "มหาวิทยาลัยขอนแก่น",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 5159881700,
+    "previous_year_amount": 5517353900,
+    "previous_year_percent": 0.145939
+  },
+  {
+    "budgetary_id": 35,
+    "budgetary_name": "มหาวิทยาลัยธรรมศาสตร์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 4486828100,
+    "previous_year_amount": 4837916500,
+    "previous_year_percent": 0.127967
+  },
+  {
+    "budgetary_id": 231,
+    "budgetary_name": "มหาวิทยาลัยนครพนม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 738004100,
+    "previous_year_amount": 752881200,
+    "previous_year_percent": 0.019914
+  },
+  {
     "budgetary_id": 14,
     "budgetary_name": "มหาวิทยาลัยนราธิวาสราชนครินทร์",
     "ministry_id": 1,
@@ -1627,6 +394,24 @@
     "budget_amount": 635966900,
     "previous_year_amount": 634517400,
     "previous_year_percent": 0.016784
+  },
+  {
+    "budgetary_id": 422,
+    "budgetary_name": "สถาบันบัณฑิตพัฒนบริหารศาสตร์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 635857000,
+    "previous_year_amount": 654195700,
+    "previous_year_percent": 0.017304
+  },
+  {
+    "budgetary_id": 10,
+    "budgetary_name": "มหาวิทยาลัยนเรศวร",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 2499773300,
+    "previous_year_amount": 2584343700,
+    "previous_year_percent": 0.068358
   },
   {
     "budgetary_id": 33,
@@ -1638,6 +423,69 @@
     "previous_year_percent": 0.036937
   },
   {
+    "budgetary_id": 247,
+    "budgetary_name": "มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1938780500,
+    "previous_year_amount": 2012789900,
+    "previous_year_percent": 0.05324
+  },
+  {
+    "budgetary_id": 122,
+    "budgetary_name": "มหาวิทยาลัยมหามกุฏราชวิทยาลัย",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 793537900,
+    "previous_year_amount": 816171400,
+    "previous_year_percent": 0.021588
+  },
+  {
+    "budgetary_id": 1991,
+    "budgetary_name": "มหาวิทยาลัยมหาสารคาม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1465147800,
+    "previous_year_amount": 1528585800,
+    "previous_year_percent": 0.040432
+  },
+  {
+    "budgetary_id": 5,
+    "budgetary_name": "มหาวิทยาลัยมหิดล",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 14458829400,
+    "previous_year_amount": 15217636300,
+    "previous_year_percent": 0.402519
+  },
+  {
+    "budgetary_id": 326,
+    "budgetary_name": "มหาวิทยาลัยรามคำแหง",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1273289100,
+    "previous_year_amount": 1157846800,
+    "previous_year_percent": 0.030626
+  },
+  {
+    "budgetary_id": 4,
+    "budgetary_name": "มหาวิทยาลัยวลัยลักษณ์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1749169800,
+    "previous_year_amount": 1837500100,
+    "previous_year_percent": 0.048603
+  },
+  {
+    "budgetary_id": 1,
+    "budgetary_name": "มหาวิทยาลัยสงขลานครินทร์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 5310425000,
+    "previous_year_amount": 5518044800,
+    "previous_year_percent": 0.145957
+  },
+  {
     "budgetary_id": 184,
     "budgetary_name": "มหาวิทยาลัยสวนดุสิต",
     "ministry_id": 1,
@@ -1645,6 +493,15 @@
     "budget_amount": 1096266600,
     "previous_year_amount": 1129278700,
     "previous_year_percent": 0.02987
+  },
+  {
+    "budgetary_id": 327,
+    "budgetary_name": "มหาวิทยาลัยสุโขทัยธรรมาธิราช",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 743642500,
+    "previous_year_amount": 703666900,
+    "previous_year_percent": 0.018613
   },
   {
     "budgetary_id": 28,
@@ -1656,6 +513,42 @@
     "previous_year_percent": 0.022929
   },
   {
+    "budgetary_id": 22,
+    "budgetary_name": "มหาวิทยาลัยเกษตรศาสตร์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 5951104600,
+    "previous_year_amount": 5990650700,
+    "previous_year_percent": 0.158458
+  },
+  {
+    "budgetary_id": 11,
+    "budgetary_name": "มหาวิทยาลัยเชียงใหม่",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 6010725200,
+    "previous_year_amount": 6182604800,
+    "previous_year_percent": 0.163535
+  },
+  {
+    "budgetary_id": 3,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1584245600,
+    "previous_year_amount": 1605553600,
+    "previous_year_percent": 0.042468
+  },
+  {
+    "budgetary_id": 24,
+    "budgetary_name": "มหาวิทยาลัยแม่โจ้",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1399853600,
+    "previous_year_amount": 1455408700,
+    "previous_year_percent": 0.038497
+  },
+  {
     "budgetary_id": 378,
     "budgetary_name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
     "ministry_id": 1,
@@ -1663,6 +556,42 @@
     "budget_amount": 2089136700,
     "previous_year_amount": 2116552100,
     "previous_year_percent": 0.055985
+  },
+  {
+    "budgetary_id": 371,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1500345800,
+    "previous_year_amount": 1530534800,
+    "previous_year_percent": 0.040484
+  },
+  {
+    "budgetary_id": 232,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลพระนคร",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 769549600,
+    "previous_year_amount": 760144400,
+    "previous_year_percent": 0.020106
+  },
+  {
+    "budgetary_id": 382,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 926689000,
+    "previous_year_amount": 938372100,
+    "previous_year_percent": 0.024821
+  },
+  {
+    "budgetary_id": 333,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 830818600,
+    "previous_year_amount": 892443000,
+    "previous_year_percent": 0.023606
   },
   {
     "budgetary_id": 320,
@@ -1674,6 +603,168 @@
     "previous_year_percent": 0.040236
   },
   {
+    "budgetary_id": 6,
+    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีสุรนารี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1989912600,
+    "previous_year_amount": 2110429200,
+    "previous_year_percent": 0.055823
+  },
+  {
+    "budgetary_id": 323,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏรำไพพรรณี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 505948400,
+    "previous_year_amount": 516942200,
+    "previous_year_percent": 0.013674
+  },
+  {
+    "budgetary_id": 315,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏภูเก็ต",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 432432100,
+    "previous_year_amount": 427581900,
+    "previous_year_percent": 0.01131
+  },
+  {
+    "budgetary_id": 379,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏกาญจนบุรี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 408868400,
+    "previous_year_amount": 428118100,
+    "previous_year_percent": 0.011324
+  },
+  {
+    "budgetary_id": 287,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏกำแพงเพชร",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 434297500,
+    "previous_year_amount": 454449300,
+    "previous_year_percent": 0.012021
+  },
+  {
+    "budgetary_id": 317,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏจันทรเกษม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 580026500,
+    "previous_year_amount": 569470300,
+    "previous_year_percent": 0.015063
+  },
+  {
+    "budgetary_id": 389,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏนครปฐม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 590443100,
+    "previous_year_amount": 590919100,
+    "previous_year_percent": 0.01563
+  },
+  {
+    "budgetary_id": 191,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏนครราชสีมา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 576445900,
+    "previous_year_amount": 573802000,
+    "previous_year_percent": 0.015178
+  },
+  {
+    "budgetary_id": 137,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏนครศรีธรรมราช",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 516041600,
+    "previous_year_amount": 502949800,
+    "previous_year_percent": 0.013303
+  },
+  {
+    "budgetary_id": 304,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏบุรีรัมย์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 487647000,
+    "previous_year_amount": 510301200,
+    "previous_year_percent": 0.013498
+  },
+  {
+    "budgetary_id": 376,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏบ้านสมเด็จเจ้าพระยา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 630930000,
+    "previous_year_amount": 627208600,
+    "previous_year_percent": 0.01659
+  },
+  {
+    "budgetary_id": 32,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏพระนคร",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 580429300,
+    "previous_year_amount": 597605700,
+    "previous_year_percent": 0.015807
+  },
+  {
+    "budgetary_id": 144,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏพิบูลสงคราม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 637525800,
+    "previous_year_amount": 603966100,
+    "previous_year_percent": 0.015975
+  },
+  {
+    "budgetary_id": 203,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏมหาสารคาม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 486860600,
+    "previous_year_amount": 493605200,
+    "previous_year_percent": 0.013056
+  },
+  {
+    "budgetary_id": 230,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏยะลา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 502614500,
+    "previous_year_amount": 505047200,
+    "previous_year_percent": 0.013359
+  },
+  {
+    "budgetary_id": 205,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏราชนครินทร์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 438021000,
+    "previous_year_amount": 428987700,
+    "previous_year_percent": 0.011347
+  },
+  {
+    "budgetary_id": 234,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏร้อยเอ็ด",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 292320000,
+    "previous_year_amount": 303614800,
+    "previous_year_percent": 0.008031
+  },
+  {
+    "budgetary_id": 229,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏลำปาง",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 488031800,
+    "previous_year_amount": 482439200,
+    "previous_year_percent": 0.012761
+  },
+  {
     "budgetary_id": 401,
     "budgetary_name": "มหาวิทยาลัยราชภัฏสงขลา",
     "ministry_id": 1,
@@ -1681,6 +772,51 @@
     "budget_amount": 566186300,
     "previous_year_amount": 572255500,
     "previous_year_percent": 0.015137
+  },
+  {
+    "budgetary_id": 201,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏสุราษฎร์ธานี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 715563800,
+    "previous_year_amount": 741437300,
+    "previous_year_percent": 0.019612
+  },
+  {
+    "budgetary_id": 2,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏสุรินทร์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 502955300,
+    "previous_year_amount": 516037800,
+    "previous_year_percent": 0.01365
+  },
+  {
+    "budgetary_id": 381,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏหมู่บ้านจอมบึง",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 408116100,
+    "previous_year_amount": 414984100,
+    "previous_year_percent": 0.010977
+  },
+  {
+    "budgetary_id": 322,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏอุดรธานี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 660763200,
+    "previous_year_amount": 662935700,
+    "previous_year_percent": 0.017535
+  },
+  {
+    "budgetary_id": 300,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏอุตรดิตถ์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 500337800,
+    "previous_year_amount": 498903600,
+    "previous_year_percent": 0.013196
   },
   {
     "budgetary_id": 246,
@@ -1692,6 +828,24 @@
     "previous_year_percent": 0.017032
   },
   {
+    "budgetary_id": 380,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏเชียงราย",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 643788900,
+    "previous_year_amount": 629999500,
+    "previous_year_percent": 0.016664
+  },
+  {
+    "budgetary_id": 398,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏเทพสตรี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 423216500,
+    "previous_year_amount": 434898400,
+    "previous_year_percent": 0.011503
+  },
+  {
     "budgetary_id": 19,
     "budgetary_name": "มหาวิทยาลัยราชภัฏเพชรบุรี",
     "ministry_id": 1,
@@ -1699,6 +853,60 @@
     "budget_amount": 679669200,
     "previous_year_amount": 720485800,
     "previous_year_percent": 0.019057
+  },
+  {
+    "budgetary_id": 331,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏเลย",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 424957600,
+    "previous_year_amount": 432467700,
+    "previous_year_percent": 0.011439
+  },
+  {
+    "budgetary_id": 17,
+    "budgetary_name": "มหาวิทยาลัยศรีนครินทรวิโรฒ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 4552271900,
+    "previous_year_amount": 4782140500,
+    "previous_year_percent": 0.126492
+  },
+  {
+    "budgetary_id": 314,
+    "budgetary_name": "มหาวิทยาลัยทักษิณ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1173913200,
+    "previous_year_amount": 1210071600,
+    "previous_year_percent": 0.032007
+  },
+  {
+    "budgetary_id": 13,
+    "budgetary_name": "มหาวิทยาลัยบูรพา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 1991728700,
+    "previous_year_amount": 2040183300,
+    "previous_year_percent": 0.053965
+  },
+  {
+    "budgetary_id": 330,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏธนบุรี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 398901000,
+    "previous_year_amount": 417501800,
+    "previous_year_percent": 0.011043
+  },
+  {
+    "budgetary_id": 388,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 412924100,
+    "previous_year_amount": 442121000,
+    "previous_year_percent": 0.011694
   },
   {
     "budgetary_id": 312,
@@ -1710,6 +918,15 @@
     "previous_year_percent": 0.044994
   },
   {
+    "budgetary_id": 3061,
+    "budgetary_name": "สำนักงานเร่งรัดการวิจัยและนวัตกรรมเพื่อเพิ่มความสามารถการแข่งขันและการพัฒนาพื้นที่ (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 127344400,
+    "previous_year_amount": null,
+    "previous_year_percent": null
+  },
+  {
     "budgetary_id": 393,
     "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์",
     "ministry_id": 1,
@@ -1717,6 +934,33 @@
     "budget_amount": 806834500,
     "previous_year_amount": 838223700,
     "previous_year_percent": 0.022172
+  },
+  {
+    "budgetary_id": 3062,
+    "budgetary_name": "สำนักงานเทคโนโลยีและนวัตกรรมด้านชีววิทยาศาสตร์ (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 219471900,
+    "previous_year_amount": null,
+    "previous_year_percent": null
+  },
+  {
+    "budgetary_id": 413,
+    "budgetary_name": "กรมวิทยาศาสตร์บริการ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 469862200,
+    "previous_year_amount": 408473800,
+    "previous_year_percent": 0.010804
+  },
+  {
+    "budgetary_id": 394,
+    "budgetary_name": "สถาบันเทคโนโลยีปทุมวัน",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 323626100,
+    "previous_year_amount": 341668400,
+    "previous_year_percent": 0.009037
   },
   {
     "budgetary_id": 325,
@@ -1728,6 +972,141 @@
     "previous_year_percent": 0.006586
   },
   {
+    "budgetary_id": 2033,
+    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 225353600,
+    "previous_year_amount": 223797100,
+    "previous_year_percent": 0.00592
+  },
+  {
+    "budgetary_id": 324,
+    "budgetary_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 2164921600,
+    "previous_year_amount": 2215079300,
+    "previous_year_percent": 0.058591
+  },
+  {
+    "budgetary_id": 399,
+    "budgetary_name": "สถาบันดนตรีกัลยาณิวัฒนา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 154718300,
+    "previous_year_amount": 208315800,
+    "previous_year_percent": 0.00551
+  },
+  {
+    "budgetary_id": 437,
+    "budgetary_name": "สถาบันมาตรวิทยาแห่งชาติ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 412669100,
+    "previous_year_amount": 419638400,
+    "previous_year_percent": 0.0111
+  },
+  {
+    "budgetary_id": 29,
+    "budgetary_name": "สถาบันวิจัยดาราศาสตร์แห่งชาติ (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 436244000,
+    "previous_year_amount": 440577500,
+    "previous_year_percent": 0.011654
+  },
+  {
+    "budgetary_id": 416,
+    "budgetary_name": "สถาบันวิจัยแสงซินโครตรอน (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 414395200,
+    "previous_year_amount": 433279100,
+    "previous_year_percent": 0.011461
+  },
+  {
+    "budgetary_id": 400,
+    "budgetary_name": "สถาบันวิทยาลัยชุมชน",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 806167900,
+    "previous_year_amount": 762785100,
+    "previous_year_percent": 0.020176
+  },
+  {
+    "budgetary_id": 589,
+    "budgetary_name": "สถาบันสารสนเทศทรัพยากรน้ำ (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 410267300,
+    "previous_year_amount": 457454100,
+    "previous_year_percent": 0.0121
+  },
+  {
+    "budgetary_id": 423,
+    "budgetary_name": "สถาบันเทคโนโลยีนิวเคลียร์แห่งชาติ (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 432768700,
+    "previous_year_amount": 447155300,
+    "previous_year_percent": 0.011828
+  },
+  {
+    "budgetary_id": 261,
+    "budgetary_name": "สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (องค์การมหาชน)",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 985111100,
+    "previous_year_amount": 1185863100,
+    "previous_year_percent": 0.031367
+  },
+  {
+    "budgetary_id": 15,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 8184823100,
+    "previous_year_amount": 10368677300,
+    "previous_year_percent": 0.27426
+  },
+  {
+    "budgetary_id": 2032,
+    "budgetary_name": "สำนักงานสภานโยบายการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมแห่งชาติ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 206577200,
+    "previous_year_amount": 206605900,
+    "previous_year_percent": 0.005465
+  },
+  {
+    "budgetary_id": 277,
+    "budgetary_name": "สำนักงานการวิจัยแห่งชาติ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 489593200,
+    "previous_year_amount": 585310400,
+    "previous_year_percent": 0.015482
+  },
+  {
+    "budgetary_id": 482,
+    "budgetary_name": "สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 4834024000,
+    "previous_year_amount": 5198699200,
+    "previous_year_percent": 0.13751
+  },
+  {
+    "budgetary_id": 214,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏนครสวรรค์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 616994200,
+    "previous_year_amount": 657363700,
+    "previous_year_percent": 0.017388
+  },
+  {
     "budgetary_id": 37,
     "budgetary_name": "มหาวิทยาลัยราชภัฏศรีสะเกษ",
     "ministry_id": 1,
@@ -1737,58 +1116,256 @@
     "previous_year_percent": 0.009775
   },
   {
-    "budgetary_id": 453,
-    "budgetary_name": "กรมการศาสนา",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 333337300,
-    "previous_year_amount": 376310300,
-    "previous_year_percent": 0.009954
+    "budgetary_id": 316,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏเพชรบูรณ์",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 435735400,
+    "previous_year_amount": 428422600,
+    "previous_year_percent": 0.011332
   },
   {
-    "budgetary_id": 281,
-    "budgetary_name": "ศูนย์คุณธรรม (องค์การมหาชน)",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 106313600,
-    "previous_year_amount": 137897900,
-    "previous_year_percent": 0.003648
+    "budgetary_id": 236,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏวไลยอลงกรณ์ ในพระบรมราชูปถัมภ์ จังหวัดปทุมธานี",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 607361600,
+    "previous_year_amount": 603494600,
+    "previous_year_percent": 0.015963
   },
   {
-    "budgetary_id": 318,
-    "budgetary_name": "สถาบันการแพทย์ฉุกเฉินแห่งชาติ",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 407616800,
-    "previous_year_amount": 315067400,
-    "previous_year_percent": 0.008334
+    "budgetary_id": 310,
+    "budgetary_name": "มหาวิทยาลัยราชภัฏสวนสุนันทา",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 886490700,
+    "previous_year_amount": 862360900,
+    "previous_year_percent": 0.02281
   },
   {
-    "budgetary_id": 444,
-    "budgetary_name": "กรมการแพทย์แผนไทยและการแพทย์ทางเลือก",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 403073600,
-    "previous_year_amount": 486173100,
-    "previous_year_percent": 0.01286
+    "budgetary_id": 9,
+    "budgetary_name": "มหาวิทยาลัยแม่ฟ้าหลวง",
+    "ministry_id": 1,
+    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "budget_amount": 2042092700,
+    "previous_year_amount": 2117384200,
+    "previous_year_percent": 0.056007
   },
   {
-    "budgetary_id": 2022,
-    "budgetary_name": "สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 617563100,
-    "previous_year_amount": 686911300,
-    "previous_year_percent": 0.018169
+    "budgetary_id": 442,
+    "budgetary_name": "สำนักงานปลัดกระทรวงเกษตรและสหกรณ์",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 1456715500,
+    "previous_year_amount": 1421056300,
+    "previous_year_percent": 0.037588
   },
   {
-    "budgetary_id": 448,
-    "budgetary_name": "สำนักงานปลัดกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "ministry_id": 22,
-    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-    "budget_amount": 666141100,
-    "previous_year_amount": 803099500,
-    "previous_year_percent": 0.021243
+    "budgetary_id": 245,
+    "budgetary_name": "กรมตรวจบัญชีสหกรณ์",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 1395915100,
+    "previous_year_amount": 1348123200,
+    "previous_year_percent": 0.035659
+  },
+  {
+    "budgetary_id": 3058,
+    "budgetary_name": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 130458300,
+    "previous_year_amount": 37500000,
+    "previous_year_percent": 0.000992
+  },
+  {
+    "budgetary_id": 299,
+    "budgetary_name": "สำนักงานการปฏิรูปที่ดินเพื่อเกษตรกรรม",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 1589772600,
+    "previous_year_amount": 1605070200,
+    "previous_year_percent": 0.042455
+  },
+  {
+    "budgetary_id": 227,
+    "budgetary_name": "สำนักงานพิพิธภัณฑ์เกษตรเฉลิมพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัว (องค์การมหาชน)",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 233122600,
+    "previous_year_amount": 255312200,
+    "previous_year_percent": 0.006753
+  },
+  {
+    "budgetary_id": 239,
+    "budgetary_name": "สถาบันวิจัยและพัฒนาพื้นที่สูง (องค์การมหาชน)",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 520975100,
+    "previous_year_amount": 564015100,
+    "previous_year_percent": 0.014919
+  },
+  {
+    "budgetary_id": 295,
+    "budgetary_name": "กรมฝนหลวงและการบินเกษตร",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 3217226300,
+    "previous_year_amount": 2715498700,
+    "previous_year_percent": 0.071827
+  },
+  {
+    "budgetary_id": 183,
+    "budgetary_name": "กรมการข้าว",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 3947591200,
+    "previous_year_amount": 4486912000,
+    "previous_year_percent": 0.118683
+  },
+  {
+    "budgetary_id": 104,
+    "budgetary_name": "กรมชลประทาน",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 78946984300,
+    "previous_year_amount": 87807849900,
+    "previous_year_percent": 2.32259
+  },
+  {
+    "budgetary_id": 292,
+    "budgetary_name": "กรมประมง",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 4804187400,
+    "previous_year_amount": 4516489700,
+    "previous_year_percent": 0.119465
+  },
+  {
+    "budgetary_id": 7,
+    "budgetary_name": "กรมปศุสัตว์",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 5688876700,
+    "previous_year_amount": 5820459500,
+    "previous_year_percent": 0.153956
+  },
+  {
+    "budgetary_id": 169,
+    "budgetary_name": "กรมพัฒนาที่ดิน",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 4721839400,
+    "previous_year_amount": 5216879000,
+    "previous_year_percent": 0.137991
+  },
+  {
+    "budgetary_id": 21,
+    "budgetary_name": "กรมวิชาการเกษตร",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 3791714100,
+    "previous_year_amount": 4052824200,
+    "previous_year_percent": 0.107201
+  },
+  {
+    "budgetary_id": 174,
+    "budgetary_name": "กรมส่งเสริมการเกษตร",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 5674143900,
+    "previous_year_amount": 5628728800,
+    "previous_year_percent": 0.148885
+  },
+  {
+    "budgetary_id": 244,
+    "budgetary_name": "กรมส่งเสริมสหกรณ์",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 2868134000,
+    "previous_year_amount": 2935347600,
+    "previous_year_percent": 0.077642
+  },
+  {
+    "budgetary_id": 296,
+    "budgetary_name": "กรมหม่อนไหม",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 654250800,
+    "previous_year_amount": 698902800,
+    "previous_year_percent": 0.018487
+  },
+  {
+    "budgetary_id": 469,
+    "budgetary_name": "สำนักงานมาตรฐานสินค้าเกษตรและอาหารแห่งชาติ",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 313360600,
+    "previous_year_amount": 319058600,
+    "previous_year_percent": 0.008439
+  },
+  {
+    "budgetary_id": 303,
+    "budgetary_name": "สำนักงานเศรษฐกิจการเกษตร",
+    "ministry_id": 2,
+    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
+    "budget_amount": 647892700,
+    "previous_year_amount": 681010900,
+    "previous_year_percent": 0.018013
+  },
+  {
+    "budgetary_id": 485,
+    "budgetary_name": "สำนักงานปลัดกระทรวงคมนาคม",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 626595400,
+    "previous_year_amount": 1123896500,
+    "previous_year_percent": 0.029728
+  },
+  {
+    "budgetary_id": 465,
+    "budgetary_name": "กรมเจ้าท่า",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 3843554400,
+    "previous_year_amount": 4253335200,
+    "previous_year_percent": 0.112504
+  },
+  {
+    "budgetary_id": 103,
+    "budgetary_name": "กรมทางหลวง",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 116964050700,
+    "previous_year_amount": 131932286400,
+    "previous_year_percent": 3.489718
+  },
+  {
+    "budgetary_id": 105,
+    "budgetary_name": "กรมทางหลวงชนบท",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 45903061000,
+    "previous_year_amount": 53598975600,
+    "previous_year_percent": 1.417737
+  },
+  {
+    "budgetary_id": 286,
+    "budgetary_name": "สำนักงานนโยบายและแผนการขนส่งและจราจร",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 252020600,
+    "previous_year_amount": 274182500,
+    "previous_year_percent": 0.007252
+  },
+  {
+    "budgetary_id": 411,
+    "budgetary_name": "กรมการขนส่งทางราง",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 162666800,
+    "previous_year_amount": 142166500,
+    "previous_year_percent": 0.00376
   },
   {
     "budgetary_id": 2030,
@@ -1800,58 +1377,382 @@
     "previous_year_percent": 0.004459
   },
   {
-    "budgetary_id": 255,
-    "budgetary_name": "สำนักงานสภาความมั่นคงแห่งชาติ",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 261557900,
-    "previous_year_amount": 284910600,
-    "previous_year_percent": 0.007536
+    "budgetary_id": 171,
+    "budgetary_name": "กรมการขนส่งทางบก",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 3784120200,
+    "previous_year_amount": 3913561100,
+    "previous_year_percent": 0.103517
   },
   {
-    "budgetary_id": 270,
-    "budgetary_name": "สำนักงานส่งเสริมการจัดประชุมและนิทรรศการ (องค์การมหาชน)",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 693253000,
-    "previous_year_amount": 1144565500,
-    "previous_year_percent": 0.030275
+    "budgetary_id": 432,
+    "budgetary_name": "กรมท่าอากาศยาน",
+    "ministry_id": 16,
+    "ministry_name": "กระทรวงคมนาคม",
+    "budget_amount": 4884490300,
+    "previous_year_amount": 5349186000,
+    "previous_year_percent": 0.14149
   },
   {
-    "budgetary_id": 274,
-    "budgetary_name": "สถาบันคุณวุฒิวิชาชีพ (องค์การมหาชน)",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 201695600,
-    "previous_year_amount": 249313700,
-    "previous_year_percent": 0.006595
+    "budgetary_id": 2022,
+    "budgetary_name": "สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 617563100,
+    "previous_year_amount": 686911300,
+    "previous_year_percent": 0.018169
   },
   {
-    "budgetary_id": 275,
-    "budgetary_name": "สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน)",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 892261500,
-    "previous_year_amount": 1137102500,
-    "previous_year_percent": 0.030077
+    "budgetary_id": 313,
+    "budgetary_name": "สถาบันข้อมูลขนาดใหญ่ (องค์การมหาชน)",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 472183600,
+    "previous_year_amount": 511630800,
+    "previous_year_percent": 0.013533
   },
   {
-    "budgetary_id": 16,
-    "budgetary_name": "ราชวิทยาลัยจุฬาภรณ์",
-    "ministry_id": 4,
-    "ministry_name": "สำนักนายกรัฐมนตรี",
-    "budget_amount": 2920451600,
-    "previous_year_amount": 3207099500,
-    "previous_year_percent": 0.08483
+    "budgetary_id": 448,
+    "budgetary_name": "สำนักงานปลัดกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 666141100,
+    "previous_year_amount": 803099500,
+    "previous_year_percent": 0.021243
   },
   {
-    "budgetary_id": 696,
-    "budgetary_name": "เทศบาลนครนครราชสีมา อำเภอเมืองนครราชสีมา จังหวัดนครราชสีมา",
-    "ministry_id": 13,
-    "ministry_name": "องค์กรปกครองส่วนท้องถิ่น",
-    "budget_amount": 705603700,
-    "previous_year_amount": 951604100,
-    "previous_year_percent": 0.025171
+    "budgetary_id": 1829,
+    "budgetary_name": "กรมอุตุนิยมวิทยา",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 3902749200,
+    "previous_year_amount": 2692751000,
+    "previous_year_percent": 0.071225
+  },
+  {
+    "budgetary_id": 207,
+    "budgetary_name": "สำนักงานส่งเสริมเศรษฐกิจดิจิทัล",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 1017740400,
+    "previous_year_amount": 1317723500,
+    "previous_year_percent": 0.034855
+  },
+  {
+    "budgetary_id": 266,
+    "budgetary_name": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 5511409900,
+    "previous_year_amount": 2857136500,
+    "previous_year_percent": 0.075574
+  },
+  {
+    "budgetary_id": 418,
+    "budgetary_name": "สำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 341924300,
+    "previous_year_amount": 405916300,
+    "previous_year_percent": 0.010737
+  },
+  {
+    "budgetary_id": 2009,
+    "budgetary_name": "สำนักงานสถิติแห่งชาติ",
+    "ministry_id": 22,
+    "ministry_name": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+    "budget_amount": 1096011300,
+    "previous_year_amount": 947810400,
+    "previous_year_percent": 0.02507
+  },
+  {
+    "budgetary_id": 1838,
+    "budgetary_name": "กรมการเปลี่ยนแปลงสภาพภูมิอากาศและสิ่งแวดล้อม",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 749764600,
+    "previous_year_amount": 794122500,
+    "previous_year_percent": 0.021005
+  },
+  {
+    "budgetary_id": 253,
+    "budgetary_name": "กรมควบคุมมลพิษ",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 3792196300,
+    "previous_year_amount": 860334500,
+    "previous_year_percent": 0.022757
+  },
+  {
+    "budgetary_id": 18,
+    "budgetary_name": "กรมทรัพยากรทางทะเลและชายฝั่ง",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 1932096600,
+    "previous_year_amount": 2114736900,
+    "previous_year_percent": 0.055937
+  },
+  {
+    "budgetary_id": 408,
+    "budgetary_name": "กรมทรัพยากรธรณี",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 949260800,
+    "previous_year_amount": 948084700,
+    "previous_year_percent": 0.025078
+  },
+  {
+    "budgetary_id": 160,
+    "budgetary_name": "กรมทรัพยากรน้ำ",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 7329655000,
+    "previous_year_amount": 9282502100,
+    "previous_year_percent": 0.24553
+  },
+  {
+    "budgetary_id": 479,
+    "budgetary_name": "กรมทรัพยากรน้ำบาดาล",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 2558468600,
+    "previous_year_amount": 3894484700,
+    "previous_year_percent": 0.103012
+  },
+  {
+    "budgetary_id": 219,
+    "budgetary_name": "กรมป่าไม้",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 5149186900,
+    "previous_year_amount": 5451801100,
+    "previous_year_percent": 0.144205
+  },
+  {
+    "budgetary_id": 284,
+    "budgetary_name": "สำนักงานนโยบายและแผนทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 826093500,
+    "previous_year_amount": 1185594700,
+    "previous_year_percent": 0.03136
+  },
+  {
+    "budgetary_id": 484,
+    "budgetary_name": "องค์การบริหารจัดการก๊าซเรือนกระจก (องค์การมหาชน)",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 147301700,
+    "previous_year_amount": 161292000,
+    "previous_year_percent": 0.004266
+  },
+  {
+    "budgetary_id": 1998,
+    "budgetary_name": "สำนักงานพัฒนาเศรษฐกิจจากฐานชีวภาพ (องค์การมหาชน)",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 119606000,
+    "previous_year_amount": 131233100,
+    "previous_year_percent": 0.003471
+  },
+  {
+    "budgetary_id": 297,
+    "budgetary_name": "กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 10284611200,
+    "previous_year_amount": 11760885900,
+    "previous_year_percent": 0.311085
+  },
+  {
+    "budgetary_id": 459,
+    "budgetary_name": "สำนักงานปลัดกระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "ministry_id": 5,
+    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+    "budget_amount": 2310179000,
+    "previous_year_amount": 2072594500,
+    "previous_year_percent": 0.054822
+  },
+  {
+    "budgetary_id": 462,
+    "budgetary_name": "กรมพัฒนาพลังงานทดแทนและอนุรักษ์พลังงาน",
+    "ministry_id": 27,
+    "ministry_name": "กระทรวงพลังงาน",
+    "budget_amount": 997851700,
+    "previous_year_amount": 1499146700,
+    "previous_year_percent": 0.039654
+  },
+  {
+    "budgetary_id": 456,
+    "budgetary_name": "สำนักงานนโยบายและแผนพลังงาน",
+    "ministry_id": 27,
+    "ministry_name": "กระทรวงพลังงาน",
+    "budget_amount": 211093300,
+    "previous_year_amount": 205929500,
+    "previous_year_percent": 0.005447
+  },
+  {
+    "budgetary_id": 454,
+    "budgetary_name": "กรมธุรกิจพลังงาน",
+    "ministry_id": 27,
+    "ministry_name": "กระทรวงพลังงาน",
+    "budget_amount": 303457100,
+    "previous_year_amount": 303213500,
+    "previous_year_percent": 0.00802
+  },
+  {
+    "budgetary_id": 436,
+    "budgetary_name": "กรมเชื้อเพลิงธรรมชาติ",
+    "ministry_id": 27,
+    "ministry_name": "กระทรวงพลังงาน",
+    "budget_amount": 221871800,
+    "previous_year_amount": 228791800,
+    "previous_year_percent": 0.006052
+  },
+  {
+    "budgetary_id": 460,
+    "budgetary_name": "สำนักงานปลัดกระทรวงพลังงาน",
+    "ministry_id": 27,
+    "ministry_name": "กระทรวงพลังงาน",
+    "budget_amount": 559011200,
+    "previous_year_amount": 651596200,
+    "previous_year_percent": 0.017235
+  },
+  {
+    "budgetary_id": 405,
+    "budgetary_name": "กรมส่งเสริมการค้าระหว่างประเทศ",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 2274760000,
+    "previous_year_amount": 2339130500,
+    "previous_year_percent": 0.061872
+  },
+  {
+    "budgetary_id": 439,
+    "budgetary_name": "กรมการค้าต่างประเทศ",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 410907500,
+    "previous_year_amount": 420535000,
+    "previous_year_percent": 0.011123
+  },
+  {
+    "budgetary_id": 407,
+    "budgetary_name": "สถาบันระหว่างประเทศเพื่อการค้าและการพัฒนา (องค์การมหาชน)",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 77701400,
+    "previous_year_amount": 92922600,
+    "previous_year_percent": 0.002458
+  },
+  {
+    "budgetary_id": 458,
+    "budgetary_name": "สำนักงานปลัดกระทรวงพาณิชย์",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 1767816900,
+    "previous_year_amount": 1737502700,
+    "previous_year_percent": 0.045958
+  },
+  {
+    "budgetary_id": 403,
+    "budgetary_name": "กรมเจรจาการค้าระหว่างประเทศ",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 360518300,
+    "previous_year_amount": 367840400,
+    "previous_year_percent": 0.00973
+  },
+  {
+    "budgetary_id": 404,
+    "budgetary_name": "กรมทรัพย์สินทางปัญญา",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 464673900,
+    "previous_year_amount": 510778800,
+    "previous_year_percent": 0.013511
+  },
+  {
+    "budgetary_id": 406,
+    "budgetary_name": "สถาบันส่งเสริมศิลปหัตถกรรมไทย (องค์การมหาชน)",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 231963200,
+    "previous_year_amount": 285434100,
+    "previous_year_percent": 0.00755
+  },
+  {
+    "budgetary_id": 23,
+    "budgetary_name": "สถาบันวิจัยและพัฒนาอัญมณีและเครื่องประดับแห่งชาติ (องค์การมหาชน)",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 155701000,
+    "previous_year_amount": 190695200,
+    "previous_year_percent": 0.005044
+  },
+  {
+    "budgetary_id": 463,
+    "budgetary_name": "สำนักงานนโยบายและยุทธศาสตร์การค้า",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 169688200,
+    "previous_year_amount": 184022000,
+    "previous_year_percent": 0.004868
+  },
+  {
+    "budgetary_id": 402,
+    "budgetary_name": "กรมการค้าภายใน",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 875337300,
+    "previous_year_amount": 963707200,
+    "previous_year_percent": 0.025491
+  },
+  {
+    "budgetary_id": 483,
+    "budgetary_name": "กรมพัฒนาธุรกิจการค้า",
+    "ministry_id": 6,
+    "ministry_name": "กระทรวงพาณิชย์",
+    "budget_amount": 482358800,
+    "previous_year_amount": 491696700,
+    "previous_year_percent": 0.013006
+  },
+  {
+    "budgetary_id": 1737,
+    "budgetary_name": "สำนักงานปลัดกระทรวงมหาดไทย",
+    "ministry_id": 14,
+    "ministry_name": "กระทรวงมหาดไทย",
+    "budget_amount": 6289226500,
+    "previous_year_amount": 6454245000,
+    "previous_year_percent": 0.17072
+  },
+  {
+    "budgetary_id": 175,
+    "budgetary_name": "กรมป้องกันและบรรเทาสาธารณภัย",
+    "ministry_id": 14,
+    "ministry_name": "กระทรวงมหาดไทย",
+    "budget_amount": 6164802300,
+    "previous_year_amount": 7026425300,
+    "previous_year_percent": 0.185855
+  },
+  {
+    "budgetary_id": 419,
+    "budgetary_name": "กรมการปกครอง",
+    "ministry_id": 14,
+    "ministry_name": "กระทรวงมหาดไทย",
+    "budget_amount": 53352464100,
+    "previous_year_amount": 52387711800,
+    "previous_year_percent": 1.385698
+  },
+  {
+    "budgetary_id": 185,
+    "budgetary_name": "กรมการพัฒนาชุมชน",
+    "ministry_id": 14,
+    "ministry_name": "กระทรวงมหาดไทย",
+    "budget_amount": 5800703900,
+    "previous_year_amount": 5704094900,
+    "previous_year_percent": 0.150878
   },
   {
     "budgetary_id": 100,
@@ -1872,193 +1773,121 @@
     "previous_year_percent": 4.750873
   },
   {
-    "budgetary_id": 1838,
-    "budgetary_name": "กรมการเปลี่ยนแปลงสภาพภูมิอากาศและสิ่งแวดล้อม",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 749764600,
-    "previous_year_amount": 794122500,
-    "previous_year_percent": 0.021005
+    "budgetary_id": 156,
+    "budgetary_name": "กรมโยธาธิการและผังเมือง",
+    "ministry_id": 14,
+    "ministry_name": "กระทรวงมหาดไทย",
+    "budget_amount": 34949674800,
+    "previous_year_amount": 42280357100,
+    "previous_year_percent": 1.11835
   },
   {
-    "budgetary_id": 479,
-    "budgetary_name": "กรมทรัพยากรน้ำบาดาล",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 2558468600,
-    "previous_year_amount": 3894484700,
-    "previous_year_percent": 0.103012
+    "budgetary_id": 181,
+    "budgetary_name": "กรมพินิจและคุ้มครองเด็กและเยาวชน",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 2151530600,
+    "previous_year_amount": 2154999900,
+    "previous_year_percent": 0.057002
   },
   {
-    "budgetary_id": 484,
-    "budgetary_name": "องค์การบริหารจัดการก๊าซเรือนกระจก (องค์การมหาชน)",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 147301700,
-    "previous_year_amount": 161292000,
-    "previous_year_percent": 0.004266
+    "budgetary_id": 409,
+    "budgetary_name": "สำนักงานกิจการยุติธรรม",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 164756900,
+    "previous_year_amount": 203428300,
+    "previous_year_percent": 0.005381
   },
   {
-    "budgetary_id": 297,
-    "budgetary_name": "กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช",
-    "ministry_id": 5,
-    "ministry_name": "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
-    "budget_amount": 10284611200,
-    "previous_year_amount": 11760885900,
-    "previous_year_percent": 0.311085
+    "budgetary_id": 2007,
+    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามยาเสพติด",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 2516487000,
+    "previous_year_amount": 2780175600,
+    "previous_year_percent": 0.073538
   },
   {
-    "budgetary_id": 3057,
-    "budgetary_name": "บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 58050000,
-    "previous_year_amount": 77404000,
-    "previous_year_percent": 0.002047
+    "budgetary_id": 2026,
+    "budgetary_name": "สถาบันเพื่อการยุติธรรมแห่งประเทศไทย (องค์การมหาชน)",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 195755100,
+    "previous_year_amount": 176059300,
+    "previous_year_percent": 0.004657
   },
   {
-    "budgetary_id": 2997,
-    "budgetary_name": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 35984655100,
-    "previous_year_amount": 48139659200,
-    "previous_year_percent": 1.273334
+    "budgetary_id": 242,
+    "budgetary_name": "กรมคุมประพฤติ",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 2189110700,
+    "previous_year_amount": 2226336300,
+    "previous_year_percent": 0.058888
   },
   {
-    "budgetary_id": 2003,
-    "budgetary_name": "การทางพิเศษแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 2238914100,
-    "previous_year_amount": 2653642500,
-    "previous_year_percent": 0.070191
+    "budgetary_id": 410,
+    "budgetary_name": "กรมคุ้มครองสิทธิและเสรีภาพ",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 830878600,
+    "previous_year_amount": 1065087900,
+    "previous_year_percent": 0.028172
   },
   {
-    "budgetary_id": 697,
-    "budgetary_name": "การเคหะแห่งชาติ",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 546644100,
-    "previous_year_amount": 1008130300,
-    "previous_year_percent": 0.026666
+    "budgetary_id": 475,
+    "budgetary_name": "กรมบังคับคดี",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 1147366100,
+    "previous_year_amount": 1094323300,
+    "previous_year_percent": 0.028946
   },
   {
-    "budgetary_id": 3006,
-    "budgetary_name": "ธนาคารอาคารสงเคราะห์",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 493351400,
-    "previous_year_amount": null,
-    "previous_year_percent": null
+    "budgetary_id": 69,
+    "budgetary_name": "กรมราชทัณฑ์",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 16883008700,
+    "previous_year_amount": 16905405400,
+    "previous_year_percent": 0.447162
   },
   {
-    "budgetary_id": 3005,
-    "budgetary_name": "ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 270290100,
-    "previous_year_amount": 278010000,
-    "previous_year_percent": 0.007354
+    "budgetary_id": 26,
+    "budgetary_name": "กรมสอบสวนคดีพิเศษ",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 1316510600,
+    "previous_year_amount": 1327576700,
+    "previous_year_percent": 0.035116
   },
   {
-    "budgetary_id": 3004,
-    "budgetary_name": "บรรษัทประกันสินเชื่ออุตสาหกรรมขนาดย่อม",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 8784094900,
-    "previous_year_amount": 8834645000,
-    "previous_year_percent": 0.233684
+    "budgetary_id": 467,
+    "budgetary_name": "สถาบันนิติวิทยาศาสตร์",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 526173600,
+    "previous_year_amount": 581237600,
+    "previous_year_percent": 0.015374
   },
   {
-    "budgetary_id": 452,
-    "budgetary_name": "ศูนย์อำนวยการบริหารจังหวัดชายแดนภาคใต้",
-    "ministry_id": 9,
-    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
-    "budget_amount": 1481565300,
-    "previous_year_amount": 1485423700,
-    "previous_year_percent": 0.039291
+    "budgetary_id": 2027,
+    "budgetary_name": "สถาบันอนุญาโตตุลาการ",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 39696700,
+    "previous_year_amount": 46470900,
+    "previous_year_percent": 0.001229
   },
   {
-    "budgetary_id": 321,
-    "budgetary_name": "มหาวิทยาลัยการกีฬาแห่งชาติ",
-    "ministry_id": 21,
-    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
-    "budget_amount": 1716842000,
-    "previous_year_amount": 1861889600,
-    "previous_year_percent": 0.049249
-  },
-  {
-    "budgetary_id": 395,
-    "budgetary_name": "โรงเรียนมหิดลวิทยานุสรณ์",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 353011100,
-    "previous_year_amount": 352598600,
-    "previous_year_percent": 0.009327
-  },
-  {
-    "budgetary_id": 256,
-    "budgetary_name": "กองทัพบก",
-    "ministry_id": 7,
-    "ministry_name": "กระทรวงกลาโหม",
-    "budget_amount": 96250745900,
-    "previous_year_amount": 97169661500,
-    "previous_year_percent": 2.570218
-  },
-  {
-    "budgetary_id": 3008,
-    "budgetary_name": "การยางแห่งประเทศไทย",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 131600000,
-    "previous_year_amount": 188000000,
-    "previous_year_percent": 0.004973
-  },
-  {
-    "budgetary_id": 3010,
-    "budgetary_name": "ธนาคารออมสิน",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 2451122900,
-    "previous_year_amount": 1517677900,
-    "previous_year_percent": 0.040144
-  },
-  {
-    "budgetary_id": 294,
-    "budgetary_name": "องค์การอุตสาหกรรมป่าไม้",
-    "ministry_id": 17,
-    "ministry_name": "รัฐวิสาหกิจ",
-    "budget_amount": 110327900,
-    "previous_year_amount": 164822700,
-    "previous_year_percent": 0.00436
-  },
-  {
-    "budgetary_id": 456,
-    "budgetary_name": "สำนักงานนโยบายและแผนพลังงาน",
-    "ministry_id": 27,
-    "ministry_name": "กระทรวงพลังงาน",
-    "budget_amount": 211093300,
-    "previous_year_amount": 205929500,
-    "previous_year_percent": 0.005447
-  },
-  {
-    "budgetary_id": 2011,
-    "budgetary_name": "สำนักงานคณะกรรมการนโยบายรัฐวิสาหกิจ",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 142509300,
-    "previous_year_amount": 184330600,
-    "previous_year_percent": 0.004876
-  },
-  {
-    "budgetary_id": 3009,
-    "budgetary_name": "ส่วนราชการในพระองค์",
-    "ministry_id": 32,
-    "ministry_name": "ส่วนราชการในพระองค์",
-    "budget_amount": 9904072000,
-    "previous_year_amount": 9272098000,
-    "previous_year_percent": 0.245255
+    "budgetary_id": 1833,
+    "budgetary_name": "สำนักงานปลัดกระทรวงยุติธรรม",
+    "ministry_id": 8,
+    "ministry_name": "กระทรวงยุติธรรม",
+    "budget_amount": 893355900,
+    "previous_year_amount": 1038669200,
+    "previous_year_percent": 0.027474
   },
   {
     "budgetary_id": 450,
@@ -2068,6 +1897,15 @@
     "budget_amount": 54976000,
     "previous_year_amount": 79074000,
     "previous_year_percent": 0.002092
+  },
+  {
+    "budgetary_id": 273,
+    "budgetary_name": "สำนักงานปลัดกระทรวงแรงงาน",
+    "ministry_id": 23,
+    "ministry_name": "กระทรวงแรงงาน",
+    "budget_amount": 1260267600,
+    "previous_year_amount": 1367666400,
+    "previous_year_percent": 0.036176
   },
   {
     "budgetary_id": 440,
@@ -2104,6 +1942,402 @@
     "budget_amount": 1161779600,
     "previous_year_amount": 1197298600,
     "previous_year_percent": 0.03167
+  },
+  {
+    "budgetary_id": 453,
+    "budgetary_name": "กรมการศาสนา",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 333337300,
+    "previous_year_amount": 376310300,
+    "previous_year_percent": 0.009954
+  },
+  {
+    "budgetary_id": 1835,
+    "budgetary_name": "สำนักงานปลัดกระทรวงวัฒนธรรม",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 2936555500,
+    "previous_year_amount": 2789330500,
+    "previous_year_percent": 0.07378
+  },
+  {
+    "budgetary_id": 2028,
+    "budgetary_name": "ศูนย์มานุษยวิทยาสิรินธร (องค์การมหาชน)",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 144468500,
+    "previous_year_amount": 130609500,
+    "previous_year_percent": 0.003455
+  },
+  {
+    "budgetary_id": 2029,
+    "budgetary_name": "หอภาพยนตร์ (องค์การมหาชน)",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 134229100,
+    "previous_year_amount": 141113200,
+    "previous_year_percent": 0.003733
+  },
+  {
+    "budgetary_id": 281,
+    "budgetary_name": "ศูนย์คุณธรรม (องค์การมหาชน)",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 106313600,
+    "previous_year_amount": 137897900,
+    "previous_year_percent": 0.003648
+  },
+  {
+    "budgetary_id": 238,
+    "budgetary_name": "กรมศิลปากร",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 2257426700,
+    "previous_year_amount": 2808856100,
+    "previous_year_percent": 0.074297
+  },
+  {
+    "budgetary_id": 414,
+    "budgetary_name": "กรมส่งเสริมวัฒนธรรม",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 1140401900,
+    "previous_year_amount": 1739687200,
+    "previous_year_percent": 0.046016
+  },
+  {
+    "budgetary_id": 198,
+    "budgetary_name": "สถาบันบัณฑิตพัฒนศิลป์",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 1116583300,
+    "previous_year_amount": 1206195900,
+    "previous_year_percent": 0.031905
+  },
+  {
+    "budgetary_id": 259,
+    "budgetary_name": "สำนักงานศิลปวัฒนธรรมร่วมสมัย",
+    "ministry_id": 18,
+    "ministry_name": "กระทรวงวัฒนธรรม",
+    "budget_amount": 293984400,
+    "previous_year_amount": 350880300,
+    "previous_year_percent": 0.009281
+  },
+  {
+    "budgetary_id": 101,
+    "budgetary_name": "สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 276232317300,
+    "previous_year_amount": 270261723800,
+    "previous_year_percent": 7.148646
+  },
+  {
+    "budgetary_id": 197,
+    "budgetary_name": "สำนักงานปลัดกระทรวงศึกษาธิการ",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 39620201200,
+    "previous_year_amount": 41247093100,
+    "previous_year_percent": 1.09102
+  },
+  {
+    "budgetary_id": 267,
+    "budgetary_name": "สำนักงานเลขาธิการสภาการศึกษา",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 176346600,
+    "previous_year_amount": 200614000,
+    "previous_year_percent": 0.005306
+  },
+  {
+    "budgetary_id": 395,
+    "budgetary_name": "โรงเรียนมหิดลวิทยานุสรณ์",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 353011100,
+    "previous_year_amount": 352598600,
+    "previous_year_percent": 0.009327
+  },
+  {
+    "budgetary_id": 425,
+    "budgetary_name": "สำนักงานเลขาธิการคุรุสภา",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 148975900,
+    "previous_year_amount": 174003200,
+    "previous_year_percent": 0.004603
+  },
+  {
+    "budgetary_id": 2035,
+    "budgetary_name": "สถาบันทดสอบทางการศึกษาแห่งชาติ (องค์การมหาชน)",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 453914000,
+    "previous_year_amount": 430462700,
+    "previous_year_percent": 0.011386
+  },
+  {
+    "budgetary_id": 2036,
+    "budgetary_name": "สำนักงานรับรองมาตรฐานและประเมินคุณภาพการศึกษา (องค์การมหาชน)",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 89232600,
+    "previous_year_amount": 101192600,
+    "previous_year_percent": 0.002677
+  },
+  {
+    "budgetary_id": 441,
+    "budgetary_name": "กรมส่งเสริมการเรียนรู้",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 12152961900,
+    "previous_year_amount": 12009930700,
+    "previous_year_percent": 0.317673
+  },
+  {
+    "budgetary_id": 2034,
+    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมสวัสดิการและสวัสดิภาพครูและบุคลากรทางการศึกษา",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 216944900,
+    "previous_year_amount": 158211300,
+    "previous_year_percent": 0.004185
+  },
+  {
+    "budgetary_id": 1837,
+    "budgetary_name": "สถาบันส่งเสริมการสอนวิทยาศาสตร์และเทคโนโลยี",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 2396214900,
+    "previous_year_amount": 2168428600,
+    "previous_year_percent": 0.057357
+  },
+  {
+    "budgetary_id": 319,
+    "budgetary_name": "สำนักงานคณะกรรมการการอาชีวศึกษา",
+    "ministry_id": 15,
+    "ministry_name": "กระทรวงศึกษาธิการ",
+    "budget_amount": 27736764200,
+    "previous_year_amount": 28004218900,
+    "previous_year_percent": 0.740735
+  },
+  {
+    "budgetary_id": 455,
+    "budgetary_name": "สำนักงานคณะกรรมการอาหารและยา",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 902564500,
+    "previous_year_amount": 971273000,
+    "previous_year_percent": 0.025691
+  },
+  {
+    "budgetary_id": 20,
+    "budgetary_name": "สำนักงานปลัดกระทรวงสาธารณสุข",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 129513058000,
+    "previous_year_amount": 125625585000,
+    "previous_year_percent": 3.322901
+  },
+  {
+    "budgetary_id": 306,
+    "budgetary_name": "กรมควบคุมโรค",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 3993105600,
+    "previous_year_amount": 3836031300,
+    "previous_year_percent": 0.101466
+  },
+  {
+    "budgetary_id": 2021,
+    "budgetary_name": "สถาบันวิจัยระบบสาธารณสุข",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 53393400,
+    "previous_year_amount": 58440100,
+    "previous_year_percent": 0.001546
+  },
+  {
+    "budgetary_id": 318,
+    "budgetary_name": "สถาบันการแพทย์ฉุกเฉินแห่งชาติ",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 407616800,
+    "previous_year_amount": 315067400,
+    "previous_year_percent": 0.008334
+  },
+  {
+    "budgetary_id": 285,
+    "budgetary_name": "สถาบันรับรองคุณภาพสถานพยาบาล (องค์การมหาชน)",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 76110800,
+    "previous_year_amount": 94128900,
+    "previous_year_percent": 0.00249
+  },
+  {
+    "budgetary_id": 1840,
+    "budgetary_name": "สถาบันวัคซีนแห่งชาติ",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 51138500,
+    "previous_year_amount": 132307300,
+    "previous_year_percent": 0.0035
+  },
+  {
+    "budgetary_id": 12,
+    "budgetary_name": "กรมการแพทย์",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 8036119400,
+    "previous_year_amount": 8576931500,
+    "previous_year_percent": 0.226867
+  },
+  {
+    "budgetary_id": 444,
+    "budgetary_name": "กรมการแพทย์แผนไทยและการแพทย์ทางเลือก",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 403073600,
+    "previous_year_amount": 486173100,
+    "previous_year_percent": 0.01286
+  },
+  {
+    "budgetary_id": 213,
+    "budgetary_name": "กรมวิทยาศาสตร์การแพทย์",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 1135285800,
+    "previous_year_amount": 1396773400,
+    "previous_year_percent": 0.036946
+  },
+  {
+    "budgetary_id": 471,
+    "budgetary_name": "กรมสนับสนุนบริการสุขภาพ",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 27598692400,
+    "previous_year_amount": 26721163500,
+    "previous_year_percent": 0.706797
+  },
+  {
+    "budgetary_id": 276,
+    "budgetary_name": "กรมสุขภาพจิต",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 3034132100,
+    "previous_year_amount": 2989122700,
+    "previous_year_percent": 0.079065
+  },
+  {
+    "budgetary_id": 218,
+    "budgetary_name": "กรมอนามัย",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 1772169800,
+    "previous_year_amount": 1803956500,
+    "previous_year_percent": 0.047716
+  },
+  {
+    "budgetary_id": 308,
+    "budgetary_name": "สถาบันพระบรมราชชนก",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 2984436200,
+    "previous_year_amount": 2879949500,
+    "previous_year_percent": 0.076177
+  },
+  {
+    "budgetary_id": 457,
+    "budgetary_name": "สำนักงานหลักประกันสุขภาพแห่งชาติ",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 1456910500,
+    "previous_year_amount": 1710705900,
+    "previous_year_percent": 0.04525
+  },
+  {
+    "budgetary_id": 3014,
+    "budgetary_name": "โรงพยาบาลบ้านแพ้ว (องค์การมหาชน)",
+    "ministry_id": 3,
+    "ministry_name": "กระทรวงสาธารณสุข",
+    "budget_amount": 60290000,
+    "previous_year_amount": 42000000,
+    "previous_year_percent": 0.001111
+  },
+  {
+    "budgetary_id": 445,
+    "budgetary_name": "กรมอุตสาหกรรมพื้นฐานและการเหมืองแร่",
+    "ministry_id": 25,
+    "ministry_name": "กระทรวงอุตสาหกรรม",
+    "budget_amount": 348970300,
+    "previous_year_amount": 399921700,
+    "previous_year_percent": 0.010578
+  },
+  {
+    "budgetary_id": 301,
+    "budgetary_name": "สำนักงานคณะกรรมการอ้อยและน้ำตาลทราย",
+    "ministry_id": 25,
+    "ministry_name": "กระทรวงอุตสาหกรรม",
+    "budget_amount": 386802300,
+    "previous_year_amount": 762460400,
+    "previous_year_percent": 0.020168
+  },
+  {
+    "budgetary_id": 447,
+    "budgetary_name": "สำนักงานเศรษฐกิจอุตสาหกรรม",
+    "ministry_id": 25,
+    "ministry_name": "กระทรวงอุตสาหกรรม",
+    "budget_amount": 249699500,
+    "previous_year_amount": 283535200,
+    "previous_year_percent": 0.0075
+  },
+  {
+    "budgetary_id": 302,
+    "budgetary_name": "กรมส่งเสริมอุตสาหกรรม",
+    "ministry_id": 25,
+    "ministry_name": "กระทรวงอุตสาหกรรม",
+    "budget_amount": 1027440700,
+    "previous_year_amount": 1240803100,
+    "previous_year_percent": 0.03282
+  },
+  {
+    "budgetary_id": 449,
+    "budgetary_name": "กรมโรงงานอุตสาหกรรม",
+    "ministry_id": 25,
+    "ministry_name": "กระทรวงอุตสาหกรรม",
+    "budget_amount": 714569000,
+    "previous_year_amount": 804421100,
+    "previous_year_percent": 0.021278
+  },
+  {
+    "budgetary_id": 461,
+    "budgetary_name": "สำนักงานปลัดกระทรวงอุตสาหกรรม",
+    "ministry_id": 25,
+    "ministry_name": "กระทรวงอุตสาหกรรม",
+    "budget_amount": 1004794500,
+    "previous_year_amount": 1082447700,
+    "previous_year_percent": 0.028632
+  },
+  {
+    "budgetary_id": 433,
+    "budgetary_name": "สำนักงานมาตรฐานผลิตภัณฑ์อุตสาหกรรม",
+    "ministry_id": 25,
+    "ministry_name": "กระทรวงอุตสาหกรรม",
+    "budget_amount": 788041000,
+    "previous_year_amount": 931984300,
+    "previous_year_percent": 0.024652
+  },
+  {
+    "budgetary_id": 2025,
+    "budgetary_name": "งบกลาง",
+    "ministry_id": 31,
+    "ministry_name": "งบกลาง",
+    "budget_amount": 693880000000,
+    "previous_year_amount": 632968750000,
+    "previous_year_percent": 16.742547
   },
   {
     "budgetary_id": 125,
@@ -2952,319 +3186,562 @@
     "previous_year_percent": 0.010463
   },
   {
-    "budgetary_id": 463,
-    "budgetary_name": "สำนักงานนโยบายและยุทธศาสตร์การค้า",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 169688200,
-    "previous_year_amount": 184022000,
-    "previous_year_percent": 0.004868
+    "budgetary_id": 43,
+    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตแห่งชาติ สำหรับกองทุนป้องกันและปราบปรามการทุจริตแห่งชาติ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 120800400,
+    "previous_year_amount": 292000000,
+    "previous_year_percent": 0.007724
   },
   {
-    "budgetary_id": 402,
-    "budgetary_name": "กรมการค้าภายใน",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 875337300,
-    "previous_year_amount": 963707200,
-    "previous_year_percent": 0.025491
+    "budgetary_id": 52,
+    "budgetary_name": "สำนักงานเลขาธิการสภาผู้แทนราษฎร สำหรับกองทุนเพื่อผู้เคยเป็นสมาชิกรัฐสภา",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 294162500,
+    "previous_year_amount": 420232200,
+    "previous_year_percent": 0.011115
   },
   {
-    "budgetary_id": 271,
-    "budgetary_name": "กรมกิจการผู้สูงอายุ",
-    "ministry_id": 20,
-    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
-    "budget_amount": 1561858500,
-    "previous_year_amount": 1622485700,
-    "previous_year_percent": 0.042916
+    "budgetary_id": 3367,
+    "budgetary_name": "สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน สำหรับ กองทุนส่งเสริมและพัฒนาการศึกษาสำหรับคนพิการ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 30000000,
+    "previous_year_amount": null,
+    "previous_year_percent": null
   },
   {
-    "budgetary_id": 1993,
-    "budgetary_name": "สถาบันพระปกเกล้า",
-    "ministry_id": 30,
-    "ministry_name": "หน่วยงานของรัฐสภา",
-    "budget_amount": 562905600,
-    "previous_year_amount": 618598700,
-    "previous_year_percent": 0.016362
+    "budgetary_id": 45,
+    "budgetary_name": "สำนักงานคณะกรรมการนโยบายเขตพัฒนาพิเศษภาคตะวันออก สำหรับกองทุนพัฒนาเขตพัฒนาพิเศษภาคตะวันออก",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 6082900,
+    "previous_year_amount": 21000000,
+    "previous_year_percent": 0.000555
   },
   {
-    "budgetary_id": 3058,
-    "budgetary_name": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 130458300,
-    "previous_year_amount": 37500000,
-    "previous_year_percent": 0.000992
+    "budgetary_id": 39,
+    "budgetary_name": "กรมกิจการเด็กและเยาวชน สำหรับกองทุนคุ้มครองเด็ก",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 28564200,
+    "previous_year_amount": 45000000,
+    "previous_year_percent": 0.00119
   },
   {
-    "budgetary_id": 2018,
-    "budgetary_name": "สำนักงานความร่วมมือพัฒนาเศรษฐกิจกับประเทศเพื่อนบ้าน (องค์การมหาชน)",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 253405500,
-    "previous_year_amount": 391569400,
-    "previous_year_percent": 0.010357
+    "budgetary_id": 48,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์ สำหรับกองทุนเพื่อการป้องกันและปราบปรามการค้ามนุษย์",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 31288900,
+    "previous_year_amount": 45000000,
+    "previous_year_percent": 0.00119
   },
   {
-    "budgetary_id": 7,
-    "budgetary_name": "กรมปศุสัตว์",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 5688876700,
-    "previous_year_amount": 5820459500,
-    "previous_year_percent": 0.153956
+    "budgetary_id": 55,
+    "budgetary_name": "กรมส่งเสริมการค้าระหว่างประเทศ สำหรับกองทุนส่งเสริมการค้าระหว่างประเทศ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 600000000,
+    "previous_year_amount": 800000000,
+    "previous_year_percent": 0.021161
   },
   {
-    "budgetary_id": 169,
-    "budgetary_name": "กรมพัฒนาที่ดิน",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 4721839400,
-    "previous_year_amount": 5216879000,
-    "previous_year_percent": 0.137991
+    "budgetary_id": 38,
+    "budgetary_name": "สถาบันการแพทย์ฉุกเฉินแห่งชาติ สำหรับกองทุนการแพทย์ฉุกเฉิน",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 825792300,
+    "previous_year_amount": 1093249200,
+    "previous_year_percent": 0.028917
   },
   {
-    "budgetary_id": 296,
-    "budgetary_name": "กรมหม่อนไหม",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 654250800,
-    "previous_year_amount": 698902800,
-    "previous_year_percent": 0.018487
+    "budgetary_id": 3001,
+    "budgetary_name": "กรมชลประทาน สำหรับกองทุนจัดรูปที่ดิน",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 952765000,
+    "previous_year_amount": 1500000000,
+    "previous_year_percent": 0.039676
   },
   {
-    "budgetary_id": 469,
-    "budgetary_name": "สำนักงานมาตรฐานสินค้าเกษตรและอาหารแห่งชาติ",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 313360600,
-    "previous_year_amount": 319058600,
-    "previous_year_percent": 0.008439
+    "budgetary_id": 42,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการคลัง สำหรับกองทุนประชารัฐสวัสดิการเพื่อเศรษฐกิจฐานรากและสังคม",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 42000000000,
+    "previous_year_amount": 30000000000,
+    "previous_year_percent": 0.793525
   },
   {
-    "budgetary_id": 303,
-    "budgetary_name": "สำนักงานเศรษฐกิจการเกษตร",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 647892700,
-    "previous_year_amount": 681010900,
-    "previous_year_percent": 0.018013
+    "budgetary_id": 44,
+    "budgetary_name": "กรมกิจการผู้สูงอายุ สำหรับกองทุนผู้สูงอายุ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 72000000,
+    "previous_year_amount": 67000000,
+    "previous_year_percent": 0.001772
   },
   {
-    "budgetary_id": 332,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1411861200,
-    "previous_year_amount": 1293616700,
-    "previous_year_percent": 0.034217
+    "budgetary_id": 46,
+    "budgetary_name": "กรมการพัฒนาชุมชน สำหรับกองทุนพัฒนาบทบาทสตรี",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 480000000,
+    "previous_year_amount": 840000000,
+    "previous_year_percent": 0.022219
   },
   {
-    "budgetary_id": 8,
-    "budgetary_name": "จุฬาลงกรณ์มหาวิทยาลัย",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 5858504400,
-    "previous_year_amount": 6113365500,
-    "previous_year_percent": 0.161704
+    "budgetary_id": 53,
+    "budgetary_name": "กรมการแพทย์แผนไทยและการแพทย์ทางเลือก สำหรับกองทุนภูมิปัญญาการแพทย์แผนไทย",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 61747200,
+    "previous_year_amount": 80000000,
+    "previous_year_percent": 0.002116
   },
   {
-    "budgetary_id": 247,
-    "budgetary_name": "มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1938780500,
-    "previous_year_amount": 2012789900,
-    "previous_year_percent": 0.05324
+    "budgetary_id": 54,
+    "budgetary_name": "กรมการค้าภายใน สำหรับกองทุนรวมเพื่อช่วยเหลือเกษตรกร",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 700000000,
+    "previous_year_amount": 1000000000,
+    "previous_year_percent": 0.026451
   },
   {
-    "budgetary_id": 11,
-    "budgetary_name": "มหาวิทยาลัยเชียงใหม่",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 6010725200,
-    "previous_year_amount": 6182604800,
-    "previous_year_percent": 0.163535
+    "budgetary_id": 61,
+    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม สำหรับกองทุนส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 13440039100,
+    "previous_year_amount": 19828293000,
+    "previous_year_percent": 0.524475
   },
   {
-    "budgetary_id": 333,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 830818600,
-    "previous_year_amount": 892443000,
-    "previous_year_percent": 0.023606
+    "budgetary_id": 3059,
+    "budgetary_name": "กรมสวัสดิการและคุ้มครองแรงงาน สำหรับกองทุนสงเคราะห์ลูกจ้าง",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 100000000,
+    "previous_year_amount": 100000000,
+    "previous_year_percent": 0.002645
   },
   {
-    "budgetary_id": 389,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏนครปฐม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 590443100,
-    "previous_year_amount": 590919100,
-    "previous_year_percent": 0.01563
+    "budgetary_id": 59,
+    "budgetary_name": "กรมศิลปากร สำหรับกองทุนส่งเสริมงานจดหมายเหตุ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 14491800,
+    "previous_year_amount": 14988300,
+    "previous_year_percent": 0.000396
   },
   {
-    "budgetary_id": 388,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 412924100,
-    "previous_year_amount": 442121000,
-    "previous_year_percent": 0.011694
+    "budgetary_id": 60,
+    "budgetary_name": "กรมส่งเสริมวัฒนธรรม สำหรับกองทุนส่งเสริมงานวัฒนธรรม",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 79440800,
+    "previous_year_amount": 74358800,
+    "previous_year_percent": 0.001967
   },
   {
-    "budgetary_id": 1839,
-    "budgetary_name": "กรมสรรพสามิต",
-    "ministry_id": 19,
-    "ministry_name": "กระทรวงการคลัง",
-    "budget_amount": 5554719400,
-    "previous_year_amount": 6912769200,
-    "previous_year_percent": 0.182848
+    "budgetary_id": 63,
+    "budgetary_name": "สำนักงานศิลปวัฒนธรรมร่วมสมัย สำหรับกองทุนส่งเสริมศิลปะร่วมสมัย",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 20000000,
+    "previous_year_amount": 20000000,
+    "previous_year_percent": 0.000529
   },
   {
-    "budgetary_id": 439,
-    "budgetary_name": "กรมการค้าต่างประเทศ",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 410907500,
-    "previous_year_amount": 420535000,
-    "previous_year_percent": 0.011123
+    "budgetary_id": 65,
+    "budgetary_name": "สำนักงานหลักประกันสุขภาพแห่งชาติ สำหรับกองทุนหลักประกันสุขภาพแห่งชาติ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 214144407900,
+    "previous_year_amount": 193849249000,
+    "previous_year_percent": 5.127473
   },
   {
-    "budgetary_id": 407,
-    "budgetary_name": "สถาบันระหว่างประเทศเพื่อการค้าและการพัฒนา (องค์การมหาชน)",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 77701400,
-    "previous_year_amount": 92922600,
-    "previous_year_percent": 0.002458
+    "budgetary_id": 49,
+    "budgetary_name": "สำนักงานคณะกรรมการการเลือกตั้ง สำหรับกองทุนเพื่อการพัฒนาพรรคการเมือง",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 119000000,
+    "previous_year_amount": 170000000,
+    "previous_year_percent": 0.004497
   },
   {
-    "budgetary_id": 238,
-    "budgetary_name": "กรมศิลปากร",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 2257426700,
-    "previous_year_amount": 2808856100,
-    "previous_year_percent": 0.074297
+    "budgetary_id": 3366,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม สำหรับ กองทุนเพื่อพัฒนาการอุดมศึกษา",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 1000000000,
+    "previous_year_amount": null,
+    "previous_year_percent": null
   },
   {
-    "budgetary_id": 406,
-    "budgetary_name": "สถาบันส่งเสริมศิลปหัตถกรรมไทย (องค์การมหาชน)",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 231963200,
-    "previous_year_amount": 285434100,
-    "previous_year_percent": 0.00755
+    "budgetary_id": 57,
+    "budgetary_name": "กรมการศาสนา สำหรับกองทุนส่งเสริมการเผยแผ่พระพุทธศาสนาเฉลิมพระเกียรติ 80 พรรษา",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 22238000,
+    "previous_year_amount": 22185100,
+    "previous_year_percent": 0.000587
   },
   {
-    "budgetary_id": 23,
-    "budgetary_name": "สถาบันวิจัยและพัฒนาอัญมณีและเครื่องประดับแห่งชาติ (องค์การมหาชน)",
-    "ministry_id": 6,
-    "ministry_name": "กระทรวงพาณิชย์",
-    "budget_amount": 155701000,
-    "previous_year_amount": 190695200,
-    "previous_year_percent": 0.005044
+    "budgetary_id": 62,
+    "budgetary_name": "สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม สำหรับกองทุนส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 541300000,
+    "previous_year_amount": 560000000,
+    "previous_year_percent": 0.014812
   },
   {
-    "budgetary_id": 307,
-    "budgetary_name": "กรมพัฒนาสังคมและสวัสดิการ",
-    "ministry_id": 20,
-    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
-    "budget_amount": 1833909400,
-    "previous_year_amount": 1943553000,
-    "previous_year_percent": 0.051409
+    "budgetary_id": 3007,
+    "budgetary_name": "สำนักงานปลัดกระทรวงศึกษาธิการ สำหรับเงินทุนหมุนเวียนเพื่อแก้ไขปัญหาหนี้สินข้าราชการครู",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 66500000,
+    "previous_year_amount": 95000000,
+    "previous_year_percent": 0.002513
   },
   {
-    "budgetary_id": 3014,
-    "budgetary_name": "โรงพยาบาลบ้านแพ้ว (องค์การมหาชน)",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 60290000,
-    "previous_year_amount": 42000000,
-    "previous_year_percent": 0.001111
+    "budgetary_id": 56,
+    "budgetary_name": "กรมพัฒนาสังคมและสวัสดิการ สำหรับกองทุนส่งเสริมการจัดสวัสดิการสังคม",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 52500000,
+    "previous_year_amount": 75000000,
+    "previous_year_percent": 0.001984
   },
   {
-    "budgetary_id": 204,
-    "budgetary_name": "กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
-    "ministry_id": 20,
-    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
-    "budget_amount": 853443900,
-    "previous_year_amount": 862160400,
-    "previous_year_percent": 0.022805
+    "budgetary_id": 58,
+    "budgetary_name": "กรมกิจการสตรีและสถาบันครอบครัว สำหรับกองทุนส่งเสริมความเท่าเทียมระหว่างเพศ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 25000000,
+    "previous_year_amount": 20000000,
+    "previous_year_percent": 0.000529
   },
   {
-    "budgetary_id": 3011,
-    "budgetary_name": "สถาบันพัฒนาองค์กรชุมชน (องค์การมหาชน)",
-    "ministry_id": 20,
-    "ministry_name": "กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์",
-    "budget_amount": 1396585200,
-    "previous_year_amount": 1814208300,
-    "previous_year_percent": 0.047987
+    "budgetary_id": 2996,
+    "budgetary_name": "สำนักงานปลัดกระทรวงการท่องเที่ยวและกีฬา สำหรับกองทุนเพื่อส่งเสริมการท่องเที่ยวไทย",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 2875300,
+    "previous_year_amount": 6000000,
+    "previous_year_percent": 0.000159
   },
   {
-    "budgetary_id": 2025,
-    "budgetary_name": "งบกลาง",
-    "ministry_id": 31,
-    "ministry_name": "งบกลาง",
-    "budget_amount": 693880000000,
-    "previous_year_amount": 632968750000,
-    "previous_year_percent": 16.742547
+    "budgetary_id": 50,
+    "budgetary_name": "สำนักงานตำรวจแห่งชาติ สำหรับกองทุนเพื่อการสืบสวน สอบสวน การป้องกันและปราบปรามการกระทำความผิดทางอาญา",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 721672000,
+    "previous_year_amount": 950000000,
+    "previous_year_percent": 0.025128
   },
   {
-    "budgetary_id": 183,
-    "budgetary_name": "กรมการข้าว",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 3947591200,
-    "previous_year_amount": 4486912000,
-    "previous_year_percent": 0.118683
+    "budgetary_id": 64,
+    "budgetary_name": "กองทุนหมู่บ้านและชุมชนเมืองแห่งชาติ สำหรับกองทุนหมู่บ้านและชุมชนเมืองแห่งชาติ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 160770400,
+    "previous_year_amount": 6831141500,
+    "previous_year_percent": 0.180689
   },
   {
-    "budgetary_id": 174,
-    "budgetary_name": "กรมส่งเสริมการเกษตร",
-    "ministry_id": 2,
-    "ministry_name": "กระทรวงเกษตรและสหกรณ์",
-    "budget_amount": 5674143900,
-    "previous_year_amount": 5628728800,
-    "previous_year_percent": 0.148885
+    "budgetary_id": 41,
+    "budgetary_name": "กองทุนจัดรูปที่ดินเพื่อพัฒนาพื้นที่",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 18000000,
+    "previous_year_amount": 80000000,
+    "previous_year_percent": 0.002116
   },
   {
-    "budgetary_id": 1834,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏสกลนคร",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 550648600,
-    "previous_year_amount": 550957500,
-    "previous_year_percent": 0.014573
+    "budgetary_id": 3002,
+    "budgetary_name": "กองทุนฟื้นฟูและพัฒนาเกษตรกร",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 1089617900,
+    "previous_year_amount": 1277210500,
+    "previous_year_percent": 0.033783
   },
   {
-    "budgetary_id": 329,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏชัยภูมิ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 324179900,
-    "previous_year_amount": 323527300,
-    "previous_year_percent": 0.008558
+    "budgetary_id": 40,
+    "budgetary_name": "กองทุนเงินให้กู้ยืมเพื่อการศึกษา สำหรับกองทุนเงินให้กู้ยืมเพื่อการศึกษา",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 9000367900,
+    "previous_year_amount": 5100000000,
+    "previous_year_percent": 0.134899
   },
   {
-    "budgetary_id": 2031,
-    "budgetary_name": "สำนักงานนวัตกรรมแห่งชาติ (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 380772400,
-    "previous_year_amount": 396136700,
-    "previous_year_percent": 0.010478
+    "budgetary_id": 51,
+    "budgetary_name": "กองทุนเพื่อความเสมอภาคทางการศึกษา สำหรับกองทุนเพื่อความเสมอภาคทางการศึกษา",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 7688109500,
+    "previous_year_amount": 7483654600,
+    "previous_year_percent": 0.197949
   },
   {
-    "budgetary_id": 390,
-    "budgetary_name": "สถาบันการพยาบาลศรีสวรินทิรา สภากาชาดไทย",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 340142700,
-    "previous_year_amount": 359134100,
-    "previous_year_percent": 0.009499
+    "budgetary_id": 3000,
+    "budgetary_name": "กองทุนการออมแห่งชาติ",
+    "ministry_id": 11,
+    "ministry_name": "ทุนหมุนเวียน",
+    "budget_amount": 347626300,
+    "previous_year_amount": 656243500,
+    "previous_year_percent": 0.017358
+  },
+  {
+    "budgetary_id": 2997,
+    "budgetary_name": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 35984655100,
+    "previous_year_amount": 48139659200,
+    "previous_year_percent": 1.273334
+  },
+  {
+    "budgetary_id": 2998,
+    "budgetary_name": "องค์การขนส่งมวลชนกรุงเทพ",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 4173016900,
+    "previous_year_amount": 4897713600,
+    "previous_year_percent": 0.129549
+  },
+  {
+    "budgetary_id": 2004,
+    "budgetary_name": "การรถไฟฟ้าขนส่งมวลชนแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 40523706000,
+    "previous_year_amount": 33258173300,
+    "previous_year_percent": 0.879706
+  },
+  {
+    "budgetary_id": 697,
+    "budgetary_name": "การเคหะแห่งชาติ",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 546644100,
+    "previous_year_amount": 1008130300,
+    "previous_year_percent": 0.026666
+  },
+  {
+    "budgetary_id": 2005,
+    "budgetary_name": "การรถไฟแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 17966757800,
+    "previous_year_amount": 19418539700,
+    "previous_year_percent": 0.513636
+  },
+  {
+    "budgetary_id": 474,
+    "budgetary_name": "การท่องเที่ยวแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 5756812300,
+    "previous_year_amount": 6199734300,
+    "previous_year_percent": 0.163988
+  },
+  {
+    "budgetary_id": 251,
+    "budgetary_name": "องค์การพิพิธภัณฑ์วิทยาศาสตร์แห่งชาติ",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 794750400,
+    "previous_year_amount": 1164901900,
+    "previous_year_percent": 0.030813
+  },
+  {
+    "budgetary_id": 309,
+    "budgetary_name": "องค์การสวนพฤกษศาสตร์",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 163972700,
+    "previous_year_amount": 209835800,
+    "previous_year_percent": 0.00555
+  },
+  {
+    "budgetary_id": 180,
+    "budgetary_name": "การกีฬาแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 3445743800,
+    "previous_year_amount": 3764113900,
+    "previous_year_percent": 0.099564
+  },
+  {
+    "budgetary_id": 170,
+    "budgetary_name": "องค์การสวนสัตว์แห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 2202434300,
+    "previous_year_amount": 2589563900,
+    "previous_year_percent": 0.068496
+  },
+  {
+    "budgetary_id": 1999,
+    "budgetary_name": "สถาบันการบินพลเรือน",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 656817100,
+    "previous_year_amount": 308294100,
+    "previous_year_percent": 0.008155
+  },
+  {
+    "budgetary_id": 424,
+    "budgetary_name": "สถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 649088500,
+    "previous_year_amount": 837762500,
+    "previous_year_percent": 0.02216
+  },
+  {
+    "budgetary_id": 258,
+    "budgetary_name": "องค์การจัดการน้ำเสีย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 1736811800,
+    "previous_year_amount": 1969606800,
+    "previous_year_percent": 0.052098
+  },
+  {
+    "budgetary_id": 698,
+    "budgetary_name": "องค์การตลาดเพื่อเกษตรกร",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 65094600,
+    "previous_year_amount": 101507200,
+    "previous_year_percent": 0.002685
+  },
+  {
+    "budgetary_id": 294,
+    "budgetary_name": "องค์การอุตสาหกรรมป่าไม้",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 110327900,
+    "previous_year_amount": 164822700,
+    "previous_year_percent": 0.00436
+  },
+  {
+    "budgetary_id": 2999,
+    "budgetary_name": "การประปาส่วนภูมิภาค",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 5950247200,
+    "previous_year_amount": 6087254800,
+    "previous_year_percent": 0.161013
+  },
+  {
+    "budgetary_id": 3008,
+    "budgetary_name": "การยางแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 131600000,
+    "previous_year_amount": 188000000,
+    "previous_year_percent": 0.004973
+  },
+  {
+    "budgetary_id": 3057,
+    "budgetary_name": "บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 58050000,
+    "previous_year_amount": 77404000,
+    "previous_year_percent": 0.002047
+  },
+  {
+    "budgetary_id": 2003,
+    "budgetary_name": "การทางพิเศษแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 2238914100,
+    "previous_year_amount": 2653642500,
+    "previous_year_percent": 0.070191
+  },
+  {
+    "budgetary_id": 3006,
+    "budgetary_name": "ธนาคารอาคารสงเคราะห์",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 493351400,
+    "previous_year_amount": null,
+    "previous_year_percent": null
+  },
+  {
+    "budgetary_id": 3005,
+    "budgetary_name": "ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 270290100,
+    "previous_year_amount": 278010000,
+    "previous_year_percent": 0.007354
+  },
+  {
+    "budgetary_id": 3004,
+    "budgetary_name": "บรรษัทประกันสินเชื่ออุตสาหกรรมขนาดย่อม",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 8784094900,
+    "previous_year_amount": 8834645000,
+    "previous_year_percent": 0.233684
+  },
+  {
+    "budgetary_id": 3010,
+    "budgetary_name": "ธนาคารออมสิน",
+    "ministry_id": 17,
+    "ministry_name": "รัฐวิสาหกิจ",
+    "budget_amount": 2451122900,
+    "previous_year_amount": 1517677900,
+    "previous_year_percent": 0.040144
+  },
+  {
+    "budgetary_id": 3060,
+    "budgetary_name": "รายจ่ายเพื่อชดใช้เงินคงคลัง",
+    "ministry_id": 33,
+    "ministry_name": "รายจ่ายเพื่อชดใช้เงินคงคลัง",
+    "budget_amount": 71038040300,
+    "previous_year_amount": 123541060200,
+    "previous_year_percent": 3.267763
+  },
+  {
+    "budgetary_id": 34,
+    "budgetary_name": "สภากาชาดไทย",
+    "ministry_id": 10,
+    "ministry_name": "สภากาชาดไทย",
+    "budget_amount": 9723323800,
+    "previous_year_amount": 9375278100,
+    "previous_year_percent": 0.247984
+  },
+  {
+    "budgetary_id": 3009,
+    "budgetary_name": "ส่วนราชการในพระองค์",
+    "ministry_id": 32,
+    "ministry_name": "ส่วนราชการในพระองค์",
+    "budget_amount": 9904072000,
+    "previous_year_amount": 9272098000,
+    "previous_year_percent": 0.245255
+  },
+  {
+    "budgetary_id": 435,
+    "budgetary_name": "สำนักงานคณะกรรมการพิเศษเพื่อประสานงานโครงการอันเนื่องมาจากพระราชดำริ",
+    "ministry_id": 9,
+    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
+    "budget_amount": 961984900,
+    "previous_year_amount": 950257100,
+    "previous_year_percent": 0.025135
   },
   {
     "budgetary_id": 434,
@@ -3276,13 +3753,40 @@
     "previous_year_percent": 0.004395
   },
   {
-    "budgetary_id": 328,
-    "budgetary_name": "มหาวิทยาลัยกาฬสินธุ์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 486077800,
-    "previous_year_amount": 437790800,
-    "previous_year_percent": 0.01158
+    "budgetary_id": 451,
+    "budgetary_name": "สำนักงานพระพุทธศาสนาแห่งชาติ",
+    "ministry_id": 9,
+    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
+    "budget_amount": 5559667400,
+    "previous_year_amount": 5518130800,
+    "previous_year_percent": 0.145959
+  },
+  {
+    "budgetary_id": 452,
+    "budgetary_name": "ศูนย์อำนวยการบริหารจังหวัดชายแดนภาคใต้",
+    "ministry_id": 9,
+    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
+    "budget_amount": 1481565300,
+    "previous_year_amount": 1485423700,
+    "previous_year_percent": 0.039291
+  },
+  {
+    "budgetary_id": 2000,
+    "budgetary_name": "สำนักงานคณะกรรมการนโยบายเขตพัฒนาพิเศษภาคตะวันออก",
+    "ministry_id": 9,
+    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
+    "budget_amount": 765063400,
+    "previous_year_amount": 647586800,
+    "previous_year_percent": 0.017129
+  },
+  {
+    "budgetary_id": 1836,
+    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ",
+    "ministry_id": 9,
+    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
+    "budget_amount": 792872200,
+    "previous_year_amount": 772319100,
+    "previous_year_percent": 0.020428
   },
   {
     "budgetary_id": 417,
@@ -3294,445 +3798,31 @@
     "previous_year_percent": 0.014641
   },
   {
-    "budgetary_id": 231,
-    "budgetary_name": "มหาวิทยาลัยนครพนม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 738004100,
-    "previous_year_amount": 752881200,
-    "previous_year_percent": 0.019914
+    "budgetary_id": 31,
+    "budgetary_name": "สำนักงานตำรวจแห่งชาติ",
+    "ministry_id": 9,
+    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
+    "budget_amount": 125356964500,
+    "previous_year_amount": 125788139300,
+    "previous_year_percent": 3.3272
   },
   {
-    "budgetary_id": 422,
-    "budgetary_name": "สถาบันบัณฑิตพัฒนบริหารศาสตร์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 635857000,
-    "previous_year_amount": 654195700,
-    "previous_year_percent": 0.017304
+    "budgetary_id": 2020,
+    "budgetary_name": "สำนักงานส่งเสริมวิสาหกิจเพื่อสังคม",
+    "ministry_id": 9,
+    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
+    "budget_amount": 23610900,
+    "previous_year_amount": 21942000,
+    "previous_year_percent": 0.00058
   },
   {
-    "budgetary_id": 10,
-    "budgetary_name": "มหาวิทยาลัยนเรศวร",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 2499773300,
-    "previous_year_amount": 2584343700,
-    "previous_year_percent": 0.068358
-  },
-  {
-    "budgetary_id": 122,
-    "budgetary_name": "มหาวิทยาลัยมหามกุฏราชวิทยาลัย",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 793537900,
-    "previous_year_amount": 816171400,
-    "previous_year_percent": 0.021588
-  },
-  {
-    "budgetary_id": 327,
-    "budgetary_name": "มหาวิทยาลัยสุโขทัยธรรมาธิราช",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 743642500,
-    "previous_year_amount": 703666900,
-    "previous_year_percent": 0.018613
-  },
-  {
-    "budgetary_id": 3,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1584245600,
-    "previous_year_amount": 1605553600,
-    "previous_year_percent": 0.042468
-  },
-  {
-    "budgetary_id": 371,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1500345800,
-    "previous_year_amount": 1530534800,
-    "previous_year_percent": 0.040484
-  },
-  {
-    "budgetary_id": 232,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลพระนคร",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 769549600,
-    "previous_year_amount": 760144400,
-    "previous_year_percent": 0.020106
-  },
-  {
-    "budgetary_id": 382,
-    "budgetary_name": "มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 926689000,
-    "previous_year_amount": 938372100,
-    "previous_year_percent": 0.024821
-  },
-  {
-    "budgetary_id": 311,
-    "budgetary_name": "กรมพลศึกษา",
-    "ministry_id": 21,
-    "ministry_name": "กระทรวงการท่องเที่ยวและกีฬา",
-    "budget_amount": 627209500,
-    "previous_year_amount": 769544400,
-    "previous_year_percent": 0.020355
-  },
-  {
-    "budgetary_id": 323,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏรำไพพรรณี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 505948400,
-    "previous_year_amount": 516942200,
-    "previous_year_percent": 0.013674
-  },
-  {
-    "budgetary_id": 315,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏภูเก็ต",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 432432100,
-    "previous_year_amount": 427581900,
-    "previous_year_percent": 0.01131
-  },
-  {
-    "budgetary_id": 379,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏกาญจนบุรี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 408868400,
-    "previous_year_amount": 428118100,
-    "previous_year_percent": 0.011324
-  },
-  {
-    "budgetary_id": 287,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏกำแพงเพชร",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 434297500,
-    "previous_year_amount": 454449300,
-    "previous_year_percent": 0.012021
-  },
-  {
-    "budgetary_id": 317,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏจันทรเกษม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 580026500,
-    "previous_year_amount": 569470300,
-    "previous_year_percent": 0.015063
-  },
-  {
-    "budgetary_id": 304,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏบุรีรัมย์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 487647000,
-    "previous_year_amount": 510301200,
-    "previous_year_percent": 0.013498
-  },
-  {
-    "budgetary_id": 376,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏบ้านสมเด็จเจ้าพระยา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 630930000,
-    "previous_year_amount": 627208600,
-    "previous_year_percent": 0.01659
-  },
-  {
-    "budgetary_id": 32,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏพระนคร",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 580429300,
-    "previous_year_amount": 597605700,
-    "previous_year_percent": 0.015807
-  },
-  {
-    "budgetary_id": 203,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏมหาสารคาม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 486860600,
-    "previous_year_amount": 493605200,
-    "previous_year_percent": 0.013056
-  },
-  {
-    "budgetary_id": 234,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏร้อยเอ็ด",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 292320000,
-    "previous_year_amount": 303614800,
-    "previous_year_percent": 0.008031
-  },
-  {
-    "budgetary_id": 229,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏลำปาง",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 488031800,
-    "previous_year_amount": 482439200,
-    "previous_year_percent": 0.012761
-  },
-  {
-    "budgetary_id": 201,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏสุราษฎร์ธานี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 715563800,
-    "previous_year_amount": 741437300,
-    "previous_year_percent": 0.019612
-  },
-  {
-    "budgetary_id": 381,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏหมู่บ้านจอมบึง",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 408116100,
-    "previous_year_amount": 414984100,
-    "previous_year_percent": 0.010977
-  },
-  {
-    "budgetary_id": 322,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏอุดรธานี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 660763200,
-    "previous_year_amount": 662935700,
-    "previous_year_percent": 0.017535
-  },
-  {
-    "budgetary_id": 380,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏเชียงราย",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 643788900,
-    "previous_year_amount": 629999500,
-    "previous_year_percent": 0.016664
-  },
-  {
-    "budgetary_id": 398,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏเทพสตรี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 423216500,
-    "previous_year_amount": 434898400,
-    "previous_year_percent": 0.011503
-  },
-  {
-    "budgetary_id": 331,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏเลย",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 424957600,
-    "previous_year_amount": 432467700,
-    "previous_year_percent": 0.011439
-  },
-  {
-    "budgetary_id": 13,
-    "budgetary_name": "มหาวิทยาลัยบูรพา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 1991728700,
-    "previous_year_amount": 2040183300,
-    "previous_year_percent": 0.053965
-  },
-  {
-    "budgetary_id": 330,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏธนบุรี",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 398901000,
-    "previous_year_amount": 417501800,
-    "previous_year_percent": 0.011043
-  },
-  {
-    "budgetary_id": 3061,
-    "budgetary_name": "สำนักงานเร่งรัดการวิจัยและนวัตกรรมเพื่อเพิ่มความสามารถการแข่งขันและการพัฒนาพื้นที่ (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 127344400,
-    "previous_year_amount": null,
-    "previous_year_percent": null
-  },
-  {
-    "budgetary_id": 3062,
-    "budgetary_name": "สำนักงานเทคโนโลยีและนวัตกรรมด้านชีววิทยาศาสตร์ (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 219471900,
-    "previous_year_amount": null,
-    "previous_year_percent": null
-  },
-  {
-    "budgetary_id": 2034,
-    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมสวัสดิการและสวัสดิภาพครูและบุคลากรทางการศึกษา",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 216944900,
-    "previous_year_amount": 158211300,
-    "previous_year_percent": 0.004185
-  },
-  {
-    "budgetary_id": 394,
-    "budgetary_name": "สถาบันเทคโนโลยีปทุมวัน",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 323626100,
-    "previous_year_amount": 341668400,
-    "previous_year_percent": 0.009037
-  },
-  {
-    "budgetary_id": 2033,
-    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 225353600,
-    "previous_year_amount": 223797100,
-    "previous_year_percent": 0.00592
-  },
-  {
-    "budgetary_id": 324,
-    "budgetary_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 2164921600,
-    "previous_year_amount": 2215079300,
-    "previous_year_percent": 0.058591
-  },
-  {
-    "budgetary_id": 399,
-    "budgetary_name": "สถาบันดนตรีกัลยาณิวัฒนา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 154718300,
-    "previous_year_amount": 208315800,
-    "previous_year_percent": 0.00551
-  },
-  {
-    "budgetary_id": 416,
-    "budgetary_name": "สถาบันวิจัยแสงซินโครตรอน (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 414395200,
-    "previous_year_amount": 433279100,
-    "previous_year_percent": 0.011461
-  },
-  {
-    "budgetary_id": 589,
-    "budgetary_name": "สถาบันสารสนเทศทรัพยากรน้ำ (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 410267300,
-    "previous_year_amount": 457454100,
-    "previous_year_percent": 0.0121
-  },
-  {
-    "budgetary_id": 423,
-    "budgetary_name": "สถาบันเทคโนโลยีนิวเคลียร์แห่งชาติ (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 432768700,
-    "previous_year_amount": 447155300,
-    "previous_year_percent": 0.011828
-  },
-  {
-    "budgetary_id": 261,
-    "budgetary_name": "สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (องค์การมหาชน)",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 985111100,
-    "previous_year_amount": 1185863100,
-    "previous_year_percent": 0.031367
-  },
-  {
-    "budgetary_id": 2032,
-    "budgetary_name": "สำนักงานสภานโยบายการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมแห่งชาติ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 206577200,
-    "previous_year_amount": 206605900,
-    "previous_year_percent": 0.005465
-  },
-  {
-    "budgetary_id": 277,
-    "budgetary_name": "สำนักงานการวิจัยแห่งชาติ",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 489593200,
-    "previous_year_amount": 585310400,
-    "previous_year_percent": 0.015482
-  },
-  {
-    "budgetary_id": 214,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏนครสวรรค์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 616994200,
-    "previous_year_amount": 657363700,
-    "previous_year_percent": 0.017388
-  },
-  {
-    "budgetary_id": 316,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏเพชรบูรณ์",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 435735400,
-    "previous_year_amount": 428422600,
-    "previous_year_percent": 0.011332
-  },
-  {
-    "budgetary_id": 310,
-    "budgetary_name": "มหาวิทยาลัยราชภัฏสวนสุนันทา",
-    "ministry_id": 1,
-    "ministry_name": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "budget_amount": 886490700,
-    "previous_year_amount": 862360900,
-    "previous_year_percent": 0.02281
-  },
-  {
-    "budgetary_id": 2028,
-    "budgetary_name": "ศูนย์มานุษยวิทยาสิรินธร (องค์การมหาชน)",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 144468500,
-    "previous_year_amount": 130609500,
-    "previous_year_percent": 0.003455
-  },
-  {
-    "budgetary_id": 2029,
-    "budgetary_name": "หอภาพยนตร์ (องค์การมหาชน)",
-    "ministry_id": 18,
-    "ministry_name": "กระทรวงวัฒนธรรม",
-    "budget_amount": 134229100,
-    "previous_year_amount": 141113200,
-    "previous_year_percent": 0.003733
-  },
-  {
-    "budgetary_id": 2021,
-    "budgetary_name": "สถาบันวิจัยระบบสาธารณสุข",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 53393400,
-    "previous_year_amount": 58440100,
-    "previous_year_percent": 0.001546
-  },
-  {
-    "budgetary_id": 285,
-    "budgetary_name": "สถาบันรับรองคุณภาพสถานพยาบาล (องค์การมหาชน)",
-    "ministry_id": 3,
-    "ministry_name": "กระทรวงสาธารณสุข",
-    "budget_amount": 76110800,
-    "previous_year_amount": 94128900,
-    "previous_year_percent": 0.00249
+    "budgetary_id": 178,
+    "budgetary_name": "ศูนย์อำนวยการรักษาผลประโยชน์ของชาติทางทะเล",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 845634700,
+    "previous_year_amount": 955093500,
+    "previous_year_percent": 0.025263
   },
   {
     "budgetary_id": 2010,
@@ -3744,6 +3834,24 @@
     "previous_year_percent": 0.002378
   },
   {
+    "budgetary_id": 264,
+    "budgetary_name": "สำนักเลขาธิการคณะรัฐมนตรี",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 712144100,
+    "previous_year_amount": 698813600,
+    "previous_year_percent": 0.018484
+  },
+  {
+    "budgetary_id": 2023,
+    "budgetary_name": "สำนักงานส่งเสริมเศรษฐกิจสร้างสรรค์ (องค์การมหาชน)",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 402056100,
+    "previous_year_amount": 566412500,
+    "previous_year_percent": 0.014982
+  },
+  {
     "budgetary_id": 3063,
     "budgetary_name": "องค์การบริหารไนท์ซาฟารี (องค์การมหาชน)",
     "ministry_id": 4,
@@ -3753,6 +3861,114 @@
     "previous_year_percent": null
   },
   {
+    "budgetary_id": 265,
+    "budgetary_name": "สำนักงานปลัดสำนักนายกรัฐมนตรี",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 752212900,
+    "previous_year_amount": 917441700,
+    "previous_year_percent": 0.024267
+  },
+  {
+    "budgetary_id": 278,
+    "budgetary_name": "สำนักงานคณะกรรมการคุ้มครองผู้บริโภค",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 249520600,
+    "previous_year_amount": 302762800,
+    "previous_year_percent": 0.008008
+  },
+  {
+    "budgetary_id": 260,
+    "budgetary_name": "สำนักเลขาธิการนายกรัฐมนตรี",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 8394974700,
+    "previous_year_amount": 6673482400,
+    "previous_year_percent": 0.176519
+  },
+  {
+    "budgetary_id": 283,
+    "budgetary_name": "สำนักงบประมาณ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 1050997500,
+    "previous_year_amount": 1230706400,
+    "previous_year_percent": 0.032553
+  },
+  {
+    "budgetary_id": 255,
+    "budgetary_name": "สำนักงานสภาความมั่นคงแห่งชาติ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 261557900,
+    "previous_year_amount": 284910600,
+    "previous_year_percent": 0.007536
+  },
+  {
+    "budgetary_id": 3056,
+    "budgetary_name": "สำนักงานคณะกรรมการกฤษฎีกา",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 522462000,
+    "previous_year_amount": 532307700,
+    "previous_year_percent": 0.01408
+  },
+  {
+    "budgetary_id": 415,
+    "budgetary_name": "สำนักงานคณะกรรมการข้าราชการพลเรือน",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 1635995400,
+    "previous_year_amount": 1818266100,
+    "previous_year_percent": 0.048095
+  },
+  {
+    "budgetary_id": 254,
+    "budgetary_name": "สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 903496200,
+    "previous_year_amount": 896985400,
+    "previous_year_percent": 0.023726
+  },
+  {
+    "budgetary_id": 249,
+    "budgetary_name": "กองอำนวยการรักษาความมั่นคงภายในราชอาณาจักร",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 5737390300,
+    "previous_year_amount": 6919392800,
+    "previous_year_percent": 0.183024
+  },
+  {
+    "budgetary_id": 269,
+    "budgetary_name": "สำนักงานคณะกรรมการพัฒนาระบบราชการ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 531189400,
+    "previous_year_amount": 361804400,
+    "previous_year_percent": 0.00957
+  },
+  {
+    "budgetary_id": 270,
+    "budgetary_name": "สำนักงานส่งเสริมการจัดประชุมและนิทรรศการ (องค์การมหาชน)",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 693253000,
+    "previous_year_amount": 1144565500,
+    "previous_year_percent": 0.030275
+  },
+  {
+    "budgetary_id": 282,
+    "budgetary_name": "สำนักงานบริหารและพัฒนาองค์ความรู้ (องค์การมหาชน)",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 552151300,
+    "previous_year_amount": 643010500,
+    "previous_year_percent": 0.017008
+  },
+  {
     "budgetary_id": 2019,
     "budgetary_name": "สำนักงานคณะกรรมการสุขภาพแห่งชาติ",
     "ministry_id": 4,
@@ -3760,6 +3976,240 @@
     "budget_amount": 194896200,
     "previous_year_amount": 223301100,
     "previous_year_percent": 0.005906
+  },
+  {
+    "budgetary_id": 274,
+    "budgetary_name": "สถาบันคุณวุฒิวิชาชีพ (องค์การมหาชน)",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 201695600,
+    "previous_year_amount": 249313700,
+    "previous_year_percent": 0.006595
+  },
+  {
+    "budgetary_id": 443,
+    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมการลงทุน",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 731801900,
+    "previous_year_amount": 723714700,
+    "previous_year_percent": 0.019143
+  },
+  {
+    "budgetary_id": 275,
+    "budgetary_name": "สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน)",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 892261500,
+    "previous_year_amount": 1137102500,
+    "previous_year_percent": 0.030077
+  },
+  {
+    "budgetary_id": 263,
+    "budgetary_name": "สำนักงานคณะกรรมการการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 440117300,
+    "previous_year_amount": 547358600,
+    "previous_year_percent": 0.014478
+  },
+  {
+    "budgetary_id": 243,
+    "budgetary_name": "สำนักข่าวกรองแห่งชาติ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 687557600,
+    "previous_year_amount": 647904400,
+    "previous_year_percent": 0.017138
+  },
+  {
+    "budgetary_id": 143,
+    "budgetary_name": "กรมประชาสัมพันธ์",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 2271443000,
+    "previous_year_amount": 2407088400,
+    "previous_year_percent": 0.063669
+  },
+  {
+    "budgetary_id": 16,
+    "budgetary_name": "ราชวิทยาลัยจุฬาภรณ์",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 2920451600,
+    "previous_year_amount": 3207099500,
+    "previous_year_percent": 0.08483
+  },
+  {
+    "budgetary_id": 468,
+    "budgetary_name": "สำนักงานคณะกรรมการนโยบายที่ดินแห่งชาติ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 355125800,
+    "previous_year_amount": 341587200,
+    "previous_year_percent": 0.009035
+  },
+  {
+    "budgetary_id": 431,
+    "budgetary_name": "สำนักงานทรัพยากรน้ำแห่งชาติ",
+    "ministry_id": 4,
+    "ministry_name": "สำนักนายกรัฐมนตรี",
+    "budget_amount": 653980100,
+    "previous_year_amount": 942247000,
+    "previous_year_percent": 0.024923
+  },
+  {
+    "budgetary_id": 1992,
+    "budgetary_name": "สำนักงานเลขาธิการวุฒิสภา",
+    "ministry_id": 30,
+    "ministry_name": "หน่วยงานของรัฐสภา",
+    "budget_amount": 2198454900,
+    "previous_year_amount": 2303413400,
+    "previous_year_percent": 0.060927
+  },
+  {
+    "budgetary_id": 1993,
+    "budgetary_name": "สถาบันพระปกเกล้า",
+    "ministry_id": 30,
+    "ministry_name": "หน่วยงานของรัฐสภา",
+    "budget_amount": 562905600,
+    "previous_year_amount": 618598700,
+    "previous_year_percent": 0.016362
+  },
+  {
+    "budgetary_id": 1832,
+    "budgetary_name": "สำนักงานเลขาธิการสภาผู้แทนราษฎร",
+    "ministry_id": 30,
+    "ministry_name": "หน่วยงานของรัฐสภา",
+    "budget_amount": 5087375900,
+    "previous_year_amount": 6297687200,
+    "previous_year_percent": 0.166579
+  },
+  {
+    "budgetary_id": 1830,
+    "budgetary_name": "สำนักงานศาลยุติธรรม",
+    "ministry_id": 29,
+    "ministry_name": "หน่วยงานของศาล",
+    "budget_amount": 24171926800,
+    "previous_year_amount": 24181196600,
+    "previous_year_percent": 0.639613
+  },
+  {
+    "budgetary_id": 1831,
+    "budgetary_name": "สำนักงานศาลปกครอง",
+    "ministry_id": 29,
+    "ministry_name": "หน่วยงานของศาล",
+    "budget_amount": 3918875400,
+    "previous_year_amount": 3531205700,
+    "previous_year_percent": 0.093403
+  },
+  {
+    "budgetary_id": 1994,
+    "budgetary_name": "สำนักงานศาลรัฐธรรมนูญ",
+    "ministry_id": 29,
+    "ministry_name": "หน่วยงานของศาล",
+    "budget_amount": 391225400,
+    "previous_year_amount": 370003300,
+    "previous_year_percent": 0.009787
+  },
+  {
+    "budgetary_id": 1736,
+    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตแห่งชาติ",
+    "ministry_id": 28,
+    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
+    "budget_amount": 4328338100,
+    "previous_year_amount": 4519414400,
+    "previous_year_percent": 0.119542
+  },
+  {
+    "budgetary_id": 1996,
+    "budgetary_name": "สำนักงานคณะกรรมการสิทธิมนุษยชนแห่งชาติ",
+    "ministry_id": 28,
+    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
+    "budget_amount": 351603900,
+    "previous_year_amount": 344335100,
+    "previous_year_percent": 0.009108
+  },
+  {
+    "budgetary_id": 464,
+    "budgetary_name": "สำนักงานการตรวจเงินแผ่นดิน",
+    "ministry_id": 28,
+    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
+    "budget_amount": 3142702400,
+    "previous_year_amount": 3039060000,
+    "previous_year_percent": 0.080386
+  },
+  {
+    "budgetary_id": 1997,
+    "budgetary_name": "สำนักงานคณะกรรมการการเลือกตั้ง",
+    "ministry_id": 28,
+    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
+    "budget_amount": 2723765400,
+    "previous_year_amount": 3333091900,
+    "previous_year_percent": 0.088163
+  },
+  {
+    "budgetary_id": 1995,
+    "budgetary_name": "สำนักงานผู้ตรวจการแผ่นดิน",
+    "ministry_id": 28,
+    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
+    "budget_amount": 552339100,
+    "previous_year_amount": 533230800,
+    "previous_year_percent": 0.014104
+  },
+  {
+    "budgetary_id": 1828,
+    "budgetary_name": "สำนักงานอัยการสูงสุด",
+    "ministry_id": 28,
+    "ministry_name": "หน่วยงานขององค์กรอิสระและองค์กรอัยการ",
+    "budget_amount": 14767239800,
+    "previous_year_amount": 14922118100,
+    "previous_year_percent": 0.394702
+  },
+  {
+    "budgetary_id": 2024,
+    "budgetary_name": "สำนักงานคณะกรรมการการแข่งขันทางการค้า",
+    "ministry_id": 26,
+    "ministry_name": "หน่วยงานอื่นของรัฐ",
+    "budget_amount": 168107200,
+    "previous_year_amount": 207230900,
+    "previous_year_percent": 0.005481
+  },
+  {
+    "budgetary_id": 430,
+    "budgetary_name": "สำนักงานสภาเกษตรกรแห่งชาติ",
+    "ministry_id": 26,
+    "ministry_name": "หน่วยงานอื่นของรัฐ",
+    "budget_amount": 417825700,
+    "previous_year_amount": 422885300,
+    "previous_year_percent": 0.011186
+  },
+  {
+    "budgetary_id": 75,
+    "budgetary_name": "กรุงเทพมหานคร",
+    "ministry_id": 13,
+    "ministry_name": "องค์กรปกครองส่วนท้องถิ่น",
+    "budget_amount": 28953010800,
+    "previous_year_amount": 29321101800,
+    "previous_year_percent": 0.775567
+  },
+  {
+    "budgetary_id": 250,
+    "budgetary_name": "เมืองพัทยา",
+    "ministry_id": 13,
+    "ministry_name": "องค์กรปกครองส่วนท้องถิ่น",
+    "budget_amount": 2300779500,
+    "previous_year_amount": 2402958500,
+    "previous_year_percent": 0.06356
+  },
+  {
+    "budgetary_id": 696,
+    "budgetary_name": "เทศบาลนครนครราชสีมา อำเภอเมืองนครราชสีมา จังหวัดนครราชสีมา",
+    "ministry_id": 13,
+    "ministry_name": "องค์กรปกครองส่วนท้องถิ่น",
+    "budget_amount": 705603700,
+    "previous_year_amount": 951604100,
+    "previous_year_percent": 0.025171
   },
   {
     "budgetary_id": 691,
@@ -29401,455 +29851,5 @@
     "budget_amount": 104691800,
     "previous_year_amount": 135014600,
     "previous_year_percent": 0.003571
-  },
-  {
-    "budgetary_id": 185,
-    "budgetary_name": "กรมการพัฒนาชุมชน",
-    "ministry_id": 14,
-    "ministry_name": "กระทรวงมหาดไทย",
-    "budget_amount": 5800703900,
-    "previous_year_amount": 5704094900,
-    "previous_year_percent": 0.150878
-  },
-  {
-    "budgetary_id": 2020,
-    "budgetary_name": "สำนักงานส่งเสริมวิสาหกิจเพื่อสังคม",
-    "ministry_id": 9,
-    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
-    "budget_amount": 23610900,
-    "previous_year_amount": 21942000,
-    "previous_year_percent": 0.00058
-  },
-  {
-    "budgetary_id": 475,
-    "budgetary_name": "กรมบังคับคดี",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 1147366100,
-    "previous_year_amount": 1094323300,
-    "previous_year_percent": 0.028946
-  },
-  {
-    "budgetary_id": 2027,
-    "budgetary_name": "สถาบันอนุญาโตตุลาการ",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 39696700,
-    "previous_year_amount": 46470900,
-    "previous_year_percent": 0.001229
-  },
-  {
-    "budgetary_id": 267,
-    "budgetary_name": "สำนักงานเลขาธิการสภาการศึกษา",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 176346600,
-    "previous_year_amount": 200614000,
-    "previous_year_percent": 0.005306
-  },
-  {
-    "budgetary_id": 3060,
-    "budgetary_name": "รายจ่ายเพื่อชดใช้เงินคงคลัง",
-    "ministry_id": 33,
-    "ministry_name": "รายจ่ายเพื่อชดใช้เงินคงคลัง",
-    "budget_amount": 71038040300,
-    "previous_year_amount": 123541060200,
-    "previous_year_percent": 3.267763
-  },
-  {
-    "budgetary_id": 435,
-    "budgetary_name": "สำนักงานคณะกรรมการพิเศษเพื่อประสานงานโครงการอันเนื่องมาจากพระราชดำริ",
-    "ministry_id": 9,
-    "ministry_name": "ส่วนราชการไม่สังกัดสำนักนายกรัฐมนตรี กระทรวง หรือทบวง และหน่วยงานภายใต้การควบคุมดูแลของนายกรัฐมนตรี",
-    "budget_amount": 961984900,
-    "previous_year_amount": 950257100,
-    "previous_year_percent": 0.025135
-  },
-  {
-    "budgetary_id": 409,
-    "budgetary_name": "สำนักงานกิจการยุติธรรม",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 164756900,
-    "previous_year_amount": 203428300,
-    "previous_year_percent": 0.005381
-  },
-  {
-    "budgetary_id": 2026,
-    "budgetary_name": "สถาบันเพื่อการยุติธรรมแห่งประเทศไทย (องค์การมหาชน)",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 195755100,
-    "previous_year_amount": 176059300,
-    "previous_year_percent": 0.004657
-  },
-  {
-    "budgetary_id": 410,
-    "budgetary_name": "กรมคุ้มครองสิทธิและเสรีภาพ",
-    "ministry_id": 8,
-    "ministry_name": "กระทรวงยุติธรรม",
-    "budget_amount": 830878600,
-    "previous_year_amount": 1065087900,
-    "previous_year_percent": 0.028172
-  },
-  {
-    "budgetary_id": 425,
-    "budgetary_name": "สำนักงานเลขาธิการคุรุสภา",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 148975900,
-    "previous_year_amount": 174003200,
-    "previous_year_percent": 0.004603
-  },
-  {
-    "budgetary_id": 2035,
-    "budgetary_name": "สถาบันทดสอบทางการศึกษาแห่งชาติ (องค์การมหาชน)",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 453914000,
-    "previous_year_amount": 430462700,
-    "previous_year_percent": 0.011386
-  },
-  {
-    "budgetary_id": 2036,
-    "budgetary_name": "สำนักงานรับรองมาตรฐานและประเมินคุณภาพการศึกษา (องค์การมหาชน)",
-    "ministry_id": 15,
-    "ministry_name": "กระทรวงศึกษาธิการ",
-    "budget_amount": 89232600,
-    "previous_year_amount": 101192600,
-    "previous_year_percent": 0.002677
-  },
-  {
-    "budgetary_id": 2024,
-    "budgetary_name": "สำนักงานคณะกรรมการการแข่งขันทางการค้า",
-    "ministry_id": 26,
-    "ministry_name": "หน่วยงานอื่นของรัฐ",
-    "budget_amount": 168107200,
-    "previous_year_amount": 207230900,
-    "previous_year_percent": 0.005481
-  },
-  {
-    "budgetary_id": 45,
-    "budgetary_name": "สำนักงานคณะกรรมการนโยบายเขตพัฒนาพิเศษภาคตะวันออก สำหรับกองทุนพัฒนาเขตพัฒนาพิเศษภาคตะวันออก",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 6082900,
-    "previous_year_amount": 21000000,
-    "previous_year_percent": 0.000555
-  },
-  {
-    "budgetary_id": 39,
-    "budgetary_name": "กรมกิจการเด็กและเยาวชน สำหรับกองทุนคุ้มครองเด็ก",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 28564200,
-    "previous_year_amount": 45000000,
-    "previous_year_percent": 0.00119
-  },
-  {
-    "budgetary_id": 43,
-    "budgetary_name": "สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตแห่งชาติ สำหรับกองทุนป้องกันและปราบปรามการทุจริตแห่งชาติ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 120800400,
-    "previous_year_amount": 292000000,
-    "previous_year_percent": 0.007724
-  },
-  {
-    "budgetary_id": 48,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์ สำหรับกองทุนเพื่อการป้องกันและปราบปรามการค้ามนุษย์",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 31288900,
-    "previous_year_amount": 45000000,
-    "previous_year_percent": 0.00119
-  },
-  {
-    "budgetary_id": 55,
-    "budgetary_name": "กรมส่งเสริมการค้าระหว่างประเทศ สำหรับกองทุนส่งเสริมการค้าระหว่างประเทศ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 600000000,
-    "previous_year_amount": 800000000,
-    "previous_year_percent": 0.021161
-  },
-  {
-    "budgetary_id": 38,
-    "budgetary_name": "สถาบันการแพทย์ฉุกเฉินแห่งชาติ สำหรับกองทุนการแพทย์ฉุกเฉิน",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 825792300,
-    "previous_year_amount": 1093249200,
-    "previous_year_percent": 0.028917
-  },
-  {
-    "budgetary_id": 3001,
-    "budgetary_name": "กรมชลประทาน สำหรับกองทุนจัดรูปที่ดิน",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 952765000,
-    "previous_year_amount": 1500000000,
-    "previous_year_percent": 0.039676
-  },
-  {
-    "budgetary_id": 42,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการคลัง สำหรับกองทุนประชารัฐสวัสดิการเพื่อเศรษฐกิจฐานรากและสังคม",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 42000000000,
-    "previous_year_amount": 30000000000,
-    "previous_year_percent": 0.793525
-  },
-  {
-    "budgetary_id": 44,
-    "budgetary_name": "กรมกิจการผู้สูงอายุ สำหรับกองทุนผู้สูงอายุ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 72000000,
-    "previous_year_amount": 67000000,
-    "previous_year_percent": 0.001772
-  },
-  {
-    "budgetary_id": 46,
-    "budgetary_name": "กรมการพัฒนาชุมชน สำหรับกองทุนพัฒนาบทบาทสตรี",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 480000000,
-    "previous_year_amount": 840000000,
-    "previous_year_percent": 0.022219
-  },
-  {
-    "budgetary_id": 53,
-    "budgetary_name": "กรมการแพทย์แผนไทยและการแพทย์ทางเลือก สำหรับกองทุนภูมิปัญญาการแพทย์แผนไทย",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 61747200,
-    "previous_year_amount": 80000000,
-    "previous_year_percent": 0.002116
-  },
-  {
-    "budgetary_id": 54,
-    "budgetary_name": "กรมการค้าภายใน สำหรับกองทุนรวมเพื่อช่วยเหลือเกษตรกร",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 700000000,
-    "previous_year_amount": 1000000000,
-    "previous_year_percent": 0.026451
-  },
-  {
-    "budgetary_id": 61,
-    "budgetary_name": "สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม สำหรับกองทุนส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 13440039100,
-    "previous_year_amount": 19828293000,
-    "previous_year_percent": 0.524475
-  },
-  {
-    "budgetary_id": 3059,
-    "budgetary_name": "กรมสวัสดิการและคุ้มครองแรงงาน สำหรับกองทุนสงเคราะห์ลูกจ้าง",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 100000000,
-    "previous_year_amount": 100000000,
-    "previous_year_percent": 0.002645
-  },
-  {
-    "budgetary_id": 59,
-    "budgetary_name": "กรมศิลปากร สำหรับกองทุนส่งเสริมงานจดหมายเหตุ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 14491800,
-    "previous_year_amount": 14988300,
-    "previous_year_percent": 0.000396
-  },
-  {
-    "budgetary_id": 60,
-    "budgetary_name": "กรมส่งเสริมวัฒนธรรม สำหรับกองทุนส่งเสริมงานวัฒนธรรม",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 79440800,
-    "previous_year_amount": 74358800,
-    "previous_year_percent": 0.001967
-  },
-  {
-    "budgetary_id": 63,
-    "budgetary_name": "สำนักงานศิลปวัฒนธรรมร่วมสมัย สำหรับกองทุนส่งเสริมศิลปะร่วมสมัย",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 20000000,
-    "previous_year_amount": 20000000,
-    "previous_year_percent": 0.000529
-  },
-  {
-    "budgetary_id": 65,
-    "budgetary_name": "สำนักงานหลักประกันสุขภาพแห่งชาติ สำหรับกองทุนหลักประกันสุขภาพแห่งชาติ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 214144407900,
-    "previous_year_amount": 193849249000,
-    "previous_year_percent": 5.127473
-  },
-  {
-    "budgetary_id": 49,
-    "budgetary_name": "สำนักงานคณะกรรมการการเลือกตั้ง สำหรับกองทุนเพื่อการพัฒนาพรรคการเมือง",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 119000000,
-    "previous_year_amount": 170000000,
-    "previous_year_percent": 0.004497
-  },
-  {
-    "budgetary_id": 52,
-    "budgetary_name": "สำนักงานเลขาธิการสภาผู้แทนราษฎร สำหรับกองทุนเพื่อผู้เคยเป็นสมาชิกรัฐสภา",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 294162500,
-    "previous_year_amount": 420232200,
-    "previous_year_percent": 0.011115
-  },
-  {
-    "budgetary_id": 3366,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม สำหรับ กองทุนเพื่อพัฒนาการอุดมศึกษา",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 1000000000,
-    "previous_year_amount": null,
-    "previous_year_percent": null
-  },
-  {
-    "budgetary_id": 3367,
-    "budgetary_name": "สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน สำหรับ กองทุนส่งเสริมและพัฒนาการศึกษาสำหรับคนพิการ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 30000000,
-    "previous_year_amount": null,
-    "previous_year_percent": null
-  },
-  {
-    "budgetary_id": 57,
-    "budgetary_name": "กรมการศาสนา สำหรับกองทุนส่งเสริมการเผยแผ่พระพุทธศาสนาเฉลิมพระเกียรติ 80 พรรษา",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 22238000,
-    "previous_year_amount": 22185100,
-    "previous_year_percent": 0.000587
-  },
-  {
-    "budgetary_id": 62,
-    "budgetary_name": "สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม สำหรับกองทุนส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 541300000,
-    "previous_year_amount": 560000000,
-    "previous_year_percent": 0.014812
-  },
-  {
-    "budgetary_id": 3007,
-    "budgetary_name": "สำนักงานปลัดกระทรวงศึกษาธิการ สำหรับเงินทุนหมุนเวียนเพื่อแก้ไขปัญหาหนี้สินข้าราชการครู",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 66500000,
-    "previous_year_amount": 95000000,
-    "previous_year_percent": 0.002513
-  },
-  {
-    "budgetary_id": 56,
-    "budgetary_name": "กรมพัฒนาสังคมและสวัสดิการ สำหรับกองทุนส่งเสริมการจัดสวัสดิการสังคม",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 52500000,
-    "previous_year_amount": 75000000,
-    "previous_year_percent": 0.001984
-  },
-  {
-    "budgetary_id": 58,
-    "budgetary_name": "กรมกิจการสตรีและสถาบันครอบครัว สำหรับกองทุนส่งเสริมความเท่าเทียมระหว่างเพศ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 25000000,
-    "previous_year_amount": 20000000,
-    "previous_year_percent": 0.000529
-  },
-  {
-    "budgetary_id": 2996,
-    "budgetary_name": "สำนักงานปลัดกระทรวงการท่องเที่ยวและกีฬา สำหรับกองทุนเพื่อส่งเสริมการท่องเที่ยวไทย",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 2875300,
-    "previous_year_amount": 6000000,
-    "previous_year_percent": 0.000159
-  },
-  {
-    "budgetary_id": 50,
-    "budgetary_name": "สำนักงานตำรวจแห่งชาติ สำหรับกองทุนเพื่อการสืบสวน สอบสวน การป้องกันและปราบปรามการกระทำความผิดทางอาญา",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 721672000,
-    "previous_year_amount": 950000000,
-    "previous_year_percent": 0.025128
-  },
-  {
-    "budgetary_id": 466,
-    "budgetary_name": "สถาบันเทคโนโลยีป้องกันประเทศ",
-    "ministry_id": 7,
-    "ministry_name": "กระทรวงกลาโหม",
-    "budget_amount": 1037887900,
-    "previous_year_amount": 1142641500,
-    "previous_year_percent": 0.030224
-  },
-  {
-    "budgetary_id": 64,
-    "budgetary_name": "กองทุนหมู่บ้านและชุมชนเมืองแห่งชาติ สำหรับกองทุนหมู่บ้านและชุมชนเมืองแห่งชาติ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 160770400,
-    "previous_year_amount": 6831141500,
-    "previous_year_percent": 0.180689
-  },
-  {
-    "budgetary_id": 41,
-    "budgetary_name": "กองทุนจัดรูปที่ดินเพื่อพัฒนาพื้นที่",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 18000000,
-    "previous_year_amount": 80000000,
-    "previous_year_percent": 0.002116
-  },
-  {
-    "budgetary_id": 3002,
-    "budgetary_name": "กองทุนฟื้นฟูและพัฒนาเกษตรกร",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 1089617900,
-    "previous_year_amount": 1277210500,
-    "previous_year_percent": 0.033783
-  },
-  {
-    "budgetary_id": 40,
-    "budgetary_name": "กองทุนเงินให้กู้ยืมเพื่อการศึกษา สำหรับกองทุนเงินให้กู้ยืมเพื่อการศึกษา",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 9000367900,
-    "previous_year_amount": 5100000000,
-    "previous_year_percent": 0.134899
-  },
-  {
-    "budgetary_id": 51,
-    "budgetary_name": "กองทุนเพื่อความเสมอภาคทางการศึกษา สำหรับกองทุนเพื่อความเสมอภาคทางการศึกษา",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 7688109500,
-    "previous_year_amount": 7483654600,
-    "previous_year_percent": 0.197949
-  },
-  {
-    "budgetary_id": 3000,
-    "budgetary_name": "กองทุนการออมแห่งชาติ",
-    "ministry_id": 11,
-    "ministry_name": "ทุนหมุนเวียน",
-    "budget_amount": 347626300,
-    "previous_year_amount": 656243500,
-    "previous_year_percent": 0.017358
   }
 ]
