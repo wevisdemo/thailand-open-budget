@@ -1,4 +1,4 @@
-import WevisIcon from "./icons/wevis-icon";
+import WevisIcon from "../shared/icons/wevis-icon";
 
 export default function AboutTeam({ page }: { page?: string }) {
   return (

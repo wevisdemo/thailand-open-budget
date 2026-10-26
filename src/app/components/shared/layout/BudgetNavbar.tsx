@@ -1,10 +1,10 @@
 import { DOC_SOURCE_OPTIONS } from "@/constants/budget";
 import Breadcrumb, {
   type BreadcrumbItem,
-} from "@/app/components/shared/Breadcrumb";
+} from "@/app/components/shared/layout/Breadcrumb";
 import Dropdown, {
   type DropdownOption,
-} from "@/app/components/shared/Dropdown";
+} from "@/app/components/shared/ui/Dropdown";
 
 interface BudgetNavbarProps {
   breadcrumbItems: BreadcrumbItem[];

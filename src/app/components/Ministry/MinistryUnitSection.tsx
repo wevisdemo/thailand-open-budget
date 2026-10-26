@@ -26,9 +26,9 @@ import {
 } from "@/constants/organization";
 import { getSortLabel } from "@/constants/table";
 import { downloadCsv } from "@/lib/csv";
-import ShareBar from "@/app/components/shared/ShareBar";
-import ChangeBadge from "@/app/components/shared/ChangeBadge";
-import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
+import ShareBar from "@/app/components/shared/ui/ShareBar";
+import ChangeBadge from "@/app/components/shared/ui/ChangeBadge";
+import TableSectionHeader from "@/app/components/shared/ui/TableSectionHeader";
 
 const PAGE_SIZE = 10;
 

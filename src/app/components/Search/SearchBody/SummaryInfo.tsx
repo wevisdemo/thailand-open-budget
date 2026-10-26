@@ -1,4 +1,4 @@
-import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
+import SummaryStatItem from "@/app/components/shared/ui/SummaryStatItem";
 
 interface SummaryInfoProps {
   itemAmount: number;

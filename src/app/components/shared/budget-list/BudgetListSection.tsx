@@ -7,7 +7,7 @@ import { useState } from "react";
 import { getNextSort, sortBudgetItems } from "@/constants/budget";
 import { getSortLabel } from "@/constants/table";
 import { downloadCsv } from "@/lib/csv";
-import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
+import TableSectionHeader from "@/app/components/shared/ui/TableSectionHeader";
 
 interface BudgetListSectionProps {
   title: string | null;

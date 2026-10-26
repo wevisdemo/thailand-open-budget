@@ -1,4 +1,4 @@
-import Modal from "@/app/components/shared/Modal";
+import Modal from "@/app/components/shared/ui/Modal";
 
 interface CategoryInfoModalProps {
   isOpen: boolean;

@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Button, DataTableSkeleton } from "@carbon/react";
 import type { BudgetItem, BudgetSort } from "@/types/budget";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
-import KeywordSearch from "@/app/components/shared/KeywordSearch";
-import KeywordWarning from "@/app/components/shared/KeywordWarning";
-import BudgetListSection from "@/app/components/shared/BudgetListSection";
+import KeywordSearch from "@/app/components/shared/budget-list/KeywordSearch";
+import KeywordWarning from "@/app/components/shared/budget-list/KeywordWarning";
+import BudgetListSection from "@/app/components/shared/budget-list/BudgetListSection";
 import SearchNotFoundIcon from "@/app/components/shared/icons/search-not-found-icon";
 
 // Like the ministry's units table, the list opens on the biggest items.

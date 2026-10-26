@@ -2,10 +2,10 @@ import Link from "next/link";
 import { ArrowLeft } from "@carbon/icons-react";
 import type { RelatedDocument } from "@/types/ministry";
 import type { OrganizationCoreContent } from "@/types/organization";
-import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
-import CoreContentTabs from "@/app/components/shared/CoreContentTabs";
-import RelatedDocuments from "@/app/components/shared/RelatedDocuments";
-import ShareButtons from "@/app/components/shared/ShareButtons";
+import SummaryStatItem from "@/app/components/shared/ui/SummaryStatItem";
+import CoreContentTabs from "@/app/components/shared/organization/CoreContentTabs";
+import RelatedDocuments from "@/app/components/shared/organization/RelatedDocuments";
+import ShareButtons from "@/app/components/shared/organization/ShareButtons";
 
 interface BudgetaryHeaderSectionProps {
   ministryName: string;

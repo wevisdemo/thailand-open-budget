@@ -1,7 +1,7 @@
 "use client";
 
 import type { Tag } from "@/types/search";
-import KeywordSearch from "@/app/components/shared/KeywordSearch";
+import KeywordSearch from "@/app/components/shared/budget-list/KeywordSearch";
 
 interface SearchHeaderProps {
   tags: Tag[];

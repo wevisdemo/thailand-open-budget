@@ -3,7 +3,7 @@
 import type { BudgetMinistryItem } from "@/types/budget";
 import { useState } from "react";
 import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-icon";
-import Paginate from "@/app/components/shared/Paginate";
+import Paginate from "@/app/components/shared/ui/Paginate";
 
 const PAGE_SIZE = 10;
 

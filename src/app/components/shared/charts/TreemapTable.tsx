@@ -21,8 +21,8 @@ import {
   getNextOrganizationSort,
   getOrganizationSortDirection,
 } from "@/constants/organization";
-import ShareBar from "./ShareBar";
-import ChangeBadge from "./ChangeBadge";
+import ShareBar from "../ui/ShareBar";
+import ChangeBadge from "../ui/ChangeBadge";
 
 // Each level down sits this much further right.
 const INDENT = 48;

@@ -3,8 +3,8 @@ import Script from "next/script";
 import { Suspense } from "react";
 import { IBM_Plex_Sans_Thai_Looped } from "next/font/google";
 import "./globals.css";
-import Header from "./components/shared/Header";
-import ScrollToTop from "./components/shared/ScrollToTop";
+import Header from "./components/shared/layout/Header";
+import ScrollToTop from "./components/shared/layout/ScrollToTop";
 
 const ibmPlexSansThaiLooped = IBM_Plex_Sans_Thai_Looped({
   variable: "--font-sans",

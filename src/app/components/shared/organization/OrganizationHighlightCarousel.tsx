@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { HIGHLIGHT_TITLES } from "@/constants/organization";
 import type { OrganizationHighlight } from "@/types/organization";
-import CardCarousel from "@/app/components/shared/CardCarousel";
+import CardCarousel from "@/app/components/shared/ui/CardCarousel";
 
 interface OrganizationHighlightCarouselProps {
   // Names the row for screen readers, e.g. the heading above it.

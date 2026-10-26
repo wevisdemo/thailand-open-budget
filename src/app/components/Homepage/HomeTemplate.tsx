@@ -1,7 +1,7 @@
 "use client";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
-import AboutSection from "@/app/components/shared/AboutSection";
-import Dropdown, { type DropdownOption } from "../shared/Dropdown";
+import AboutSection from "@/app/components/shared/layout/AboutSection";
+import Dropdown, { type DropdownOption } from "../shared/ui/Dropdown";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
@@ -11,14 +11,14 @@ import { getOrganizationHighlights } from "@/constants/organization";
 import SearchHeader from "./SearchHomepage/SearchHeader";
 import OrganizeSearchSection from "./SearchHomepage/OrganizeSearchSection";
 import HeroSection from "./HomeSections/HeroSection";
-import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
+import BudgetVersionInfoModal from "@/app/components/shared/modals/BudgetVersionInfoModal";
 import NavigateSection from "./HomeSections/NavigateSection";
 import BudgetSection from "./HomeSections/BudgetSection";
 import OrganizeBudgetSection from "./HomeSections/OrganizeBudgetSection";
 import BudgetSectionCountry from "./HomeSections/BudgetSectionCountry";
 import ArticalSection from "./HomeSections/ArticalSection";
 import SupportSection from "./HomeSections/SupportSection";
-import Footer from "../shared/Footer";
+import Footer from "../shared/layout/Footer";
 import Link from "next/link";
 
 export default function HomeTemplate() {

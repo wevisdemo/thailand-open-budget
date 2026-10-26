@@ -3,8 +3,8 @@
 import Link from "next/link";
 import type { OrganizationMinistryGroup } from "@/types/organization";
 import DownAngleIcon from "@/app/components/shared/icons/down-angle-icon";
-import ShareBar from "@/app/components/shared/ShareBar";
-import ChangeBadge from "@/app/components/shared/ChangeBadge";
+import ShareBar from "@/app/components/shared/ui/ShareBar";
+import ChangeBadge from "@/app/components/shared/ui/ChangeBadge";
 
 // The units' own table repeats the outer table's column widths so its cells
 // line up with the ministry rows.

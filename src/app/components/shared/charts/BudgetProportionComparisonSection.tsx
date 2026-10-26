@@ -25,9 +25,9 @@ import {
 } from "@/constants/treemap";
 import { getChangePercent } from "@/constants/organization";
 import { downloadCsv } from "@/lib/csv";
-import CategoryInfoModal from "./CategoryInfoModal";
-import ObligationInfoModal from "./ObligationInfoModal";
-import PlanInfoModal from "./PlanInfoModal";
+import CategoryInfoModal from "../modals/CategoryInfoModal";
+import ObligationInfoModal from "../modals/ObligationInfoModal";
+import PlanInfoModal from "../modals/PlanInfoModal";
 import TreemapBreadcrumb from "./TreemapBreadcrumb";
 import TreemapChart from "./TreemapChart";
 import TreemapTable from "./TreemapTable";

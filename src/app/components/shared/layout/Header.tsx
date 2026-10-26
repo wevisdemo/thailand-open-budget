@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { withBasePath } from "@/lib/base-path";
-import SearchIcon from "./icons/search-icon";
-import CategoriesIcon from "./icons/categories-icon";
-import DownAngleIcon from "./icons/down-angle-icon";
+import SearchIcon from "../icons/search-icon";
+import CategoriesIcon from "../icons/categories-icon";
+import DownAngleIcon from "../icons/down-angle-icon";
 import { NavLinkItem } from "@/types/header";
-import SearchCategoriesIcon from "./icons/search-categories-icon";
+import SearchCategoriesIcon from "../icons/search-categories-icon";
 
 const rightLinks: { label: string; url: string }[] = [
   { label: "ดาวน์โหลด", url: "/download" },

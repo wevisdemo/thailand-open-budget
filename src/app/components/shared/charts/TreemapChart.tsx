@@ -5,7 +5,7 @@ import { hierarchy, treemap } from "d3-hierarchy";
 import { Popover, PopoverContent } from "@carbon/react";
 import type { TreemapNode } from "@/types/treemap";
 import { TREEMAP_COLORS, formatTreemapPercent } from "@/constants/treemap";
-import ChangeBadge from "./ChangeBadge";
+import ChangeBadge from "../ui/ChangeBadge";
 
 // A tile needs this much room for its name, and this much height for its
 // percentage under the name.

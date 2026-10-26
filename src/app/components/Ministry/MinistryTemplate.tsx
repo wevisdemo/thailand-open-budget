@@ -17,18 +17,18 @@ import {
 import { useBudgetData } from "@/hooks/useBudgetData";
 import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
-import { type DropdownOption } from "@/app/components/shared/Dropdown";
-import AboutSection from "@/app/components/shared/AboutSection";
-import Footer from "@/app/components/shared/Footer";
-import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
-import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
-import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
-import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
+import { type DropdownOption } from "@/app/components/shared/ui/Dropdown";
+import AboutSection from "@/app/components/shared/layout/AboutSection";
+import Footer from "@/app/components/shared/layout/Footer";
+import BudgetNavbar from "@/app/components/shared/layout/BudgetNavbar";
+import BudgetVersionInfoModal from "@/app/components/shared/modals/BudgetVersionInfoModal";
+import BudgetProportionCard from "@/app/components/shared/charts/BudgetProportionCard";
+import BudgetTrendCard from "@/app/components/shared/charts/BudgetTrendCard";
 import MinistryHeaderSection from "./MinistryHeaderSection";
 import MinistryUnitSection from "./MinistryUnitSection";
-import OrganizationItemSection from "@/app/components/shared/OrganizationItemSection";
-import BudgetProportionComparisonSection from "@/app/components/shared/BudgetProportionComparisonSection";
-import OrganizationEmptyState from "@/app/components/shared/OrganizationEmptyState";
+import OrganizationItemSection from "@/app/components/shared/organization/OrganizationItemSection";
+import BudgetProportionComparisonSection from "@/app/components/shared/charts/BudgetProportionComparisonSection";
+import OrganizationEmptyState from "@/app/components/shared/organization/OrganizationEmptyState";
 import coreContentRaw from "@/app/data/ministry_core_content.json" with { type: "json" };
 
 const coreContent = coreContentRaw as Record<string, OrganizationCoreContent>;

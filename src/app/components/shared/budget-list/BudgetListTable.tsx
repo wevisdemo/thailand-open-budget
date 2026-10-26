@@ -8,9 +8,9 @@ import { useUrlSearch } from "@/hooks/useUrlSearch";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
 import PdfIcon from "@/app/components/shared/icons/pdf-icon";
 import { getObligedYearRange, sortBudgetItems } from "@/constants/budget";
-import SortableHeader from "./SortableHeader";
-import Paginate from "./Paginate";
-import ProjectOutputInfoModal from "@/app/components/shared/ProjectOutputInfoModal";
+import SortableHeader from "../ui/SortableHeader";
+import Paginate from "../ui/Paginate";
+import ProjectOutputInfoModal from "@/app/components/shared/modals/ProjectOutputInfoModal";
 
 const PAGE_SIZE = 10;
 

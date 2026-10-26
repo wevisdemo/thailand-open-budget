@@ -8,13 +8,13 @@ import {
 } from "@/constants/organization";
 import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
-import { type DropdownOption } from "@/app/components/shared/Dropdown";
-import AboutSection from "@/app/components/shared/AboutSection";
-import Footer from "@/app/components/shared/Footer";
-import OrganizationHighlightCarousel from "@/app/components/shared/OrganizationHighlightCarousel";
-import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
-import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
-import SummaryStatItem from "@/app/components/shared/SummaryStatItem";
+import { type DropdownOption } from "@/app/components/shared/ui/Dropdown";
+import AboutSection from "@/app/components/shared/layout/AboutSection";
+import Footer from "@/app/components/shared/layout/Footer";
+import OrganizationHighlightCarousel from "@/app/components/shared/organization/OrganizationHighlightCarousel";
+import BudgetNavbar from "@/app/components/shared/layout/BudgetNavbar";
+import BudgetVersionInfoModal from "@/app/components/shared/modals/BudgetVersionInfoModal";
+import SummaryStatItem from "@/app/components/shared/ui/SummaryStatItem";
 import OrganizationListSection from "./OrganizationListSection";
 
 const BREADCRUMB = [

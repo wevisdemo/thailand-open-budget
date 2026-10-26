@@ -1,5 +1,5 @@
 import AboutData from "./AboutData";
-import AboutTeam from "./AboutTeam";
+import AboutTeam from "../../DownloadPage/AboutTeam";
 
 export default function AboutSection({ page }: { page?: string }) {
   return (

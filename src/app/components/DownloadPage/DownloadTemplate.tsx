@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Footer from "../shared/Footer";
-import Breadcrumb from "../shared/Breadcrumb";
+import Footer from "../shared/layout/Footer";
+import Breadcrumb from "../shared/layout/Breadcrumb";
 import HeroSection from "./DownloadSection/HeroSection";
 import DetailSection from "./DownloadSection/DetailSection";
-import AboutTeam from "../shared/AboutTeam";
+import AboutTeam from "./AboutTeam";
 
 const DownloadTemplate = () => {
   return (

@@ -4,7 +4,7 @@ import type { BudgetMinistryItem } from "@/types/budget";
 import BudgetMinistryListTable from "./BudgetMinitryListTable";
 import { getSortLabel } from "@/constants/table";
 import { downloadCsv } from "@/lib/csv";
-import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
+import TableSectionHeader from "@/app/components/shared/ui/TableSectionHeader";
 import { useState } from "react";
 
 interface BudgetMinistryListSectionProps {

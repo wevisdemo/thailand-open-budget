@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import ChevronRightIcon from "./icons/chevron-right-icon";
+import ChevronRightIcon from "../icons/chevron-right-icon";
 
 interface CardCarouselProps {
   children: React.ReactNode;

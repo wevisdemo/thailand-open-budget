@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import type { BudgetItem } from "@/types/budget";
 import Link from "next/link";
-import CardCarousel from "@/app/components/shared/CardCarousel";
+import CardCarousel from "@/app/components/shared/ui/CardCarousel";
 
 interface BudgetTag {
   label: string;

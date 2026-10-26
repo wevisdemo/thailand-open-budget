@@ -1,6 +1,6 @@
 "use client";
-import ArrowUpRightIcon from "./icons/arrow-up-right-icon";
-import DownloadIcon from "./icons/download-icon";
+import ArrowUpRightIcon from "../icons/arrow-up-right-icon";
+import DownloadIcon from "../icons/download-icon";
 import { useRouter } from "next/navigation";
 
 export default function AboutData({ page }: { page?: string }) {

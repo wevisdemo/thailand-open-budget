@@ -6,9 +6,9 @@ import type {
   BudgetYearTotal,
 } from "@/types/budget";
 import type { Tag } from "@/types/search";
-import BudgetProportionCard from "@/app/components/shared/BudgetProportionCard";
-import BudgetTrendCard from "@/app/components/shared/BudgetTrendCard";
-import BudgetListSection from "@/app/components/shared/BudgetListSection";
+import BudgetProportionCard from "@/app/components/shared/charts/BudgetProportionCard";
+import BudgetTrendCard from "@/app/components/shared/charts/BudgetTrendCard";
+import BudgetListSection from "@/app/components/shared/budget-list/BudgetListSection";
 import BudgetMinistryListSection from "./BudgetMinitryListSection";
 interface SearchBodyProps {
   totalBudgetAmount: number;

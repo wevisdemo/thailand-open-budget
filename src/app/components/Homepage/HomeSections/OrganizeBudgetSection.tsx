@@ -1,5 +1,5 @@
 import type { OrganizationHighlight } from "@/types/organization";
-import OrganizationHighlightCarousel from "@/app/components/shared/OrganizationHighlightCarousel";
+import OrganizationHighlightCarousel from "@/app/components/shared/organization/OrganizationHighlightCarousel";
 
 interface OrganizeBudgetSectionProps {
   dataLabel: string;

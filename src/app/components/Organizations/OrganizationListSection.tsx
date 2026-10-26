@@ -15,8 +15,8 @@ import {
 import { getSortLabel } from "@/constants/table";
 import { downloadCsv } from "@/lib/csv";
 import SearchIcon from "@/app/components/shared/icons/search-icon";
-import TableSectionHeader from "@/app/components/shared/TableSectionHeader";
-import Paginate from "@/app/components/shared/Paginate";
+import TableSectionHeader from "@/app/components/shared/ui/TableSectionHeader";
+import Paginate from "@/app/components/shared/ui/Paginate";
 import OrganizationTable from "./OrganizationTable";
 
 const PAGE_SIZE = 10;

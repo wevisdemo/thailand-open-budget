@@ -5,21 +5,21 @@ import type {
   BudgetYearTotal,
 } from "@/types/budget";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
-import AboutSection from "@/app/components/shared/AboutSection";
+import AboutSection from "@/app/components/shared/layout/AboutSection";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
 import SearchBodySkeleton from "@/app/components/Search/SearchBody/SearchBodySkeleton";
 import SummaryInfo from "@/app/components/Search/SearchBody/SummaryInfo";
 import SearchEmptyState from "@/app/components/Search/SearchEmptyState";
 import SearchNotFound from "@/app/components/Search/SearchNotFound";
-import BudgetNavbar from "@/app/components/shared/BudgetNavbar";
-import { type DropdownOption } from "../shared/Dropdown";
-import BudgetVersionInfoModal from "@/app/components/shared/BudgetVersionInfoModal";
+import BudgetNavbar from "@/app/components/shared/layout/BudgetNavbar";
+import { type DropdownOption } from "../shared/ui/Dropdown";
+import BudgetVersionInfoModal from "@/app/components/shared/modals/BudgetVersionInfoModal";
 import { useState } from "react";
 import { useBudgetData } from "@/hooks/useBudgetData";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
-import Footer from "../shared/Footer";
+import Footer from "../shared/layout/Footer";
 
 const BREADCRUMB = [
   { label: "หน้าหลัก", href: "/" },

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Footer from "../shared/Footer";
-import Breadcrumb from "../shared/Breadcrumb";
+import Footer from "../shared/layout/Footer";
+import Breadcrumb from "../shared/layout/Breadcrumb";
 import HeroSection from "./AboutSection/HeroSection";
 import DetailSection from "./AboutSection/DetailSection";
 import DetailWebSection from "./AboutSection/DetailWebSection";
