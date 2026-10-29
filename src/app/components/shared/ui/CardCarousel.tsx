@@ -9,6 +9,8 @@ interface CardCarouselProps {
   label: string;
 }
 
+const CARD_GAP = 12;
+
 export default function CardCarousel({ children, label }: CardCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
@@ -33,13 +35,15 @@ export default function CardCarousel({ children, label }: CardCarouselProps) {
     };
   }, [children]);
 
-  // One screenful is one card on phones and three from md up, so scrolling by
-  // the visible width pages correctly at both sizes. Scroll snapping lands it
-  // on a card edge.
+  // A page is the visible width plus one gap: the next page starts a gap past
+  // the track's right edge. Scroll snapping lands it on a card edge.
   function scrollByPage(direction: 1 | -1) {
     const track = trackRef.current;
     if (!track) return;
-    track.scrollBy({ left: direction * track.clientWidth, behavior: "smooth" });
+    track.scrollBy({
+      left: direction * (track.clientWidth + CARD_GAP),
+      behavior: "smooth",
+    });
   }
 
   return (
@@ -51,8 +55,8 @@ export default function CardCarousel({ children, label }: CardCarouselProps) {
         className="flex snap-x snap-mandatory items-stretch gap-[12px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {React.Children.map(children, (child) => (
-          // One card fills the track on phones; three share it from md up,
-          // less the two 12px gaps between them.
+          // One card fills the track on phones; two share it from sm and three
+          // from lg, less the 12px gaps between them.
           <div className="flex w-full shrink-0 snap-start md:w-[calc((100%-24px)/3)]">
             {child}
           </div>

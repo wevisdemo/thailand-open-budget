@@ -27,7 +27,7 @@ function FooterColumn({ icon, title, items }: FooterColumnProps) {
     <div className="flex w-full flex-col items-start">
       <div className="flex w-full items-center gap-[8px] px-[16px] py-[8px]">
         {icon}
-        <span className="text-text-04 text-[14px] leading-[18px] font-semibold whitespace-nowrap">
+        <span className="text-text-04 text-[14px] leading-[18px] font-semibold">
           {title}
         </span>
       </div>
@@ -47,7 +47,7 @@ function FooterColumn({ icon, title, items }: FooterColumnProps) {
           ) : (
             <ArrowRightIcon color="#a8a8a8" className="size-[16px] shrink-0" />
           )}
-          <span className="text-text-03 text-[14px] leading-[18px] whitespace-nowrap">
+          <span className="text-text-03 text-[14px] leading-[18px]">
             {item.label}
           </span>
         </Link>

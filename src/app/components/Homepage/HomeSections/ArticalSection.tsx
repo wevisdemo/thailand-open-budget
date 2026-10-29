@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import CategoriesIcon from "@/app/components/shared/icons/categories-icon";
 import ArrowUpRightIcon from "@/app/components/shared/icons/arrow-up-right-icon";
+import CardCarousel from "@/app/components/shared/ui/CardCarousel";
 
 interface ArticleCardData {
   id: string;
@@ -90,7 +91,7 @@ function ArticleCard({ card }: ArticleCardProps) {
       href={card.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-ui-01 flex w-[260px] max-w-[327.6666564941406px] shrink-0 snap-start flex-col gap-[18px] p-[16px] md:w-full md:flex-1 md:shrink"
+      className="bg-ui-01 flex w-full flex-1 flex-col gap-[18px] p-[16px]"
     >
       <div className="relative aspect-4096/2150 w-full shrink-0 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -148,12 +149,12 @@ function ArticleGroup({ group }: ArticleGroupProps) {
           {group.subtitle}
         </p>
       </div>
-      <div className="mr-[-24px] flex w-full flex-col gap-[8px]">
-        <div className="flex w-full snap-x snap-mandatory gap-[14px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:snap-none md:overflow-visible [&::-webkit-scrollbar]:hidden">
+      <div className="flex w-full flex-col gap-[8px]">
+        <CardCarousel label={group.title}>
           {group.cards.map((card) => (
             <ArticleCard key={card.id} card={card} />
           ))}
-        </div>
+        </CardCarousel>
         <SeeAllLink link={group.link} total={group.total} />
       </div>
     </div>

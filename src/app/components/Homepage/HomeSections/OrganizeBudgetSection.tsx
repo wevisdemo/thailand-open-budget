@@ -14,8 +14,8 @@ export default function OrganizeBudgetSection({
 }: OrganizeBudgetSectionProps) {
   return (
     <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[12px]">
-      <div className="bg-ui-05 flex h-[44px] items-center px-[16px] py-[8px]">
-        <p className="text-text-04 font-serif text-[20px] leading-[28px] font-bold whitespace-nowrap">
+      <div className="bg-ui-05 flex items-center px-[16px] py-[8px]">
+        <p className="text-text-04 font-serif text-[20px] leading-[28px] font-bold">
           ค้นหางบฯ ผ่านหน่วยงานที่คุณสนใจ เช่น
         </p>
       </div>
