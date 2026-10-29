@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import ArrowRightIcon from "@/app/components/shared/icons/arrow-right-icon";
 import ArrowUpRightIcon from "@/app/components/shared/icons/arrow-up-right-icon";
 import SearchCategoriesIcon from "@/app/components/shared/icons/search-categories-icon";
 import DownloadIcon from "@/app/components/shared/icons/download-icon";
@@ -26,14 +27,7 @@ function FooterColumn({ icon, title, items }: FooterColumnProps) {
     <div className="flex w-full flex-col items-start">
       <div className="flex w-full items-center gap-[8px] px-[16px] py-[8px]">
         {icon}
-        <span
-          className={`text-text-04 text-[14px] leading-[18px] font-semibold whitespace-nowrap ${title === "ดาวน์โหลด" ? "cursor-pointer" : ""}`}
-          onClick={() => {
-            if (title === "ดาวน์โหลด") {
-              router.push("/download");
-            }
-          }}
-        >
+        <span className="text-text-04 text-[14px] leading-[18px] font-semibold whitespace-nowrap">
           {title}
         </span>
       </div>
@@ -43,17 +37,19 @@ function FooterColumn({ icon, title, items }: FooterColumnProps) {
           href={item.href}
           target={item.external ? "_blank" : undefined}
           rel={item.external ? "noreferrer" : undefined}
-          className="flex w-full items-center justify-between gap-2 py-[4px] pr-[8px] pl-[16px] md:px-[16px]"
+          className="flex w-full items-center gap-2 py-[4px] pr-[8px] pl-[16px] md:px-[16px]"
         >
+          {item.external ? (
+            <ArrowUpRightIcon
+              color="#a8a8a8"
+              className="size-[16px] shrink-0"
+            />
+          ) : (
+            <ArrowRightIcon color="#a8a8a8" className="size-[16px] shrink-0" />
+          )}
           <span className="text-text-03 text-[14px] leading-[18px] whitespace-nowrap">
             {item.label}
           </span>
-          {item.external && (
-            <ArrowUpRightIcon
-              color="#a8a8a8"
-              className="size-[13px] shrink-0"
-            />
-          )}
         </Link>
       ))}
     </div>
@@ -172,11 +168,11 @@ export default function Footer({ className }: FooterProps) {
                 href: "/search",
                 external: false,
               },
-              // {
-              //   label: "ผ่านหน่วยงาน",
-              //   href: "/search?q=agency",
-              //   external: true,
-              // },
+              {
+                label: "ผ่านหน่วยงาน",
+                href: "/organizations",
+                external: false,
+              },
             ]}
           />
           <FooterColumn
@@ -206,6 +202,13 @@ export default function Footer({ className }: FooterProps) {
               <DownloadIcon color="#ffffff" className="size-[16px] shrink-0" />
             }
             title="ดาวน์โหลด"
+            items={[
+              {
+                label: "ดาวน์โหลดข้อมูล",
+                href: "/download",
+                external: false,
+              },
+            ]}
           />
           <FooterColumn
             icon={
