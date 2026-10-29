@@ -187,7 +187,7 @@ export default function FuzzySearchPanel({
       </div>
 
       {showPanel && (
-        <div className="absolute right-0 left-0 z-10 max-h-[360px] overflow-y-auto bg-white shadow-[0_2px_4px_rgba(0,0,0,0.16)]">
+        <div className="absolute right-0 left-0 z-20 max-h-[360px] overflow-y-auto bg-white shadow-[0_2px_4px_rgba(0,0,0,0.16)]">
           {isLoading ? (
             <p className="text-text-02 px-[16px] py-[14px] text-[14px]">
               กำลังโหลดข้อมูลหน่วยงาน...
