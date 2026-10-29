@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Close } from "@carbon/icons-react";
 import SearchIcon from "@/app/components/shared/icons/search-icon";
 import { withBasePath } from "@/lib/base-path";
 import type { BudgetItem } from "@/types/budget";
@@ -142,6 +143,11 @@ export default function FuzzySearchPanel({
     }
   }
 
+  function handleClear() {
+    setInput("");
+    setActiveIndex(-1);
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const val = e.target.value;
     setOpen(true);
@@ -183,6 +189,16 @@ export default function FuzzySearchPanel({
                 : undefined
             }
           />
+          {input && (
+            <button
+              type="button"
+              onClick={handleClear}
+              aria-label="ล้างคำค้นหา"
+              className="text-text-03 flex shrink-0 items-center hover:cursor-pointer"
+            >
+              <Close size={16} />
+            </button>
+          )}
         </div>
       </div>
 
