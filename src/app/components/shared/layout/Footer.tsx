@@ -246,7 +246,7 @@ export default function Footer({ className }: FooterProps) {
               ติดต่อ
             </span>
             <Link
-              href="mailto:info@punchup.world"
+              href="mailto:team@wevis.info"
               className="flex items-center gap-[8px]"
             >
               <Image
@@ -257,7 +257,7 @@ export default function Footer({ className }: FooterProps) {
                 aria-hidden
               />
               <span className="text-gray-30 text-[14px] leading-[18px]">
-                info@punchup.world
+                team@wevis.info
               </span>
             </Link>
           </div>
