@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import ArrowRightIcon from "@/app/components/shared/icons/arrow-right-icon";
+import { Button } from "@carbon/react";
+import { ArrowUpRight } from "@carbon/icons-react";
 import { withBasePath } from "@/lib/base-path";
 
 const SUPPORT_IMAGE = "/images/support.svg";
@@ -27,21 +28,20 @@ const SupportSection = () => {
             สามารถพัฒนาเครื่องมือสำหรับให้ประชาชนติดตามและตั้งคำถามต่อการใช้งบประมาณของรัฐต่อไป
           </p>
           <div className="flex w-full justify-end">
-            <button
+            <Button
+              kind="primary"
+              size="md"
+              renderIcon={ArrowUpRight}
               onClick={() => {
                 window.open(
                   "https://taejai.com/th/project/ots-open-budget-wevis",
                   "_blank",
                 );
               }}
-              type="button"
-              className="bg-interactive-01 flex items-center gap-[6px] border border-[#e0e0e0] px-[15px] py-[9px]"
+              className="bg-interactive-01 hover:bg-blue-70 gap-[4px] !pr-[16px] text-[14px] font-medium [&>svg]:!static"
             >
-              <span className="text-[12px] leading-[18px] font-medium text-white">
-                บริจาค
-              </span>
-              <ArrowRightIcon color="#FFFFFF" className="size-[16px]" />
-            </button>
+              บริจาค
+            </Button>
           </div>
         </div>
       </div>

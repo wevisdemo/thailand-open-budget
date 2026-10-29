@@ -10,7 +10,7 @@ const NavigateSection = () => {
     <div className="m-auto flex w-full max-w-[1280px] flex-col items-center justify-center lg:flex-row">
       <a
         href="#search"
-        className="border-ui-03 flex w-full cursor-pointer items-center justify-between gap-1 border-b px-[16px] py-[16px] lg:w-[300px] lg:flex-col lg:justify-center lg:border-b-0 lg:px-0 lg:py-[24px]"
+        className="border-ui-03 flex w-full cursor-pointer items-center justify-between gap-1 border-b px-[16px] py-[16px] hover:bg-[#E5E5E5] lg:w-[300px] lg:flex-col lg:justify-center lg:border-b-0 lg:px-0 lg:py-[24px]"
       >
         <div className="flex items-center justify-center gap-2 lg:flex-col lg:gap-1">
           <SearchCategoriesIcon color="#161616" colorInner="#F4F4F4" />
@@ -30,7 +30,7 @@ const NavigateSection = () => {
       </a>
       <a
         href="#organization"
-        className="border-ui-03 flex w-full cursor-pointer items-center justify-between gap-1 border-b px-[16px] py-[16px] lg:w-[300px] lg:flex-col lg:justify-center lg:border-b-0 lg:px-0 lg:py-[24px]"
+        className="border-ui-03 flex w-full cursor-pointer items-center justify-between gap-1 border-b px-[16px] py-[16px] hover:bg-[#E5E5E5] lg:w-[300px] lg:flex-col lg:justify-center lg:border-b-0 lg:px-0 lg:py-[24px]"
       >
         <div className="flex items-center justify-center gap-2 lg:flex-col lg:gap-1">
           <OrganizationCategoriesIcon color="#161616" />
@@ -50,7 +50,7 @@ const NavigateSection = () => {
       </a>
       <a
         href="#articles"
-        className="flex w-full cursor-pointer items-center justify-between gap-1 px-[16px] py-[16px] lg:w-[300px] lg:flex-col lg:justify-center lg:px-0 lg:py-[24px]"
+        className="flex w-full cursor-pointer items-center justify-between gap-1 px-[16px] py-[16px] hover:bg-[#E5E5E5] lg:w-[300px] lg:flex-col lg:justify-center lg:px-0 lg:py-[24px]"
       >
         <div className="flex items-center justify-center gap-2 lg:flex-col lg:gap-1">
           <CategoriesIcon color="#161616" className="h-[30px] w-[30px]" />

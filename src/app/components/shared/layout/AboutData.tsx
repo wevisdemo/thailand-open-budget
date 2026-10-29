@@ -1,7 +1,7 @@
 "use client";
-import ArrowUpRightIcon from "../icons/arrow-up-right-icon";
-import DownloadIcon from "../icons/download-icon";
 import { useRouter } from "next/navigation";
+import { Button } from "@carbon/react";
+import { Download } from "@carbon/icons-react";
 
 export default function AboutData({ page }: { page?: string }) {
   const router = useRouter();
@@ -14,15 +14,17 @@ export default function AboutData({ page }: { page?: string }) {
           <h1 className="text-h6 font-serif text-[28px] font-bold">
             เกี่ยวกับข้อมูล
           </h1>
-          <button
+          <Button
+            kind="ghost"
+            size="md"
+            renderIcon={Download}
             onClick={() => {
               router.push("/download");
             }}
-            className="text-gray-70 border-gray-20 flex cursor-pointer items-center gap-[8px] border bg-white px-[16px] py-[10px]"
+            className="text-blue-60 hover:text-blue-80 gap-[4px] bg-white !pr-[16px] text-[14px] font-medium hover:bg-[#E5E5E5] [&>svg]:!static"
           >
             ดาวน์โหลดข้อมูล
-            <ArrowUpRightIcon color="#161616" />
-          </button>
+          </Button>
         </div>
 
         <h2 className="text-b4 font-serif text-[20px] font-bold">
