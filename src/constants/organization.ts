@@ -32,8 +32,8 @@ function shiftHighlight(
     title: HIGHLIGHT_TITLES[id],
     name: unit.budgetary_name,
     href: budgetaryHref(unit, query),
-    value: `${diff > 0 ? "เพิ่มขึ้น" : "ลดลง"}จากงบปีก่อน ${formatMillions(Math.abs(amountDiff))}`,
-    unit: `ล้านบาท (${Math.abs(diff).toFixed(2)}%)`,
+    value: `${diff > 0 ? "+" : "-"}${Math.abs(diff).toFixed(2)}% จากงบปีก่อน`,
+    unit: `${formatMillions(Math.abs(amountDiff))} ล้านบาท`,
   };
 }
 
