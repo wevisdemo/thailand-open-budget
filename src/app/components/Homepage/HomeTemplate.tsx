@@ -165,7 +165,7 @@ export default function HomeTemplate() {
             organizationStatus === "idle" || organizationStatus === "loading"
           }
         />
-        <div className="flex w-full max-w-[1280px] items-center justify-end">
+        <div className="m-auto flex w-full max-w-[1280px] items-center justify-end">
           <Link
             href="/organizations"
             className="text-interactive-01 text-[14px] leading-[18px] underline"
