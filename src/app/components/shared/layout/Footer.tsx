@@ -7,7 +7,6 @@ import SearchCategoriesIcon from "@/app/components/shared/icons/search-categorie
 import DownloadIcon from "@/app/components/shared/icons/download-icon";
 import WevisIcon from "@/app/components/shared/icons/wevis-icon";
 import { withBasePath } from "@/lib/base-path";
-import { useRouter } from "next/navigation";
 
 interface FooterItem {
   label: string;
@@ -22,10 +21,9 @@ interface FooterColumnProps {
 }
 
 function FooterColumn({ icon, title, items }: FooterColumnProps) {
-  const router = useRouter();
   return (
-    <div className="flex w-full flex-col items-start">
-      <div className="flex w-full items-center gap-[8px] px-[16px] py-[8px]">
+    <div className="flex w-full max-w-[172px] flex-col items-start">
+      <div className="flex items-center gap-[8px] px-[16px] py-[8px]">
         {icon}
         <span className="text-text-04 text-[14px] leading-[18px] font-semibold">
           {title}
@@ -143,7 +141,7 @@ export default function Footer({ className }: FooterProps) {
     <footer
       className={`flex flex-col gap-[16px] bg-gray-100 px-[24px] py-[32px] md:px-[64px] ${className ?? ""}`}
     >
-      <div className="flex w-full flex-col gap-[16px] md:flex-row md:items-start md:justify-between">
+      <div className="flex w-full flex-col justify-between md:flex-row md:items-start">
         <Image
           src={withBasePath("/icons/logo-footer.svg")}
           alt="Open Budget"
@@ -152,152 +150,156 @@ export default function Footer({ className }: FooterProps) {
           priority={false}
         />
 
-        <div className="grid grid-cols-[repeat(2,auto)] gap-x-[8px] gap-y-0 lg:flex lg:flex-row lg:items-start">
-          <FooterColumn
-            icon={
-              <SearchCategoriesIcon
-                color="#ffffff"
-                colorInner="#161616"
-                className="size-[14px] shrink-0"
-              />
-            }
-            title="สำรวจงบ"
-            items={[
-              {
-                label: "ผ่านคีย์เวิร์ด",
-                href: "/search",
-                external: false,
-              },
-              {
-                label: "ผ่านหน่วยงาน",
-                href: "/organizations",
-                external: false,
-              },
-            ]}
-          />
-          <FooterColumn
-            icon={
-              <SearchCategoriesIcon
-                color="#ffffff"
-                colorInner="#161616"
-                className="size-[14px] shrink-0"
-              />
-            }
-            title="อ่านบทความ"
-            items={[
-              {
-                label: "ปูพื้นฐานงบประมาณ 101",
-                href: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93-101/",
-                external: true,
-              },
-              {
-                label: "ประเด็นที่น่าสนใจ",
-                href: "https://wevis.info/tag/บทความงบประมาณ/",
-                external: true,
-              },
-            ]}
-          />
-          <FooterColumn
-            icon={
-              <DownloadIcon color="#ffffff" className="size-[16px] shrink-0" />
-            }
-            title="ดาวน์โหลด"
-            items={[
-              {
-                label: "ดาวน์โหลดข้อมูล",
-                href: "/download",
-                external: false,
-              },
-            ]}
-          />
-          <FooterColumn
-            icon={
-              <Image
-                src={withBasePath("/icons/wevis.svg")}
-                alt="About"
-                width={16}
-                height={16}
-              />
-            }
-            title="เกี่ยวกับเรา"
-            items={[
-              {
-                label: "ที่มาของโครงการ",
-                href: "/about#detail",
-                external: false,
-              },
-              {
-                label: "ข้อมูลในเว็บนี้",
-                href: "/about#detail-web",
-                external: false,
-              },
-              {
-                label: "เกี่ยวกับ WeVis",
-                href: "/about#detail-wevis",
-                external: false,
-              },
-            ]}
-          />
-        </div>
-
-        <div className="flex flex-row gap-[32px] md:flex-col md:gap-[8px]">
-          <div className="flex flex-col gap-[4px]">
-            <span className="text-gray-30 text-[12px] leading-[16px]">
-              ติดต่อ
-            </span>
-            <Link
-              href="mailto:team@wevis.info"
-              className="flex items-center gap-[8px]"
-            >
-              <Image
-                src={withBasePath("/icons/email.svg")}
-                alt=""
-                width={16}
-                height={16}
-                aria-hidden
-              />
-              <span className="text-gray-30 text-[14px] leading-[18px]">
-                team@wevis.info
-              </span>
-            </Link>
-          </div>
-          <div className="flex flex-col gap-[4px]">
-            <span className="text-gray-30 text-[12px] leading-[16px]">
-              ติดตาม
-            </span>
-            <div className="flex items-start gap-[8px]">
-              <Link
-                href="https://github.com/wevisdemo"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-              >
-                <GithubIcon />
-              </Link>
-              <Link
-                href="https://www.facebook.com/wevisdemo/?locale=th_TH"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-              >
-                <FacebookIcon />
-              </Link>
-              <Link
-                href="https://www.instagram.com/wevisdemo/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-              >
-                <InstagramIcon />
-              </Link>
-              <Link
-                href="https://x.com/wevisdemo"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="X"
-              >
-                <XIcon />
-              </Link>
+        <div className="flex flex-col justify-end py-[16px] md:flex-1 md:flex-row md:items-start md:py-0 md:pl-[40px]">
+          <div className="grid grid-cols-2 md:flex md:flex-1 md:flex-row md:items-start md:justify-end md:gap-y-0">
+            <FooterColumn
+              icon={
+                <SearchCategoriesIcon
+                  color="#ffffff"
+                  colorInner="#161616"
+                  className="size-[14px] shrink-0"
+                />
+              }
+              title="สำรวจงบ"
+              items={[
+                {
+                  label: "ผ่านคีย์เวิร์ด",
+                  href: "/search",
+                  external: false,
+                },
+                {
+                  label: "ผ่านหน่วยงาน",
+                  href: "/organizations",
+                  external: false,
+                },
+              ]}
+            />
+            <FooterColumn
+              icon={
+                <SearchCategoriesIcon
+                  color="#ffffff"
+                  colorInner="#161616"
+                  className="size-[14px] shrink-0"
+                />
+              }
+              title="อ่านบทความ"
+              items={[
+                {
+                  label: "ปูพื้นฐานงบประมาณ 101",
+                  href: "https://wevis.info/tag/%e0%b8%87%e0%b8%9a%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%a1%e0%b8%b2%e0%b8%93-101/",
+                  external: true,
+                },
+                {
+                  label: "ประเด็นที่น่าสนใจ",
+                  href: "https://wevis.info/tag/บทความงบประมาณ/",
+                  external: true,
+                },
+              ]}
+            />
+            <FooterColumn
+              icon={
+                <DownloadIcon
+                  color="#ffffff"
+                  className="size-[16px] shrink-0"
+                />
+              }
+              title="ดาวน์โหลด"
+              items={[
+                {
+                  label: "ดาวน์โหลดข้อมูล",
+                  href: "/download",
+                  external: false,
+                },
+              ]}
+            />
+            <FooterColumn
+              icon={
+                <Image
+                  src={withBasePath("/icons/wevis.svg")}
+                  alt="About"
+                  width={16}
+                  height={16}
+                />
+              }
+              title="เกี่ยวกับเรา"
+              items={[
+                {
+                  label: "ที่มาของโครงการ",
+                  href: "/about#detail",
+                  external: false,
+                },
+                {
+                  label: "ข้อมูลในเว็บนี้",
+                  href: "/about#detail-web",
+                  external: false,
+                },
+                {
+                  label: "เกี่ยวกับ WeVis",
+                  href: "/about#detail-wevis",
+                  external: false,
+                },
+              ]}
+            />
+            <div className="flex flex-col gap-[16px] md:gap-[8px]">
+              <div className="flex flex-col gap-[4px]">
+                <span className="text-gray-30 text-[12px] leading-[16px]">
+                  ติดต่อ
+                </span>
+                <Link
+                  href="mailto:team@wevis.info"
+                  className="flex items-center gap-[8px]"
+                >
+                  <Image
+                    src={withBasePath("/icons/email.svg")}
+                    alt=""
+                    width={16}
+                    height={16}
+                    aria-hidden
+                  />
+                  <span className="text-gray-30 text-[14px] leading-[18px]">
+                    team@wevis.info
+                  </span>
+                </Link>
+              </div>
+              <div className="flex flex-col gap-[4px]">
+                <span className="text-gray-30 text-[12px] leading-[16px]">
+                  ติดตาม
+                </span>
+                <div className="flex items-start gap-[8px]">
+                  <Link
+                    href="https://github.com/wevisdemo"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <GithubIcon />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com/wevisdemo/?locale=th_TH"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <FacebookIcon />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/wevisdemo/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <InstagramIcon />
+                  </Link>
+                  <Link
+                    href="https://x.com/wevisdemo"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="X"
+                  >
+                    <XIcon />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
