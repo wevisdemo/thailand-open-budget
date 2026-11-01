@@ -7,6 +7,9 @@ export interface Organization {
   // Parent ministry, shown as the sub label. Empty for ministry-level units,
   // which have no parent above them.
   ministry: string;
+  // The unit's page, /organizations/[ministry_id](/[budgetary_id]), without
+  // the budget_source query.
+  href: string;
 }
 
 export interface OrganizationSuggestion {

@@ -92,7 +92,7 @@ export default function FuzzySearchPanel({
   }
 
   function navigateToOrganization(organization: Organization) {
-    const url = `/organization/${encodeURIComponent(organization.id)}?budget_source=${data}`;
+    const url = `${organization.href}?budget_source=${data}`;
     window.location.href = withBasePath(url);
   }
 

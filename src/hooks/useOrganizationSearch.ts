@@ -43,18 +43,27 @@ function buildOrganizations(data: BudgetItem[]): Organization[] {
 
   // A name identifies a unit on its own — no `budgetary` value sits under two
   // ministries — but a handful (e.g. สภากาชาดไทย) exist at both levels, so the
-  // level stays part of the id. The id is a URL path segment on
-  // /organization/[id], hence no ministry in it.
-  function add(name: string, level: OrganizationLevel, ministry: string) {
+  // level stays part of the id. `href` is the unit's /organizations page, built
+  // from the registry ids the budget rows carry; the id itself is only a key.
+  function add(
+    name: string,
+    level: OrganizationLevel,
+    ministry: string,
+    href: string,
+  ) {
     const id = `${level}:${name}`;
-    if (!byId.has(id)) byId.set(id, { id, name, level, ministry });
+    if (!byId.has(id)) byId.set(id, { id, name, level, ministry, href });
   }
 
   for (const item of data) {
-    if (item.ministry) add(item.ministry, "ministry", "");
-    if (item.budgetary) {
-      if (item.ministry) add(item.budgetary, "budgetary", item.ministry);
-      else add(item.budgetary, "ministry", "");
+    const { ministry_id, budgetary_id } = item;
+    if (item.ministry && ministry_id !== null) {
+      add(item.ministry, "ministry", "", `/organizations/${ministry_id}`);
+    }
+    if (item.budgetary && ministry_id !== null && budgetary_id !== null) {
+      const href = `/organizations/${ministry_id}/${budgetary_id}`;
+      if (item.ministry) add(item.budgetary, "budgetary", item.ministry, href);
+      else add(item.budgetary, "ministry", "", href);
     }
   }
 
