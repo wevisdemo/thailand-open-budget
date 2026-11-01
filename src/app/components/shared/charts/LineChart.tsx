@@ -186,7 +186,7 @@ export default function LineChart({ data, unit }: LineChartProps) {
       {data.map((d, i) => (
         <div
           key={d.year}
-          className="absolute -translate-x-1/2 -translate-y-1/2"
+          className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
           style={{
             left: `${(getX(i) / W) * 100}%`,
             top: `${(getY(d.value) / H) * 100}%`,
