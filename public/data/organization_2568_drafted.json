@@ -351,8 +351,8 @@
     "previous_year_percent": null
   },
   {
-    "budgetary_id": 40,
-    "budgetary_name": "กองทุนเงินให้กู้ยืมเพื่อการศึกษา สำหรับกองทุนเงินให้กู้ยืมเพื่อการศึกษา",
+    "budgetary_id": 3368,
+    "budgetary_name": "กองทุนเงินให้กู้ยืมเพื่อการศึกษา",
     "ministry_id": 11,
     "ministry_name": "ทุนหมุนเวียน",
     "budget_amount": 800000000,
@@ -450,8 +450,8 @@
     "previous_year_percent": null
   },
   {
-    "budgetary_id": 51,
-    "budgetary_name": "กองทุนเพื่อความเสมอภาคทางการศึกษา สำหรับกองทุนเพื่อความเสมอภาคทางการศึกษา",
+    "budgetary_id": 3369,
+    "budgetary_name": "กองทุนเพื่อความเสมอภาคทางการศึกษา",
     "ministry_id": 11,
     "ministry_name": "ทุนหมุนเวียน",
     "budget_amount": 6983654600,
@@ -567,8 +567,8 @@
     "previous_year_percent": null
   },
   {
-    "budgetary_id": 64,
-    "budgetary_name": "กองทุนหมู่บ้านและชุมชนเมืองแห่งชาติ สำหรับกองทุนหมู่บ้านและชุมชนเมืองแห่งชาติ",
+    "budgetary_id": 3370,
+    "budgetary_name": "กองทุนหมู่บ้านและชุมชนเมืองแห่งชาติ",
     "ministry_id": 11,
     "ministry_name": "ทุนหมุนเวียน",
     "budget_amount": 13951808700,
