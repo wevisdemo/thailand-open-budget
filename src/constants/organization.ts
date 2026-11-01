@@ -13,6 +13,10 @@ export const HIGHLIGHT_TITLES = {
   topDecrease: "หน่วยงานที่งบประมาณลดลงมากที่สุด",
 } as const;
 
+// งบกลาง is a lump-sum reserve, not an organization with content of its own, so
+// the highlights skip it.
+const EXCLUDED_FROM_HIGHLIGHTS = "งบกลาง";
+
 function formatMillions(baht: number): string {
   return Math.round(baht / 1_000_000).toLocaleString("en-US");
 }
@@ -41,9 +45,14 @@ function shiftHighlight(
 // answer is left out: with no previous-year document there is no shift to
 // rank, so only the first two remain.
 export function getOrganizationHighlights(
-  data: OrganizationYearTotal[],
+  allData: OrganizationYearTotal[],
   dataValue: string,
 ): OrganizationHighlight[] {
+  const data = allData.filter(
+    (unit) =>
+      unit.ministry_name !== EXCLUDED_FROM_HIGHLIGHTS &&
+      unit.budgetary_name !== EXCLUDED_FROM_HIGHLIGHTS,
+  );
   const query = `?budget_source=${dataValue}`;
   const highlights: OrganizationHighlight[] = [];
 
