@@ -21,8 +21,8 @@ interface CaseCardProps {
 function CaseCardBody({ title, dataLabel, highlight }: CaseCardProps) {
   return (
     <>
-      <div className="flex w-full flex-col gap-[12px] px-[16px] py-[24px]">
-        <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
+      <div className="flex w-full flex-1 flex-col gap-[12px] px-[16px] py-[24px]">
+        <p className="text-text-01 h-full min-h-[56px] font-serif text-[20px] leading-[28px] font-bold">
           {title}
         </p>
         <div className="flex flex-col">
