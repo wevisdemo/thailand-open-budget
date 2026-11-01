@@ -86,17 +86,17 @@ export function getOrganizationHighlights(
     });
   }
 
-  // 3-4 are ranked by the change in share of the year's total, in percentage points.
-  // The total is over every unit, the same base previous_year_percent takes.
-  // Units new this year have no previous share and are left out.
-  const grandTotal = data.reduce((sum, unit) => sum + unit.budget_amount, 0);
+  // 3-4 are ranked by the percent change of the unit's own budget against the
+  // previous year. Units with no previous amount (new this year) have no
+  // change to rank and are left out.
   const shifts = data
-    .filter((unit) => unit.previous_year_percent !== null)
+    .filter((unit) => unit.previous_year_amount)
     .map((unit) => ({
       unit,
       diff:
-        (unit.budget_amount / grandTotal) * 100 -
-        (unit.previous_year_percent ?? 0),
+        ((unit.budget_amount - (unit.previous_year_amount ?? 0)) /
+          (unit.previous_year_amount ?? 1)) *
+        100,
     }))
     .sort((a, b) => b.diff - a.diff);
 
