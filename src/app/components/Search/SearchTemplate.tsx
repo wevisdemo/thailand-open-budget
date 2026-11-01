@@ -92,22 +92,25 @@ export default function SearchTemplate() {
       .reduce((sum, item) => sum + item.amount, 0);
   }
 
+  const selectedYear = selectedDocSource
+    ? parseInt(selectedDocSource.value)
+    : null;
   const yearTotals: BudgetYearTotal[] = [
     {
       year: 2568,
-      isCurrent: false,
+      isCurrent: selectedYear === 2568,
       totalSelectedBaht: filterTotal(budget2568),
       totalBudgetBaht: budget2568.reduce((s, i) => s + i.amount, 0),
     },
     {
       year: 2569,
-      isCurrent: false,
+      isCurrent: selectedYear === 2569,
       totalSelectedBaht: filterTotal(budget2569),
       totalBudgetBaht: budget2569.reduce((s, i) => s + i.amount, 0),
     },
     {
       year: 2570,
-      isCurrent: true,
+      isCurrent: selectedYear === 2570,
       totalSelectedBaht: filterTotal(budget2570),
       totalBudgetBaht: budget2570.reduce((s, i) => s + i.amount, 0),
     },
