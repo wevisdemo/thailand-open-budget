@@ -74,8 +74,9 @@ export default function BudgetTrendCard({
     <div className="flex w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
       <div className="flex flex-col gap-[16px]">
         <div>
-          <h2 className="font-serif text-[28px] font-bold">
-            ความเปลี่ยนแปลงงบประมาณ
+          <h2 className="flex flex-wrap font-serif text-[28px] font-bold">
+            <span>ความเปลี่ยนแปลง</span>
+            <span>งบประมาณ</span>
           </h2>
           <div className="flex flex-col justify-between md:flex-row md:items-end">
             <div className="shrink-1">
