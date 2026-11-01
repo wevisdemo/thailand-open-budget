@@ -7,11 +7,18 @@ interface CardCarouselProps {
   children: React.ReactNode;
   // Names the group of cards for screen readers, e.g. the heading above it.
   label: string;
+  // Set to 3 when each card is a three-row subgrid (e.g. title, body, footer),
+  // so those rows line up across cards whatever their content height.
+  alignedRows?: 3;
 }
 
 const CARD_GAP = 12;
 
-export default function CardCarousel({ children, label }: CardCarouselProps) {
+export default function CardCarousel({
+  children,
+  label,
+  alignedRows,
+}: CardCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(true);
@@ -52,12 +59,22 @@ export default function CardCarousel({ children, label }: CardCarouselProps) {
         ref={trackRef}
         role="group"
         aria-label={label}
-        className="flex snap-x snap-mandatory items-stretch gap-[12px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className={`${
+          alignedRows
+            ? "grid auto-cols-[100%] grid-flow-col grid-rows-[auto_1fr_auto] md:auto-cols-[calc((100%-24px)/3)]"
+            : "flex items-stretch"
+        } snap-x snap-mandatory gap-x-[12px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
       >
         {React.Children.map(children, (child) => (
           // One card fills the track on phones; two share it from sm and three
           // from lg, less the 12px gaps between them.
-          <div className="flex w-full shrink-0 snap-start md:w-[calc((100%-24px)/3)]">
+          <div
+            className={
+              alignedRows
+                ? "row-span-3 grid snap-start grid-rows-subgrid"
+                : "flex w-full shrink-0 snap-start md:w-[calc((100%-24px)/3)]"
+            }
+          >
             {child}
           </div>
         ))}

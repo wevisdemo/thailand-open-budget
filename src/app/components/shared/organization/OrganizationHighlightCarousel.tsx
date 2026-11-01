@@ -21,18 +21,18 @@ interface CaseCardProps {
 function CaseCardBody({ title, dataLabel, highlight }: CaseCardProps) {
   return (
     <>
-      <div className="flex w-full flex-1 flex-col gap-[12px] px-[16px] py-[24px]">
-        <p className="text-text-01 h-full min-h-[56px] font-serif text-[20px] leading-[28px] font-bold">
-          {title}
-        </p>
-        <div className="flex flex-col">
+      <p className="text-text-01 px-[16px] pt-[24px] font-serif text-[20px] leading-[28px] font-bold">
+        {title}
+      </p>
+      <div className="px-[16px] pt-[12px] pb-[24px]">
+        <div className="flex h-full flex-col">
           <div className="bg-ui-03 flex items-center justify-center gap-[4px] px-[8px] py-[6px]">
             <p className="text-gray-60 text-[14px] leading-[18px]">ปีงบฯ</p>
             <p className="text-gray-60 text-[14px] leading-[18px] font-semibold">
               {dataLabel}
             </p>
           </div>
-          <div className="flex flex-col items-start bg-white p-[8px]">
+          <div className="flex flex-1 flex-col items-start bg-white p-[8px]">
             {highlight ? (
               <>
                 <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
@@ -68,7 +68,7 @@ function CaseCardBody({ title, dataLabel, highlight }: CaseCardProps) {
 function CaseCard({ title, dataLabel, highlight }: CaseCardProps) {
   if (!highlight) {
     return (
-      <div className="bg-ui-01 flex flex-1 flex-col items-start">
+      <div className="bg-ui-01 row-span-3 grid grid-rows-subgrid">
         <CaseCardBody title={title} dataLabel={dataLabel} highlight={null} />
       </div>
     );
@@ -77,7 +77,7 @@ function CaseCard({ title, dataLabel, highlight }: CaseCardProps) {
   return (
     <Link
       href={highlight.href}
-      className="bg-ui-01 flex flex-1 flex-col items-start transition-colors hover:cursor-pointer hover:bg-[#E5E5E5]"
+      className="bg-ui-01 row-span-3 grid grid-rows-subgrid transition-colors hover:cursor-pointer hover:bg-[#E5E5E5]"
     >
       <CaseCardBody title={title} dataLabel={dataLabel} highlight={highlight} />
     </Link>
@@ -92,7 +92,7 @@ export default function OrganizationHighlightCarousel({
   isLoading = false,
 }: OrganizationHighlightCarouselProps) {
   return (
-    <CardCarousel label={label}>
+    <CardCarousel label={label} alignedRows={3}>
       {isLoading
         ? Object.entries(HIGHLIGHT_TITLES).map(([id, title]) => (
             <CaseCard
