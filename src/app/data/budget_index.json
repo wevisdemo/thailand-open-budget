@@ -1,12 +1,30 @@
 [
   {
     "year": 2570,
+    "nick_name": "งบประมาณ พ.ศ. 2570",
+    "full_name": "พระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๗๐",
+    "status": "สภาอนุมัติแล้ว (วาระ 3)",
+    "updated_date": "3/11/2026",
+    "source_url": "https://www.bb.go.th/topic3.php?catID=1542&gid=862&mid=545",
+    "csv_url": "https://docs.google.com/spreadsheets/d/1OfQIUzd82a5A_WpMk88-1G-dmsYI-8naJHtg7_1LSZg/edit?gid=507271882#gid=507271882"
+  },
+  {
+    "year": 2570,
     "nick_name": "ร่างงบประมาณ พ.ศ. 2570",
     "full_name": "ร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๗๐",
     "status": "ฉบับร่าง (วาระ 1)",
     "updated_date": "22/7/2026",
     "source_url": "https://www.bb.go.th/topic-detail.php?id=18907&mid=1061&catID=0",
     "csv_url": "https://docs.google.com/spreadsheets/d/1OfQIUzd82a5A_WpMk88-1G-dmsYI-8naJHtg7_1LSZg/edit?gid=753923495#gid=753923495"
+  },
+  {
+    "year": 2569,
+    "nick_name": "งบประมาณ พ.ศ. 2569",
+    "full_name": "พระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๖๙",
+    "status": "สภาอนุมัติแล้ว (วาระ 3)",
+    "updated_date": "9/9/2026",
+    "source_url": "https://www.bb.go.th/topic3.php?catID=1526&gid=862&mid=545",
+    "csv_url": "https://docs.google.com/spreadsheets/d/1OfQIUzd82a5A_WpMk88-1G-dmsYI-8naJHtg7_1LSZg/edit?gid=1209741224#gid=1209741224"
   },
   {
     "year": 2569,
