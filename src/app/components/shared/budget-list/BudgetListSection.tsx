@@ -4,7 +4,11 @@ import BudgetListTable from "./BudgetListTable";
 import type { BudgetItem, BudgetSort, BudgetSortKey } from "@/types/budget";
 import type { Tag } from "@/types/search";
 import { useState } from "react";
-import { getNextSort, sortBudgetItems } from "@/constants/budget";
+import {
+  getNextSort,
+  getObligedYearRange,
+  sortBudgetItems,
+} from "@/constants/budget";
 import { getSortLabel } from "@/constants/table";
 import { downloadCsv } from "@/lib/csv";
 import TableSectionHeader from "@/app/components/shared/ui/TableSectionHeader";
@@ -28,6 +32,15 @@ interface BudgetListSectionProps {
   emptyState?: React.ReactNode;
 }
 
+function formatCsvBaht(amount: number): string {
+  return (
+    amount.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }) || "-"
+  );
+}
+
 export default function BudgetListSection(props: BudgetListSectionProps) {
   const [sort, setSort] = useState<BudgetSort | null>(
     props.defaultSort ?? null,
@@ -43,25 +56,32 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
       "รายการ",
       "หมวดงบประมาณ",
       "จำนวนเงิน (บาท)",
+      "งบผูกพัน",
+      "รวมงบผูกพัน (บาท)",
       "โครงการ/ผลผลิต",
       "แผนงาน",
       "หน่วยงาน",
       "กระทรวง",
+      "อ้างอิง",
     ];
     const sorted = sortBudgetItems(props.data, sort);
-    const rows = sorted.map((item, index) => [
-      index + 1,
-      item.description,
-      item.category,
-      item.amount.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }) || "-",
-      item.project || item.output || "-",
-      item.plan || "-",
-      item.budgetary,
-      item.ministry,
-    ]);
+    const rows = sorted.map((item, index) => {
+      // The same งบผูกพัน notes the table shows under the item and its amount.
+      const obligedYearRange = getObligedYearRange(item.fiscal_year_list);
+      return [
+        index + 1,
+        item.description,
+        item.category,
+        formatCsvBaht(item.amount),
+        obligedYearRange ? `งบผูกพัน (${obligedYearRange})` : "-",
+        obligedYearRange ? formatCsvBaht(item.total_fiscal_amount) : "-",
+        item.project || item.output || "-",
+        item.plan || "-",
+        item.budgetary,
+        item.ministry,
+        item.page_url || "-",
+      ];
+    });
 
     downloadCsv(
       headers,
