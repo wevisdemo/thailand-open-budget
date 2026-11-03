@@ -17,6 +17,21 @@ export const HIGHLIGHT_TITLES = {
 // the highlights skip it.
 const EXCLUDED_FROM_HIGHLIGHTS = "งบกลาง";
 
+// A budget row carries the registry ids of the organization that owns it, so
+// it can link straight to that organization's page. Passing the selected
+// budget document along keeps the reader on the same fiscal year.
+export function organizationHref(
+  ministryId: number,
+  budgetaryId: number | null,
+  docSource: string | null,
+): string {
+  const path =
+    budgetaryId === null
+      ? `/organizations/${ministryId}`
+      : `/organizations/${ministryId}/${budgetaryId}`;
+  return docSource ? `${path}?budget_source=${docSource}` : path;
+}
+
 function formatMillions(baht: number): string {
   return Math.round(baht / 1_000_000).toLocaleString("en-US");
 }

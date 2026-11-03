@@ -49,6 +49,10 @@ export interface BudgetMinistryItem {
   amount: number;
   budgetary: string;
   budgetPercentage: number;
+  // Registry ids for the organization links. `ministry` above holds the unit's
+  // name and `budgetary` its ministry's, so `budgetaryId` is the unit's id.
+  ministryId: number | null;
+  budgetaryId: number | null;
 }
 
 export interface BudgetDocument {

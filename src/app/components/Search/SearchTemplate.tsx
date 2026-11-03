@@ -137,6 +137,8 @@ export default function SearchTemplate() {
             budgetary: item.ministry,
             amount: 0,
             budgetPercentage: 0,
+            ministryId: item.ministry_id,
+            budgetaryId: item.budgetary_id,
           };
         }
         acc[item.budgetary].amount += item.amount;

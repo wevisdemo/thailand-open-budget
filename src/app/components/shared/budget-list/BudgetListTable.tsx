@@ -8,6 +8,7 @@ import { useUrlSearch } from "@/hooks/useUrlSearch";
 import InformationIcon from "@/app/components/shared/icons/information-icon";
 import PdfIcon from "@/app/components/shared/icons/pdf-icon";
 import { getObligedYearRange, sortBudgetItems } from "@/constants/budget";
+import { organizationHref } from "@/constants/organization";
 import SortableHeader from "../ui/SortableHeader";
 import Paginate from "../ui/Paginate";
 import ProjectOutputInfoModal from "@/app/components/shared/modals/ProjectOutputInfoModal";
@@ -27,21 +28,6 @@ interface BudgetListTableProps {
 
 function formatBaht(amount: number): string {
   return amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
-}
-
-// A budget row carries the registry ids of the organization that owns it, so
-// it can link straight to that organization's page. Passing the selected
-// budget document along keeps the reader on the same fiscal year.
-function organizationHref(
-  ministryId: number,
-  budgetaryId: number | null,
-  docSource: string | null,
-): string {
-  const path =
-    budgetaryId === null
-      ? `/organizations/${ministryId}`
-      : `/organizations/${ministryId}/${budgetaryId}`;
-  return docSource ? `${path}?budget_source=${docSource}` : path;
 }
 
 function highlightTags(text: string, tags: Tag[]): React.ReactNode {

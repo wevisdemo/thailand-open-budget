@@ -2,6 +2,8 @@
 
 import type { BudgetMinistryItem } from "@/types/budget";
 import { useState } from "react";
+import { useUrlSearch } from "@/hooks/useUrlSearch";
+import { organizationHref } from "@/constants/organization";
 import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-icon";
 import Paginate from "@/app/components/shared/ui/Paginate";
 
@@ -19,6 +21,7 @@ export default function BudgetMinistryListTable({
   onSortDirChange,
 }: BudgetMinistryListTableProps) {
   const [page, setPage] = useState(1);
+  const docSource = new URLSearchParams(useUrlSearch()).get("budget_source");
 
   const sorted = data;
 
@@ -65,7 +68,20 @@ export default function BudgetMinistryListTable({
                   {startIndex + index + 1}
                 </td>
                 <td className="px-[16px] py-[16px] font-bold">
-                  {item.ministry || "-"}
+                  {item.ministryId !== null && item.budgetaryId !== null ? (
+                    <a
+                      href={organizationHref(
+                        item.ministryId,
+                        item.budgetaryId,
+                        docSource,
+                      )}
+                      className="text-text-01 hover:text-interactive-01 underline"
+                    >
+                      {item.ministry}
+                    </a>
+                  ) : (
+                    item.ministry || "-"
+                  )}
                 </td>
                 <td className="px-[16px] py-[16px] text-right whitespace-nowrap">
                   {item.amount.toLocaleString(undefined, {
@@ -73,7 +89,18 @@ export default function BudgetMinistryListTable({
                     maximumFractionDigits: 2,
                   })}
                 </td>
-                <td className="px-[16px] py-[16px]">{item.budgetary || "-"}</td>
+                <td className="px-[16px] py-[16px]">
+                  {item.ministryId !== null && item.budgetary ? (
+                    <a
+                      href={organizationHref(item.ministryId, null, docSource)}
+                      className="text-text-01 hover:text-interactive-01 underline"
+                    >
+                      {item.budgetary}
+                    </a>
+                  ) : (
+                    item.budgetary || "-"
+                  )}
+                </td>
                 <td className="px-[16px] py-[16px]">
                   <div className="flex items-center gap-[8px]">
                     <div className="h-[4px] flex-1 bg-[#E0E0E0]">
