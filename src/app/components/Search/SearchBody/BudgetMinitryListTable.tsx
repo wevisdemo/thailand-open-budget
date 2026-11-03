@@ -21,6 +21,10 @@ export default function BudgetMinistryListTable({
   onSortDirChange,
 }: BudgetMinistryListTableProps) {
   const [page, setPage] = useState(1);
+  // Hovering a link cell highlights its whole column.
+  const [hoveredColumn, setHoveredColumn] = useState<
+    "budgetary" | "ministry" | null
+  >(null);
   const docSource = new URLSearchParams(useUrlSearch()).get("budget_source");
 
   const sorted = data;
@@ -62,12 +66,16 @@ export default function BudgetMinistryListTable({
             {pageItems.map((item, index) => (
               <tr
                 key={item.id}
-                className="border-ui-03 hover:bg-ui-01 border-b bg-white align-middle leading-[18px] transition-colors"
+                className="border-ui-03 border-b bg-white align-middle leading-[18px]"
               >
                 <td className="text-text-02 px-[16px] py-[16px]">
                   {startIndex + index + 1}
                 </td>
-                <td className="px-[16px] py-[16px] font-bold">
+                <td
+                  onMouseEnter={() => setHoveredColumn("budgetary")}
+                  onMouseLeave={() => setHoveredColumn(null)}
+                  className={`px-[16px] py-[16px] font-bold transition-colors ${hoveredColumn === "budgetary" ? "bg-ui-01" : ""}`}
+                >
                   {item.ministryId !== null && item.budgetaryId !== null ? (
                     <a
                       href={organizationHref(
@@ -89,7 +97,11 @@ export default function BudgetMinistryListTable({
                     maximumFractionDigits: 2,
                   })}
                 </td>
-                <td className="px-[16px] py-[16px]">
+                <td
+                  onMouseEnter={() => setHoveredColumn("ministry")}
+                  onMouseLeave={() => setHoveredColumn(null)}
+                  className={`px-[16px] py-[16px] transition-colors ${hoveredColumn === "ministry" ? "bg-ui-01" : ""}`}
+                >
                   {item.ministryId !== null && item.budgetary ? (
                     <a
                       href={organizationHref(item.ministryId, null, docSource)}

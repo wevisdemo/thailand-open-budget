@@ -65,6 +65,10 @@ export default function BudgetListTable({
 }: BudgetListTableProps) {
   const [page, setPage] = useState(1);
   const [projectInfoOpen, setProjectInfoOpen] = useState(false);
+  // Hovering a link cell highlights its whole column.
+  const [hoveredColumn, setHoveredColumn] = useState<
+    "organization" | "pdf" | null
+  >(null);
   const docSource = new URLSearchParams(useUrlSearch()).get("budget_source");
 
   // Thai collation over a long result list is not free, and paging re-renders.
@@ -151,7 +155,7 @@ export default function BudgetListTable({
               return (
                 <tr
                   key={index}
-                  className="border-ui-03 hover:bg-ui-01 border-b bg-white align-top leading-[18px] transition-colors"
+                  className="border-ui-03 border-b bg-white align-top leading-[18px]"
                 >
                   <td className="text-text-02 px-[16px] py-[16px]">
                     {startIndex + index + 1}
@@ -199,7 +203,11 @@ export default function BudgetListTable({
                     {item.category || "-"}
                   </td>
                   {showOrganization && (
-                    <td className="px-[16px] py-[16px]">
+                    <td
+                      onMouseEnter={() => setHoveredColumn("organization")}
+                      onMouseLeave={() => setHoveredColumn(null)}
+                      className={`px-[16px] py-[16px] transition-colors ${hoveredColumn === "organization" ? "bg-ui-01" : ""}`}
+                    >
                       {item.budgetary_id !== null &&
                       item.ministry_id !== null ? (
                         <a
@@ -232,7 +240,11 @@ export default function BudgetListTable({
                         ))}
                     </td>
                   )}
-                  <td className="px-[16px] py-[16px] text-center">
+                  <td
+                    onMouseEnter={() => setHoveredColumn("pdf")}
+                    onMouseLeave={() => setHoveredColumn(null)}
+                    className={`px-[16px] py-[16px] text-center transition-colors ${hoveredColumn === "pdf" ? "bg-ui-01" : ""}`}
+                  >
                     {item.page_url ? (
                       <a
                         href={item.page_url}
