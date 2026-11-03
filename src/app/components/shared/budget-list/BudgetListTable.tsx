@@ -216,7 +216,7 @@ export default function BudgetListTable({
                     <td className="px-[16px] py-[16px]">
                       {item.budgetary_id !== null &&
                       item.ministry_id !== null ? (
-                        <Link
+                        <a
                           href={organizationHref(
                             item.ministry_id,
                             item.budgetary_id,
@@ -225,13 +225,13 @@ export default function BudgetListTable({
                           className="text-text-01 underline"
                         >
                           {item.budgetary}
-                        </Link>
+                        </a>
                       ) : (
                         <p>{item.budgetary}</p>
                       )}
                       {item.ministry &&
                         (item.ministry_id !== null ? (
-                          <Link
+                          <a
                             href={organizationHref(
                               item.ministry_id,
                               null,
@@ -240,7 +240,7 @@ export default function BudgetListTable({
                             className="text-gray-60 block underline"
                           >
                             {item.ministry}
-                          </Link>
+                          </a>
                         ) : (
                           <p className="text-gray-60">{item.ministry}</p>
                         ))}

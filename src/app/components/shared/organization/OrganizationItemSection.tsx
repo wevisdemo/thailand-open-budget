@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { Button, DataTableSkeleton } from "@carbon/react";
 import type { BudgetItem, BudgetSort } from "@/types/budget";
 import { matchesAnyKeyword, toTags } from "@/constants/search";
+import { useUrlSearch } from "@/hooks/useUrlSearch";
 import KeywordSearch from "@/app/components/shared/budget-list/KeywordSearch";
 import KeywordWarning from "@/app/components/shared/budget-list/KeywordWarning";
 import BudgetListSection from "@/app/components/shared/budget-list/BudgetListSection";
@@ -25,7 +25,8 @@ interface OrganizationItemSectionProps {
 }
 
 // An organization's budget items for the year, all of them until keywords
-// narrow the list down. Keywords stay when the year changes.
+// narrow the list down. Keywords stay when the year changes, and live in the
+// URL `q` so they come back when the reader returns with the back button.
 export default function OrganizationItemSection({
   items,
   isMinistry,
@@ -35,7 +36,10 @@ export default function OrganizationItemSection({
   isLoading,
   isError,
 }: OrganizationItemSectionProps) {
-  const [words, setWords] = useState<string[]>([]);
+  const urlSearch = useUrlSearch();
+  const words = (new URLSearchParams(urlSearch).get("q") ?? "")
+    .split(",")
+    .filter(Boolean);
   const tags = toTags(words);
   const shown = words.length
     ? items.filter((item) => matchesAnyKeyword(item, words))
@@ -53,6 +57,18 @@ export default function OrganizationItemSection({
     : words.length
       ? keywordText
       : null;
+
+  function setWords(nextWords: string[]) {
+    const params = new URLSearchParams(window.location.search);
+    if (nextWords.length > 0) params.set("q", nextWords.join(","));
+    else params.delete("q");
+    const qs = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      qs ? `${window.location.pathname}?${qs}` : window.location.pathname,
+    );
+  }
 
   function addTag(word: string) {
     if (!words.includes(word)) setWords([...words, word]);

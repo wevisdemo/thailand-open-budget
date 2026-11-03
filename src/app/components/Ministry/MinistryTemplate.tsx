@@ -51,10 +51,13 @@ export default function MinistryTemplate({
     DOC_SOURCE_OPTIONS[DOC_SOURCE_OPTIONS.length - 1];
 
   function onChangeDocSource(option: DropdownOption) {
+    // Keep the item keywords (`q`) when only the year changes.
+    const params = new URLSearchParams(window.location.search);
+    params.set("budget_source", option.value);
     window.history.replaceState(
       null,
       "",
-      `${window.location.pathname}?budget_source=${option.value}`,
+      `${window.location.pathname}?${params.toString()}`,
     );
   }
 
