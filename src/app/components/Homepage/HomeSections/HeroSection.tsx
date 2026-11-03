@@ -4,7 +4,7 @@ import { withBasePath } from "@/lib/base-path";
 interface HeroSectionProps {
   itemAmount: number;
   totalBudgetAmount: number;
-  totalMinistry: number;
+  totalBudgetary: number;
   dropdownSelectedOption: string;
   year: string;
   isLoading?: boolean;
@@ -13,7 +13,7 @@ interface HeroSectionProps {
 const HeroSection = ({
   itemAmount,
   totalBudgetAmount,
-  totalMinistry,
+  totalBudgetary,
   dropdownSelectedOption,
   year,
   isLoading = false,
@@ -91,7 +91,7 @@ const HeroSection = ({
                 <div className="bg-ui-03 h-[28px] w-[80px] animate-pulse" />
               ) : (
                 <p className="text-text-01 text-h7 font-bold">
-                  {totalMinistry.toLocaleString()}
+                  {totalBudgetary.toLocaleString()}
                 </p>
               )}
               <p className="text-text-02 text-b5">หน่วยงาน</p>

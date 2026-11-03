@@ -85,7 +85,7 @@ export default function HomeTemplate() {
   const summaryInfo = {
     itemAmount: budgetData.length,
     totalBudgetAmount: Math.round(totalBudgetAmount / 1_000_000),
-    totalMinistry: new Set(budgetData.map((item) => item.ministry)).size,
+    totalBudgetary: new Set(budgetData.map((item) => item.budgetary)).size,
   };
 
   return (
@@ -111,7 +111,7 @@ export default function HomeTemplate() {
       <HeroSection
         itemAmount={summaryInfo.itemAmount}
         totalBudgetAmount={summaryInfo.totalBudgetAmount}
-        totalMinistry={summaryInfo.totalMinistry}
+        totalBudgetary={summaryInfo.totalBudgetary}
         dropdownSelectedOption={selectedDocSource?.label ?? ""}
         isLoading={status === "idle" || status === "loading"}
         year={
