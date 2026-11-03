@@ -12,6 +12,9 @@ interface PaginateProps {
   onChange: (page: number) => void;
 }
 
+// Room for the sticky top bar, so the table's header row isn't hidden under it.
+const SCROLL_OFFSET = 64;
+
 function PageDropdown({
   page,
   totalPages,
@@ -77,9 +80,24 @@ export default function Paginate({
   onChange,
 }: PaginateProps) {
   const startIndex = (page - 1) * pageSize;
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Every table renders right before its pager, so a new page jumps the reader
+  // back to the top of that table.
+  function changePage(nextPage: number) {
+    onChange(nextPage);
+    const table = ref.current?.previousElementSibling;
+    if (!table) return;
+    const top =
+      table.getBoundingClientRect().top + window.scrollY - SCROLL_OFFSET;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
 
   return (
-    <div className="border-ui-03 flex items-center justify-between border-t text-[14px]">
+    <div
+      ref={ref}
+      className="border-ui-03 flex items-center justify-between border-t text-[14px]"
+    >
       <p className="text-gray-60 px-[16px] py-[12px]">
         <span className="hidden md:inline">
           {startIndex + 1} – {Math.min(startIndex + pageSize, totalItems)}{" "}
@@ -93,14 +111,14 @@ export default function Paginate({
           <PageDropdown
             page={page}
             totalPages={totalPages}
-            onChange={onChange}
+            onChange={changePage}
           />
           <span>จาก {totalPages} หน้า</span>
         </div>
         <span className="border-ui-03 self-stretch border-r" />
         <div className="flex shrink-0 self-stretch">
           <button
-            onClick={() => onChange(Math.max(1, page - 1))}
+            onClick={() => changePage(Math.max(1, page - 1))}
             disabled={page === 1}
             className="flex w-[40px] items-center justify-center bg-[#ededed] disabled:opacity-30"
           >
@@ -108,7 +126,7 @@ export default function Paginate({
           </button>
           <span className="border-ui-03 self-stretch border-r" />
           <button
-            onClick={() => onChange(Math.min(totalPages, page + 1))}
+            onClick={() => changePage(Math.min(totalPages, page + 1))}
             disabled={page === totalPages}
             className="flex w-[40px] rotate-180 items-center justify-center border-none bg-[#ededed] disabled:opacity-30"
           >
