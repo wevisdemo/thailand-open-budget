@@ -222,7 +222,7 @@ export default function BudgetListTable({
                             item.budgetary_id,
                             docSource,
                           )}
-                          className="text-text-01 underline"
+                          className="text-text-01 hover:text-interactive-01 block underline"
                         >
                           {item.budgetary}
                         </a>
@@ -237,7 +237,7 @@ export default function BudgetListTable({
                               null,
                               docSource,
                             )}
-                            className="text-gray-60 block underline"
+                            className="text-gray-60 hover:text-interactive-01 block underline"
                           >
                             {item.ministry}
                           </a>
