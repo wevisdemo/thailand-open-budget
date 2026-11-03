@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import type { BudgetItem } from "@/types/budget";
 import Link from "next/link";
 import CardCarousel from "@/app/components/shared/ui/CardCarousel";
+import { matchesAnyKeyword } from "@/constants/search";
 
 interface BudgetTag {
   label: string;
@@ -22,26 +23,11 @@ interface BudgetSectionProps {
   isLoading?: boolean;
 }
 
-function buildSearchableText(item: BudgetItem): string {
-  return [
-    item.ministry,
-    item.budgetary,
-    item.plan,
-    item.output,
-    item.project,
-    item.category,
-    item.description,
-  ]
-    .join(" ")
-    .toLowerCase();
-}
-
+// Matched the same way as the search page, so a card's numbers are what its
+// "สำรวจ" link shows.
 function filterByTags(data: BudgetItem[], tags: BudgetTag[]): BudgetItem[] {
-  const labels = tags.map((t) => t.label.toLowerCase());
-  return data.filter((item) => {
-    const text = buildSearchableText(item);
-    return labels.some((label) => text.includes(label));
-  });
+  const words = tags.map((t) => t.label);
+  return data.filter((item) => matchesAnyKeyword(item, words));
 }
 
 function formatNumber(value: number): string {
