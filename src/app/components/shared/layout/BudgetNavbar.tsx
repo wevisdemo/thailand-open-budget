@@ -22,7 +22,7 @@ export default function BudgetNavbar({
   return (
     <div className="border-gray-20 sticky top-0 z-20 flex items-center justify-between border-b-[2px] bg-white px-[8px] py-[4px] md:px-[32px]">
       <Breadcrumb items={breadcrumbItems} />
-      <div className="w-[220px]">
+      <div className="w-[220px] md:w-[240px]">
         <Dropdown
           options={DOC_SOURCE_OPTIONS}
           selectedOption={selectedDocSource}

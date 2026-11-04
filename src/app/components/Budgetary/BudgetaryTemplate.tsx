@@ -6,6 +6,7 @@ import type { OrganizationYearTotal } from "@/types/organization";
 import {
   DOC_SOURCE_OPTIONS,
   type DocSourceValue,
+  getDocSourceForYear,
   getPreviousDocSource,
 } from "@/constants/budget";
 import {
@@ -64,13 +65,20 @@ export default function BudgetaryTemplate({
   const docSource = selectedDocSource.value as DocSourceValue;
   // Every year's organization totals are loaded for the trend; the selected
   // year's also feed the rest of the page.
-  const totals2568 = useOrganizationYearTotals("2568-draft-1");
-  const totals2569 = useOrganizationYearTotals("2569-draft-1");
-  const totals2570 = useOrganizationYearTotals("2570-draft-1");
+  // Each year is read from the selected document's stage (approved or draft).
+  const totals2568 = useOrganizationYearTotals(
+    getDocSourceForYear(2568, docSource),
+  );
+  const totals2569 = useOrganizationYearTotals(
+    getDocSourceForYear(2569, docSource),
+  );
+  const totals2570 = useOrganizationYearTotals(
+    getDocSourceForYear(2570, docSource),
+  );
   const { data: yearTotals, status: totalsStatus } =
-    docSource === "2568-draft-1"
+    parseInt(docSource) === 2568
       ? totals2568
-      : docSource === "2569-draft-1"
+      : parseInt(docSource) === 2569
         ? totals2569
         : totals2570;
   // The unit's ministry's items; the unit's own are picked out below.

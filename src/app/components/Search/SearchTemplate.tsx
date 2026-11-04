@@ -4,7 +4,11 @@ import type {
   BudgetMinistryItem,
   BudgetYearTotal,
 } from "@/types/budget";
-import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
+import {
+  DOC_SOURCE_OPTIONS,
+  type DocSourceValue,
+  getDocSourceForYear,
+} from "@/constants/budget";
 import AboutSection from "@/app/components/shared/layout/AboutSection";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
 import SearchBody from "@/app/components/Search/SearchBody/SearchBody";
@@ -77,9 +81,18 @@ export default function SearchTemplate() {
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
   );
-  const { data: budget2568 } = useBudgetData("2568-draft-1");
-  const { data: budget2569 } = useBudgetData("2569-draft-1");
-  const { data: budget2570 } = useBudgetData("2570-draft-1");
+  // Each year is read from the selected document's stage (approved or draft).
+  const stageSource = (selectedDocSource?.value ??
+    "2570-draft-1") as DocSourceValue;
+  const { data: budget2568 } = useBudgetData(
+    getDocSourceForYear(2568, stageSource),
+  );
+  const { data: budget2569 } = useBudgetData(
+    getDocSourceForYear(2569, stageSource),
+  );
+  const { data: budget2570 } = useBudgetData(
+    getDocSourceForYear(2570, stageSource),
+  );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
   function matchesKeywords(item: BudgetItem): boolean {

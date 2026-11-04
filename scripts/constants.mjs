@@ -10,6 +10,8 @@ export const SHEET_GID_MAP = {
   "2568_drafted": "321838122",
   "2569_drafted": "2114899200",
   "2570_drafted": "753923495",
+  "2569_bill": "1209741224",
+  "2570_bill": "507271882",
 };
 
 export const COLUMN_MAP = {

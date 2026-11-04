@@ -5,29 +5,52 @@ import type {
   BudgetSortKey,
 } from "@/types/budget";
 
-export type DocSourceValue = "2568-draft-1" | "2569-draft-1" | "2570-draft-1";
+export type DocSourceValue =
+  | "2568-draft-1"
+  | "2569-draft-1"
+  | "2570-draft-1"
+  | "2569-approved-3"
+  | "2570-approved-3";
 
 // Maps dropdown value → public/data/ JSON filename (without .json)
 export const DOC_SOURCE_DATA_FILE: Record<DocSourceValue, string> = {
   "2568-draft-1": "budget_2568_drafted",
   "2569-draft-1": "budget_2569_drafted",
   "2570-draft-1": "budget_2570_drafted",
+  "2569-approved-3": "budget_2569_bill",
+  "2570-approved-3": "budget_2570_bill",
 };
 
 export const DOC_SOURCE_OPTIONS: { value: DocSourceValue; label: string }[] = [
   { value: "2568-draft-1", label: "2568 ฉบับร่าง (วาระ 1)" },
   { value: "2569-draft-1", label: "2569 ฉบับร่าง (วาระ 1)" },
+  { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
   { value: "2570-draft-1", label: "2570 ฉบับร่าง (วาระ 1)" },
-  // { value: "2569-approved-3", label: "2569 สภาอนุมัติแล้ว (วาระ 3)" },
+  { value: "2570-approved-3", label: "2570 สภาอนุมัติแล้ว (วาระ 3)" },
 ];
+
+// The document of `year` in the same stage as `docSource` (approved or
+// draft), falling back to that year's draft when it has no approved
+// document, e.g. approved 2568 -> draft 2568. Null for a year without data.
+export function getDocSourceForYear(
+  year: number,
+  docSource: DocSourceValue,
+): DocSourceValue | null {
+  const values = DOC_SOURCE_OPTIONS.map((o) => o.value);
+  const stage = docSource.includes("approved") ? "approved-3" : "draft-1";
+  return (
+    values.find((v) => v === `${year}-${stage}`) ??
+    values.find((v) => v === `${year}-draft-1`) ??
+    null
+  );
+}
 
 // The document of the year before `docSource`, for changes from the
 // previous year; null for the first year in the data.
 export function getPreviousDocSource(
   docSource: DocSourceValue,
 ): DocSourceValue | null {
-  const index = DOC_SOURCE_OPTIONS.findIndex((o) => o.value === docSource);
-  return DOC_SOURCE_OPTIONS[index - 1]?.value ?? null;
+  return getDocSourceForYear(parseInt(docSource) - 1, docSource);
 }
 
 export const BUDGET_BASE_OPTIONS: { value: BudgetBase; label: string }[] = [
