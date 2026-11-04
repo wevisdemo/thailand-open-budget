@@ -9,6 +9,7 @@ import InformationIcon from "@/app/components/shared/icons/information-icon";
 import PdfIcon from "@/app/components/shared/icons/pdf-icon";
 import { getObligedYearRange, sortBudgetItems } from "@/constants/budget";
 import { organizationHref } from "@/constants/organization";
+import { withBasePath } from "@/lib/base-path";
 import SortableHeader from "../ui/SortableHeader";
 import Paginate from "../ui/Paginate";
 import ProjectOutputInfoModal from "@/app/components/shared/modals/ProjectOutputInfoModal";
@@ -211,10 +212,12 @@ export default function BudgetListTable({
                       {item.budgetary_id !== null &&
                       item.ministry_id !== null ? (
                         <a
-                          href={organizationHref(
-                            item.ministry_id,
-                            item.budgetary_id,
-                            docSource,
+                          href={withBasePath(
+                            organizationHref(
+                              item.ministry_id,
+                              item.budgetary_id,
+                              docSource,
+                            ),
                           )}
                           className="text-text-01 hover:text-interactive-01 block underline"
                         >
@@ -226,10 +229,12 @@ export default function BudgetListTable({
                       {item.ministry &&
                         (item.ministry_id !== null ? (
                           <a
-                            href={organizationHref(
-                              item.ministry_id,
-                              null,
-                              docSource,
+                            href={withBasePath(
+                              organizationHref(
+                                item.ministry_id,
+                                null,
+                                docSource,
+                              ),
                             )}
                             className="text-gray-60 hover:text-interactive-01 block underline"
                           >

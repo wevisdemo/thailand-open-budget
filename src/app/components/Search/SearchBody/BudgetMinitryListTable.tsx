@@ -4,6 +4,7 @@ import type { BudgetMinistryItem } from "@/types/budget";
 import { useState } from "react";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
 import { organizationHref } from "@/constants/organization";
+import { withBasePath } from "@/lib/base-path";
 import ArrowsVerticalIcon from "@/app/components/shared/icons/arrows-vertical-icon";
 import Paginate from "@/app/components/shared/ui/Paginate";
 
@@ -78,10 +79,12 @@ export default function BudgetMinistryListTable({
                 >
                   {item.ministryId !== null && item.budgetaryId !== null ? (
                     <a
-                      href={organizationHref(
-                        item.ministryId,
-                        item.budgetaryId,
-                        docSource,
+                      href={withBasePath(
+                        organizationHref(
+                          item.ministryId,
+                          item.budgetaryId,
+                          docSource,
+                        ),
                       )}
                       className="text-text-01 hover:text-interactive-01 underline"
                     >
@@ -104,7 +107,9 @@ export default function BudgetMinistryListTable({
                 >
                   {item.ministryId !== null && item.budgetary ? (
                     <a
-                      href={organizationHref(item.ministryId, null, docSource)}
+                      href={withBasePath(
+                        organizationHref(item.ministryId, null, docSource),
+                      )}
                       className="text-text-01 hover:text-interactive-01 underline"
                     >
                       {item.budgetary}
