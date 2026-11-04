@@ -22,10 +22,6 @@ export default function BudgetMinistryListTable({
   onSortDirChange,
 }: BudgetMinistryListTableProps) {
   const [page, setPage] = useState(1);
-  // Hovering a link cell highlights its whole column.
-  const [hoveredColumn, setHoveredColumn] = useState<
-    "budgetary" | "ministry" | null
-  >(null);
   const docSource = new URLSearchParams(useUrlSearch()).get("budget_source");
 
   const sorted = data;
@@ -72,11 +68,7 @@ export default function BudgetMinistryListTable({
                 <td className="text-text-02 px-[16px] py-[16px]">
                   {startIndex + index + 1}
                 </td>
-                <td
-                  onMouseEnter={() => setHoveredColumn("budgetary")}
-                  onMouseLeave={() => setHoveredColumn(null)}
-                  className={`px-[16px] py-[16px] font-bold transition-colors ${hoveredColumn === "budgetary" ? "bg-ui-01" : ""}`}
-                >
+                <td className="px-[16px] py-[16px] font-bold transition-colors">
                   {item.ministryId !== null && item.budgetaryId !== null ? (
                     <a
                       href={withBasePath(
@@ -100,11 +92,7 @@ export default function BudgetMinistryListTable({
                     maximumFractionDigits: 2,
                   })}
                 </td>
-                <td
-                  onMouseEnter={() => setHoveredColumn("ministry")}
-                  onMouseLeave={() => setHoveredColumn(null)}
-                  className={`px-[16px] py-[16px] transition-colors ${hoveredColumn === "ministry" ? "bg-ui-01" : ""}`}
-                >
+                <td className="px-[16px] py-[16px] transition-colors">
                   {item.ministryId !== null && item.budgetary ? (
                     <a
                       href={withBasePath(
