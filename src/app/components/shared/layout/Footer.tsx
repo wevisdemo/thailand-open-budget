@@ -35,7 +35,7 @@ function FooterColumn({ icon, title, items }: FooterColumnProps) {
           href={item.href}
           target={item.external ? "_blank" : undefined}
           rel={item.external ? "noreferrer" : undefined}
-          className="flex w-full items-center gap-2 py-[4px] pr-[8px] pl-[16px] md:px-[16px]"
+          className="flex w-full items-center gap-2 py-[4px] pr-[8px] pl-[16px] lg:px-[16px]"
         >
           {item.external ? (
             <ArrowUpRightIcon
@@ -139,9 +139,9 @@ interface FooterProps {
 export default function Footer({ className }: FooterProps) {
   return (
     <footer
-      className={`flex flex-col gap-[16px] bg-gray-100 px-[24px] py-[32px] md:px-[64px] ${className ?? ""}`}
+      className={`flex flex-col gap-[16px] bg-gray-100 px-[24px] py-[32px] lg:px-[64px] ${className ?? ""}`}
     >
-      <div className="flex w-full flex-col justify-between md:flex-row md:items-start">
+      <div className="flex w-full flex-col justify-between lg:flex-row lg:items-start">
         <Image
           src={withBasePath("/icons/logo-footer.svg")}
           alt="Open Budget"
@@ -150,8 +150,8 @@ export default function Footer({ className }: FooterProps) {
           priority={false}
         />
 
-        <div className="flex flex-col justify-end py-[16px] md:flex-1 md:flex-row md:items-start md:py-0 md:pl-[40px]">
-          <div className="grid grid-cols-2 md:flex md:flex-1 md:flex-row md:items-start md:justify-end md:gap-y-0">
+        <div className="flex flex-col justify-end py-[16px] lg:flex-1 lg:flex-row lg:items-start lg:py-0 lg:pl-[40px]">
+          <div className="grid grid-cols-[repeat(2,minmax(0,172px))] justify-center lg:flex lg:flex-1 lg:flex-row lg:items-start lg:justify-end lg:gap-y-0">
             <FooterColumn
               icon={
                 <SearchCategoriesIcon
@@ -240,7 +240,7 @@ export default function Footer({ className }: FooterProps) {
                 },
               ]}
             />
-            <div className="flex flex-col gap-[16px] md:gap-[8px]">
+            <div className="flex flex-col gap-[16px] lg:gap-[8px]">
               <div className="flex flex-col gap-[4px]">
                 <span className="text-gray-30 text-[12px] leading-[16px]">
                   ติดต่อ
