@@ -210,6 +210,7 @@ export default function OrganizationListSection({
             sort={sort}
             onSortChange={handleSortChange}
             dataValue={dataValue}
+            query={query}
           />
           <Paginate
             page={page}

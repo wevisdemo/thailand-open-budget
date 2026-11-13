@@ -23,6 +23,8 @@ interface OrganizationTableProps {
   sort: OrganizationSort | null;
   onSortChange: (key: OrganizationSortKey) => void;
   dataValue: string;
+  // The search text, bolded in the names it matched.
+  query: string;
 }
 
 interface SortHeaderProps {
@@ -77,6 +79,7 @@ export default function OrganizationTable({
   sort,
   onSortChange,
   dataValue,
+  query,
 }: OrganizationTableProps) {
   return (
     // `relative` keeps the badges' absolutely positioned sr-only text inside
@@ -126,6 +129,7 @@ export default function OrganizationTable({
               totalBudget={totalBudget}
               maxAmount={maxAmount}
               dataValue={dataValue}
+              query={query}
             />
           ))}
         </tbody>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { OrganizationMinistryGroup } from "@/types/organization";
 import DownAngleIcon from "@/app/components/shared/icons/down-angle-icon";
 import ShareBar from "@/app/components/shared/ui/ShareBar";
+import BoldMatch from "@/app/components/shared/ui/BoldMatch";
 import ChangeBadge from "@/app/components/shared/ui/ChangeBadge";
 
 // The units' own table repeats the outer table's column widths so its cells
@@ -24,6 +25,7 @@ interface MinistryRowsProps {
   totalBudget: number;
   maxAmount: number;
   dataValue: string;
+  query: string;
 }
 
 interface AmountCellsProps {
@@ -68,6 +70,7 @@ export default function MinistryRows({
   totalBudget,
   maxAmount,
   dataValue,
+  query,
 }: MinistryRowsProps) {
   const ministryHref = `/organizations/${group.ministry_id}?budget_source=${dataValue}`;
 
@@ -101,7 +104,7 @@ export default function MinistryRows({
             href={ministryHref}
             className="text-text-01 hover:text-blue-70 underline"
           >
-            {group.ministry_name}
+            <BoldMatch text={group.ministry_name} query={query} />
           </Link>
           <p className="text-text-03 mt-[4px]">
             มี {group.units.length.toLocaleString()} หน่วยงาน
@@ -139,7 +142,10 @@ export default function MinistryRows({
                             href={unitHref}
                             className="text-text-01 hover:text-blue-70 underline"
                           >
-                            {unit.budgetary_name}
+                            <BoldMatch
+                              text={unit.budgetary_name}
+                              query={query}
+                            />
                           </Link>
                         </td>
                         <AmountCells
