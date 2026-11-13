@@ -38,7 +38,7 @@ function CaseCardBody({ title, dataLabel, highlight }: CaseCardProps) {
                 <p className="text-text-01 font-serif text-[20px] leading-[28px] font-bold">
                   {highlight.name}
                 </p>
-                <p className="text-text-01 font-serif text-[20px] leading-[36px] font-bold">
+                <p className="text-interactive-01 font-serif text-[20px] leading-[36px] font-bold">
                   {highlight.value}
                 </p>
                 <p className="text-gray-70 text-[12px] leading-[16px]">
