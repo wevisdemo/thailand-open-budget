@@ -1,7 +1,8 @@
 "use client";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import AboutSection from "@/app/components/shared/layout/AboutSection";
-import Dropdown, { type DropdownOption } from "../shared/ui/Dropdown";
+import BudgetNavbar from "@/app/components/shared/layout/BudgetNavbar";
+import { type DropdownOption } from "../shared/ui/Dropdown";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
@@ -94,20 +95,12 @@ export default function HomeTemplate() {
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
       />
-      <div className="border-gray-20 sticky top-[44px] z-30 flex items-center justify-end border-b-[2px] bg-white px-[8px] py-[4px] transition-[top] duration-300 in-data-header-hidden:top-0 md:top-[48px] md:px-[32px] md:in-data-header-hidden:top-0">
-        <div className="w-full max-w-[370px] md:w-[240px]">
-          <Dropdown
-            options={DOC_SOURCE_OPTIONS}
-            selectedOption={selectedDocSource}
-            onChange={setSelectedDocSource}
-            placeholder="Choose an option"
-            footerLink={{
-              label: "แต่ละวาระต่างกันอย่างไร?",
-              onClick: () => setVersionInfoOpen(true),
-            }}
-          />
-        </div>
-      </div>
+      <BudgetNavbar
+        breadcrumbItems={[]}
+        selectedDocSource={selectedDocSource}
+        onChangeDocSource={setSelectedDocSource}
+        onOpenVersionInfo={() => setVersionInfoOpen(true)}
+      />
       <HeroSection
         itemAmount={summaryInfo.itemAmount}
         totalBudgetAmount={summaryInfo.totalBudgetAmount}
