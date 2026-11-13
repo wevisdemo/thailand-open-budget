@@ -33,6 +33,8 @@ interface SortHeaderProps {
   sort: OrganizationSort | null;
   onSortChange: (key: OrganizationSortKey) => void;
   widthClassName: string;
+  // Packs the label and arrow to the right, over right-aligned numbers.
+  alignRight?: boolean;
 }
 
 function SortHeader({
@@ -41,6 +43,7 @@ function SortHeader({
   sort,
   onSortChange,
   widthClassName,
+  alignRight = false,
 }: SortHeaderProps) {
   const isActive = sort?.key === sortKey;
   return (
@@ -51,7 +54,9 @@ function SortHeader({
         isActive ? (sort.dir === "desc" ? "descending" : "ascending") : "none"
       }
     >
-      <span className="flex items-center justify-between gap-[8px] text-left">
+      <span
+        className={`flex items-center gap-[8px] ${alignRight ? "justify-end text-right" : "justify-between text-left"}`}
+      >
         {label}
         {isActive ? (
           <Image
@@ -99,6 +104,7 @@ export default function OrganizationTable({
               sort={sort}
               onSortChange={onSortChange}
               widthClassName="w-[18%]"
+              alignRight
             />
             <th className="w-[18%] px-[16px] py-[8px] text-center font-semibold">
               % ของงบฯ ประเทศ
