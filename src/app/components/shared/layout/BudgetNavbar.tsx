@@ -19,9 +19,25 @@ export default function BudgetNavbar({
   onChangeDocSource,
   onOpenVersionInfo,
 }: BudgetNavbarProps) {
+  // Carry the selected document across breadcrumb links, unless the link
+  // already names one (e.g. the ministry link on the budgetary page).
+  const items = breadcrumbItems.map((item) => {
+    if (
+      !item.href ||
+      !selectedDocSource ||
+      item.href.includes("budget_source=")
+    )
+      return item;
+    const separator = item.href.includes("?") ? "&" : "?";
+    return {
+      ...item,
+      href: `${item.href}${separator}budget_source=${selectedDocSource.value}`,
+    };
+  });
+
   return (
     <div className="border-gray-20 sticky top-[44px] z-20 flex flex-col gap-[8px] border-b-[2px] bg-white px-[8px] py-[8px] transition-[top] duration-300 in-data-header-hidden:top-0 md:top-[48px] md:flex-row md:items-center md:justify-between md:px-[32px] md:py-[4px] md:in-data-header-hidden:top-0">
-      <Breadcrumb items={breadcrumbItems} />
+      <Breadcrumb items={items} />
       <div className="w-full max-w-[370px] md:w-[240px]">
         <Dropdown
           options={DOC_SOURCE_OPTIONS}
