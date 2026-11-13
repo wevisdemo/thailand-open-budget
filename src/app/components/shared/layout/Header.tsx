@@ -122,13 +122,24 @@ export default function Header() {
   }, []);
 
   const forceVisible = menuOpen || openLabel !== null;
+  const shown = visible || forceVisible;
+
+  // Let sticky bars below the header (e.g. BudgetNavbar) follow it in and out.
+  useEffect(() => {
+    const root = document.documentElement;
+    if (shown) delete root.dataset.headerHidden;
+    else root.dataset.headerHidden = "";
+    return () => {
+      delete root.dataset.headerHidden;
+    };
+  }, [shown]);
 
   return (
     <>
       <div className="h-[44px] md:h-[48px]" aria-hidden="true" />
       <header
         className={`fixed top-0 left-0 z-40 flex h-[44px] w-full items-center gap-[16px] bg-black px-[10px] transition-transform duration-300 md:h-[48px] md:justify-between md:px-[32px] ${
-          visible || forceVisible ? "translate-y-0" : "-translate-y-full"
+          shown ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         {/* Mobile menu button */}

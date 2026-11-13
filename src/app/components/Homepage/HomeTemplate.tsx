@@ -94,8 +94,8 @@ export default function HomeTemplate() {
         isOpen={versionInfoOpen}
         onClose={() => setVersionInfoOpen(false)}
       />
-      <div className="border-gray-20 sticky top-0 z-30 flex items-center justify-end border-b-[2px] bg-white px-[8px] py-[4px] md:px-[32px]">
-        <div className="w-[220px]">
+      <div className="border-gray-20 sticky top-[44px] z-30 flex items-center justify-end border-b-[2px] bg-white px-[8px] py-[4px] transition-[top] duration-300 in-data-header-hidden:top-0 md:top-[48px] md:px-[32px] md:in-data-header-hidden:top-0">
+        <div className="w-full max-w-[370px] md:w-[240px]">
           <Dropdown
             options={DOC_SOURCE_OPTIONS}
             selectedOption={selectedDocSource}
