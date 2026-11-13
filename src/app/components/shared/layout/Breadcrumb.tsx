@@ -11,17 +11,23 @@ interface BreadcrumbProps {
 
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav aria-label="breadcrumb">
-      <ol className="text-link-01! flex items-center gap-[4px] text-[14px]">
+    <nav aria-label="breadcrumb" className="min-w-0">
+      <ol className="text-link-01! flex min-w-0 items-center gap-[4px] text-[14px] whitespace-nowrap">
         {items.map((item, i) => (
-          <li key={i} className="flex items-center gap-[4px]">
-            {i > 0 && <span>/</span>}
+          <li key={i} className="flex min-w-0 items-center gap-[4px]">
+            {i > 0 && <span className="shrink-0">/</span>}
             {item.href ? (
-              <Link href={item.href} className="text-link-01! no-underline!">
+              <Link
+                href={item.href}
+                title={item.label}
+                className="text-link-01! truncate no-underline!"
+              >
                 {item.label}
               </Link>
             ) : (
-              <span>{item.label}</span>
+              <span title={item.label} className="truncate">
+                {item.label}
+              </span>
             )}
           </li>
         ))}

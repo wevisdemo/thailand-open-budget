@@ -20,9 +20,9 @@ export default function BudgetNavbar({
   onOpenVersionInfo,
 }: BudgetNavbarProps) {
   return (
-    <div className="border-gray-20 sticky top-0 z-20 flex items-center justify-between border-b-[2px] bg-white px-[8px] py-[4px] md:px-[32px]">
+    <div className="border-gray-20 sticky top-0 z-20 flex flex-col gap-[8px] border-b-[2px] bg-white px-[8px] py-[8px] md:flex-row md:items-center md:justify-between md:px-[32px] md:py-[4px]">
       <Breadcrumb items={breadcrumbItems} />
-      <div className="w-[220px] md:w-[240px]">
+      <div className="w-full max-w-[370px] md:w-[240px]">
         <Dropdown
           options={DOC_SOURCE_OPTIONS}
           selectedOption={selectedDocSource}
