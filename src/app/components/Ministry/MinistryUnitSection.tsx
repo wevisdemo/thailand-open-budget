@@ -210,7 +210,7 @@ export default function MinistryUnitSection({
                     <TableCell>
                       <Link
                         href={`/organizations/${unit.ministry_id}/${unit.budgetary_id}?budget_source=${dataValue}`}
-                        className="text-text-01 underline"
+                        className="text-text-01 hover:text-blue-70 underline"
                       >
                         {unit.budgetary_name}
                       </Link>
