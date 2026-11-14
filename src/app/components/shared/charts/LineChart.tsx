@@ -35,7 +35,7 @@ function formatValue(
 
 // A point's exact value for its tooltip, e.g. "10,222.53 ล้านบาท" or "0.27%".
 function formatPointValue(v: number, unit: "million" | "percent"): string {
-  if (unit === "percent") return `${v.toFixed(2)}%`;
+  if (unit === "percent") return `${v.toFixed(3)}%`;
   const amount = v.toLocaleString("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,

@@ -43,7 +43,7 @@ export default function BudgetTrendCard({
         return [
           t.year,
           t.totalSelectedBaht.toLocaleString("en-US"),
-          `${percentage.toFixed(2)}%`,
+          `${percentage.toFixed(3)}%`,
         ];
       });
     downloadCsv(
