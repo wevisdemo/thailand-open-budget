@@ -157,7 +157,7 @@ export default function BudgetProportionComparisonSection({
   return (
     <div ref={measureRef} className="flex flex-col gap-[8px]">
       <InfoModal isOpen={infoOpen} onClose={() => setInfoOpen(false)} />
-      <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col flex-wrap gap-[16px] md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-[8px]">
           <h2 className="font-serif text-[28px] font-bold">
             เปรียบเทียบสัดส่วนงบตาม

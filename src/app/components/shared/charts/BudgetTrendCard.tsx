@@ -71,7 +71,7 @@ export default function BudgetTrendCard({
   );
 
   return (
-    <div className="flex w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
+    <div className="flex min-w-[342px] flex-1 flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
       <div className="flex flex-col gap-[16px]">
         <div>
           <h2 className="flex flex-wrap font-serif text-[28px] font-bold">
@@ -95,7 +95,7 @@ export default function BudgetTrendCard({
         {/* The selected switch takes the brand blue, as in the design,
             instead of Carbon's dark grey, and each switch fits its label
             rather than truncating to an even share of the width. */}
-        <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col flex-wrap gap-[16px] md:flex-row md:items-center md:justify-between">
           <ContentSwitcher
             selectedIndex={UNITS.findIndex((u) => u.value === unit)}
             onChange={({ index }) => setUnit(UNITS[index ?? 0].value)}

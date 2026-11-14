@@ -30,7 +30,7 @@ export default function BudgetProportionCard(props: BudgetProportionCardProps) {
       : 0;
 
   return (
-    <div className="flex h-full w-full flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
+    <div className="flex h-full min-w-[342px] flex-1 flex-col gap-[16px] bg-white px-[16px] py-[24px] md:px-[24px]">
       <div>
         <h2 className="font-serif text-[28px] font-bold">สัดส่วนงบประมาณ</h2>
         <p className="text-[16px] font-bold">{props.subtitle}</p>

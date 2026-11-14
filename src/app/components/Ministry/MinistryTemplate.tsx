@@ -176,7 +176,7 @@ export default function MinistryTemplate({
       ) : (
         <section className="bg-ui-01 px-[24px] py-[32px]">
           <div className="mx-auto flex w-full max-w-[1128px] flex-col gap-[48px]">
-            <div className="flex flex-col gap-[32px] md:flex-row">
+            <div className="flex flex-wrap gap-[32px]">
               <BudgetProportionCard
                 subtitle={ministryName}
                 selectedLabel={`งบฯ ${ministryName}`}
