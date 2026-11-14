@@ -8,7 +8,7 @@ import type {
 import {
   DOC_SOURCE_OPTIONS,
   type DocSourceValue,
-  getDocSourceForYear,
+  getStageDocSource,
   getPreviousDocSource,
 } from "@/constants/budget";
 import {
@@ -65,15 +65,16 @@ export default function MinistryTemplate({
   const docSource = selectedDocSource.value as DocSourceValue;
   // Every year's organization totals are loaded for the trend; the selected
   // year's also feed the rest of the page.
-  // Each year is read from the selected document's stage (approved or draft).
+  // Each year is read from the selected document's stage (approved or draft);
+  // a year without that stage has no totals and no point in the trend.
   const totals2568 = useOrganizationYearTotals(
-    getDocSourceForYear(2568, docSource),
+    getStageDocSource(2568, docSource),
   );
   const totals2569 = useOrganizationYearTotals(
-    getDocSourceForYear(2569, docSource),
+    getStageDocSource(2569, docSource),
   );
   const totals2570 = useOrganizationYearTotals(
-    getDocSourceForYear(2570, docSource),
+    getStageDocSource(2570, docSource),
   );
   const { data: yearTotals, status: totalsStatus } =
     parseInt(docSource) === 2568
@@ -128,7 +129,7 @@ export default function MinistryTemplate({
       2570,
       year === 2570,
     ),
-  ];
+  ].filter((total) => getStageDocSource(total.year, docSource));
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   // A ministry with no units in the selected year has nothing to show below
   // the title.

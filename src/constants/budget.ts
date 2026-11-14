@@ -29,18 +29,36 @@ export const DOC_SOURCE_OPTIONS: { value: DocSourceValue; label: string }[] = [
   { value: "2570-approved-3", label: "2570 สภาอนุมัติแล้ว (วาระ 3)" },
 ];
 
-// The document of `year` in the same stage as `docSource` (approved or
-// draft), falling back to that year's draft when it has no approved
-// document, e.g. approved 2568 -> draft 2568. Null for a year without data.
+// The stage of a document: its value without the year, e.g.
+// "2569-approved-3" -> "approved-3", "2568-draft-1" -> "draft-1".
+function getStage(docSource: DocSourceValue): string {
+  return docSource.slice(docSource.indexOf("-") + 1);
+}
+
+// The document of `year` in exactly the stage of `docSource`, with no
+// fallback: null when that stage has none, e.g. approved 2568. The trend
+// shows one stage's set, so a year without that stage has no point.
+export function getStageDocSource(
+  year: number,
+  docSource: DocSourceValue,
+): DocSourceValue | null {
+  const stage = getStage(docSource);
+  return (
+    DOC_SOURCE_OPTIONS.find((o) => o.value === `${year}-${stage}`)?.value ??
+    null
+  );
+}
+
+// The document of `year` in the same stage as `docSource`, falling back to
+// that year's draft when it has no document in that stage, e.g. approved
+// 2568 -> draft 2568. Null for a year without data.
 export function getDocSourceForYear(
   year: number,
   docSource: DocSourceValue,
 ): DocSourceValue | null {
-  const values = DOC_SOURCE_OPTIONS.map((o) => o.value);
-  const stage = docSource.includes("approved") ? "approved-3" : "draft-1";
   return (
-    values.find((v) => v === `${year}-${stage}`) ??
-    values.find((v) => v === `${year}-draft-1`) ??
+    getStageDocSource(year, docSource) ??
+    DOC_SOURCE_OPTIONS.find((o) => o.value === `${year}-draft-1`)?.value ??
     null
   );
 }

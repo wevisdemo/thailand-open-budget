@@ -6,7 +6,7 @@ import type { OrganizationYearTotal } from "@/types/organization";
 import {
   DOC_SOURCE_OPTIONS,
   type DocSourceValue,
-  getDocSourceForYear,
+  getStageDocSource,
   getPreviousDocSource,
 } from "@/constants/budget";
 import {
@@ -65,15 +65,16 @@ export default function BudgetaryTemplate({
   const docSource = selectedDocSource.value as DocSourceValue;
   // Every year's organization totals are loaded for the trend; the selected
   // year's also feed the rest of the page.
-  // Each year is read from the selected document's stage (approved or draft).
+  // Each year is read from the selected document's stage (approved or draft);
+  // a year without that stage has no totals and no point in the trend.
   const totals2568 = useOrganizationYearTotals(
-    getDocSourceForYear(2568, docSource),
+    getStageDocSource(2568, docSource),
   );
   const totals2569 = useOrganizationYearTotals(
-    getDocSourceForYear(2569, docSource),
+    getStageDocSource(2569, docSource),
   );
   const totals2570 = useOrganizationYearTotals(
-    getDocSourceForYear(2570, docSource),
+    getStageDocSource(2570, docSource),
   );
   const { data: yearTotals, status: totalsStatus } =
     parseInt(docSource) === 2568
@@ -135,15 +136,17 @@ export default function BudgetaryTemplate({
     { data: totals2568.data, year: 2568 },
     { data: totals2569.data, year: 2569 },
     { data: totals2570.data, year: 2570 },
-  ].map(({ data, year: totalYear }) =>
-    getOrganizationYearTotal(
-      data,
-      isUnit,
-      totalYear,
-      totalYear === year,
-      isInBase,
-    ),
-  );
+  ]
+    .filter(({ year: totalYear }) => getStageDocSource(totalYear, docSource))
+    .map(({ data, year: totalYear }) =>
+      getOrganizationYearTotal(
+        data,
+        isUnit,
+        totalYear,
+        totalYear === year,
+        isInBase,
+      ),
+    );
   const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
   const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
   const isPreviousLoading =

@@ -7,7 +7,7 @@ import type {
 import {
   DOC_SOURCE_OPTIONS,
   type DocSourceValue,
-  getDocSourceForYear,
+  getStageDocSource,
 } from "@/constants/budget";
 import AboutSection from "@/app/components/shared/layout/AboutSection";
 import SearchHeader from "@/app/components/Search/SearchHeader/SearchHeader";
@@ -81,17 +81,18 @@ export default function SearchTemplate() {
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
   );
-  // Each year is read from the selected document's stage (approved or draft).
+  // Each year is read from the selected document's stage (approved or draft);
+  // a year without that stage has no point in the trend.
   const stageSource = (selectedDocSource?.value ??
     "2570-draft-1") as DocSourceValue;
   const { data: budget2568 } = useBudgetData(
-    getDocSourceForYear(2568, stageSource),
+    getStageDocSource(2568, stageSource),
   );
   const { data: budget2569 } = useBudgetData(
-    getDocSourceForYear(2569, stageSource),
+    getStageDocSource(2569, stageSource),
   );
   const { data: budget2570 } = useBudgetData(
-    getDocSourceForYear(2570, stageSource),
+    getStageDocSource(2570, stageSource),
   );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
@@ -127,7 +128,7 @@ export default function SearchTemplate() {
       totalSelectedBaht: filterTotal(budget2570),
       totalBudgetBaht: budget2570.reduce((s, i) => s + i.amount, 0),
     },
-  ];
+  ].filter((total) => getStageDocSource(total.year, stageSource));
   const displayBudgetList = budgetData.filter(matchesKeywords);
 
   const totalBudgetAmount = budgetData.reduce(
