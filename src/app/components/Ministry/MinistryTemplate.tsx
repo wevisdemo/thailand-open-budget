@@ -26,7 +26,7 @@ import BudgetVersionInfoModal from "@/app/components/shared/modals/BudgetVersion
 import BudgetProportionCard from "@/app/components/shared/charts/BudgetProportionCard";
 import BudgetTrendCard from "@/app/components/shared/charts/BudgetTrendCard";
 import MinistryHeaderSection from "./MinistryHeaderSection";
-import MinistryUnitSection from "./MinistryUnitSection";
+import BudgetaryUnitSection from "./BudgetaryUnitSection";
 import OrganizationItemSection from "@/app/components/shared/organization/OrganizationItemSection";
 import BudgetProportionComparisonSection from "@/app/components/shared/charts/BudgetProportionComparisonSection";
 import OrganizationEmptyState from "@/app/components/shared/organization/OrganizationEmptyState";
@@ -193,7 +193,7 @@ export default function MinistryTemplate({
               />
             </div>
             {/* Keyed by year so a new year starts from page 1, unfiltered. */}
-            <MinistryUnitSection
+            <BudgetaryUnitSection
               key={docSource}
               ministryId={ministryId}
               units={units}

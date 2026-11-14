@@ -35,7 +35,7 @@ const PAGE_SIZE = 10;
 // The design opens on the biggest units first.
 const DEFAULT_SORT: OrganizationSort = { key: "amount", dir: "desc" };
 
-interface MinistryUnitSectionProps {
+interface BudgetaryUnitSectionProps {
   ministryId: number;
   units: OrganizationYearTotal[];
   countryBudget: number;
@@ -94,7 +94,7 @@ function exportCsv(
   downloadCsv(headers, rows, `ministry_${ministryId}_units_${year}.csv`);
 }
 
-export default function MinistryUnitSection({
+export default function BudgetaryUnitSection({
   ministryId,
   units: allUnits,
   countryBudget,
@@ -103,7 +103,7 @@ export default function MinistryUnitSection({
   dataValue,
   isLoading,
   isError,
-}: MinistryUnitSectionProps) {
+}: BudgetaryUnitSectionProps) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<OrganizationSort | null>(DEFAULT_SORT);
   const [page, setPage] = useState(1);
