@@ -33,15 +33,15 @@ export default function Modal({
       onMouseDown={onClose}
     >
       <div
-        className="relative w-full max-w-[540px] bg-white p-[16px]"
+        className="relative flex max-h-[min(90vh,400px)] w-[90vw] max-w-[450px] flex-col bg-white p-[16px]"
         onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="mb-[16px] flex items-start justify-between gap-[16px]">
+        <div className="mb-[16px] flex shrink-0 items-start justify-between gap-[16px]">
           <h2 className="text-[20px] font-bold">{title}</h2>
           <button
             type="button"
             onClick={onClose}
-            className="mt-[4px] shrink-0 hover:cursor-pointer"
+            className="mt-[4px] shrink-0 p-[4px] hover:cursor-pointer"
           >
             <Image
               src={withBasePath("/icons/cross.svg")}
@@ -51,7 +51,8 @@ export default function Modal({
             />
           </button>
         </div>
-        {children}
+        {/* The title stays put; a long body scrolls inside the card. */}
+        <div className="min-h-0 overflow-y-auto">{children}</div>
       </div>
     </div>
   );
