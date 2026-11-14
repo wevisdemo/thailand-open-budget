@@ -44,19 +44,11 @@ export default function OrganizationItemSection({
   const shown = words.length
     ? items.filter((item) => matchesAnyKeyword(item, words))
     : items;
-  const keywordText = `ที่มีคำว่า '${words.join(", ")}'`;
   // The listed items' total, and its share of all the organization's items.
   const shownAmount = shown.reduce((sum, item) => sum + item.amount, 0);
   const allAmount = items.reduce((sum, item) => sum + item.amount, 0);
   const share = allAmount > 0 ? (shownAmount / allAmount) * 100 : 0;
-  const amountText = `${Math.round(shownAmount / 1_000_000).toLocaleString()} ล้านบาท (${share.toFixed(2)} %)`;
-  const subtitle = isMinistry
-    ? words.length
-      ? `ที่เกี่ยวข้องกับหน่วยงาน และมีคำว่า '${words.join(", ")}'`
-      : "ที่เกี่ยวข้องกับหน่วยงาน"
-    : words.length
-      ? keywordText
-      : null;
+  const amountText = `${Math.round(shownAmount / 1_000_000).toLocaleString()} ล้านบาท ${share.toFixed(2)} %`;
 
   function setWords(nextWords: string[]) {
     const params = new URLSearchParams(window.location.search);
@@ -110,9 +102,10 @@ export default function OrganizationItemSection({
         <BudgetListSection
           key={`${docSource}|${words.join(",")}`}
           title={null}
-          subtitle={subtitle}
+          subtitle={null}
           countPrefix="ทั้งหมด"
           amountText={amountText}
+          stackedHeader
           defaultSort={DEFAULT_SORT}
           showOrganization={isMinistry}
           tags={tags}

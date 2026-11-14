@@ -118,6 +118,9 @@ export default function MinistryUnitSection({
   // Bars are scaled to the ministry's largest unit, filtered or not, so a
   // unit's bar keeps its length while the list is searched.
   const maxAmount = Math.max(...allUnits.map((u) => u.budget_amount), 1);
+  // The listed units' total, and its share of the country's budget.
+  const shownAmount = units.reduce((sum, u) => sum + u.budget_amount, 0);
+  const share = countryBudget > 0 ? (shownAmount / countryBudget) * 100 : 0;
   const startIndex = (page - 1) * PAGE_SIZE;
 
   function handleQueryChange(value: string) {
@@ -136,8 +139,10 @@ export default function MinistryUnitSection({
         title="กรมหรือหน่วยงานเทียบเท่า"
         subtitle={null}
         countText={`พบทั้งหมด ${units.length.toLocaleString()} หน่วยงาน`}
+        amountText={`${Math.round(shownAmount / 1_000_000).toLocaleString()} ล้านบาท ${share.toFixed(2)} %`}
         year={year}
         version={version}
+        stacked
         sortLabel={getSortLabel(sort?.dir ?? null)}
         onDownload={() => exportCsv(units, countryBudget, ministryId, year)}
         downloadDisabled={isLoading || units.length === 0}

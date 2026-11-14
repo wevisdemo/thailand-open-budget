@@ -53,7 +53,7 @@ export default function BudgetMinistryListSection(
     <div>
       <TableSectionHeader
         title="หน่วยงานที่ได้รับงบประมาณ"
-        subtitle={`ที่มีคำว่า '${props.keywords.join(", ")}'`}
+        subtitle={`ที่เกี่ยวข้องกับ '${props.keywords.join(", ")}'`}
         countText={`พบทั้งหมด ${props.data.length.toLocaleString()} หน่วยงาน`}
         year={props.year}
         version={props.version}

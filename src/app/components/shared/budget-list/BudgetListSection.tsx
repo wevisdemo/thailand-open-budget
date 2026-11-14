@@ -20,6 +20,8 @@ interface BudgetListSectionProps {
   countPrefix?: string;
   // An optional total after the count, e.g. "500,000 ล้านบาท (28.59 %)".
   amountText?: string;
+  // Puts the year, version and sort order on their own line in the header.
+  stackedHeader?: boolean;
   // The order the table opens in; by default the budget document's.
   defaultSort?: BudgetSort | null;
   // Unset, the table lists each item's หน่วยงาน.
@@ -97,6 +99,7 @@ export default function BudgetListSection(props: BudgetListSectionProps) {
         subtitle={props.subtitle}
         countText={`${props.countPrefix ?? "พบทั้งหมด"} ${props.data.length.toLocaleString()} รายการ`}
         amountText={props.amountText}
+        stacked={props.stackedHeader}
         year={props.year}
         version={props.version}
         sortLabel={getSortLabel(sort?.dir ?? null, {

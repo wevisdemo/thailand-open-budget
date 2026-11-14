@@ -30,7 +30,7 @@ export default function SearchBody({
   version,
 }: SearchBodyProps) {
   const keywords = tags.map((t) => t.word);
-  const keywordText = `ที่มีคำว่า '${keywords.join(", ")}'`;
+  const keywordText = `ที่เกี่ยวข้องกับ '${keywords.join(", ")}'`;
 
   const totalDisplayBudget = displayBudgetList.reduce(
     (sum, item) => sum + item.amount,
