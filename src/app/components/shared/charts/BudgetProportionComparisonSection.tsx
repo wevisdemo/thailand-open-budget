@@ -155,7 +155,7 @@ export default function BudgetProportionComparisonSection({
   const isEmpty = !isLoading && !isError && node.children.length === 0;
 
   return (
-    <div ref={measureRef} className="flex flex-col gap-[16px]">
+    <div ref={measureRef} className="flex flex-col gap-[8px]">
       <InfoModal isOpen={infoOpen} onClose={() => setInfoOpen(false)} />
       <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-[8px]">
@@ -190,7 +190,7 @@ export default function BudgetProportionComparisonSection({
           className="self-start md:self-auto"
         />
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-[8px]">
+      <div className="mt-[-4px] flex items-center justify-between gap-[8px]">
         {/* The table always shows the top level, so only the treemap has a
             breadcrumb. */}
         {view === "treemap" && hasLevels && (
@@ -213,36 +213,38 @@ export default function BudgetProportionComparisonSection({
           </IconSwitch>
         </ContentSwitcher>
       </div>
-      {isLoading ? (
-        <SkeletonPlaceholder className="w-full" style={{ height }} />
-      ) : isError ? (
-        <p className="text-support-01 bg-white px-[16px] py-[24px]">
-          โหลดข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
-        </p>
-      ) : isEmpty ? (
-        <p className="text-text-02 bg-white px-[16px] py-[24px]">
-          ไม่มีรายการงบประมาณในปีนี้
-        </p>
-      ) : view === "treemap" ? (
-        // Keyed by level so a tooltip doesn't outlive the tile under it.
-        <TreemapChart
-          key={getTreemapPathKey(node.path)}
-          color={getTreemapColor(tree, node) ?? undefined}
-          node={node}
-          width={width}
-          height={height}
-          getPreviousAmount={getPreviousAmount}
-          onDrill={handleDrill}
-        />
-      ) : (
-        // Keyed by grouping, so another grouping opens with its rows closed.
-        <TreemapTable
-          key={grouping.value}
-          tree={tree}
-          countryBudget={countryBudget}
-          getPreviousAmount={getPreviousAmount}
-        />
-      )}
+      <div className="mt-[8px]">
+        {isLoading ? (
+          <SkeletonPlaceholder className="w-full" style={{ height }} />
+        ) : isError ? (
+          <p className="text-support-01 bg-white px-[16px] py-[24px]">
+            โหลดข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
+          </p>
+        ) : isEmpty ? (
+          <p className="text-text-02 bg-white px-[16px] py-[24px]">
+            ไม่มีรายการงบประมาณในปีนี้
+          </p>
+        ) : view === "treemap" ? (
+          // Keyed by level so a tooltip doesn't outlive the tile under it.
+          <TreemapChart
+            key={getTreemapPathKey(node.path)}
+            color={getTreemapColor(tree, node) ?? undefined}
+            node={node}
+            width={width}
+            height={height}
+            getPreviousAmount={getPreviousAmount}
+            onDrill={handleDrill}
+          />
+        ) : (
+          // Keyed by grouping, so another grouping opens with its rows closed.
+          <TreemapTable
+            key={grouping.value}
+            tree={tree}
+            countryBudget={countryBudget}
+            getPreviousAmount={getPreviousAmount}
+          />
+        )}
+      </div>
     </div>
   );
 }
