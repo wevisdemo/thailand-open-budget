@@ -101,7 +101,7 @@ export default function TreemapTable({
         className={`${ROW_STYLES[Math.min(depth, ROW_STYLES.length - 1)]} ${hasChildren ? "cursor-pointer" : ""}`}
       >
         <TableCell style={{ paddingLeft: 16 + depth * INDENT }}>
-          <div className="flex items-start gap-[32px]">
+          <div className="flex items-start gap-[16px]">
             {hasChildren ? (
               <button
                 type="button"
@@ -143,7 +143,7 @@ export default function TreemapTable({
         </TableCell>
         {/* The badge is taller than a line of text: less padding keeps the
             row at the text's height. */}
-        <TableCell className="py-[10px]! text-right">
+        <TableCell className="py-[14px]! text-right">
           <ChangeBadge
             amount={group.amount}
             previousAmount={getPreviousAmount(group)}
@@ -162,10 +162,12 @@ export default function TreemapTable({
   }
 
   return (
-    <div className="overflow-x-auto">
+    // `relative` keeps the badges' absolutely positioned sr-only text inside
+    // the scroller; without it that text widens the whole page on mobile.
+    <div className="relative mx-[-24px] md:mx-0 [&_.cds--data-table-content]:px-[24px] md:[&_.cds--data-table-content]:px-0">
       {/* The design shows the ↑↓ icon on unsorted columns too, as in the
           units table, with each cell aligned to its row's first line. */}
-      <Table className="[&_td]:text-text-01 [&_.cds--table-sort\_\_icon-unsorted]:opacity-100 [&_td]:py-[12px] [&_td]:align-top [&_td]:leading-[22px]">
+      <Table className="[&_td]:text-text-01 w-full min-w-[1032px] [&_.cds--table-sort\_\_icon-unsorted]:opacity-100 [&_td]:py-[16px] [&_td]:align-top [&_td]:leading-[22px]">
         <TableHead>
           <TableRow>
             <TableHeader>ประเภท</TableHeader>

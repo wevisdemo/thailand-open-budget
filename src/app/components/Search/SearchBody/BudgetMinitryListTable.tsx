@@ -33,7 +33,7 @@ export default function BudgetMinistryListTable({
   return (
     <div className="w-full">
       <div className="mx-[-24px] overflow-x-auto px-[24px] md:mx-0 md:px-[0px]">
-        <table className="w-full min-w-[800px] table-fixed border-collapse text-[14px]">
+        <table className="w-full min-w-[1032px] table-fixed border-collapse text-[14px]">
           <thead>
             <tr className="border-ui-03 bg-ui-03 border-b-[2px]">
               <th className="w-[6%] px-[16px] py-[8px]" />

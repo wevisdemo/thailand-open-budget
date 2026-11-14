@@ -171,7 +171,7 @@ const DetailSection = () => {
         <div className="flex w-full flex-col">
           {/* Desktop table */}
           <div className="hidden w-full overflow-x-auto md:block">
-            <table className="w-full min-w-[760px] border-collapse text-left">
+            <table className="w-full min-w-[1032px] border-collapse text-left">
               <colgroup>
                 <col className="w-[146px]" />
                 <col />
