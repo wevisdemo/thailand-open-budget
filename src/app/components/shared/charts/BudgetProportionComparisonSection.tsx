@@ -26,7 +26,7 @@ import CategoryInfoModal from "../modals/CategoryInfoModal";
 import ObligationInfoModal from "../modals/ObligationInfoModal";
 import PlanInfoModal from "../modals/PlanInfoModal";
 import TreemapBreadcrumb from "./TreemapBreadcrumb";
-import TreemapChart from "./TreemapChart";
+import TreemapChart, { type TileBox } from "./TreemapChart";
 import TreemapTable from "./TreemapTable";
 
 type TreemapView = "treemap" | "table";
@@ -74,6 +74,8 @@ export default function BudgetProportionComparisonSection({
     TREEMAP_GROUPINGS[0],
   );
   const [path, setPath] = useState<string[]>([]);
+  // The tile last clicked, which the next level's first tile grows out of.
+  const [from, setFrom] = useState<TileBox | null>(null);
   const [view, setView] = useState<TreemapView>("treemap");
   const [infoOpen, setInfoOpen] = useState(false);
   const [width, setWidth] = useState(0);
@@ -112,10 +114,12 @@ export default function BudgetProportionComparisonSection({
   function handleGroupingChange(option: TreemapGroupingOption) {
     setGrouping(option);
     setPath([]);
+    setFrom(null);
   }
 
-  function handleDrill(child: TreemapNode) {
+  function handleDrill(child: TreemapNode, box: TileBox) {
     if (child.children.length === 0) return;
+    setFrom(box);
     setPath(child.path);
   }
 
@@ -197,7 +201,10 @@ export default function BudgetProportionComparisonSection({
           <TreemapBreadcrumb
             tree={tree}
             node={node}
-            onSelect={(step) => setPath(step.path)}
+            onSelect={(step) => {
+              setFrom(null);
+              setPath(step.path);
+            }}
           />
         )}
         <ContentSwitcher
@@ -233,6 +240,7 @@ export default function BudgetProportionComparisonSection({
             width={width}
             height={height}
             getPreviousAmount={getPreviousAmount}
+            from={from}
             onDrill={handleDrill}
           />
         ) : (

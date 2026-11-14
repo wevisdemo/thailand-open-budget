@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { hierarchy, treemap } from "d3-hierarchy";
 import { Popover, PopoverContent } from "@carbon/react";
 import type { TreemapNode } from "@/types/treemap";
@@ -15,12 +15,15 @@ const PERCENT_MIN_HEIGHT = 48;
 // The smallest share of the level a tile is drawn at, however small its group.
 const MIN_TILE_SHARE = 0.01;
 
-interface Tile {
-  node: TreemapNode;
+export interface TileBox {
   x: number;
   y: number;
   width: number;
   height: number;
+}
+
+interface Tile extends TileBox {
+  node: TreemapNode;
   color: string;
 }
 
@@ -41,7 +44,20 @@ interface TreemapChartProps {
   width: number;
   height: number;
   getPreviousAmount: (child: TreemapNode) => number | null;
-  onDrill: (child: TreemapNode) => void;
+  // The clicked tile's box, in pixels from the treemap's top left.
+  onDrill: (child: TreemapNode, from: TileBox) => void;
+  // The tile this level was opened from: the first tile grows out of it.
+  from?: TileBox | null;
+}
+
+// How a tile moves in. The first tile of a level opened by a click grows out
+// of the clicked tile; the rest fade and scale in, one after another.
+function getTileMotion(grows: boolean, entered: boolean) {
+  if (grows) {
+    return "motion-safe:transition-[left,top,width,height] motion-safe:duration-500 motion-safe:ease-out";
+  }
+  const state = entered ? "scale-100 opacity-100" : "scale-95 opacity-0";
+  return `motion-safe:transition-[opacity,transform] motion-safe:duration-300 motion-safe:ease-out ${state}`;
 }
 
 // Carbon's tooltip sits centred over the pointer, turning to the side near
@@ -62,8 +78,16 @@ export default function TreemapChart({
   height,
   getPreviousAmount,
   onDrill,
+  from,
 }: TreemapChartProps) {
   const [hover, setHover] = useState<Hover | null>(null);
+  // The chart remounts on every level, so once the first frame is painted its
+  // tiles ease in, and the first slides and resizes from the clicked tile.
+  const [entered, setEntered] = useState(false);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   const tiles = useMemo<Tile[]>(() => {
     if (width === 0) return [];
@@ -96,24 +120,27 @@ export default function TreemapChart({
       style={{ height }}
       onMouseLeave={() => setHover(null)}
     >
-      {tiles.map((tile) => {
+      {tiles.map((tile, i) => {
         const showLabel =
           tile.width >= LABEL_MIN_WIDTH && tile.height >= LABEL_MIN_HEIGHT;
         const drillable = tile.node.children.length > 0;
+        const grows = i === 0 && !!from;
+        // Until entered, the growing tile sits where it was clicked.
+        const { x, y, width: w, height: h } = grows && !entered ? from : tile;
         const Tag = drillable ? "button" : "div";
         return (
           <Tag
             key={tile.node.name}
             type={drillable ? "button" : undefined}
             aria-label={`${tile.node.name} ${formatTreemapPercent(tile.node.amount, node.amount)}`}
-            onClick={drillable ? () => onDrill(tile.node) : undefined}
+            onClick={drillable ? () => onDrill(tile.node, tile) : undefined}
             onMouseMove={(event) => {
-              const box =
+              const chart =
                 event.currentTarget.parentElement!.getBoundingClientRect();
               setHover({
                 node: tile.node,
-                x: event.clientX - box.left,
-                y: event.clientY - box.top,
+                x: event.clientX - chart.left,
+                y: event.clientY - chart.top,
               });
             }}
             onFocus={() =>
@@ -124,12 +151,13 @@ export default function TreemapChart({
               })
             }
             onBlur={() => setHover(null)}
-            className={`absolute flex flex-col items-center justify-center overflow-hidden rounded-[2px] text-center ${showLabel ? "px-[8px]" : ""} ${tile.color} ${drillable ? "cursor-pointer" : ""}`}
+            className={`absolute flex flex-col items-center justify-center overflow-hidden rounded-[2px] text-center ${getTileMotion(grows, entered)} ${showLabel ? "px-[8px]" : ""} ${tile.color} ${drillable ? "cursor-pointer" : ""}`}
             style={{
-              left: tile.x,
-              top: tile.y,
-              width: tile.width,
-              height: tile.height,
+              left: x,
+              top: y,
+              width: w,
+              height: h,
+              transitionDelay: grows ? undefined : `${Math.min(i, 8) * 30}ms`,
             }}
           >
             {showLabel && (
