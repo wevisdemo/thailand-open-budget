@@ -12,6 +12,8 @@ import ChangeBadge from "../ui/ChangeBadge";
 const LABEL_MIN_WIDTH = 64;
 const LABEL_MIN_HEIGHT = 24;
 const PERCENT_MIN_HEIGHT = 48;
+// The smallest share of the level a tile is drawn at, however small its group.
+const MIN_TILE_SHARE = 0.01;
 
 interface Tile {
   node: TreemapNode;
@@ -65,11 +67,16 @@ export default function TreemapChart({
 
   const tiles = useMemo<Tile[]>(() => {
     if (width === 0) return [];
+    // A group below the minimum share is drawn at it, so it stays a visible,
+    // hoverable tile. Labels and tooltips still show its real amount.
+    const minAmount =
+      node.children.reduce((sum, child) => sum + child.amount, 0) *
+      MIN_TILE_SHARE;
     // Only the shown level's groups are tiles; their own groups wait for a
     // click.
     const root = hierarchy<TreemapNode>(node, (d) =>
       d === node ? d.children : undefined,
-    ).sum((d) => (d === node ? 0 : d.amount));
+    ).sum((d) => (d === node ? 0 : Math.max(d.amount, minAmount)));
     return (
       treemap<TreemapNode>().size([width, height]).paddingInner(4)(root)
         .children ?? []
@@ -117,7 +124,7 @@ export default function TreemapChart({
               })
             }
             onBlur={() => setHover(null)}
-            className={`absolute flex flex-col items-center justify-center overflow-hidden rounded-[2px] px-[8px] text-center ${tile.color} ${drillable ? "cursor-pointer" : ""}`}
+            className={`absolute flex flex-col items-center justify-center overflow-hidden rounded-[2px] text-center ${showLabel ? "px-[8px]" : ""} ${tile.color} ${drillable ? "cursor-pointer" : ""}`}
             style={{
               left: tile.x,
               top: tile.y,
