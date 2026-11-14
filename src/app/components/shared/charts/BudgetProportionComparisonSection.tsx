@@ -190,7 +190,7 @@ export default function BudgetProportionComparisonSection({
           className="self-start md:self-auto"
         />
       </div>
-      <div className="mt-[-4px] flex items-center justify-between gap-[8px]">
+      <div className="flex items-center justify-between gap-[8px]">
         {/* The table always shows the top level, so only the treemap has a
             breadcrumb. */}
         {view === "treemap" && hasLevels && (

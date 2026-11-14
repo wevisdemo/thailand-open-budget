@@ -29,7 +29,7 @@ export default function TreemapBreadcrumb({
 
   return (
     <nav aria-label="ระดับที่แสดง">
-      <ol className="flex flex-wrap items-center gap-x-[8px] text-[14px]">
+      <ol className="flex flex-wrap items-center gap-x-[8px] text-[14px] leading-[1.5]">
         {steps.map((step, i) => (
           <li key={step.path.length} className="flex items-center gap-[8px]">
             {i > 0 && <span aria-hidden>/</span>}
