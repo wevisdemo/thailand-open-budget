@@ -34,6 +34,18 @@ export const TREEMAP_COLORS = [
   "bg-purple-20 hover:bg-[#dcc7ff]",
 ];
 
+// The fill of every group inside a top-level group: that group's own, so a
+// level reached by a click keeps the color it was clicked from. Null at the
+// top level, where each group has its own.
+export function getTreemapColor(
+  tree: TreemapNode,
+  node: TreemapNode,
+): string | null {
+  if (node.path.length === 0) return null;
+  const index = tree.children.findIndex((child) => child.name === node.path[0]);
+  return index < 0 ? null : TREEMAP_COLORS[index % TREEMAP_COLORS.length];
+}
+
 // The groups an item falls in, from the top level down. A plan is named
 // under its type without the type, which the level above already shows:
 // แผนงานพื้นฐานด้านความมั่นคง is ด้านความมั่นคง under แผนงานพื้นฐาน. A plan

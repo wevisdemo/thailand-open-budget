@@ -31,6 +31,9 @@ interface Hover {
 }
 
 interface TreemapChartProps {
+  // Fill for every tile, when the level's groups all share one: the color of
+  // the top-level group they sit in. Without it, tiles get one each by rank.
+  color?: string;
   // The level shown: its groups are the tiles.
   node: TreemapNode;
   width: number;
@@ -51,6 +54,7 @@ function getTooltipAlign(hover: Hover, width: number) {
 // One level of groups as tiles sized by amount, each with its name and share
 // of the level. A tile with groups inside it is a button that shows them.
 export default function TreemapChart({
+  color,
   node,
   width,
   height,
@@ -75,9 +79,9 @@ export default function TreemapChart({
       y: leaf.y0,
       width: leaf.x1 - leaf.x0,
       height: leaf.y1 - leaf.y0,
-      color: TREEMAP_COLORS[i % TREEMAP_COLORS.length],
+      color: color ?? TREEMAP_COLORS[i % TREEMAP_COLORS.length],
     }));
-  }, [node, width, height]);
+  }, [color, node, width, height]);
 
   return (
     <div

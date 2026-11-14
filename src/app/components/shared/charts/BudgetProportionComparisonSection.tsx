@@ -14,6 +14,7 @@ import {
   TREEMAP_GROUPINGS,
   buildTreemapTree,
   getTreemapAmounts,
+  getTreemapColor,
   getTreemapDepth,
   getTreemapNode,
   getTreemapPathKey,
@@ -226,6 +227,7 @@ export default function BudgetProportionComparisonSection({
         // Keyed by level so a tooltip doesn't outlive the tile under it.
         <TreemapChart
           key={getTreemapPathKey(node.path)}
+          color={getTreemapColor(tree, node) ?? undefined}
           node={node}
           width={width}
           height={height}
