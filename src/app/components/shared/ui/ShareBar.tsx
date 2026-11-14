@@ -14,7 +14,7 @@ export default function ShareBar({ percent, fill }: ShareBarProps) {
           style={{ width: `${Math.min(fill, 100)}%` }}
         />
       </div>
-      <span className="w-[48px]">{percent.toFixed(1)}%</span>
+      <span className="w-[48px]">{percent.toFixed(3)}%</span>
     </div>
   );
 }

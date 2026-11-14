@@ -129,8 +129,8 @@ export default function BudgetProportionComparisonSection({
           String(group.path.length),
           group.path.join(" / "),
           group.amount.toLocaleString("en-US"),
-          `${countryBudget > 0 ? ((group.amount / countryBudget) * 100).toFixed(2) : "0.00"}%`,
-          change === null ? "" : `${change.toFixed(2)}%`,
+          `${countryBudget > 0 ? ((group.amount / countryBudget) * 100).toFixed(3) : "0.000"}%`,
+          change === null ? "" : `${change.toFixed(3)}%`,
         ],
         ...group.children.flatMap(toRows),
       ];
