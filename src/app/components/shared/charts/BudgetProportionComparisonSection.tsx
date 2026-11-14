@@ -241,6 +241,7 @@ export default function BudgetProportionComparisonSection({
             height={height}
             getPreviousAmount={getPreviousAmount}
             from={from}
+            onSettled={() => setFrom(null)}
             onDrill={handleDrill}
           />
         ) : (

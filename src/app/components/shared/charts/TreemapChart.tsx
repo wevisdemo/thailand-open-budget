@@ -48,6 +48,9 @@ interface TreemapChartProps {
   onDrill: (child: TreemapNode, from: TileBox) => void;
   // The tile this level was opened from: the first tile grows out of it.
   from?: TileBox | null;
+  // Called once the chart has taken `from`, so the owner can clear it and a
+  // later remount doesn't grow from a stale tile.
+  onSettled?: () => void;
 }
 
 // How a tile moves in. The first tile of a level opened by a click grows out
@@ -69,6 +72,44 @@ function getTooltipAlign(hover: Hover, width: number) {
   return vertical;
 }
 
+interface TreemapTooltipProps {
+  hover: Hover;
+  levelAmount: number;
+  width: number;
+  previousAmount: number | null;
+}
+
+function TreemapTooltip({
+  hover,
+  levelAmount,
+  width,
+  previousAmount,
+}: TreemapTooltipProps) {
+  const { node, x, y } = hover;
+  return (
+    <div className="pointer-events-none absolute" style={{ left: x, top: y }}>
+      <Popover open highContrast align={getTooltipAlign(hover, width)}>
+        <span className="block h-0 w-0" />
+        <PopoverContent className="pointer-events-none">
+          <div className="flex w-max max-w-[280px] flex-col gap-[2px] px-[16px] py-[12px] text-[14px] leading-[20px]">
+            <span className="font-bold">{node.name}</span>
+            <span>{node.amount.toLocaleString("en-US")}</span>
+            <span>
+              {formatTreemapPercent(node.amount, levelAmount)} ของระดับนี้
+            </span>
+            <span className="mt-[4px]">
+              <ChangeBadge
+                amount={node.amount}
+                previousAmount={previousAmount}
+              />
+            </span>
+          </div>
+        </PopoverContent>
+      </Popover>
+    </div>
+  );
+}
+
 // One level of groups as tiles sized by amount, each with its name and share
 // of the level. A tile with groups inside it is a button that shows them.
 export default function TreemapChart({
@@ -79,14 +120,24 @@ export default function TreemapChart({
   getPreviousAmount,
   onDrill,
   from,
+  onSettled,
 }: TreemapChartProps) {
   const [hover, setHover] = useState<Hover | null>(null);
-  // The chart remounts on every level, so once the first frame is painted its
-  // tiles ease in, and the first slides and resizes from the clicked tile.
+  // Keeps the origin it mounted with, whatever `from` becomes after.
+  const [origin] = useState(from);
   const [entered, setEntered] = useState(false);
   useEffect(() => {
-    const frame = requestAnimationFrame(() => setEntered(true));
-    return () => cancelAnimationFrame(frame);
+    onSettled?.();
+    // Two frames, so the starting position is painted before it changes.
+    let second = 0;
+    const first = requestAnimationFrame(() => {
+      second = requestAnimationFrame(() => setEntered(true));
+    });
+    return () => {
+      cancelAnimationFrame(first);
+      cancelAnimationFrame(second);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const tiles = useMemo<Tile[]>(() => {
@@ -124,15 +175,16 @@ export default function TreemapChart({
         const showLabel =
           tile.width >= LABEL_MIN_WIDTH && tile.height >= LABEL_MIN_HEIGHT;
         const drillable = tile.node.children.length > 0;
-        const grows = i === 0 && !!from;
+        const grows = i === 0 && !!origin;
         // Until entered, the growing tile sits where it was clicked.
-        const { x, y, width: w, height: h } = grows && !entered ? from : tile;
+        const { x, y, width: w, height: h } = grows && !entered ? origin : tile;
+        const percent = formatTreemapPercent(tile.node.amount, node.amount);
         const Tag = drillable ? "button" : "div";
         return (
           <Tag
             key={tile.node.name}
             type={drillable ? "button" : undefined}
-            aria-label={`${tile.node.name} ${formatTreemapPercent(tile.node.amount, node.amount)}`}
+            aria-label={`${tile.node.name} ${percent}`}
             onClick={drillable ? () => onDrill(tile.node, tile) : undefined}
             onMouseMove={(event) => {
               const chart =
@@ -168,9 +220,7 @@ export default function TreemapChart({
                   {tile.node.name}
                 </span>
                 {tile.height >= PERCENT_MIN_HEIGHT && (
-                  <span className="text-text-01 text-[14px]">
-                    {formatTreemapPercent(tile.node.amount, node.amount)}
-                  </span>
+                  <span className="text-text-01 text-[14px]">{percent}</span>
                 )}
               </>
             )}
@@ -178,30 +228,12 @@ export default function TreemapChart({
         );
       })}
       {hover && (
-        <div
-          className="pointer-events-none absolute"
-          style={{ left: hover.x, top: hover.y }}
-        >
-          <Popover open highContrast align={getTooltipAlign(hover, width)}>
-            <span className="block h-0 w-0" />
-            <PopoverContent className="pointer-events-none">
-              <div className="flex w-max max-w-[280px] flex-col gap-[2px] px-[16px] py-[12px] text-[14px] leading-[20px]">
-                <span className="font-bold">{hover.node.name}</span>
-                <span>{hover.node.amount.toLocaleString("en-US")}</span>
-                <span>
-                  {formatTreemapPercent(hover.node.amount, node.amount)}{" "}
-                  ของระดับนี้
-                </span>
-                <span className="mt-[4px]">
-                  <ChangeBadge
-                    amount={hover.node.amount}
-                    previousAmount={getPreviousAmount(hover.node)}
-                  />
-                </span>
-              </div>
-            </PopoverContent>
-          </Popover>
-        </div>
+        <TreemapTooltip
+          hover={hover}
+          levelAmount={node.amount}
+          width={width}
+          previousAmount={getPreviousAmount(hover.node)}
+        />
       )}
     </div>
   );
