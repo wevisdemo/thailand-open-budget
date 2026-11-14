@@ -118,7 +118,16 @@ export default function TreemapTable({
             ) : (
               <span className="w-[16px] shrink-0" />
             )}
-            <p>{group.name}</p>
+            <div>
+              <p>{group.name}</p>
+              {/* Only the top level counts its groups; deeper rows open to
+                  the same kind of rows, with no need for the hint. */}
+              {depth === 0 && hasChildren && (
+                <p className="text-text-03!">
+                  มี {group.children.length} หมวดย่อย
+                </p>
+              )}
+            </div>
           </div>
         </TableCell>
         <TableCell className="text-right whitespace-nowrap">
