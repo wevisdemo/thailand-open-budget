@@ -212,7 +212,7 @@ export default function MinistryUnitSection({
               <TableBody>
                 {units.slice(startIndex, startIndex + PAGE_SIZE).map((unit) => (
                   <TableRow key={unit.budgetary_id}>
-                    <TableCell>
+                    <TableCell className="py-[16px]">
                       <Link
                         href={`/organizations/${unit.ministry_id}/${unit.budgetary_id}?budget_source=${dataValue}`}
                         className="text-text-01 hover:text-blue-70 underline"
