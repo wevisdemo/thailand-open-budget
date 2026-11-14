@@ -1,10 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { Button } from "@carbon/react";
-import { Download } from "@carbon/icons-react";
+import DownloadButton from "../ui/DownloadButton";
 
 export default function AboutData({ page }: { page?: string }) {
-  const router = useRouter();
   return (
     <div
       className={`m-auto flex ${page === "homepage" ? "max-w-[1280px]" : "max-w-[1032px]"} flex-col gap-[16px] text-white`}
@@ -14,17 +11,7 @@ export default function AboutData({ page }: { page?: string }) {
           <h1 className="text-h6 font-serif text-[28px] font-bold">
             เกี่ยวกับข้อมูล
           </h1>
-          <Button
-            kind="ghost"
-            size="md"
-            renderIcon={Download}
-            onClick={() => {
-              router.push("/download");
-            }}
-            className="text-blue-60 hover:text-blue-80 gap-[4px] bg-white !pr-[16px] text-[14px] font-medium hover:bg-[#E5E5E5] [&>svg]:!static"
-          >
-            ดาวน์โหลดข้อมูล
-          </Button>
+          <DownloadButton text="ดาวน์โหลดข้อมูล" href="/download" />
         </div>
 
         <h2 className="text-b4 font-serif text-[20px] font-bold">

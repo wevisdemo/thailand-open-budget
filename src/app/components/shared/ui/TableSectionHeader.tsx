@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@carbon/react";
-import { Download } from "@carbon/icons-react";
+import DownloadButton from "./DownloadButton";
 
 interface TableSectionHeaderProps {
   // Null when the section's heading sits above other content, e.g. a search.
@@ -47,16 +46,12 @@ export default function TableSectionHeader({
           <span className="text-gray-60">{sortLabel}</span>
         </p>
       </div>
-      <Button
-        kind="ghost"
-        size="sm"
-        renderIcon={Download}
+      <DownloadButton
+        text="ดาวน์โหลดตารางนี้"
         onClick={onDownload}
         disabled={downloadDisabled}
-        className="text-gray-70 border-gray-20 mt-auto shrink-0 bg-white text-[12px] font-medium"
-      >
-        ดาวน์โหลดตารางนี้
-      </Button>
+        className="mt-auto"
+      />
     </div>
   );
 }

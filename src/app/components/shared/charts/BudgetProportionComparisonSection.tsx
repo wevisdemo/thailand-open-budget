@@ -2,17 +2,12 @@
 
 import { useCallback, useMemo, useState } from "react";
 import {
-  Button,
   ContentSwitcher,
   Dropdown,
   IconSwitch,
   SkeletonPlaceholder,
 } from "@carbon/react";
-import {
-  ChartTreemap,
-  Download,
-  Table as TableIcon,
-} from "@carbon/icons-react";
+import { ChartTreemap, Table as TableIcon } from "@carbon/icons-react";
 import type { BudgetItem } from "@/types/budget";
 import type { TreemapGroupingOption, TreemapNode } from "@/types/treemap";
 import {
@@ -25,6 +20,7 @@ import {
 } from "@/constants/treemap";
 import { getChangePercent } from "@/constants/organization";
 import { downloadCsv } from "@/lib/csv";
+import DownloadButton from "../ui/DownloadButton";
 import CategoryInfoModal from "../modals/CategoryInfoModal";
 import ObligationInfoModal from "../modals/ObligationInfoModal";
 import PlanInfoModal from "../modals/PlanInfoModal";
@@ -186,16 +182,12 @@ export default function BudgetProportionComparisonSection({
             {grouping.label}คืออะไร?
           </button>
         </div>
-        <Button
-          kind="ghost"
-          size="sm"
-          renderIcon={Download}
+        <DownloadButton
+          text="ดาวน์โหลดตารางนี้"
           onClick={handleDownload}
           disabled={isLoading || isError || isEmpty}
-          className="text-gray-70 border-gray-20 shrink-0 self-start bg-white text-[12px] font-medium md:self-auto"
-        >
-          ดาวน์โหลดตารางนี้
-        </Button>
+          className="self-start md:self-auto"
+        />
       </div>
       <div className="flex flex-wrap items-center justify-between gap-[8px]">
         {/* The table always shows the top level, so only the treemap has a

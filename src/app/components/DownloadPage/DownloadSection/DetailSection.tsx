@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import type { BudgetDocument } from "@/types/budget";
+import DownloadButton from "@/app/components/shared/ui/DownloadButton";
 import rawDocuments from "@/app/data/budget_index.json";
 
 const documents = (rawDocuments as BudgetDocument[]) || [];
@@ -35,17 +36,6 @@ function formatThaiDate(value: string | null): string {
   if (!monthName) return value;
   return `${day} ${monthName} ${thaiYear}`;
 }
-
-const DownloadIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 32 32"
-    fill="currentColor"
-    aria-hidden
-    className={className}
-  >
-    <path d="M26 24v4H6V24H4v4a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2v-4zM24 14l-1.41-1.41L17 18.17V2h-2v16.17l-5.58-5.59L8 14l8 8z" />
-  </svg>
-);
 
 const ArrowUpRightIcon = ({ className }: { className?: string }) => (
   <svg
@@ -234,15 +224,11 @@ const DetailSection = () => {
                     <td className="px-[16px] py-[16px] align-top">
                       <div className="flex flex-col items-center gap-[10px]">
                         {doc.csv_url ? (
-                          <a
+                          <DownloadButton
+                            text="ดาวน์โหลดข้อมูล"
                             href={doc.csv_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="border-gray-20 text-gray-70 hover:bg-gray-10 flex items-center gap-[6px] border bg-white px-[15px] py-[9px] text-[14px] leading-[18px] whitespace-nowrap"
-                          >
-                            ดาวน์โหลดข้อมูล
-                            <DownloadIcon className="size-[13px]" />
-                          </a>
+                            newTab
+                          />
                         ) : (
                           <span className="text-text-03 text-[14px] leading-[18px]">
                             -
@@ -318,15 +304,11 @@ const DetailSection = () => {
                   <div className="px-[16px] py-[16px]">
                     <div className="flex flex-col items-start gap-[10px]">
                       {doc.csv_url ? (
-                        <a
+                        <DownloadButton
+                          text="ดาวน์โหลดข้อมูล"
                           href={doc.csv_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="border-gray-20 text-gray-70 hover:bg-gray-10 flex items-center gap-[6px] border bg-white px-[15px] py-[9px] text-[14px] leading-[18px] whitespace-nowrap"
-                        >
-                          ดาวน์โหลดข้อมูล
-                          <DownloadIcon className="size-[13px]" />
-                        </a>
+                          newTab
+                        />
                       ) : (
                         <span className="text-text-03 text-[14px] leading-[18px]">
                           -

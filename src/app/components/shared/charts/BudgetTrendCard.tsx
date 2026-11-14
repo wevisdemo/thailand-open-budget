@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Button, ContentSwitcher, Switch } from "@carbon/react";
-import { Download } from "@carbon/icons-react";
+import { ContentSwitcher, Switch } from "@carbon/react";
+import DownloadButton from "../ui/DownloadButton";
 import LineChart from "./LineChart";
 import type { BudgetYearTotal } from "@/types/budget";
 import { downloadCsv } from "@/lib/csv";
@@ -85,15 +85,10 @@ export default function BudgetTrendCard({
                 ปีงบฯ {firstYear}–{lastYear} · {version}
               </p>
             </div>
-            <Button
-              kind="ghost"
-              size="sm"
-              renderIcon={Download}
+            <DownloadButton
+              text="ดาวน์โหลดข้อมูลส่วนนี้"
               onClick={handleDownload}
-              className="text-gray-70 border-gray-20 shrink-0 bg-white text-[12px] font-medium"
-            >
-              ดาวน์โหลดข้อมูลส่วนนี้
-            </Button>
+            />
           </div>
         </div>
         <hr className="border-ui-03 w-full border-t-[1px]" />
@@ -105,7 +100,7 @@ export default function BudgetTrendCard({
             selectedIndex={UNITS.findIndex((u) => u.value === unit)}
             onChange={({ index }) => setUnit(UNITS[index ?? 0].value)}
             size="sm"
-            className="w-fit [--cds-layer-selected-inverse:var(--color-interactive-01)] [&_.cds--content-switcher-btn]:w-auto [&_.cds--content-switcher-btn]:shrink-0 [&_.cds--content-switcher-btn]:px-[24px]"
+            className="w-fit bg-white [--cds-border-inverse:var(--color-interactive-01)] [--cds-layer-selected-inverse:var(--color-interactive-01)] [--cds-text-secondary:var(--color-text-primary)] [&_.cds--content-switcher--selected:hover]:[--cds-layer-selected-inverse:var(--color-blue-70)] [&_.cds--content-switcher-btn]:w-auto [&_.cds--content-switcher-btn]:shrink-0 [&_.cds--content-switcher-btn]:px-[24px] [&_.cds--content-switcher-btn::after]:rounded-none"
           >
             {UNITS.map(({ value, label }) => (
               <Switch key={value} name={value} text={label} />
