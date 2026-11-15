@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Imports all budget sheets and saves them to public/data/, then rebuilds the
- * organization registry and per-year organization files from them, and
- * finally fetches each organization's core content keyed by that registry.
+ * Imports all budget sheets and saves them to public/data/, then gives their
+ * organizations ids in the registry and stamps them onto the rows, and finally
+ * fetches each organization's core content keyed by that registry.
  * Runs each sheet sequentially to avoid hammering the Google Sheets export API.
  *
  * Usage:

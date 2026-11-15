@@ -52,8 +52,8 @@ export interface OrganizationEntry {
   budgetary_name: string;
 }
 
-// One budgetary unit's totals for a single fiscal year, from
-// public/data/organization_<sheet>.json.
+// One budgetary unit's totals for a single fiscal year, summed from the budget
+// items at build time (src/lib/budget-source.ts).
 export interface OrganizationYearTotal {
   budgetary_id: number;
   budgetary_name: string;
@@ -145,4 +145,28 @@ export interface BudgetaryPageData {
   coreContent: OrganizationCoreContent | null;
   // Keyed by doc source value.
   years: Record<string, BudgetaryYearData>;
+}
+
+// One unit's totals in a document, as the organizations page carries them:
+// [budgetary_id, budgetary_name, ministry_id, budget_amount,
+//  previous_year_amount]. The ministry's name is in
+// OrganizationListData.ministryNames, and previous_year_percent is worked out
+// from the previous document's country budget.
+export type PackedOrganizationTotal = [
+  number,
+  string,
+  number,
+  number,
+  number | null,
+];
+
+// Every unit's totals in every document, built into the organizations page.
+// See src/lib/packed-organization-totals.ts.
+export interface OrganizationListData {
+  ministryNames: Record<string, string>;
+  // Keyed by doc source value.
+  years: Record<
+    string,
+    { units: PackedOrganizationTotal[]; countryBudget: number }
+  >;
 }

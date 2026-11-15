@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { getOrganizationListData } from "@/lib/organization-pages";
 import OrganizationsTemplate from "@/app/components/Organizations/OrganizationsTemplate";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 export default function OrganizationsPage() {
   return (
     <Suspense>
-      <OrganizationsTemplate />
+      <OrganizationsTemplate listData={getOrganizationListData()} />
     </Suspense>
   );
 }

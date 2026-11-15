@@ -77,6 +77,15 @@ export function getPreviousDocSource(
   return getDocSourceForYear(parseInt(docSource) - 1, docSource);
 }
 
+// The document of the year before `docSource`, in exactly its stage: approved
+// 2570 follows approved 2569, never a draft. Unit totals compare like with
+// like, so a document without such a predecessor has no change to show.
+export function getPreviousStageDocSource(
+  docSource: DocSourceValue,
+): DocSourceValue | null {
+  return getStageDocSource(parseInt(docSource) - 1, docSource);
+}
+
 export const BUDGET_BASE_OPTIONS: { value: BudgetBase; label: string }[] = [
   { value: "country", label: "งบฯ ประเทศ" },
   { value: "ministry", label: "งบฯ กระทรวง" },

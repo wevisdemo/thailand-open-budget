@@ -27,8 +27,6 @@ interface OrganizationListSectionProps {
   year: number;
   version: string;
   dataValue: string;
-  isLoading: boolean;
-  isError: boolean;
 }
 
 // Keeps a ministry whose own name matches with all its units, or else only its
@@ -114,8 +112,6 @@ export default function OrganizationListSection({
   year,
   version,
   dataValue,
-  isLoading,
-  isError,
 }: OrganizationListSectionProps) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<OrganizationSort | null>(null);
@@ -161,7 +157,7 @@ export default function OrganizationListSection({
         version={version}
         sortLabel={getSortLabel(sort?.dir ?? null)}
         onDownload={() => exportCsv(groups, totalBudget, year)}
-        downloadDisabled={isLoading || groups.length === 0}
+        downloadDisabled={groups.length === 0}
       />
       <div className="border-ui-04 flex min-h-[48px] items-center gap-[12px] border-b bg-white px-[16px]">
         <SearchIcon color="#525252" className="h-[16px] w-[16px] shrink-0" />
@@ -184,17 +180,7 @@ export default function OrganizationListSection({
           </button>
         )}
       </div>
-      {isLoading ? (
-        <div className="flex flex-col gap-[2px] pt-[2px]">
-          {Array.from({ length: PAGE_SIZE }, (_, i) => (
-            <div key={i} className="bg-ui-03 h-[72px] animate-pulse" />
-          ))}
-        </div>
-      ) : isError ? (
-        <p className="text-support-01 bg-white px-[16px] py-[24px]">
-          โหลดข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
-        </p>
-      ) : groups.length === 0 ? (
+      {groups.length === 0 ? (
         <p className="text-text-02 bg-white px-[16px] py-[24px]">
           ไม่พบกระทรวงหรือหน่วยงานที่ตรงกับ &lsquo;{query.trim()}&rsquo;
         </p>

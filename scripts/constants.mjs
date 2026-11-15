@@ -70,11 +70,3 @@ export const OBLIGED_KEY_FIELDS = [
 export function organizationKey(ministry, budgetary) {
   return `${ministry}_${budgetary}`;
 }
-
-// The sheet holding the fiscal year before `sheetName`, e.g.
-// "2569_drafted" -> "2568_drafted". Returns null when the name carries no year.
-export function previousSheetName(sheetName) {
-  const match = sheetName.match(/^(\d{4})(_.*)$/);
-  if (!match) return null;
-  return `${Number(match[1]) - 1}${match[2]}`;
-}

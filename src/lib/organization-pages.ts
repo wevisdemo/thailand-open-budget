@@ -6,21 +6,25 @@ import type {
   MinistryPageData,
   OrganizationCoreContent,
   OrganizationEntry,
+  OrganizationHighlight,
   OrganizationItemSummary,
+  OrganizationListData,
 } from "@/types/organization";
 import type { TreemapGrouping, TreemapNode } from "@/types/treemap";
 import { DOC_SOURCE_OPTIONS } from "@/constants/budget";
 import { getRelatedDocuments } from "@/constants/ministry";
+import { getOrganizationHighlights } from "@/constants/organization";
 import { TREEMAP_GROUPINGS, buildTreemapTree } from "@/constants/treemap";
 import {
   getMinistryItems,
   getOrganizations,
   getYearTotals,
 } from "@/lib/budget-source";
+import { packOrganizationTotals } from "@/lib/packed-organization-totals";
 
-// Build-time only: what the ministry and budgetary pages are built with. Each
-// page carries every document's figures, so changing the year needs no
-// download for anything but an item table.
+// Build-time only: what the organization pages and Home's highlights are
+// built with. Each page carries every document's figures, so changing the
+// year needs no download for anything but an item table.
 
 type CoreContentFile = Record<string, OrganizationCoreContent>;
 
@@ -112,4 +116,23 @@ export function getBudgetaryPageData(
     coreContent: getCoreContent("budgetary_core_content", budgetaryId),
     years,
   };
+}
+
+// Every unit's totals in every document, for the organizations page.
+export function getOrganizationListData(): OrganizationListData {
+  return packOrganizationTotals(
+    Object.fromEntries(
+      DOC_SOURCE_OPTIONS.map(({ value }) => [value, getYearTotals(value)]),
+    ),
+  );
+}
+
+// Home's highlight cards for every document, keyed by doc source value.
+export function getHomeHighlights(): Record<string, OrganizationHighlight[]> {
+  return Object.fromEntries(
+    DOC_SOURCE_OPTIONS.map(({ value }) => [
+      value,
+      getOrganizationHighlights(getYearTotals(value).units, value),
+    ]),
+  );
 }

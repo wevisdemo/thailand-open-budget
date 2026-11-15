@@ -1,13 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { OrganizationListData } from "@/types/organization";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import {
   getOrganizationHighlights,
   groupByMinistry,
 } from "@/constants/organization";
-import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
+import { unpackOrganizationTotals } from "@/lib/packed-organization-totals";
 import { type DropdownOption } from "@/app/components/shared/ui/Dropdown";
 import AboutSection from "@/app/components/shared/layout/AboutSection";
 import Footer from "@/app/components/shared/layout/Footer";
@@ -22,7 +23,14 @@ const BREADCRUMB = [
   { label: "หน้ารวมกระทรวง", href: "/organizations" },
 ];
 
-export default function OrganizationsTemplate() {
+interface OrganizationsTemplateProps {
+  // Every unit's totals in every document, built in at build time.
+  listData: OrganizationListData;
+}
+
+export default function OrganizationsTemplate({
+  listData,
+}: OrganizationsTemplateProps) {
   // Same URL handling as the search page: the address bar is the source of
   // truth for the year, and writes go through the History API.
   const urlSearch = useUrlSearch();
@@ -39,11 +47,16 @@ export default function OrganizationsTemplate() {
     );
   }
 
-  const { data, status } = useOrganizationYearTotals(
-    selectedDocSource.value as DocSourceValue,
-  );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
 
+  const data = useMemo(
+    () =>
+      unpackOrganizationTotals(
+        listData,
+        selectedDocSource.value as DocSourceValue,
+      ),
+    [listData, selectedDocSource.value],
+  );
   const groups = useMemo(() => groupByMinistry(data), [data]);
   const highlights = useMemo(
     () => getOrganizationHighlights(data, selectedDocSource.value),
@@ -52,7 +65,6 @@ export default function OrganizationsTemplate() {
   const totalBudget = data.reduce((sum, unit) => sum + unit.budget_amount, 0);
 
   const year = parseInt(selectedDocSource.value);
-  const isLoading = status === "idle" || status === "loading";
 
   return (
     <main className="mx-auto flex w-full flex-col">
@@ -81,21 +93,17 @@ export default function OrganizationsTemplate() {
           <div className="flex flex-col md:flex-row">
             <SummaryStatItem
               label="กระทรวง/หน่วยงานเทียบเท่ากระทรวง"
-              value={isLoading ? "-" : groups.length.toLocaleString()}
+              value={groups.length.toLocaleString()}
               unit="กลุ่มหน่วยงาน"
             />
             <SummaryStatItem
               label="กรม/หน่วยงานเทียบเท่ากรม"
-              value={isLoading ? "-" : data.length.toLocaleString()}
+              value={data.length.toLocaleString()}
               unit="หน่วยงาน"
             />
             <SummaryStatItem
               label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
-              value={
-                isLoading
-                  ? "-"
-                  : Math.round(totalBudget / 1_000_000).toLocaleString()
-              }
+              value={Math.round(totalBudget / 1_000_000).toLocaleString()}
               unit="ล้านบาท"
             />
           </div>
@@ -107,7 +115,6 @@ export default function OrganizationsTemplate() {
               label="หน่วยงานที่น่าสนใจ"
               dataLabel={selectedDocSource.label}
               highlights={highlights}
-              isLoading={isLoading}
             />
           </div>
         </div>
@@ -121,8 +128,6 @@ export default function OrganizationsTemplate() {
           year={year}
           version={selectedDocSource.label.replace(/^\d{4}\s*/, "")}
           dataValue={selectedDocSource.value}
-          isLoading={isLoading}
-          isError={status === "error"}
         />
       </section>
       <AboutSection />

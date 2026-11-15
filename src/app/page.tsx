@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { getHomeHighlights } from "@/lib/organization-pages";
 import HomeTemplate from "@/app/components/Homepage/HomeTemplate";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <Suspense>
-      <HomeTemplate />
+      <HomeTemplate highlights={getHomeHighlights()} />
     </Suspense>
   );
 }

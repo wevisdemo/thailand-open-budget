@@ -4,13 +4,11 @@ import OrganizationHighlightCarousel from "@/app/components/shared/organization/
 interface OrganizeBudgetSectionProps {
   dataLabel: string;
   highlights: OrganizationHighlight[];
-  isLoading?: boolean;
 }
 
 export default function OrganizeBudgetSection({
   dataLabel,
   highlights,
-  isLoading = false,
 }: OrganizeBudgetSectionProps) {
   return (
     <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[12px]">
@@ -23,7 +21,6 @@ export default function OrganizeBudgetSection({
         label="ค้นหางบฯ ผ่านหน่วยงานที่คุณสนใจ"
         dataLabel={dataLabel}
         highlights={highlights}
-        isLoading={isLoading}
       />
     </div>
   );

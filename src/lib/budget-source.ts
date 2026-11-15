@@ -9,7 +9,7 @@ import {
   DOC_SOURCE_OPTIONS,
   type DocSourceValue,
   getDocSourceSheet,
-  getStageDocSource,
+  getPreviousStageDocSource,
 } from "@/constants/budget";
 
 // Build-time only: reads the budget documents from disk, so the pages and the
@@ -99,14 +99,6 @@ export interface YearTotals {
 }
 
 const totalsCache = new Map<DocSourceValue, YearTotals>();
-
-// The document of the year before, in the same stage: approved 2570 is
-// compared with approved 2569, never with a draft. Null when there is none.
-function getPreviousStageDocSource(
-  docSource: DocSourceValue,
-): DocSourceValue | null {
-  return getStageDocSource(parseInt(docSource) - 1, docSource);
-}
 
 // Every unit's total in a document. previous_year_percent is the unit's
 // previous-year amount as a share of the previous document's grand total.

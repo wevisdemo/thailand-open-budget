@@ -1,14 +1,13 @@
 "use client";
+import type { OrganizationHighlight } from "@/types/organization";
 import { DOC_SOURCE_OPTIONS, type DocSourceValue } from "@/constants/budget";
 import AboutSection from "@/app/components/shared/layout/AboutSection";
 import BudgetNavbar from "@/app/components/shared/layout/BudgetNavbar";
 import { type DropdownOption } from "../shared/ui/Dropdown";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useSearchTags } from "@/app/store/useSearchTags";
 import { useBudgetData } from "@/hooks/useBudgetData";
-import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
-import { getOrganizationHighlights } from "@/constants/organization";
 import SearchHeader from "./SearchHomepage/SearchHeader";
 import OrganizeSearchSection from "./SearchHomepage/OrganizeSearchSection";
 import HeroSection from "./HomeSections/HeroSection";
@@ -22,7 +21,13 @@ import SupportSection from "./HomeSections/SupportSection";
 import Footer from "../shared/layout/Footer";
 import Link from "next/link";
 
-export default function HomeTemplate() {
+interface HomeTemplateProps {
+  // Each document's highlight cards, keyed by doc source value, built in at
+  // build time.
+  highlights: Record<string, OrganizationHighlight[]>;
+}
+
+export default function HomeTemplate({ highlights }: HomeTemplateProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -64,18 +69,6 @@ export default function HomeTemplate() {
 
   const { data: budgetData, status } = useBudgetData(
     (selectedDocSource?.value as DocSourceValue) ?? null,
-  );
-  const { data: organizationTotals, status: organizationStatus } =
-    useOrganizationYearTotals(
-      (selectedDocSource?.value as DocSourceValue) ?? null,
-    );
-  const organizationHighlights = useMemo(
-    () =>
-      getOrganizationHighlights(
-        organizationTotals,
-        selectedDocSource?.value ?? "",
-      ),
-    [organizationTotals, selectedDocSource],
   );
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
   const totalBudgetAmount = budgetData.reduce(
@@ -153,10 +146,7 @@ export default function HomeTemplate() {
         />
         <OrganizeBudgetSection
           dataLabel={selectedDocSource?.label ?? ""}
-          highlights={organizationHighlights}
-          isLoading={
-            organizationStatus === "idle" || organizationStatus === "loading"
-          }
+          highlights={highlights[selectedDocSource?.value ?? ""] ?? []}
         />
         <div className="m-auto flex w-full max-w-[1280px] items-center justify-end">
           <Link

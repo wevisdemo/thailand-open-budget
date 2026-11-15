@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
- * Builds the organization data from the downloaded budget documents.
+ * Gives every organization in the downloaded budget documents its id.
  *
  * Writes to public/data/:
  *
  *   organizations.json                  the id registry, one entry per
  *                                       ministry/budgetary pair ever seen
- *   organization_<sheet>.json           per fiscal year, one entry per
- *                                       budgetary unit with its totals
  *   budget_<sheet>.json                 rewritten in place, with ministry_id
  *                                       and budgetary_id stamped onto each row
+ *
+ * Each unit's totals are not written out: the site sums them from the
+ * stamped rows at build time (src/lib/budget-source.ts).
  *
  * The ids can only be stamped once the registry exists, so `pnpm data:fetch`
  * on its own leaves a budget file without them; this script backfills it.
@@ -31,11 +32,7 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import {
-  SHEET_GID_MAP,
-  organizationKey,
-  previousSheetName,
-} from "./constants.mjs";
+import { SHEET_GID_MAP, organizationKey } from "./constants.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "..", "public", "data");
@@ -50,23 +47,6 @@ function loadBudget(sheet) {
   const file = budgetFile(sheet);
   if (!existsSync(file)) return null;
   return JSON.parse(readFileSync(file));
-}
-
-/**
- * Sums `amount` per ministry/budgetary pair, keyed the same way the registry
- * is. Also returns the document's grand total, which previous_year_percent is
- * a share of.
- */
-function totalsByOrganization(rows) {
-  const totals = new Map();
-  let grandTotal = 0;
-  for (const row of rows) {
-    if (!row.budgetary) continue;
-    const key = organizationKey(row.ministry || "", row.budgetary);
-    totals.set(key, (totals.get(key) || 0) + row.amount);
-    grandTotal += row.amount;
-  }
-  return { totals, grandTotal };
 }
 
 /**
@@ -132,29 +112,6 @@ function buildRegistry(documents) {
   return { registry, existingCount, added };
 }
 
-function buildYearFile(rows, previousRows, registryByKey) {
-  const { totals } = totalsByOrganization(rows);
-  const previous = previousRows ? totalsByOrganization(previousRows) : null;
-
-  return [...totals.entries()].map(([key, amount]) => {
-    const entry = registryByKey.get(key);
-    const previousAmount = previous?.totals.get(key) ?? null;
-
-    return {
-      budgetary_id: entry.budgetary_id,
-      budgetary_name: entry.budgetary_name,
-      ministry_id: entry.ministry_id,
-      ministry_name: entry.ministry_name,
-      budget_amount: amount,
-      previous_year_amount: previousAmount,
-      previous_year_percent:
-        previousAmount === null || !previous.grandTotal
-          ? null
-          : Number(((previousAmount / previous.grandTotal) * 100).toFixed(6)),
-    };
-  });
-}
-
 /**
  * Copies each row with its organization's ids inserted next to the names they
  * were minted from. Returns null when every row is already stamped correctly,
@@ -189,7 +146,6 @@ function stampIds(rows, registryByKey) {
 
 function main() {
   const documents = [];
-  const bySheet = new Map();
   for (const sheet of SHEETS) {
     const rows = loadBudget(sheet);
     if (!rows) {
@@ -197,7 +153,6 @@ function main() {
       continue;
     }
     documents.push({ sheet, rows });
-    bySheet.set(sheet, rows);
   }
 
   if (documents.length === 0) {
@@ -212,29 +167,6 @@ function main() {
     `organizations.json: ${registry.entries.length} entries (${existingCount} kept, ${added.length} added), ` +
       `${registry.nextMinistryId - 1} ministries`,
   );
-
-  for (const { sheet, rows } of documents) {
-    const previousSheet = previousSheetName(sheet);
-    const previousRows = previousSheet
-      ? (bySheet.get(previousSheet) ?? loadBudget(previousSheet))
-      : null;
-
-    const data = buildYearFile(rows, previousRows, registry.byKey);
-    const outFile = join(DATA_DIR, `organization_${sheet}.json`);
-    writeFileSync(outFile, JSON.stringify(data));
-
-    const withPrevious = data.filter(
-      (d) => d.previous_year_amount !== null,
-    ).length;
-    const sizeKB = Buffer.byteLength(JSON.stringify(data)) / 1024;
-    console.error(
-      `organization_${sheet}.json: ${data.length} units, ` +
-        (previousRows
-          ? `${withPrevious} with ${previousSheet} figures, ${data.length - withPrevious} new`
-          : `no ${previousSheet} document, previous_year_amount null throughout`) +
-        ` (${sizeKB.toFixed(0)} KB)`,
-    );
-  }
 
   for (const { sheet, rows } of documents) {
     const stamped = stampIds(rows, registry.byKey);
