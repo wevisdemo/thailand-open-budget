@@ -27,6 +27,43 @@ export interface BudgetItem {
   fiscal_year_list: string[];
 }
 
+// One budget item with its text swapped for indexes into
+// PackedBudgetItems.strings, in this order:
+// [ministry, ministry_id, budgetary, budgetary_id, plan, plan_prefix,
+//  plan_suffix, output, project, category, category_levels, description,
+//  amount, fiscal_year, pdf_name, page_url without its page number, the page
+//  number, total_fiscal_amount, fiscal_year_list]
+// category_levels and fiscal_year_list are each one string, joined.
+export type PackedBudgetItem = [
+  number,
+  number | null,
+  number,
+  number | null,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number | null,
+  number,
+  number,
+];
+
+// A list of budget items, as the files `next build` writes hold them: the same
+// names, plans and PDF links repeat on most items, so each is written once in
+// `strings`. See src/lib/packed-budget-items.ts.
+export interface PackedBudgetItems {
+  strings: string[];
+  items: PackedBudgetItem[];
+}
+
 export type BudgetSortKey = "amount" | "project" | "plan" | "category";
 
 // The table's sort state. `null` is the third state of the header cycle: no
