@@ -1,6 +1,6 @@
 # Organization ids: names that will break
 
-Audit of every ministry and budgetary unit across the budget documents in `public/data/`, run while choosing an id scheme for `/organizations/{ministry_id}/{budgetary_id}`.
+Audit of every ministry and budgetary unit across the budget documents in `data/`, run while choosing an id scheme for `/organizations/{ministry_id}/{budgetary_id}`.
 
 **The conclusion in one line:** an organization's name is not a stable key. Names are edited in place between documents, municipalities are reclassified, one pair merged, and three units vanished for a year and came back. Any id derived from the name — Thai slug, romanised slug, or hash — silently orphans the URL in every case below.
 
@@ -167,7 +167,7 @@ Dissolved, absorbed, or simply no longer receiving an allocation. Their pages mu
 
 ## Method
 
-1. Load every `public/data/budget_*.json`, collecting the distinct `ministry` and `budgetary` values per document.
+1. Load every `data/budget_*.json`, collecting the distinct `ministry` and `budgetary` values per document.
 2. **Within-document collisions:** group by a folded key (NFC, `ํา`→`ำ`, `ฏ`→`ฎ`, spaces stripped). Result: 0 — no document contradicts itself.
 3. **Across documents:** diff the name sets. A disappearance whose folded key matches an appearance is a _spelling change_ (§3). Otherwise pair disappearances to appearances by Levenshtein similarity ≥ 0.55 and classify by municipality tier (§4–6).
 4. **Presence pattern** per name across the documents catches return-after-absence (§7); a successor with several predecessors is a merge (§5); a pair both alive at the end is ambiguous (§8).

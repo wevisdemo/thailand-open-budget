@@ -15,13 +15,13 @@ import {
 // Build-time only: reads the budget documents from disk, so the pages and the
 // data files `next build` writes are all built from budget_<sheet>.json alone.
 
-const DATA_DIR = join(process.cwd(), "public", "data");
+const DATA_DIR = join(process.cwd(), "data");
 
 function readJson<T>(file: string): T {
   return JSON.parse(readFileSync(file, "utf8"));
 }
 
-// public/data/category_levels/<sheet>.json: each distinct level path once,
+// data/category_levels/<sheet>.json: each distinct level path once,
 // and each budget item as its path's index, in the budget file's order.
 interface CategoryLevels {
   paths: string[][];

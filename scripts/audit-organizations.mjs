@@ -5,7 +5,7 @@
  * spelling edited in place, municipalities reclassified, units that vanish
  * for a year and return, merges, and dissolutions.
  *
- * Reads public/data/budget_*.json — run `pnpm data:import` first.
+ * Reads data/budget_*.json — run `pnpm data:import` first.
  *
  * Usage:
  *   node scripts/audit-organizations.mjs            # summary to stdout
@@ -24,7 +24,7 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(__dirname, "..", "public", "data");
+const DATA_DIR = join(__dirname, "..", "data");
 
 // U+0E4D (nikhahit) + U+0E32 (sara aa) renders identically to U+0E33 (sara am)
 // but is a different byte sequence, and Unicode NFC does not compose it.
@@ -297,7 +297,7 @@ function renderMarkdown(result) {
   w("# Organization ids: names that will break");
   w();
   w(
-    "Audit of every ministry and budgetary unit across the budget documents in `public/data/`, run while choosing an id scheme for `/organizations/{ministry_id}/{budgetary_id}`.",
+    "Audit of every ministry and budgetary unit across the budget documents in `data/`, run while choosing an id scheme for `/organizations/{ministry_id}/{budgetary_id}`.",
   );
   w();
   w(
@@ -489,7 +489,7 @@ function renderMarkdown(result) {
   w("## Method");
   w();
   w(
-    "1. Load every `public/data/budget_*.json`, collecting the distinct `ministry` and `budgetary` values per document.",
+    "1. Load every `data/budget_*.json`, collecting the distinct `ministry` and `budgetary` values per document.",
   );
   w(
     "2. **Within-document collisions:** group by a folded key (NFC, `ํา`→`ำ`, `ฏ`→`ฎ`, spaces stripped). Result: 0 — no document contradicts itself.",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Downloads a sheet from the Thailand Open Budget spreadsheet and saves it
- * as compact JSON to public/data/.
+ * as compact JSON to data/.
  *
  * The spreadsheet must be shared with "Anyone with the link" (Viewer).
  * No API key required.
@@ -12,8 +12,8 @@
  *   sheet_name defaults to "2568_drafted"
  *
  * Output:
- *   public/data/budget_<sheet_name>.json
- *   public/data/category_levels/<sheet_name>.json
+ *   data/budget_<sheet_name>.json
+ *   data/category_levels/<sheet_name>.json
  *     each row's CATEGORY_LV* levels, in the budget file's row order
  */
 
@@ -32,7 +32,7 @@ import {
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const SHEET_NAME = process.argv[2] || "2568_drafted";
-const OUT_DIR = join(__dirname, "..", "public", "data");
+const OUT_DIR = join(__dirname, "..", "data");
 const OUT_FILE = join(OUT_DIR, `budget_${SHEET_NAME}.json`);
 const LEVELS_FILE = categoryLevelsFile(OUT_DIR, SHEET_NAME);
 

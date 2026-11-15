@@ -2,7 +2,7 @@ export interface BudgetItem {
   fiscal_year: string;
   ministry: string;
   // Registry ids for this row's organization, joining to
-  // public/data/organizations.json. Null only when the row names no budgetary
+  // data/organizations.json. Null only when the row names no budgetary
   // unit. Stamped by scripts/build-organizations.mjs, not by the fetch step.
   ministry_id: number | null;
   budgetary: string;

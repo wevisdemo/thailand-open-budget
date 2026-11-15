@@ -28,7 +28,7 @@ export interface OrganizationSuggestionGroup {
   suggestions: OrganizationSuggestion[];
 }
 
-// One ministry/budgetary pair, from public/data/organizations.json. The ids
+// One ministry/budgetary pair, from data/organizations.json. The ids
 // are URL path segments on /organizations/[ministry_id]/[budgetary_id] and are
 // allocated append-only, so they outlive the names they were minted from.
 export interface OrganizationRegistryEntry {
@@ -43,7 +43,7 @@ export interface OrganizationRegistryEntry {
 }
 
 // A budgetary unit and its ministry, as the budget items name them. The ids
-// are stamped on the items from public/data/organizations.json, and are URL
+// are stamped on the items from data/organizations.json, and are URL
 // path segments on /organizations/[ministry_id]/[budgetary_id].
 export interface OrganizationEntry {
   ministry_id: number;

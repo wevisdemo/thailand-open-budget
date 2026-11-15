@@ -2,7 +2,7 @@
 /**
  * Gives every organization in the downloaded budget documents its id.
  *
- * Writes to public/data/:
+ * Writes to data/:
  *
  *   organizations.json                  the id registry, one entry per
  *                                       ministry/budgetary pair ever seen
@@ -19,7 +19,7 @@
  * are never dropped, because they are URL path segments on
  * /organizations/<ministry_id>/<budgetary_id>. A unit that disappears from a
  * later document keeps its id and its page — older fiscal years still
- * reference it. Delete public/data/organizations.json only if you intend to
+ * reference it. Delete data/organizations.json only if you intend to
  * break every organization URL.
  *
  * Run `pnpm data:import` first; this script reads what that wrote.
@@ -35,7 +35,7 @@ import { fileURLToPath } from "url";
 import { SHEET_GID_MAP, organizationKey } from "./constants.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(__dirname, "..", "public", "data");
+const DATA_DIR = join(__dirname, "..", "data");
 const REGISTRY_FILE = join(DATA_DIR, "organizations.json");
 
 // Oldest first, so ids are allocated in fiscal-year order.
@@ -157,7 +157,7 @@ function main() {
 
   if (documents.length === 0) {
     throw new Error(
-      "No budget documents in public/data/. Run `pnpm data:import` first.",
+      "No budget documents in data/. Run `pnpm data:import` first.",
     );
   }
 

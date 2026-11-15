@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Downloads the CoreContent sheet — each organization's vision, mission and
- * objectives — and saves it keyed by the ids in public/data/organizations.json.
+ * objectives — and saves it keyed by the ids in data/organizations.json.
  *
  * Writes:
  *
@@ -31,7 +31,7 @@ import { SPREADSHEET_ID, CORE_CONTENT_GID } from "./constants.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const REGISTRY_FILE = join(ROOT, "public", "data", "organizations.json");
+const REGISTRY_FILE = join(ROOT, "data", "organizations.json");
 const MINISTRY_OUT_FILE = join(
   ROOT,
   "src",
@@ -150,7 +150,7 @@ function keyById(rows, idsByName, label) {
 async function main() {
   if (!existsSync(REGISTRY_FILE)) {
     throw new Error(
-      "public/data/organizations.json not found. Run `pnpm data:import` first.",
+      "data/organizations.json not found. Run `pnpm data:import` first.",
     );
   }
   const registry = JSON.parse(readFileSync(REGISTRY_FILE));
