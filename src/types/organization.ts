@@ -39,6 +39,16 @@ export interface OrganizationRegistryEntry {
   budgetary_name: string;
 }
 
+// A budgetary unit and its ministry, as the budget items name them. The ids
+// are stamped on the items from public/data/organizations.json, and are URL
+// path segments on /organizations/[ministry_id]/[budgetary_id].
+export interface OrganizationEntry {
+  ministry_id: number;
+  ministry_name: string;
+  budgetary_id: number;
+  budgetary_name: string;
+}
+
 // One budgetary unit's totals for a single fiscal year, from
 // public/data/organization_<sheet>.json.
 export interface OrganizationYearTotal {

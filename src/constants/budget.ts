@@ -21,6 +21,12 @@ export const DOC_SOURCE_DATA_FILE: Record<DocSourceValue, string> = {
   "2570-approved-3": "budget_2570_bill",
 };
 
+// A document's sheet name, e.g. "2570-draft-1" -> "2570_drafted": what its
+// data files are named after.
+export function getDocSourceSheet(docSource: DocSourceValue): string {
+  return DOC_SOURCE_DATA_FILE[docSource].replace(/^budget_/, "");
+}
+
 export const DOC_SOURCE_OPTIONS: { value: DocSourceValue; label: string }[] = [
   { value: "2568-draft-1", label: "2568 ฉบับร่าง (วาระ 1)" },
   { value: "2569-draft-1", label: "2569 ฉบับร่าง (วาระ 1)" },
