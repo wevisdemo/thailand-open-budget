@@ -1,6 +1,6 @@
 import {
   DOC_SOURCE_OPTIONS,
-  type DocSourceValue,
+  getDocSourceFromSheet,
   getDocSourceSheet,
 } from "@/constants/budget";
 import { getMinistryItems } from "@/lib/budget-source";
@@ -29,9 +29,7 @@ export async function GET(
   { params }: { params: Promise<{ sheet: string; file: string }> },
 ) {
   const { sheet, file } = await params;
-  const docSource = DOC_SOURCE_OPTIONS.find(
-    ({ value }) => getDocSourceSheet(value) === sheet,
-  )?.value as DocSourceValue;
+  const docSource = getDocSourceFromSheet(sheet);
   const ministryId = Number(file.replace(/\.json$/, ""));
   return Response.json(
     packBudgetItems(getMinistryItems(docSource, ministryId)),

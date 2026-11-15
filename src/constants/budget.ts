@@ -77,6 +77,16 @@ export function getPreviousDocSource(
   return getDocSourceForYear(parseInt(docSource) - 1, docSource);
 }
 
+// The document a sheet name belongs to, e.g. "2570_drafted" ->
+// "2570-draft-1". Only for names that came from getDocSourceSheet.
+export function getDocSourceFromSheet(sheet: string): DocSourceValue {
+  const docSource = DOC_SOURCE_OPTIONS.find(
+    ({ value }) => getDocSourceSheet(value) === sheet,
+  )?.value;
+  if (!docSource) throw new Error(`No budget document for sheet ${sheet}`);
+  return docSource;
+}
+
 // The document of the year before `docSource`, in exactly its stage: approved
 // 2570 follows approved 2569, never a draft. Unit totals compare like with
 // like, so a document without such a predecessor has no change to show.

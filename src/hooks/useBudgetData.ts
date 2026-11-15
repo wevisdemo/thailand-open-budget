@@ -1,13 +1,14 @@
 "use client";
 
 import { useReducer, useEffect } from "react";
-import type { BudgetItem } from "@/types/budget";
+import type { BudgetItem, PackedBudgetItems } from "@/types/budget";
 import {
   type DocSourceValue,
-  DOC_SOURCE_DATA_FILE,
+  getDocSourceSheet,
   getFiscalYear,
 } from "@/constants/budget";
 import { withBasePath } from "@/lib/base-path";
+import { unpackBudgetItems } from "@/lib/packed-budget-items";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -32,8 +33,9 @@ function reducer(_state: State, action: Action): State {
   }
 }
 
-// Loads one budget document's items, the whole country's. The ministry and
-// budgetary pages don't use it: they are built with their own items.
+// Loads one budget document's items, the whole country's, from the packed file
+// `next build` writes (src/app/data/budget/[file]/route.ts). The ministry and
+// budgetary pages don't use it: they load only their ministry's items.
 export function useBudgetData(docSource: DocSourceValue | null) {
   const [{ data, status }, dispatch] = useReducer(reducer, {
     data: [],
@@ -43,23 +45,24 @@ export function useBudgetData(docSource: DocSourceValue | null) {
   useEffect(() => {
     if (!docSource) return;
 
-    const fileName = DOC_SOURCE_DATA_FILE[docSource];
     const fiscalYear = getFiscalYear(docSource);
     // A newer year may be requested before this file arrives; its response
     // must not overwrite the newer one.
     let ignore = false;
     dispatch({ type: "loading" });
 
-    fetch(withBasePath(`/data/${fileName}.json`))
+    fetch(withBasePath(`/data/budget/${getDocSourceSheet(docSource)}.json`))
       .then((res) => {
         if (!res.ok) throw new Error(`${res.status}`);
-        return res.json() as Promise<BudgetItem[]>;
+        return res.json() as Promise<PackedBudgetItems>;
       })
-      .then((data) => {
+      .then((packed) => {
         if (ignore) return;
         dispatch({
           type: "success",
-          data: data.filter((item) => item.fiscal_year === fiscalYear),
+          data: unpackBudgetItems(packed).filter(
+            (item) => item.fiscal_year === fiscalYear,
+          ),
         });
       })
       .catch(() => {
