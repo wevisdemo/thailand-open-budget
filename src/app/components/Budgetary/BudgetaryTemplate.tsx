@@ -1,21 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { BudgetBase } from "@/types/budget";
-import type { OrganizationYearTotal } from "@/types/organization";
+import type { BudgetBase, BudgetYearTotal } from "@/types/budget";
+import type { BudgetaryPageData } from "@/types/organization";
 import {
   DOC_SOURCE_OPTIONS,
   type DocSourceValue,
   getStageDocSource,
   getPreviousDocSource,
 } from "@/constants/budget";
-import {
-  getOrganizationYearTotal,
-  getRelatedDocuments,
-} from "@/constants/ministry";
-import { useBudgetData } from "@/hooks/useBudgetData";
-import { useBudgetaryCoreContent } from "@/hooks/useBudgetaryCoreContent";
-import { useOrganizationYearTotals } from "@/hooks/useOrganizationYearTotals";
+import { useMinistryItems } from "@/hooks/useMinistryItems";
 import { useUrlSearch } from "@/hooks/useUrlSearch";
 import { type DropdownOption } from "@/app/components/shared/ui/Dropdown";
 import AboutSection from "@/app/components/shared/layout/AboutSection";
@@ -35,6 +29,9 @@ interface BudgetaryTemplateProps {
   ministryName: string;
   budgetaryId: number;
   budgetaryName: string;
+  // Every document's figures, built in at build time. Only the item table
+  // loads its items.
+  pageData: BudgetaryPageData;
 }
 
 export default function BudgetaryTemplate({
@@ -42,6 +39,7 @@ export default function BudgetaryTemplate({
   ministryName,
   budgetaryId,
   budgetaryName,
+  pageData,
 }: BudgetaryTemplateProps) {
   // Same URL handling as the ministry page: the address bar is the source of
   // truth for the year, and writes go through the History API.
@@ -63,95 +61,56 @@ export default function BudgetaryTemplate({
   }
 
   const docSource = selectedDocSource.value as DocSourceValue;
-  // Every year's organization totals are loaded for the trend; the selected
-  // year's also feed the rest of the page.
-  // Each year is read from the selected document's stage (approved or draft);
-  // a year without that stage has no totals and no point in the trend.
-  const totals2568 = useOrganizationYearTotals(
-    getStageDocSource(2568, docSource),
-  );
-  const totals2569 = useOrganizationYearTotals(
-    getStageDocSource(2569, docSource),
-  );
-  const totals2570 = useOrganizationYearTotals(
-    getStageDocSource(2570, docSource),
-  );
-  const { data: yearTotals, status: totalsStatus } =
-    parseInt(docSource) === 2568
-      ? totals2568
-      : parseInt(docSource) === 2569
-        ? totals2569
-        : totals2570;
+  const { unit, countryBudget, itemCount, relatedDocuments, trees } =
+    pageData.years[docSource];
+  // The year before's groups, for the treemap's change from the previous
+  // year. The first year in the data has none.
+  const previousDocSource = getPreviousDocSource(docSource);
+  const previousTrees = previousDocSource
+    ? pageData.years[previousDocSource].trees
+    : null;
   // The unit's ministry's items; the unit's own are picked out below.
-  const { data: budgetData, status: budgetStatus } = useBudgetData(
+  const { data: ministryItems, status: itemsStatus } = useMinistryItems(
     docSource,
     ministryId,
   );
-  // The year before's items, likewise the ministry's, for the treemap's
-  // change from the previous year. The first year in the data has none.
-  const previousDocSource = getPreviousDocSource(docSource);
-  const { data: previousBudgetData, status: previousStatus } = useBudgetData(
-    previousDocSource,
-    ministryId,
-  );
-  const { data: budgetaryContent } = useBudgetaryCoreContent(budgetaryId);
   const [versionInfoOpen, setVersionInfoOpen] = useState(false);
   // Both cards measure the unit against the same base; either card's
   // dropdown changes it for both.
   const [base, setBase] = useState<BudgetBase>("country");
 
-  const unit = yearTotals.find((u) => u.budgetary_id === budgetaryId) ?? null;
   const items = useMemo(
-    () => budgetData.filter((item) => item.budgetary_id === budgetaryId),
-    [budgetData, budgetaryId],
-  );
-  const previousItems = useMemo(
-    () =>
-      previousBudgetData.filter((item) => item.budgetary_id === budgetaryId),
-    [previousBudgetData, budgetaryId],
-  );
-  const relatedDocuments = useMemo(() => getRelatedDocuments(items), [items]);
-  const countryBudget = yearTotals.reduce(
-    (sum, total) => sum + total.budget_amount,
-    0,
+    () => ministryItems.filter((item) => item.budgetary_id === budgetaryId),
+    [ministryItems, budgetaryId],
   );
 
   // A unit is built if it is budgeted in any year; in a year it isn't, there
   // is nothing to show below the title.
-  const isUnbudgeted = totalsStatus === "success" && unit === null;
+  const isUnbudgeted = unit === null;
 
   const year = parseInt(selectedDocSource.value);
   const version = selectedDocSource.label.replace(/^\d{4}\s*/, "");
-  const isUnit = (u: OrganizationYearTotal) => u.budgetary_id === budgetaryId;
-  const isInBase = (u: OrganizationYearTotal) =>
-    base === "country" || u.ministry_id === ministryId;
-  const shareTotal = getOrganizationYearTotal(
-    yearTotals,
-    isUnit,
-    year,
-    true,
-    isInBase,
-  );
-  const trendTotals = [
-    { data: totals2568.data, year: 2568 },
-    { data: totals2569.data, year: 2569 },
-    { data: totals2570.data, year: 2570 },
-  ]
-    .filter(({ year: totalYear }) => getStageDocSource(totalYear, docSource))
-    .map(({ data, year: totalYear }) =>
-      getOrganizationYearTotal(
-        data,
-        isUnit,
-        totalYear,
-        totalYear === year,
-        isInBase,
-      ),
-    );
-  const isTotalsLoading = totalsStatus === "idle" || totalsStatus === "loading";
-  const isBudgetLoading = budgetStatus === "idle" || budgetStatus === "loading";
-  const isPreviousLoading =
-    previousDocSource !== null &&
-    (previousStatus === "idle" || previousStatus === "loading");
+  // The unit's total and the base it is measured against, in a document.
+  function getYearTotal(
+    trendYear: number,
+    trendSource: DocSourceValue,
+  ): BudgetYearTotal {
+    const data = pageData.years[trendSource];
+    return {
+      year: trendYear,
+      isCurrent: trendYear === year,
+      totalSelectedBaht: data.unit?.budget_amount ?? 0,
+      totalBudgetBaht:
+        base === "country" ? data.countryBudget : data.ministryBudget,
+    };
+  }
+  const shareTotal = getYearTotal(year, docSource);
+  // Each year is read from the selected document's stage (approved or draft);
+  // a year without that stage has no point in the trend.
+  const trendTotals = [2568, 2569, 2570].flatMap((trendYear) => {
+    const trendSource = getStageDocSource(trendYear, docSource);
+    return trendSource ? [getYearTotal(trendYear, trendSource)] : [];
+  });
   const ministryHref = `/organizations/${ministryId}?budget_source=${docSource}`;
 
   const breadcrumb = [
@@ -177,13 +136,11 @@ export default function BudgetaryTemplate({
         ministryName={ministryName}
         ministryHref={ministryHref}
         budgetaryName={budgetaryName}
-        content={budgetaryContent}
+        content={pageData.coreContent}
         relatedDocuments={relatedDocuments}
         year={year}
         totalBudget={unit?.budget_amount ?? null}
-        itemCount={items.length}
-        isTotalsLoading={isTotalsLoading}
-        isBudgetLoading={isBudgetLoading}
+        itemCount={itemCount}
         isUnbudgeted={isUnbudgeted}
       />
       {isUnbudgeted ? (
@@ -228,17 +185,11 @@ export default function BudgetaryTemplate({
               />
             </div>
             <BudgetProportionComparisonSection
-              items={items}
-              previousItems={
-                previousDocSource && previousStatus === "success"
-                  ? previousItems
-                  : null
-              }
+              trees={trees}
+              previousTrees={previousTrees}
               countryBudget={countryBudget}
               year={year}
               csvName={`budgetary_${budgetaryId}`}
-              isLoading={isBudgetLoading || isPreviousLoading}
-              isError={budgetStatus === "error"}
             />
             <OrganizationItemSection
               items={items}
@@ -246,8 +197,8 @@ export default function BudgetaryTemplate({
               year={year}
               version={version}
               docSource={docSource}
-              isLoading={isBudgetLoading}
-              isError={budgetStatus === "error"}
+              isLoading={itemsStatus === "idle" || itemsStatus === "loading"}
+              isError={itemsStatus === "error"}
             />
           </div>
         </section>

@@ -16,8 +16,6 @@ interface BudgetaryHeaderSectionProps {
   year: number;
   totalBudget: number | null;
   itemCount: number;
-  isTotalsLoading: boolean;
-  isBudgetLoading: boolean;
   // A unit with no budget in the year shows no stats.
   isUnbudgeted: boolean;
 }
@@ -31,8 +29,6 @@ export default function BudgetaryHeaderSection({
   year,
   totalBudget,
   itemCount,
-  isTotalsLoading,
-  isBudgetLoading,
   isUnbudgeted,
 }: BudgetaryHeaderSectionProps) {
   return (
@@ -66,7 +62,7 @@ export default function BudgetaryHeaderSection({
             <SummaryStatItem
               label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
               value={
-                isTotalsLoading || totalBudget === null
+                totalBudget === null
                   ? "-"
                   : Math.round(totalBudget / 1_000_000).toLocaleString()
               }
@@ -74,7 +70,7 @@ export default function BudgetaryHeaderSection({
             />
             <SummaryStatItem
               label="จำนวนรายการ"
-              value={isBudgetLoading ? "-" : itemCount.toLocaleString()}
+              value={itemCount.toLocaleString()}
               unit="รายการ"
             />
           </div>

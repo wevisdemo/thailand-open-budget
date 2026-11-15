@@ -1,18 +1,15 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import {
-  ContentSwitcher,
-  Dropdown,
-  IconSwitch,
-  SkeletonPlaceholder,
-} from "@carbon/react";
+import { ContentSwitcher, Dropdown, IconSwitch } from "@carbon/react";
 import { ChartTreemap, Table as TableIcon } from "@carbon/icons-react";
-import type { BudgetItem } from "@/types/budget";
-import type { TreemapGroupingOption, TreemapNode } from "@/types/treemap";
+import type {
+  TreemapGrouping,
+  TreemapGroupingOption,
+  TreemapNode,
+} from "@/types/treemap";
 import {
   TREEMAP_GROUPINGS,
-  buildTreemapTree,
   getTreemapAmounts,
   getTreemapColor,
   getTreemapDepth,
@@ -44,31 +41,27 @@ const VIEWS: { value: TreemapView; label: string }[] = [
 ];
 
 interface BudgetProportionComparisonSectionProps {
-  items: BudgetItem[];
-  // The previous year's items, for each group's change; null when the data
-  // has no previous year.
-  previousItems: BudgetItem[] | null;
+  // The year's groups, by grouping, built at build time from its items.
+  trees: Record<TreemapGrouping, TreemapNode>;
+  // The previous year's, for each group's change; null when the data has no
+  // previous year.
+  previousTrees: Record<TreemapGrouping, TreemapNode> | null;
   // The country's budget, which the table's % column is a share of.
   countryBudget: number;
   year: number;
   // The CSV's file name before the grouping and year, e.g. "ministry_22".
   csvName: string;
-  isLoading: boolean;
-  isError: boolean;
 }
 
-// "เปรียบเทียบสัดส่วนงบตาม": a set of budget items as a treemap of their
-// groups, by plan, budget category or obligation. Clicking a group shows the
+// "เปรียบเทียบสัดส่วนงบตาม": a set of budget items' groups as a treemap, by plan, budget category or obligation. Clicking a group shows the
 // groups inside it; a table view lists the top level's groups, each opening
 // to its own, down to the deepest level.
 export default function BudgetProportionComparisonSection({
-  items,
-  previousItems,
+  trees,
+  previousTrees,
   countryBudget,
   year,
   csvName,
-  isLoading,
-  isError,
 }: BudgetProportionComparisonSectionProps) {
   const [grouping, setGrouping] = useState<TreemapGroupingOption>(
     TREEMAP_GROUPINGS[0],
@@ -91,18 +84,11 @@ export default function BudgetProportionComparisonSection({
     return () => observer.disconnect();
   }, []);
 
-  const tree = useMemo(
-    () => buildTreemapTree(items, grouping.value, grouping.rootLabel),
-    [items, grouping],
-  );
+  const tree = trees[grouping.value];
   const previousAmounts = useMemo(
     () =>
-      previousItems
-        ? getTreemapAmounts(
-            buildTreemapTree(previousItems, grouping.value, grouping.rootLabel),
-          )
-        : null,
-    [previousItems, grouping],
+      previousTrees ? getTreemapAmounts(previousTrees[grouping.value]) : null,
+    [previousTrees, grouping],
   );
   // A group the newly selected year doesn't have falls back to the top.
   const node = getTreemapNode(tree, path) ?? tree;
@@ -156,7 +142,7 @@ export default function BudgetProportionComparisonSection({
   // A grouping of one level, like งบผูกพัน, has nowhere to go, so it has no
   // breadcrumb.
   const hasLevels = getTreemapDepth(tree) > 1;
-  const isEmpty = !isLoading && !isError && node.children.length === 0;
+  const isEmpty = node.children.length === 0;
 
   return (
     <div ref={measureRef} className="flex flex-col gap-[8px]">
@@ -190,7 +176,7 @@ export default function BudgetProportionComparisonSection({
         <DownloadButton
           text="ดาวน์โหลดตารางนี้"
           onClick={handleDownload}
-          disabled={isLoading || isError || isEmpty}
+          disabled={isEmpty}
           className="self-start md:self-auto"
         />
       </div>
@@ -221,13 +207,7 @@ export default function BudgetProportionComparisonSection({
         </ContentSwitcher>
       </div>
       <div className="mt-[8px]">
-        {isLoading ? (
-          <SkeletonPlaceholder className="w-full" style={{ height }} />
-        ) : isError ? (
-          <p className="text-support-01 bg-white px-[16px] py-[24px]">
-            โหลดข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
-          </p>
-        ) : isEmpty ? (
+        {isEmpty ? (
           <p className="text-text-02 bg-white px-[16px] py-[24px]">
             ไม่มีรายการงบประมาณในปีนี้
           </p>

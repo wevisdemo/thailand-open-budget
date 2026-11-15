@@ -1,5 +1,4 @@
-import type { BudgetItem, BudgetYearTotal } from "@/types/budget";
-import type { OrganizationYearTotal } from "@/types/organization";
+import type { BudgetItem } from "@/types/budget";
 import type {
   CoreContentBlock,
   CoreContentField,
@@ -57,23 +56,4 @@ export function getRelatedDocuments(items: BudgetItem[]): RelatedDocument[] {
   return [...documents]
     .map(([name, url]) => ({ name: toArabicDigits(name), url }))
     .sort((a, b) => a.name.localeCompare(b.name, "th", { numeric: true }));
-}
-
-// The selected units' total and a base total for one year's organization
-// file, in the shape the budget proportion and trend cards take. The base is
-// the country's unless `isBase` narrows it, e.g. to the units' ministry.
-export function getOrganizationYearTotal(
-  data: OrganizationYearTotal[],
-  isSelected: (unit: OrganizationYearTotal) => boolean,
-  year: number,
-  isCurrent: boolean,
-  isBase: (unit: OrganizationYearTotal) => boolean = () => true,
-): BudgetYearTotal {
-  let totalSelectedBaht = 0;
-  let totalBudgetBaht = 0;
-  for (const unit of data) {
-    if (isBase(unit)) totalBudgetBaht += unit.budget_amount;
-    if (isSelected(unit)) totalSelectedBaht += unit.budget_amount;
-  }
-  return { year, isCurrent, totalSelectedBaht, totalBudgetBaht };
 }

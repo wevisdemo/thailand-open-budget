@@ -1,3 +1,6 @@
+import type { RelatedDocument } from "@/types/ministry";
+import type { TreemapGrouping, TreemapNode } from "@/types/treemap";
+
 export type OrganizationLevel = "ministry" | "budgetary";
 
 export interface Organization {
@@ -102,4 +105,44 @@ export interface OrganizationCoreContent {
   vision: string | null;
   mission: string | null;
   objective: string | null;
+}
+
+// What an organization page shows of its items in one document, summed at
+// build time. The items themselves are too many to build into every page:
+// the item table loads them (src/hooks/useMinistryItems.ts).
+export interface OrganizationItemSummary {
+  itemCount: number;
+  relatedDocuments: RelatedDocument[];
+  // The treemap's groups, by grouping.
+  trees: Record<TreemapGrouping, TreemapNode>;
+}
+
+// A ministry's figures for one document, built into its page.
+export interface MinistryYearData extends OrganizationItemSummary {
+  // The ministry's units budgeted in the document.
+  units: OrganizationYearTotal[];
+  countryBudget: number;
+}
+
+// Everything the ministry page shows but its item table, for every document,
+// so changing the year needs no download for most of the page.
+export interface MinistryPageData {
+  coreContent: OrganizationCoreContent | null;
+  // Keyed by doc source value.
+  years: Record<string, MinistryYearData>;
+}
+
+// A budgetary unit's figures for one document, built into its page.
+export interface BudgetaryYearData extends OrganizationItemSummary {
+  // Null in a document that doesn't budget the unit.
+  unit: OrganizationYearTotal | null;
+  ministryBudget: number;
+  countryBudget: number;
+}
+
+// Everything the budgetary page shows but its item table, for every document.
+export interface BudgetaryPageData {
+  coreContent: OrganizationCoreContent | null;
+  // Keyed by doc source value.
+  years: Record<string, BudgetaryYearData>;
 }

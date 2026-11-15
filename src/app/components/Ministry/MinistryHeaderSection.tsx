@@ -13,8 +13,6 @@ interface MinistryHeaderSectionProps {
   totalBudget: number;
   unitCount: number;
   itemCount: number;
-  isTotalsLoading: boolean;
-  isBudgetLoading: boolean;
   // A ministry with no units in the year shows no stats.
   isUnbudgeted: boolean;
 }
@@ -27,8 +25,6 @@ export default function MinistryHeaderSection({
   totalBudget,
   unitCount,
   itemCount,
-  isTotalsLoading,
-  isBudgetLoading,
   isUnbudgeted,
 }: MinistryHeaderSectionProps) {
   return (
@@ -50,21 +46,17 @@ export default function MinistryHeaderSection({
           <div className="flex flex-col md:flex-row">
             <SummaryStatItem
               label={`งบประมาณทั้งหมด (ปีงบฯ ${year})`}
-              value={
-                isTotalsLoading
-                  ? "-"
-                  : Math.round(totalBudget / 1_000_000).toLocaleString()
-              }
+              value={Math.round(totalBudget / 1_000_000).toLocaleString()}
               unit="ล้านบาท"
             />
             <SummaryStatItem
               label="จำนวนกรม/หน่วยงานเทียบเท่ากรม"
-              value={isTotalsLoading ? "-" : unitCount.toLocaleString()}
+              value={unitCount.toLocaleString()}
               unit="หน่วยงาน"
             />
             <SummaryStatItem
               label="จำนวนรายการ"
-              value={isBudgetLoading ? "-" : itemCount.toLocaleString()}
+              value={itemCount.toLocaleString()}
               unit="รายการ"
             />
           </div>

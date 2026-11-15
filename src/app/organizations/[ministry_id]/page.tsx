@@ -1,14 +1,14 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { getMinistries } from "@/lib/organization-registry";
+import { getMinistries, getMinistryPageData } from "@/lib/organization-pages";
 import MinistryTemplate from "@/app/components/Ministry/MinistryTemplate";
 
 interface MinistryPageProps {
   params: Promise<{ ministry_id: string }>;
 }
 
-// The site is a static export: only the registry's ministries are built, and
-// any other id 404s.
+// The site is a static export: only ministries budgeted in some document are
+// built, and any other id 404s.
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -39,6 +39,7 @@ export default async function MinistryPage({ params }: MinistryPageProps) {
       <MinistryTemplate
         ministryId={Number(ministry_id)}
         ministryName={getMinistryName(ministry_id)}
+        pageData={getMinistryPageData(Number(ministry_id))}
       />
     </Suspense>
   );

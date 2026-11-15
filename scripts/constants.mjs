@@ -44,9 +44,8 @@ export const CATEGORY_LEVEL_COLUMNS = [
 ];
 
 // A budget's category levels, in their own file beside the budget file:
-// only the per-ministry split adds them to rows (see
-// split-budget-by-ministry.mjs), so the country-wide budget files stay as
-// small as they are. No page loads this file itself.
+// only the build adds them to rows (src/lib/budget-source.ts), so the budget
+// files stay as small as they are. No page loads this file itself.
 export function categoryLevelsFile(dataDir, sheetName) {
   return `${dataDir}/category_levels/${sheetName}.json`;
 }

@@ -5,10 +5,11 @@
  *
  * Writes:
  *
- *   src/app/data/ministry_core_content.json     keyed by ministry_id, small
- *                                               enough to import statically
- *   public/data/budgetary_core_content.json     keyed by budgetary_id, fetched
- *                                               at runtime
+ *   src/app/data/ministry_core_content.json     keyed by ministry_id
+ *   src/app/data/budgetary_core_content.json    keyed by budgetary_id
+ *
+ * Both are read at build time, and each organization's page carries only its
+ * own entry (src/lib/organization-pages.ts).
  *
  * Only organizations with at least one field filled in are written; a missing
  * id means the sheet has nothing for it. Rows are joined to the registry by
@@ -40,7 +41,8 @@ const MINISTRY_OUT_FILE = join(
 );
 const BUDGETARY_OUT_FILE = join(
   ROOT,
-  "public",
+  "src",
+  "app",
   "data",
   "budgetary_core_content.json",
 );

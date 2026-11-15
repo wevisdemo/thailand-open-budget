@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { getBudgetaries } from "@/lib/organization-registry";
+import { getBudgetaries, getBudgetaryPageData } from "@/lib/organization-pages";
 import BudgetaryTemplate from "@/app/components/Budgetary/BudgetaryTemplate";
 
 interface BudgetaryPageProps {
@@ -45,6 +45,10 @@ export default async function BudgetaryPage({ params }: BudgetaryPageProps) {
         ministryName={budgetary?.ministry_name ?? ""}
         budgetaryId={Number(budgetary_id)}
         budgetaryName={budgetary?.budgetary_name ?? ""}
+        pageData={getBudgetaryPageData(
+          Number(ministry_id),
+          Number(budgetary_id),
+        )}
       />
     </Suspense>
   );

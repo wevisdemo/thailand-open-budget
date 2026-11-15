@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  DataTableSkeleton,
   Pagination,
   Search,
   Table,
@@ -42,8 +41,6 @@ interface BudgetaryUnitSectionProps {
   year: number;
   version: string;
   dataValue: string;
-  isLoading: boolean;
-  isError: boolean;
 }
 
 // Unsorted units read by name, ก-ฮ.
@@ -101,8 +98,6 @@ export default function BudgetaryUnitSection({
   year,
   version,
   dataValue,
-  isLoading,
-  isError,
 }: BudgetaryUnitSectionProps) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<OrganizationSort | null>(DEFAULT_SORT);
@@ -145,7 +140,7 @@ export default function BudgetaryUnitSection({
         stacked
         sortLabel={getSortLabel(sort?.dir ?? null)}
         onDownload={() => exportCsv(units, countryBudget, ministryId, year)}
-        downloadDisabled={isLoading || units.length === 0}
+        downloadDisabled={units.length === 0}
       />
       <Search
         size="lg"
@@ -156,18 +151,7 @@ export default function BudgetaryUnitSection({
         onChange={(event) => handleQueryChange(event.target.value)}
         className="[&_.cds--search-input]:bg-white"
       />
-      {isLoading ? (
-        <DataTableSkeleton
-          columnCount={4}
-          rowCount={PAGE_SIZE}
-          showHeader={false}
-          showToolbar={false}
-        />
-      ) : isError ? (
-        <p className="text-support-01 bg-white px-[16px] py-[24px]">
-          โหลดข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
-        </p>
-      ) : units.length === 0 ? (
+      {units.length === 0 ? (
         <p className="text-text-02 bg-white px-[16px] py-[24px]">
           {query.trim()
             ? `ไม่พบหน่วยงานที่ตรงกับ ‘${query.trim()}’`

@@ -15,9 +15,9 @@ export interface BudgetItem {
   category: string;
   // ["category_level1", "category_level2", ...]: the sheet's CATEGORY_LV*
   // columns, broadest first, up to the row's last filled level, e.g.
-  // ["งบดำเนินงาน", "ค่าตอบแทน ใช้สอยและวัสดุ"]. Only in the per-ministry
-  // files the ministry and budgetary pages load
-  // (scripts/split-budget-by-ministry.mjs), not the country-wide ones.
+  // ["งบดำเนินงาน", "ค่าตอบแทน ใช้สอยและวัสดุ"]. Only on the items the
+  // pages are built with (src/lib/budget-source.ts), never in the budget files
+  // themselves.
   category_levels?: string[];
   description: string;
   amount: number;
