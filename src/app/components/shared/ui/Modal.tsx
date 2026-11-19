@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import { useCanScrollDown } from "@/hooks/useCanScrollDown";
 import { withBasePath } from "@/lib/base-path";
 
 interface ModalProps {
@@ -17,6 +18,8 @@ export default function Modal({
   title,
   children,
 }: ModalProps) {
+  const { scrollRef, canScrollDown, onScroll } = useCanScrollDown(isOpen);
+
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -59,9 +62,26 @@ export default function Modal({
             alt="ปิด"
           />
         </button>
-        <div className="min-h-0 overflow-y-auto">
-          <h2 className="mb-[16px] pr-[32px] text-[20px] font-bold">{title}</h2>
-          {children}
+        <div className="relative flex min-h-0 flex-col">
+          <div
+            ref={scrollRef}
+            onScroll={onScroll}
+            className="min-h-0 overflow-y-auto"
+          >
+            {/* Single child: the hook observes it to track content size. */}
+            <div>
+              <h2 className="mb-[16px] pr-[32px] text-[20px] font-bold">
+                {title}
+              </h2>
+              {children}
+            </div>
+          </div>
+          {/* Fade hint: more content below until scrolled to the end. */}
+          <div
+            aria-hidden="true"
+            data-visible={canScrollDown}
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[80px] bg-linear-to-t from-white to-transparent opacity-0 transition-opacity duration-200 data-[visible=true]:opacity-100"
+          />
         </div>
       </div>
     </div>
