@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type MouseEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { hierarchy, treemap } from "d3-hierarchy";
 import { Popover, PopoverContent } from "@carbon/react";
 import type { TreemapNode } from "@/types/treemap";
@@ -68,11 +68,6 @@ function getTileMotion(grows: boolean, entered: boolean) {
   }
   const state = entered ? "scale-100 opacity-100" : "scale-95 opacity-0";
   return `motion-safe:transition-[opacity,transform] motion-safe:duration-300 motion-safe:ease-out ${state}`;
-}
-
-function isTouch(event: MouseEvent<HTMLElement>) {
-  const { pointerType } = event.nativeEvent as PointerEvent;
-  return pointerType === "touch" || pointerType === "pen";
 }
 
 function getTooltipAt(
@@ -146,6 +141,9 @@ export default function TreemapChart({
   const [hover, setHover] = useState<Hover | null>(null);
   // Keeps the origin it mounted with, whatever `from` becomes after.
   const [origin] = useState(from);
+  // What pressed the tile being clicked. Safari's click event doesn't say, so
+  // it is taken from the press before it.
+  const pressedBy = useRef("");
   const [arrival, setArrival] = useState(arrivalTooltip ?? null);
   const [entered, setEntered] = useState(false);
   useEffect(() => {
@@ -215,16 +213,23 @@ export default function TreemapChart({
             key={tile.node.name}
             type={drillable ? "button" : undefined}
             aria-label={`${tile.node.name} ${percent}`}
+            onPointerDown={(event) => {
+              pressedBy.current = event.pointerType;
+            }}
             onClick={
               drillable
-                ? (event) =>
+                ? (event) => {
+                    const touched =
+                      pressedBy.current !== "mouse" && pressedBy.current !== "";
+                    pressedBy.current = "";
                     onDrill(
                       tile.node,
                       tile,
-                      isTouch(event)
+                      touched
                         ? getTooltipAt(event, tile.node, node.amount)
                         : null,
-                    )
+                    );
+                  }
                 : undefined
             }
             onMouseMove={(event) =>
