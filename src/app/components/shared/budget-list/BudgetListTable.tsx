@@ -15,6 +15,8 @@ import Paginate from "../ui/Paginate";
 import ProjectOutputInfoModal from "@/app/components/shared/modals/ProjectOutputInfoModal";
 
 const PAGE_SIZE = 10;
+// An item's number in front of its description, e.g. "(2)".
+const ITEM_NUMBER = /^\(\d+\)/;
 
 interface BudgetListTableProps {
   data: BudgetItem[];
@@ -54,6 +56,17 @@ function highlightTags(text: string, tags: Tag[]): React.ReactNode {
       part
     );
   });
+}
+
+function formatDescription(description: string, tags: Tag[]): React.ReactNode {
+  const number = description.match(ITEM_NUMBER)?.[0];
+  if (!number) return highlightTags(description, tags);
+  return (
+    <>
+      <span className="text-text-03 font-normal">{number}</span>
+      {highlightTags(description.slice(number.length), tags)}
+    </>
+  );
 }
 
 export default function BudgetListTable({
@@ -159,7 +172,7 @@ export default function BudgetListTable({
                   </td>
                   <td className="px-[16px] py-[16px]">
                     <p className="font-bold">
-                      {highlightTags(item.description, tags)}
+                      {formatDescription(item.description, tags)}
                     </p>
                     {obligedYearRange && (
                       <p className="text-blue-50">
