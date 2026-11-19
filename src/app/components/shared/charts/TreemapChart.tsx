@@ -215,7 +215,7 @@ export default function TreemapChart({
             {showLabel && (
               <>
                 <span
-                  className={`text-text-01 text-[14px] leading-[18px] font-bold break-words md:text-[16px] md:leading-[20px] ${tile.height >= 80 ? "line-clamp-2" : "line-clamp-1"}`}
+                  className={`text-text-01 text-[14px] leading-[28px] font-bold break-words md:text-[16px] md:leading-[32px] ${tile.height >= 80 ? "line-clamp-2" : "line-clamp-1"}`}
                 >
                   {tile.node.name}
                 </span>
