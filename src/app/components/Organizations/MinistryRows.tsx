@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import type { OrganizationMinistryGroup } from "@/types/organization";
 import DownAngleIcon from "@/app/components/shared/icons/down-angle-icon";
@@ -10,6 +11,9 @@ import ChangeBadge from "@/app/components/shared/ui/ChangeBadge";
 // The units' own table repeats the outer table's column widths so its cells
 // line up with the ministry rows.
 const UNIT_COLUMN_WIDTHS = ["5%", "5%", "38%", "18%", "18%", "16%"];
+
+// Units shown when a ministry expands, and added by each "see more" click.
+const UNITS_PER_PAGE = 20;
 
 // A click on the row's own link or button already does its job; only clicks
 // elsewhere in the row expand it, so the chevron doesn't toggle twice.
@@ -72,6 +76,9 @@ export default function MinistryRows({
   dataValue,
   query,
 }: MinistryRowsProps) {
+  const [visibleCount, setVisibleCount] = useState(UNITS_PER_PAGE);
+  const visibleUnits = group.units.slice(0, visibleCount);
+  const remaining = group.units.length - visibleUnits.length;
   const ministryHref = `/organizations/${group.ministry_id}?budget_source=${dataValue}`;
 
   function handleRowClick(event: React.MouseEvent) {
@@ -128,7 +135,7 @@ export default function MinistryRows({
                   ))}
                 </colgroup>
                 <tbody>
-                  {group.units.map((unit) => {
+                  {visibleUnits.map((unit) => {
                     const unitHref = `/organizations/${unit.ministry_id}/${unit.budgetary_id}?budget_source=${dataValue}`;
                     return (
                       <tr
@@ -157,6 +164,24 @@ export default function MinistryRows({
                       </tr>
                     );
                   })}
+                  {remaining > 0 && (
+                    <tr className="border-ui-03 bg-ui-01 border-b">
+                      <td />
+                      <td />
+                      <td colSpan={4} className="px-[16px] py-[12px] text-left">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setVisibleCount((count) => count + UNITS_PER_PAGE)
+                          }
+                          className="text-blue-70 underline hover:cursor-pointer"
+                        >
+                          ดูเพิ่มเติม ({Math.min(UNITS_PER_PAGE, remaining)} จาก{" "}
+                          {remaining.toLocaleString()} หน่วยงานที่เหลือ)
+                        </button>
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
