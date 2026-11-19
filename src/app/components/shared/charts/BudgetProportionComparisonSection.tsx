@@ -23,7 +23,7 @@ import CategoryInfoModal from "../modals/CategoryInfoModal";
 import ObligationInfoModal from "../modals/ObligationInfoModal";
 import PlanInfoModal from "../modals/PlanInfoModal";
 import TreemapBreadcrumb from "./TreemapBreadcrumb";
-import TreemapChart, { type TileBox } from "./TreemapChart";
+import TreemapChart, { type Hover, type TileBox } from "./TreemapChart";
 import TreemapTable from "./TreemapTable";
 
 type TreemapView = "treemap" | "table";
@@ -69,6 +69,7 @@ export default function BudgetProportionComparisonSection({
   const [path, setPath] = useState<string[]>([]);
   // The tile last clicked, which the next level's first tile grows out of.
   const [from, setFrom] = useState<TileBox | null>(null);
+  const [arrivalTooltip, setArrivalTooltip] = useState<Hover | null>(null);
   const [view, setView] = useState<TreemapView>("treemap");
   const [infoOpen, setInfoOpen] = useState(false);
   const [width, setWidth] = useState(0);
@@ -101,11 +102,17 @@ export default function BudgetProportionComparisonSection({
     setGrouping(option);
     setPath([]);
     setFrom(null);
+    setArrivalTooltip(null);
   }
 
-  function handleDrill(child: TreemapNode, box: TileBox) {
+  function handleDrill(
+    child: TreemapNode,
+    box: TileBox,
+    tooltip: Hover | null,
+  ) {
     if (child.children.length === 0) return;
     setFrom(box);
+    setArrivalTooltip(tooltip);
     setPath(child.path);
   }
 
@@ -189,6 +196,7 @@ export default function BudgetProportionComparisonSection({
             node={node}
             onSelect={(step) => {
               setFrom(null);
+              setArrivalTooltip(null);
               setPath(step.path);
             }}
           />
@@ -221,7 +229,11 @@ export default function BudgetProportionComparisonSection({
             height={height}
             getPreviousAmount={getPreviousAmount}
             from={from}
-            onSettled={() => setFrom(null)}
+            arrivalTooltip={arrivalTooltip}
+            onSettled={() => {
+              setFrom(null);
+              setArrivalTooltip(null);
+            }}
             onDrill={handleDrill}
           />
         ) : (

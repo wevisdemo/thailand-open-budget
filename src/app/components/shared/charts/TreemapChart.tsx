@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type MouseEvent } from "react";
 import { hierarchy, treemap } from "d3-hierarchy";
 import { Popover, PopoverContent } from "@carbon/react";
 import type { TreemapNode } from "@/types/treemap";
@@ -27,13 +27,18 @@ interface Tile extends TileBox {
   color: string;
 }
 
-// The hovered or focused tile, and where its tooltip points, in pixels from
-// the treemap's top left.
-interface Hover {
+// A tile's tooltip: the tile, the amount of the level it sits in, and where
+// it points, in pixels from the treemap's top left.
+export interface Hover {
   node: TreemapNode;
+  levelAmount: number;
   x: number;
   y: number;
 }
+
+// How long the tooltip of a touched tile stays on the level it opened, since
+// a finger leaves no hover behind.
+const ARRIVAL_TOOLTIP_MS = 1500;
 
 interface TreemapChartProps {
   // Fill for every tile, when the level's groups all share one: the color of
@@ -44,10 +49,12 @@ interface TreemapChartProps {
   width: number;
   height: number;
   getPreviousAmount: (child: TreemapNode) => number | null;
-  // The clicked tile's box, in pixels from the treemap's top left.
-  onDrill: (child: TreemapNode, from: TileBox) => void;
+  // The clicked tile's box, in pixels from the treemap's top left, and its
+  // tooltip when a finger or pen clicked it (null for a mouse or keyboard).
+  onDrill: (child: TreemapNode, from: TileBox, tooltip: Hover | null) => void;
   // The tile this level was opened from: the first tile grows out of it.
   from?: TileBox | null;
+  arrivalTooltip?: Hover | null;
   // Called once the chart has taken `from`, so the owner can clear it and a
   // later remount doesn't grow from a stale tile.
   onSettled?: () => void;
@@ -63,6 +70,25 @@ function getTileMotion(grows: boolean, entered: boolean) {
   return `motion-safe:transition-[opacity,transform] motion-safe:duration-300 motion-safe:ease-out ${state}`;
 }
 
+function isTouch(event: MouseEvent<HTMLElement>) {
+  const { pointerType } = event.nativeEvent as PointerEvent;
+  return pointerType === "touch" || pointerType === "pen";
+}
+
+function getTooltipAt(
+  event: MouseEvent<HTMLElement>,
+  node: TreemapNode,
+  levelAmount: number,
+): Hover {
+  const chart = event.currentTarget.parentElement!.getBoundingClientRect();
+  return {
+    node,
+    levelAmount,
+    x: event.clientX - chart.left,
+    y: event.clientY - chart.top,
+  };
+}
+
 // Carbon's tooltip sits centred over the pointer, turning to the side near
 // an edge so it stays inside the treemap, and below near the top.
 function getTooltipAlign(hover: Hover, width: number) {
@@ -74,18 +100,12 @@ function getTooltipAlign(hover: Hover, width: number) {
 
 interface TreemapTooltipProps {
   hover: Hover;
-  levelAmount: number;
   width: number;
   previousAmount: number | null;
 }
 
-function TreemapTooltip({
-  hover,
-  levelAmount,
-  width,
-  previousAmount,
-}: TreemapTooltipProps) {
-  const { node, x, y } = hover;
+function TreemapTooltip({ hover, width, previousAmount }: TreemapTooltipProps) {
+  const { node, levelAmount, x, y } = hover;
   return (
     <div className="pointer-events-none absolute" style={{ left: x, top: y }}>
       <Popover open highContrast align={getTooltipAlign(hover, width)}>
@@ -120,11 +140,13 @@ export default function TreemapChart({
   getPreviousAmount,
   onDrill,
   from,
+  arrivalTooltip,
   onSettled,
 }: TreemapChartProps) {
   const [hover, setHover] = useState<Hover | null>(null);
   // Keeps the origin it mounted with, whatever `from` becomes after.
   const [origin] = useState(from);
+  const [arrival, setArrival] = useState(arrivalTooltip ?? null);
   const [entered, setEntered] = useState(false);
   useEffect(() => {
     onSettled?.();
@@ -139,6 +161,12 @@ export default function TreemapChart({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (!arrival) return;
+    const timer = setTimeout(() => setArrival(null), ARRIVAL_TOOLTIP_MS);
+    return () => clearTimeout(timer);
+  }, [arrival]);
 
   const tiles = useMemo<Tile[]>(() => {
     if (width === 0) return [];
@@ -165,6 +193,8 @@ export default function TreemapChart({
     }));
   }, [color, node, width, height]);
 
+  const tooltip = hover ?? arrival;
+
   return (
     <div
       className="relative w-full"
@@ -185,19 +215,25 @@ export default function TreemapChart({
             key={tile.node.name}
             type={drillable ? "button" : undefined}
             aria-label={`${tile.node.name} ${percent}`}
-            onClick={drillable ? () => onDrill(tile.node, tile) : undefined}
-            onMouseMove={(event) => {
-              const chart =
-                event.currentTarget.parentElement!.getBoundingClientRect();
-              setHover({
-                node: tile.node,
-                x: event.clientX - chart.left,
-                y: event.clientY - chart.top,
-              });
-            }}
+            onClick={
+              drillable
+                ? (event) =>
+                    onDrill(
+                      tile.node,
+                      tile,
+                      isTouch(event)
+                        ? getTooltipAt(event, tile.node, node.amount)
+                        : null,
+                    )
+                : undefined
+            }
+            onMouseMove={(event) =>
+              setHover(getTooltipAt(event, tile.node, node.amount))
+            }
             onFocus={() =>
               setHover({
                 node: tile.node,
+                levelAmount: node.amount,
                 x: tile.x + tile.width / 2,
                 y: tile.y + tile.height / 2,
               })
@@ -227,12 +263,11 @@ export default function TreemapChart({
           </Tag>
         );
       })}
-      {hover && (
+      {tooltip && (
         <TreemapTooltip
-          hover={hover}
-          levelAmount={node.amount}
+          hover={tooltip}
           width={width}
-          previousAmount={getPreviousAmount(hover.node)}
+          previousAmount={getPreviousAmount(tooltip.node)}
         />
       )}
     </div>
